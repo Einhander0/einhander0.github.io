@@ -83,6 +83,7 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
 .deck{display:grid; justify-items:center; gap:14px; padding-block:18px 4px}
 .card{appearance:none; -webkit-appearance:none; border:0; padding:0; margin:0; background:none; cursor:pointer; font:inherit; color:inherit; display:block;
   width:min(360px, 100%); height:clamp(232px, 64vw, 262px); perspective:1100px; -webkit-tap-highlight-color:transparent}
+.card.is-tall{height:min(520px, 74vh)}
 .card:focus-visible{outline:3px solid var(--berry); outline-offset:6px; border-radius:18px}
 .card-inner{position:relative; display:block; width:100%; height:100%; transform-style:preserve-3d; transition:transform .6s cubic-bezier(.3,.9,.3,1)}
 .card.is-flipped .card-inner{transform:rotateY(180deg)}
@@ -91,7 +92,10 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   -webkit-backface-visibility:hidden; backface-visibility:hidden;
   background:var(--surface); border:1px solid var(--line); box-shadow:0 14px 30px -16px var(--shadow)}
 .face.front{border-top:7px solid var(--berry)}
-.face.back{border-top:7px solid var(--brass); transform:rotateY(180deg)}
+.face.back{border-top:7px solid var(--brass); transform:rotateY(180deg); justify-content:flex-start}
+/* auto margins centre the back when it fits, and let it scroll from the top when it does not */
+.face.back > :first-child{margin-top:auto}
+.face.back > :last-child{margin-bottom:auto}
 .face-label{display:block; font:800 .66rem/1 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--muted)}
 .word{display:block; font:400 clamp(1.55rem, 6.4vw, 2.15rem)/1.15 var(--font-word); color:var(--ink); text-wrap:balance; overflow-wrap:anywhere}
 .say{display:block; font:italic 500 .98rem/1.3 var(--font-body); color:var(--berry-ink)}
@@ -103,6 +107,8 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
 .forms-label{display:block; font:800 .62rem/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:2px}
 .forms li{font-size:.84rem; line-height:1.38; color:var(--muted)}
 .forms .f-de{font-family:var(--font-word); color:var(--ink); font-size:.98rem}
+.words li{line-height:1.3}
+.words .w-g{display:block; font-size:.76rem; font-style:italic; line-height:1.35; color:var(--muted)}
 .log-detail .forms{max-width:none; text-align:left}
 .date{display:block; font:700 .7rem/1 var(--font-body); letter-spacing:.12em; text-transform:uppercase; color:var(--brass-text); font-variant-numeric:tabular-nums}
 .controls{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; align-items:center}
@@ -179,7 +185,23 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "tough as nails (literally \"hard at taking\")",
   "tip": "For someone who takes a hit and keeps going.",
   "earned": "What you called me after the F-150 story.",
-  "date": "2026-10-04"
+  "date": "2026-10-04",
+  "words": [
+   {
+    "de": "hart",
+    "en": "hard, tough"
+   },
+   {
+    "de": "im",
+    "en": "in the",
+    "g": "short for in dem"
+   },
+   {
+    "de": "Nehmen",
+    "en": "taking",
+    "g": "the verb nehmen (to take) used as a noun, so it gets a capital N"
+   }
+  ]
  },
  {
   "id": "t14",
@@ -207,6 +229,21 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Oh mein Gott, ich glaube es nicht",
     "en": "Oh my God, I don't believe it"
    }
+  ],
+  "words": [
+   {
+    "de": "Oh",
+    "en": "oh"
+   },
+   {
+    "de": "mein",
+    "en": "my",
+    "g": "der Gott, so mein with no ending"
+   },
+   {
+    "de": "Gott",
+    "en": "God"
+   }
   ]
  },
  {
@@ -225,6 +262,17 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
    {
     "de": "Nein nein nein",
     "en": "No no no"
+   }
+  ],
+  "words": [
+   {
+    "de": "mein",
+    "en": "my",
+    "g": "das Herz, so mein with no ending"
+   },
+   {
+    "de": "Herz",
+    "en": "heart"
    }
   ]
  },
@@ -283,7 +331,28 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Yeah, sure (literally \"whoever believes it will be blessed\")",
   "tip": "For when someone's excuse is a little too convenient. On 10/17 I used it back on you.",
   "earned": "What you said to my \"mouth to mouth, for medical purposes only\".",
-  "date": "2026-10-08"
+  "date": "2026-10-08",
+  "words": [
+   {
+    "de": "Wer's",
+    "en": "whoever ... it",
+    "g": "wer + es squeezed together"
+   },
+   {
+    "de": "glaubt",
+    "en": "believes",
+    "g": "glauben = to believe; er/sie/es glaubt"
+   },
+   {
+    "de": "wird",
+    "en": "will become",
+    "g": "werden = to become; er/sie/es wird"
+   },
+   {
+    "de": "selig",
+    "en": "blessed, blissfully happy"
+   }
+  ]
  },
  {
   "id": "t1",
@@ -302,6 +371,17 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Gute Nacht, mein Lieber, schlaf schön",
     "en": "Good night, my dear, sleep well"
    }
+  ],
+  "words": [
+   {
+    "de": "mein",
+    "en": "my"
+   },
+   {
+    "de": "Lieber",
+    "en": "dear one",
+    "g": "lieb = dear. The -er ending means you are saying it to a man. To a woman: meine Liebe"
+   }
   ]
  },
  {
@@ -311,7 +391,19 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Good morning",
   "tip": "Same night you fixed my Gute Nacht. You called German tricky, and you were right.",
   "earned": "You corrected my good morning.",
-  "date": "2026-10-09"
+  "date": "2026-10-09",
+  "words": [
+   {
+    "de": "Guten",
+    "en": "good",
+    "g": "gut + -en, because it is really (Ich wünsche dir einen) guten Morgen, and der Morgen is the thing being wished"
+   },
+   {
+    "de": "Morgen",
+    "en": "morning",
+    "g": "der Morgen"
+   }
+  ]
  },
  {
   "id": "t21",
@@ -329,6 +421,18 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
    {
     "de": "eine sehr sehr gute Nacht",
     "en": "a very, very good night (as in: I wish you one)"
+   }
+  ],
+  "words": [
+   {
+    "de": "Gute",
+    "en": "good",
+    "g": "gut + -e, because die Nacht is feminine. That is why the n disappears"
+   },
+   {
+    "de": "Nacht",
+    "en": "night",
+    "g": "die Nacht"
    }
   ]
  },
@@ -354,6 +458,23 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Ich machte meine kleine Erdbeere sehr glücklich",
     "en": "I made my little strawberry very happy (your impression of my German)"
    }
+  ],
+  "words": [
+   {
+    "de": "meine",
+    "en": "my",
+    "g": "mein + -e, because die Erdbeere is feminine"
+   },
+   {
+    "de": "kleine",
+    "en": "little",
+    "g": "klein + -e, same reason"
+   },
+   {
+    "de": "Erdbeere",
+    "en": "strawberry",
+    "g": "die Erdbeere. Erde = earth, Beere = berry"
+   }
   ]
  },
  {
@@ -363,7 +484,19 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "sleep well",
   "tip": "Pairs with gute Nacht. Mine back to you was schönen Tag.",
   "earned": "Your goodnight the night I tried my first schönen Tag on you.",
-  "date": "2026-10-14"
+  "date": "2026-10-14",
+  "words": [
+   {
+    "de": "schlaf",
+    "en": "sleep!",
+    "g": "command form of schlafen (to sleep), said to one person"
+   },
+   {
+    "de": "schön",
+    "en": "nicely",
+    "g": "schön = pretty, lovely; after a verb it means nicely"
+   }
+  ]
  },
  {
   "id": "t2",
@@ -372,7 +505,32 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "All good things come in threes",
   "tip": "Close to our \"third time's the charm\".",
   "earned": "You sent me three kisses and taught me why. Then you sent about a hundred more, so I think you broke your own rule.",
-  "date": "2026-10-15"
+  "date": "2026-10-15",
+  "words": [
+   {
+    "de": "Alle",
+    "en": "all"
+   },
+   {
+    "de": "guten",
+    "en": "good",
+    "g": "gut + -en, the ending adjectives take after alle"
+   },
+   {
+    "de": "Dinge",
+    "en": "things",
+    "g": "das Ding, plural die Dinge"
+   },
+   {
+    "de": "sind",
+    "en": "are",
+    "g": "sein = to be; wir/sie sind"
+   },
+   {
+    "de": "drei",
+    "en": "three"
+   }
+  ]
  },
  {
   "id": "t3",
@@ -390,7 +548,29 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "to have a green thumb",
   "tip": "Your exact words: du hast einen grünen Daumen.",
   "earned": "You said it about my old strawberry planters. I'll grow some for you someday.",
-  "date": "2026-10-15"
+  "date": "2026-10-15",
+  "words": [
+   {
+    "de": "einen",
+    "en": "a",
+    "g": "ein + -en, because der Daumen is the thing you have"
+   },
+   {
+    "de": "grünen",
+    "en": "green",
+    "g": "grün + -en, same reason"
+   },
+   {
+    "de": "Daumen",
+    "en": "thumb",
+    "g": "der Daumen"
+   },
+   {
+    "de": "haben",
+    "en": "to have",
+    "g": "ich habe, du hast"
+   }
+  ]
  },
  {
   "id": "t5",
@@ -408,6 +588,17 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
    {
     "de": "Gute Nacht, mein Süßer",
     "en": "Good night, my sweet one"
+   }
+  ],
+  "words": [
+   {
+    "de": "mein",
+    "en": "my"
+   },
+   {
+    "de": "Süßer",
+    "en": "sweet one",
+    "g": "süß = sweet. The -er ending means a man. To a woman: meine Süße"
    }
   ]
  },
@@ -442,6 +633,30 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Wie süß!",
     "en": "How cute!"
    }
+  ],
+  "words": [
+   {
+    "de": "Wie",
+    "en": "how"
+   },
+   {
+    "de": "süß",
+    "en": "sweet, cute"
+   },
+   {
+    "de": "bist",
+    "en": "are",
+    "g": "sein = to be; du bist"
+   },
+   {
+    "de": "du",
+    "en": "you"
+   },
+   {
+    "de": "bitte",
+    "en": "please",
+    "g": "here it means: seriously, come on"
+   }
   ]
  },
  {
@@ -460,7 +675,36 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "What am I supposed to do with you?",
   "tip": "Best said with my name three times in front of it, while trying not to wake your friends.",
   "earned": "I made you laugh when you were supposed to be quiet.",
-  "date": "2026-10-17"
+  "date": "2026-10-17",
+  "words": [
+   {
+    "de": "Was",
+    "en": "what"
+   },
+   {
+    "de": "mache",
+    "en": "do, make",
+    "g": "machen; ich mache"
+   },
+   {
+    "de": "ich",
+    "en": "I"
+   },
+   {
+    "de": "nur",
+    "en": "only, just",
+    "g": "adds the exasperated sigh"
+   },
+   {
+    "de": "mit",
+    "en": "with"
+   },
+   {
+    "de": "dir",
+    "en": "you",
+    "g": "du turns into dir after mit"
+   }
+  ]
  },
  {
   "id": "t26",
@@ -469,7 +713,27 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Don't be naughty now",
   "tip": "unartig = naughty (the kind you'd say to a kid, which is what makes it funny).",
   "earned": "What my teacher said when I asked her to teach me all the dirty words.",
-  "date": "2026-10-17"
+  "date": "2026-10-17",
+  "words": [
+   {
+    "de": "Sei",
+    "en": "be!",
+    "g": "command form of sein (to be), said to one person"
+   },
+   {
+    "de": "jetzt",
+    "en": "now"
+   },
+   {
+    "de": "nicht",
+    "en": "not"
+   },
+   {
+    "de": "unartig",
+    "en": "naughty",
+    "g": "no ending: nothing comes after it"
+   }
+  ]
  },
  {
   "id": "t27",
@@ -511,7 +775,27 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "In one ear, out the other (literally \"in here, out there\")",
   "tip": "For when someone's yelling and you've decided not to keep any of it.",
   "earned": "Your advice for getting through a bad day at home.",
-  "date": "2026-10-18"
+  "date": "2026-10-18",
+  "words": [
+   {
+    "de": "Hier",
+    "en": "here"
+   },
+   {
+    "de": "rein",
+    "en": "in",
+    "g": "short for herein"
+   },
+   {
+    "de": "da",
+    "en": "there"
+   },
+   {
+    "de": "raus",
+    "en": "out",
+    "g": "short for heraus"
+   }
+  ]
  },
  {
   "id": "t31",
@@ -526,6 +810,25 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Ich glaube es nicht",
     "en": "I don't believe it (the long form, with the e)"
    }
+  ],
+  "words": [
+   {
+    "de": "Ich",
+    "en": "I"
+   },
+   {
+    "de": "glaub",
+    "en": "believe",
+    "g": "glaube with the e dropped, the way people say it"
+   },
+   {
+    "de": "es",
+    "en": "it"
+   },
+   {
+    "de": "nicht",
+    "en": "not"
+   }
   ]
  },
  {
@@ -535,7 +838,32 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "One hand washes the other (you help me, I help you)",
   "tip": "My version: only hands can wash hands.",
   "earned": "What you called my deal with the Jeep shop.",
-  "date": "2026-10-20"
+  "date": "2026-10-20",
+  "words": [
+   {
+    "de": "Eine",
+    "en": "one",
+    "g": "ein + -e, because die Hand is feminine"
+   },
+   {
+    "de": "Hand",
+    "en": "hand",
+    "g": "die Hand"
+   },
+   {
+    "de": "wäscht",
+    "en": "washes",
+    "g": "waschen; er/sie/es wäscht. The a gets dots in this form"
+   },
+   {
+    "de": "die",
+    "en": "the"
+   },
+   {
+    "de": "andere",
+    "en": "other (one)"
+   }
+  ]
  },
  {
   "id": "t33",
@@ -553,6 +881,36 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
    {
     "de": "du und deine schmutzigen Gedanken",
     "en": "you and your dirty thoughts"
+   }
+  ],
+  "words": [
+   {
+    "de": "Unartiger",
+    "en": "naughty",
+    "g": "unartig + -er: der Mann, with no der or ein in front"
+   },
+   {
+    "de": "Mann",
+    "en": "man",
+    "g": "der Mann"
+   },
+   {
+    "de": "mit",
+    "en": "with"
+   },
+   {
+    "de": "so",
+    "en": "such, so"
+   },
+   {
+    "de": "schmutzigen",
+    "en": "dirty",
+    "g": "schmutzig + -en after mit, for a plural"
+   },
+   {
+    "de": "Gedanken",
+    "en": "thoughts",
+    "g": "der Gedanke, plural die Gedanken"
    }
   ]
  },
@@ -577,6 +935,18 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Träum was Süßes",
     "en": "Dream something sweet"
    }
+  ],
+  "words": [
+   {
+    "de": "schmutzige",
+    "en": "dirty",
+    "g": "schmutzig + -e, for a plural with no die in front"
+   },
+   {
+    "de": "Träume",
+    "en": "dreams",
+    "g": "der Traum, plural die Träume"
+   }
   ]
  },
  {
@@ -586,7 +956,18 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "You're welcome (gladly done)",
   "tip": "Literally 'gladly happened'. Bitteschön works too, but this one sounds like you mean it.",
   "earned": "What you said after your uni group chat made me die laughing.",
-  "date": "2026-10-20"
+  "date": "2026-10-20",
+  "words": [
+   {
+    "de": "Gern",
+    "en": "gladly"
+   },
+   {
+    "de": "geschehen",
+    "en": "happened",
+    "g": "past form of geschehen (to happen)"
+   }
+  ]
  },
  {
   "id": "t36",
@@ -604,7 +985,27 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "How are you? (polite)",
   "tip": "Ihnen is the formal 'you', for grandpas and strangers. With you I can just say: Wie geht's dir?",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Wie",
+    "en": "how"
+   },
+   {
+    "de": "geht",
+    "en": "goes",
+    "g": "gehen = to go; es geht"
+   },
+   {
+    "de": "es",
+    "en": "it"
+   },
+   {
+    "de": "Ihnen",
+    "en": "to you (polite)",
+    "g": "Sie becomes Ihnen here. With friends: dir, as in Wie geht's dir?"
+   }
+  ]
  },
  {
   "id": "t38",
@@ -613,7 +1014,30 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "I'm fine, thank you.",
   "tip": "Literally 'it goes well for me'. Short version: Mir geht's gut.",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Mir",
+    "en": "to me",
+    "g": "ich becomes mir here"
+   },
+   {
+    "de": "geht",
+    "en": "goes"
+   },
+   {
+    "de": "es",
+    "en": "it"
+   },
+   {
+    "de": "gut",
+    "en": "well, good"
+   },
+   {
+    "de": "danke",
+    "en": "thanks"
+   }
+  ]
  },
  {
   "id": "t39",
@@ -622,7 +1046,22 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "I don't understand.",
   "tip": "Your grandpa says Ai dount an-der-STÄND. I'll probably need this one more than he does.",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Ich",
+    "en": "I"
+   },
+   {
+    "de": "verstehe",
+    "en": "understand",
+    "g": "verstehen; ich verstehe"
+   },
+   {
+    "de": "nicht",
+    "en": "not"
+   }
+  ]
  },
  {
   "id": "t40",
@@ -631,7 +1070,31 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Could you repeat that, please?",
   "tip": "Sie = polite you. To you: Kannst du das bitte wiederholen? (I'll be asking a lot.)",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Können",
+    "en": "can",
+    "g": "können; Sie können, du kannst"
+   },
+   {
+    "de": "Sie",
+    "en": "you (polite)"
+   },
+   {
+    "de": "das",
+    "en": "that"
+   },
+   {
+    "de": "bitte",
+    "en": "please"
+   },
+   {
+    "de": "wiederholen",
+    "en": "to repeat",
+    "g": "wieder = again. With können, the second verb waits at the end"
+   }
+  ]
  },
  {
   "id": "t41",
@@ -640,7 +1103,26 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Please speak slowly.",
   "tip": "langsam = slow. To you: Bitte sprich langsam, mein Engelchen.",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Bitte",
+    "en": "please"
+   },
+   {
+    "de": "sprechen",
+    "en": "speak",
+    "g": "polite command: verb first, then Sie. To one friend: sprich"
+   },
+   {
+    "de": "Sie",
+    "en": "you (polite)"
+   },
+   {
+    "de": "langsam",
+    "en": "slowly"
+   }
+  ]
  },
  {
   "id": "t42",
@@ -649,7 +1131,22 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Do you speak German?",
   "tip": "Deutsch sounds like 'doitch'. To you: Sprichst du Deutsch? (I know the answer.)",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Sprechen",
+    "en": "speak",
+    "g": "Sie sprechen, du sprichst. The verb comes first because it is a question"
+   },
+   {
+    "de": "Sie",
+    "en": "you (polite)"
+   },
+   {
+    "de": "Deutsch",
+    "en": "German"
+   }
+  ]
  },
  {
   "id": "t43",
@@ -658,7 +1155,26 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "I speak a little German.",
   "tip": "Your grandpa's line was Ich spreche ein wenig Englisch, so I flipped it. Goal: drop the 'wenig' someday.",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Ich",
+    "en": "I"
+   },
+   {
+    "de": "spreche",
+    "en": "speak",
+    "g": "sprechen; ich spreche"
+   },
+   {
+    "de": "ein wenig",
+    "en": "a little"
+   },
+   {
+    "de": "Deutsch",
+    "en": "German"
+   }
+  ]
  },
  {
   "id": "t44",
@@ -667,7 +1183,27 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Can you help me?",
   "tip": "helfen = to help. To you: Kannst du mir helfen?",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Können",
+    "en": "can"
+   },
+   {
+    "de": "Sie",
+    "en": "you (polite)"
+   },
+   {
+    "de": "mir",
+    "en": "me",
+    "g": "helfen always takes mir, never mich"
+   },
+   {
+    "de": "helfen",
+    "en": "to help",
+    "g": "waits at the end, like wiederholen"
+   }
+  ]
  },
  {
   "id": "t45",
@@ -676,7 +1212,22 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "What does that mean?",
   "tip": "The question I'll ask you every single time you text me something new.",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Was",
+    "en": "what"
+   },
+   {
+    "de": "bedeutet",
+    "en": "means",
+    "g": "bedeuten; es bedeutet"
+   },
+   {
+    "de": "das",
+    "en": "that"
+   }
+  ]
  },
  {
   "id": "t46",
@@ -685,7 +1236,26 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "I don't know.",
   "tip": "ß is just a sharp s. Casual version: Weiß nicht.",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Ich",
+    "en": "I"
+   },
+   {
+    "de": "weiß",
+    "en": "know",
+    "g": "wissen; ich weiß, du weißt. Irregular"
+   },
+   {
+    "de": "es",
+    "en": "it"
+   },
+   {
+    "de": "nicht",
+    "en": "not"
+   }
+  ]
  },
  {
   "id": "t47",
@@ -694,7 +1264,23 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "One moment, please.",
   "tip": "For when I'm searching for the next word.",
   "earned": "From the English list you made for your grandpa (I read your column backwards).",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Einen",
+    "en": "one, a",
+    "g": "ein + -en, because it is short for (Warte) einen Moment"
+   },
+   {
+    "de": "Moment",
+    "en": "moment",
+    "g": "der Moment"
+   },
+   {
+    "de": "bitte",
+    "en": "please"
+   }
+  ]
  },
  {
   "id": "t48",
@@ -709,6 +1295,16 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Ja, sehr müde, Herr Oberst",
     "en": "Yes, very tired, Colonel"
    }
+  ],
+  "words": [
+   {
+    "de": "sehr",
+    "en": "very"
+   },
+   {
+    "de": "müde",
+    "en": "tired"
+   }
   ]
  },
  {
@@ -718,7 +1314,18 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Mister Colonel",
   "tip": "Oberst = colonel. Herr = Mister/Sir, so it's polite and a little bit cheeky.",
   "earned": "What you called me after I laid out my winter offensive. I accept the promotion.",
-  "date": "2026-10-21"
+  "date": "2026-10-21",
+  "words": [
+   {
+    "de": "Herr",
+    "en": "Mister, Sir"
+   },
+   {
+    "de": "Oberst",
+    "en": "colonel",
+    "g": "ober = upper, so roughly the uppermost one"
+   }
+  ]
  },
  {
   "id": "t50",
@@ -727,7 +1334,23 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "What the hell",
   "tip": "Hölle = hell. zur = to the. Literally 'what to the hell'.",
   "earned": "What you said about the South Park Chipotle-Away commercial, before you translated it.",
-  "date": "2026-10-22"
+  "date": "2026-10-22",
+  "words": [
+   {
+    "de": "Was",
+    "en": "what"
+   },
+   {
+    "de": "zur",
+    "en": "to the",
+    "g": "zu + der squeezed together, because die Hölle is feminine"
+   },
+   {
+    "de": "Hölle",
+    "en": "hell",
+    "g": "die Hölle"
+   }
+  ]
  },
  {
   "id": "t51",
@@ -741,6 +1364,18 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
    {
     "de": "Guten Morgen, mein Liebling",
     "en": "Good morning, my darling"
+   }
+  ],
+  "words": [
+   {
+    "de": "mein",
+    "en": "my",
+    "g": "der Liebling, so mein with no ending"
+   },
+   {
+    "de": "Liebling",
+    "en": "darling, favourite",
+    "g": "lieb = dear + -ling. Stays mein Liebling for a guy or a girl"
    }
   ]
  },
@@ -787,7 +1422,18 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "you poor thing (said to a man)",
   "tip": "Usually Oh mein Gott, du Armer! For you it's du Arme (doo AR-meh).",
   "earned": "Your sympathy when the dog's gas had me ready to die. Twice.",
-  "date": "2026-10-23"
+  "date": "2026-10-23",
+  "words": [
+   {
+    "de": "du",
+    "en": "you"
+   },
+   {
+    "de": "Armer",
+    "en": "poor one",
+    "g": "arm = poor. The -er ending means a man. To a woman: du Arme"
+   }
+  ]
  },
  {
   "id": "t56",
@@ -796,7 +1442,26 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Live and let live",
   "tip": "lassen = to let. Same idea as in English: live your life and let others live theirs.",
   "earned": "What you said about your friends' politics after your day in Vienna.",
-  "date": "2026-10-25"
+  "date": "2026-10-25",
+  "words": [
+   {
+    "de": "Leben",
+    "en": "to live",
+    "g": "capital only because it starts the sentence"
+   },
+   {
+    "de": "und",
+    "en": "and"
+   },
+   {
+    "de": "leben",
+    "en": "to live"
+   },
+   {
+    "de": "lassen",
+    "en": "to let"
+   }
+  ]
  },
  {
   "id": "t58",
@@ -814,7 +1479,22 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "You are wonderful",
   "tip": "w sounds like v. wunderbar = wonderful; the Wunder in it is the same word as wonder. Say it back: Du bist auch wunderbar (you are wonderful too).",
   "earned": "The very veryyyyy important thing you had to tell me after my AI interview.",
-  "date": "2026-10-29"
+  "date": "2026-10-29",
+  "words": [
+   {
+    "de": "Du",
+    "en": "you"
+   },
+   {
+    "de": "bist",
+    "en": "are",
+    "g": "sein; du bist"
+   },
+   {
+    "de": "wunderbar",
+    "en": "wonderful"
+   }
+  ]
  },
  {
   "id": "t60",
@@ -823,7 +1503,26 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
   "en": "Don't blush now",
   "tip": "rot = red, rot werden = to go red, to blush. Jetzt = now. The answer you would give: Zu spät! (tsoo shpate) = Too late!",
   "earned": "Right after Du bist wunderbar, with a kiss.",
-  "date": "2026-10-29"
+  "date": "2026-10-29",
+  "words": [
+   {
+    "de": "Werde",
+    "en": "become!",
+    "g": "command form of werden (to become), said to one person"
+   },
+   {
+    "de": "jetzt",
+    "en": "now"
+   },
+   {
+    "de": "nicht",
+    "en": "not"
+   },
+   {
+    "de": "rot",
+    "en": "red"
+   }
+  ]
  },
  {
   "id": "t61",
@@ -861,6 +1560,21 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Oh ja, so unartig",
     "en": "oh yes, so naughty"
    }
+  ],
+  "words": [
+   {
+    "de": "du",
+    "en": "you"
+   },
+   {
+    "de": "unartiger",
+    "en": "naughty",
+    "g": "unartig + -er, because der Mann"
+   },
+   {
+    "de": "Mann",
+    "en": "man"
+   }
   ]
  },
  {
@@ -884,6 +1598,21 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
    {
     "de": "Sehr gut, Soldat",
     "en": "very good, soldier (the colonel's answer)"
+   }
+  ],
+  "words": [
+   {
+    "de": "Jawohl",
+    "en": "yes sir",
+    "g": "ja + wohl, a firm yes indeed"
+   },
+   {
+    "de": "Herr",
+    "en": "Mister, Sir"
+   },
+   {
+    "de": "Oberst",
+    "en": "colonel"
    }
   ]
  },
@@ -968,6 +1697,18 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
    {
     "de": "ehrenamtlich",
     "en": "as a volunteer, unpaid (literally 'by honor office')"
+   }
+  ],
+  "words": [
+   {
+    "de": "Rotes",
+    "en": "red",
+    "g": "rot + -es, because das Kreuz has no das in front here. With it: das Rote Kreuz"
+   },
+   {
+    "de": "Kreuz",
+    "en": "cross",
+    "g": "das Kreuz"
    }
   ]
  },
@@ -1087,6 +1828,17 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     "de": "Schätzchen",
     "en": "little treasure (the -chen trick again)"
    }
+  ],
+  "words": [
+   {
+    "de": "mein",
+    "en": "my",
+    "g": "der Schatz, so mein with no ending"
+   },
+   {
+    "de": "Schatz",
+    "en": "treasure, sweetheart"
+   }
   ]
  },
  {
@@ -1139,6 +1891,65 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
    {
     "de": "die Sünde / die Sünden",
     "en": "the sin / the sins"
+   }
+  ],
+  "words": [
+   {
+    "de": "Lass",
+    "en": "let",
+    "g": "command form of lassen (to let), said to one person"
+   },
+   {
+    "de": "mich",
+    "en": "me",
+    "g": "ich becomes mich when it is the one being let"
+   },
+   {
+    "de": "deine",
+    "en": "your",
+    "g": "dein + -e, because die Sünde is feminine"
+   },
+   {
+    "de": "größte",
+    "en": "greatest",
+    "g": "groß, größer, am größten, then -e for die Sünde"
+   },
+   {
+    "de": "Sünde",
+    "en": "sin",
+    "g": "die Sünde"
+   },
+   {
+    "de": "sein",
+    "en": "to be",
+    "g": "goes to the very end after lass"
+   }
+  ]
+ },
+ {
+  "id": "t78",
+  "de": "unartig",
+  "say": "OON-ar-tish",
+  "en": "Naughty (badly behaved)",
+  "tip": "artig = well-behaved, un- = not. On its own it never changes: Du bist so unartig. In front of a word it takes that word's ending: -er for der, -e for die, -es for das.",
+  "earned": "My goodnight was meine kleine unartig Erdbeere, and I forgot the -e. Die Erdbeere, so it's unartige. You've used it on me three times already, so it was overdue for its own card.",
+  "date": "2026-11-09",
+  "forms": [
+   {
+    "de": "meine kleine unartige Erdbeere",
+    "en": "my naughty little strawberry (die Erdbeere, so -e)"
+   },
+   {
+    "de": "du unartiger Mann",
+    "en": "you naughty man (der Mann, so -er)"
+   },
+   {
+    "de": "du unartiges Mädchen",
+    "en": "you naughty girl (das Mädchen, so -es)"
+   },
+   {
+    "de": "Du bist so unartig",
+    "en": "you are so naughty (nothing after it, no ending)"
    }
   ]
  }
@@ -1381,6 +2192,19 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
     });
     return el('ul', { class: 'forms' }, items);
   }
+  function wordsList(t) {
+    if (!Array.isArray(t.words) || !t.words.length) return null;
+    var items = [el('li', {}, [el('span', { class: 'forms-label', text: 'Word by word' })])];
+    t.words.forEach(function (w) {
+      if (!w || typeof w.de !== 'string') return;
+      items.push(el('li', {}, [
+        el('span', { class: 'f-de', lang: 'de', text: w.de }),
+        w.en ? ' = ' + w.en : null,
+        w.g ? el('span', { class: 'w-g', text: w.g }) : null
+      ]));
+    });
+    return el('ul', { class: 'forms words' }, items);
+  }
   function plural(n) { return n === 1 ? '1 Schatz' : n + ' Schätze'; }
   function reduceMotion() {
     try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; }
@@ -1498,11 +2322,13 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
       el('span', { class: 'face-label', text: 'English' }),
       el('span', { class: 'meaning', text: t.en }),
       t.tip ? el('span', { class: 'tip', text: t.tip }) : null,
+      wordsList(t),
       formsList(t),
       t.earned ? el('span', { class: 'earned' }, [el('b', { text: 'Earned: ' }), t.earned]) : null,
       t.date ? el('span', { class: 'date', text: fmtDate(t.date) }) : null
     ]);
-    cardBtn = el('button', { class: 'card' + (ui.flipped ? ' is-flipped' : ''), id: 'card', type: 'button', onclick: flip },
+    var tall = Array.isArray(t.words) && t.words.length > 0;
+    cardBtn = el('button', { class: 'card' + (tall ? ' is-tall' : '') + (ui.flipped ? ' is-flipped' : ''), id: 'card', type: 'button', onclick: flip },
       [el('span', { class: 'card-inner' }, [front, back])]);
     labelCard();
     var count = el('span', { class: 'count', 'aria-live': 'polite', text: (ui.index + 1) + ' of ' + hoard.length });
@@ -1596,6 +2422,7 @@ h1{font:400 clamp(2.7rem, 11vw, 4.4rem)/.95 var(--font-display); margin:.18em 0 
           t.say ? el('span', { class: 'say', text: 'say it: ' + t.say }) : null,
           el('span', { class: 'meaning', text: t.en }),
           t.tip ? el('span', { class: 'tip', text: t.tip }) : null,
+          wordsList(t),
           formsList(t),
           t.earned ? el('span', { class: 'earned' }, [el('b', { text: 'Earned: ' }), t.earned]) : null,
           el('button', { class: 'btn', type: 'button', onclick: function () { showCard(i); }, text: 'Show it as a flashcard' })
