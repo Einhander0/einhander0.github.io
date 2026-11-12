@@ -1,0 +1,1617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Die Wortwerkstatt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..800&family=Young+Serif&family=Noto+Serif:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 44C8.5 35.5 3.5 26 4.6 17.8 5.6 11 11 8.6 20 8.6S34.4 11 35.4 17.8C36.5 26 31.5 35.5 20 44Z' fill='%23e0285a'/%3E%3Cpath d='M20 10.5c-2.6-3.6-7.6-5-11.6-3.2 3.6.8 5.8 2.4 6.8 4.4-3.7.1-6.6 1.9-7.9 4.8 4-1.2 8.1-1.8 12.7-1.8s8.7.6 12.7 1.8c-1.3-2.9-4.2-4.7-7.9-4.8 1-2 3.2-3.6 6.8-4.4-4-1.8-9 .4-11.6 3.2Z' fill='%233e9a4b'/%3E%3C/svg%3E">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style id="chest-style">
+/* Layout: one column workshop notebook. Header, study-set nav, a tab strip (Drill / Morphemes / Word-formation / Trees & typology / Glossary), then one panel at a time. IPA set in a dedicated phonetic face. */
+:root{
+  --bg:#fbf0f3; --bg-glow:#f8d9e3; --surface:#fffafc; --chip:#fde7ee;
+  --ink:#2b1320; --muted:#7c5767; --line:#efd2dc;
+  --berry:#d4235c; --berry-ink:#ad1747; --on-berry:#ffffff; --ring:rgba(212,35,92,.22);
+  --brass:#c9982e; --brass-text:#86600f;
+  --good:#2e7d4f; --good-chip:#e3f4e9; --bad:#b3261e; --bad-chip:#fbe4e2;
+  --font-word:"Young Serif",Georgia,"Times New Roman",serif;
+  --font-body:"Nunito Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-ipa:"Gentium Plus","Charis SIL","Doulos SIL","Noto Serif","Lucida Sans Unicode","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+    --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+    --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+    --brass:#e0b04a; --brass-text:#e9c36a;
+    --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+  --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+  --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+  --brass:#e0b04a; --brass-text:#e9c36a;
+  --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:radial-gradient(1100px 460px at 50% -8%, var(--bg-glow), transparent 62%), var(--bg);
+  background-color:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.5;
+}
+.wrap{max-width:820px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:26px 48px}
+.ipa{font-family:var(--font-ipa); font-feature-settings:"liga" 0}
+.eyebrow{font:800 .72rem/1 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--berry-ink); margin:0}
+h1{font:400 clamp(2.3rem, 9vw, 3.6rem)/1 var(--font-word); margin:.2em 0 .15em; text-wrap:balance}
+h1 .slash{font-family:var(--font-ipa); color:var(--berry); font-weight:400}
+h2{font:400 1.45rem/1.2 var(--font-word); margin:0; text-wrap:balance}
+h3{font:800 1rem/1.3 var(--font-body); margin:0}
+p{margin:0}
+ul{margin:0}
+.lede{max-width:60ch; color:var(--muted)}
+.lede b{color:var(--ink)}
+.stack{display:grid; gap:14px}
+.stack > *{min-width:0}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+
+/* study-set nav */
+.sets{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0}
+.sets a{font:700 .78rem/1 var(--font-body); color:var(--muted); text-decoration:none; padding:7px 10px; border:1px solid var(--line); border-radius:999px; background:var(--surface)}
+.sets a:hover{color:var(--ink); border-color:var(--berry)}
+.sets a[aria-current="page"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+
+/* tabs */
+.tabs{display:flex; flex-wrap:wrap; gap:6px; margin:20px 0 18px; padding:5px; background:var(--chip); border:1px solid var(--line); border-radius:10px}
+.tab{appearance:none; border:0; background:none; font:700 .9rem/1 var(--font-body); color:var(--muted); padding:10px 12px; border-radius:7px; cursor:pointer; flex:1 1 auto; text-align:center}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--surface); color:var(--berry-ink); box-shadow:0 1px 3px var(--ring)}
+.tab:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible, input:focus-visible{outline:3px solid var(--berry); outline-offset:2px}
+
+.panel{display:grid; gap:18px}
+.panel > *{min-width:0}
+.sheet{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; min-width:0}
+.note{border-left:3px solid var(--brass); padding:2px 0 2px 12px; color:var(--muted); font-size:.92rem}
+.note b{color:var(--ink)}
+
+/* chips & buttons */
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{appearance:none; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:700 .8rem/1 var(--font-body); padding:8px 11px; border-radius:999px; cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+.btn{appearance:none; border:0; background:var(--berry); color:var(--on-berry); font:800 .92rem/1 var(--font-body); padding:12px 16px; border-radius:8px; cursor:pointer}
+.btn.quiet{background:transparent; color:var(--berry-ink); border:1px solid var(--line)}
+.btn:disabled{opacity:.45; cursor:default}
+.row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+
+/* drill */
+.score{display:flex; flex-wrap:wrap; gap:16px; align-items:baseline; font-variant-numeric:tabular-nums}
+.score b{font:400 1.5rem/1 var(--font-word); color:var(--ink)}
+.bar{height:6px; border-radius:3px; background:var(--chip); overflow:hidden}
+.bar > i{display:block; height:100%; width:0; background:var(--berry); transition:width .25s}
+.qcard{display:grid; gap:14px}
+.qcard > *{min-width:0}
+.qcat{font:800 .68rem/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.qprompt{font-size:1.08rem; line-height:1.45; min-width:0}
+.qprompt .def{display:block; margin-top:8px; padding:10px 12px; border-radius:8px; background:var(--chip); font-size:1rem}
+.qbig{font:400 clamp(2rem, 9vw, 3.2rem)/1.15 var(--font-word); text-align:center; padding:6px 0; overflow-wrap:anywhere}
+.opts{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+@media (max-width:520px){ .opts{grid-template-columns:1fr} }
+.opt{appearance:none; text-align:left; display:flex; gap:10px; align-items:center; border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:12px; border-radius:9px; cursor:pointer; font:600 .98rem/1.3 var(--font-body); min-width:0}
+.opt .k{flex:none; display:grid; place-items:center; width:22px; height:22px; border-radius:5px; background:var(--chip); color:var(--muted); font:800 .72rem/1 var(--font-body)}
+.opt .t{min-width:0; overflow-wrap:anywhere}
+.opt .t.ipa{font-size:1.2rem; font-weight:400}
+.opt .t.br{font:600 .86rem/1.35 ui-monospace,"Cascadia Mono",Consolas,Menlo,monospace; overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--berry)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--good-chip); border-color:var(--good)}
+.opt.right .k{background:var(--good); color:var(--surface)}
+.opt.wrong{background:var(--bad-chip); border-color:var(--bad)}
+.opt.wrong .k{background:var(--bad); color:var(--surface)}
+.why{border-radius:9px; padding:12px 14px; background:var(--chip); font-size:.94rem; min-width:0}
+.why .verdict{font-weight:800; margin-bottom:4px; overflow-wrap:anywhere}
+.why .verdict.ok{color:var(--good)} .why .verdict.no{color:var(--bad)}
+.summary-list{display:grid; gap:6px; padding:0; margin:0; list-style:none}
+.summary-list li{padding:8px 10px; border:1px solid var(--line); border-radius:8px; font-size:.92rem; overflow-wrap:anywhere}
+
+/* tables */
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%}
+table{border-collapse:collapse; font-size:.88rem}
+.tbl{width:100%}
+.tbl th, .tbl td{border-bottom:1px solid var(--line); padding:7px 8px; text-align:left; vertical-align:top}
+.tbl thead th{font:800 .68rem/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.tbl tbody th{font:800 .82rem/1.3 var(--font-body); color:var(--ink); white-space:nowrap}
+.tbl td.ipa, .tbl span.ipa{font-size:1.08rem}
+.tbl .kw{font-weight:800; white-space:nowrap}
+.tbl .nw{white-space:nowrap}
+.ex{display:flex; flex-wrap:wrap; gap:8px}
+.ex span{background:var(--chip); border-radius:6px; padding:4px 8px; font-size:.9rem}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px}
+.mini{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--bg); min-width:0; display:grid; gap:6px; align-content:start}
+.mini p{font-size:.92rem}
+.list{padding-left:18px; display:grid; gap:8px}
+
+/* word-formation cards */
+.cards{display:grid; gap:10px}
+details.card{border:1px solid var(--line); border-radius:12px; background:var(--bg); min-width:0}
+details.card > summary{list-style:none; cursor:pointer; padding:13px 15px; display:flex; gap:12px; align-items:baseline; justify-content:space-between}
+details.card > summary::-webkit-details-marker{display:none}
+details.card > summary .ct{font:800 1rem/1.3 var(--font-body); min-width:0}
+details.card > summary .cd{display:block; font:400 .88rem/1.4 var(--font-body); color:var(--muted); margin-top:3px}
+details.card > summary .plus{flex:none; font:800 1.1rem/1 var(--font-body); color:var(--berry-ink)}
+details.card[open] > summary .plus{transform:rotate(45deg)}
+details.card[open]{border-color:var(--berry)}
+.card .body{padding:0 15px 15px; display:grid; gap:10px}
+.card .body > *{min-width:0}
+
+/* trees */
+.tree{display:block; margin:6px auto; height:auto}
+.tree line{stroke:var(--muted); stroke-width:1.4}
+.tree .lab{fill:var(--berry-ink); font:800 13px var(--font-body)}
+.tree .lf{fill:var(--ink); font:italic 600 15px var(--font-body)}
+.br{font:600 .84rem/1.4 ui-monospace,"Cascadia Mono",Consolas,Menlo,monospace; color:var(--muted); overflow-wrap:anywhere}
+.pair{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:12px}
+.treebox{border:1px solid var(--line); border-radius:10px; padding:12px; background:var(--bg); min-width:0; display:grid; gap:6px; align-content:start}
+.input{width:100%; border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:8px; padding:10px 12px; font:600 .95rem/1.3 var(--font-body)}
+.input.mono{font:600 .9rem/1.3 ui-monospace,"Cascadia Mono",Consolas,Menlo,monospace}
+.err{color:var(--bad); font-size:.88rem}
+
+/* typology */
+.igt td{padding:2px 10px 2px 0; white-space:nowrap}
+.igt tr:first-child td{font-weight:800}
+.igt tr:nth-child(2) td{color:var(--muted); font-size:.74rem; letter-spacing:.05em}
+.barrow{display:grid; grid-template-columns:minmax(0, 9.5rem) minmax(0, 1fr) 2.6rem; gap:10px; align-items:center; font-size:.88rem}
+.barrow .track{height:10px; background:var(--chip); border-radius:5px; overflow:hidden}
+.barrow .fillb{display:block; height:100%; background:var(--brass); border-radius:5px}
+.barrow .v{font-variant-numeric:tabular-nums; color:var(--muted); text-align:right}
+
+/* glossary */
+.gl{display:grid; gap:4px; padding:12px 0; border-bottom:1px solid var(--line); min-width:0}
+.gl:last-child{border-bottom:0}
+.gl .term{font:800 1rem/1.3 var(--font-body); color:var(--berry-ink)}
+.gl .gdef{font-size:.95rem}
+.gl .gex{font-size:.88rem; color:var(--muted)}
+footer{margin-top:30px; font-size:.8rem; color:var(--muted)}
+@media (prefers-reduced-motion: reduce){ .bar > i{transition:none} }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">English morphology · words and word-formation</p>
+    <h1>Die Wortwerkstatt <span class="slash">/ˈvɔʁtˌvɛʁkʃtat/</span></h1>
+    <p class="lede">How English words are built: morphemes and their allomorphs, every word-formation process, morphological trees, and how the world's languages pack meaning into words. <b>Drill</b> quizzes you and brings back the ones you miss.</p>
+  </header>
+
+  <nav class="sets" aria-label="Study set">
+    <a href="../lautlabor/">Phonetics</a>
+    <a href="../morphologie/" aria-current="page">Morphology</a>
+    <a href="../syntax/">Syntax</a>
+    <a href="../sprachgemeinschaft/">Language in society</a>
+    <a href="../semantik/">Semantics</a>
+    <a href="../pragmatik/">Pragmatics</a>
+    <a href="../grammatik/">Advanced grammar</a>
+  </nav>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-drill" data-view="drill">Drill</button>
+    <button class="tab" role="tab" id="tab-morphemes" data-view="morphemes">Morphemes</button>
+    <button class="tab" role="tab" id="tab-formation" data-view="formation">Word-formation</button>
+    <button class="tab" role="tab" id="tab-trees" data-view="trees">Trees &amp; typology</button>
+    <button class="tab" role="tab" id="tab-glossary" data-view="glossary">Glossary</button>
+  </nav>
+
+  <main>
+    <!-- DRILL -->
+    <section class="panel" id="view-drill" role="tabpanel" aria-labelledby="tab-drill">
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between">
+          <h2>Drill</h2>
+          <div class="score"><span>Score <b id="sc-right">0</b>/<span id="sc-done">0</span></span><span class="muted small">Question <span id="sc-pos">1</span> of <span id="sc-len">20</span></span></div>
+        </div>
+        <div class="bar" aria-hidden="true"><i id="sc-bar"></i></div>
+        <div id="qhost"></div>
+      </div>
+      <div class="sheet stack">
+        <h3>What to practise</h3>
+        <div class="chips" id="cats"></div>
+        <div class="row">
+          <label class="small muted" for="len">Questions per round</label>
+          <select id="len" class="chip" style="padding:7px 10px">
+            <option value="10">10</option><option value="20" selected>20</option><option value="40">40</option>
+          </select>
+          <button class="btn" id="restart">New round</button>
+          <button class="btn quiet" id="misses">Only my misses</button>
+        </div>
+        <p class="small muted" id="memo">Questions you get wrong come back more often. Keys 1 to 4 answer, Enter goes on.</p>
+      </div>
+    </section>
+
+    <!-- MORPHEMES -->
+    <section class="panel" id="view-morphemes" role="tabpanel" aria-labelledby="tab-morphemes" hidden>
+      <div class="sheet stack">
+        <h2>Morphemes, morphs and allomorphs</h2>
+        <p>A <b>morpheme</b> is the smallest unit of language that carries meaning or a grammatical function. <i>unkindness</i> has three: <i>un-</i> 'not', <i>kind</i>, and <i>-ness</i> 'state or quality'. Morphemes are not syllables: <i>elephant</i> has three syllables and one morpheme, <i>cats</i> has one syllable and two morphemes.</p>
+        <p>The morpheme is the abstract unit. What you actually hear or write is a <b>morph</b>. When one morpheme has several morphs depending on where it occurs, those are its <b>allomorphs</b>: the plural morpheme is <span class="ipa">/s/</span> in <i>cats</i>, <span class="ipa">/z/</span> in <i>dogs</i>, <span class="ipa">/ɪz/</span> in <i>horses</i> and <i>-en</i> in <i>oxen</i>; the negative prefix is <i>in-</i> in <i>incomplete</i>, <i>im-</i> in <i>impossible</i>, <i>il-</i> in <i>illegal</i> and <i>ir-</i> in <i>irregular</i>.</p>
+        <p class="note"><b>Notation.</b> Morphemes are often written in braces, {PLURAL} or {-s}; allomorphs in slashes. Prefixes are written with a following hyphen (<i>un-</i>), suffixes with a preceding one (<i>-ness</i>). A word made of one morpheme is <b>simplex</b> (<i>table</i>); a word of several is <b>complex</b> (<i>tables</i>, <i>unkindness</i>).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>The four-way classification</h3>
+        <p>Two separate questions: can it stand alone as a word (<b>free</b>) or not (<b>bound</b>)? And does it carry content or grammar? The common teaching scheme crosses them like this:</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Type</th><th>What it does</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><th>Free lexical</th><td>Content words: nouns, verbs, adjectives, adverbs. Open class, new members are added all the time.</td><td>dog, run, happy, slow</td></tr>
+            <tr><th>Free functional</th><td>Grammar words: articles, pronouns, conjunctions, auxiliaries, prepositions. Closed class.</td><td>the, a, she, and, because, of, in, will</td></tr>
+            <tr><th>Bound derivational</th><td>Affixes that build new words (new lexemes), often of a new word class.</td><td>un-, re-, dis-, -ness, -ize, -ful, -able</td></tr>
+            <tr><th>Bound inflectional</th><td>Affixes that make grammatical forms of the same word. English has only eight, all suffixes.</td><td>-s, -ed, -ing, -er, -est</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>What does not fit the boxes.</b> Bound roots (<i>-ceive</i>, <i>-mit</i>) and cranberry morphemes (<i>cran-</i>) are bound but are roots, not affixes. Keep the two questions apart: <i>the</i> is free but functional; <i>-ceive</i> is bound but a root.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Root, stem and base</h3>
+        <p>Take <i>untouchables</i>.</p>
+        <ul class="list">
+          <li><b>Root</b>: the irreducible core that remains when every affix is stripped off and that carries the main meaning: <i>touch</i>.</li>
+          <li><b>Base</b>: any form an affix attaches to. <i>touch</i> is the base of <i>-able</i>, <i>touchable</i> is the base of <i>un-</i>, and <i>untouchable</i> is the base of plural <i>-s</i>. Every root can be a base; not every base is a root.</li>
+          <li><b>Stem</b>: the form that inflectional affixes attach to: here <i>untouchable</i> (used as a noun). A stem can already contain derivational affixes.</li>
+        </ul>
+        <p class="note">This is the usage of Plag and Katamba. Some books use <i>stem</i> loosely for any base. In German grammar <i>Stamm</i> is used in the same inflectional sense.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Where affixes go</h3>
+        <div class="grid2">
+          <div class="mini"><h3>Prefix</h3><p>Before the base.</p><p class="muted">un-happy, re-write, pre-heat, dis-like</p></div>
+          <div class="mini"><h3>Suffix</h3><p>After the base. All English inflection is suffixal.</p><p class="muted">kind-ness, modern-ize, cat-s, walk-ed</p></div>
+          <div class="mini"><h3>Infix</h3><p>Inside the base. Tagalog actor-focus <i>-um-</i>: <i>sulat</i> → <i>s-um-ulat</i>. English has only <b>expletive infixation</b>: a swear word or intensifier goes in right before the stressed syllable: <i>abso-bloody-lutely</i>, <i>fan-bloody-tastic</i>, never *<i>ab-bloody-solutely</i>.</p><p class="muted">Since the inserted piece is a whole word, some argue it is not a true infix.</p></div>
+          <div class="mini"><h3>Circumfix</h3><p>Two parts around the base that work as one unit. German participles: <i>ge-spiel-t</i>, <i>ge-sung-en</i>. English has no clear circumfix.</p></div>
+        </div>
+      </div>
+
+      <div class="sheet stack">
+        <h3>The eight English inflectional morphemes</h3>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Suffix</th><th>Category</th><th>Attaches to</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">-s</td><td>plural</td><td>nouns</td><td>cats, dogs, horses</td></tr>
+            <tr><td class="kw">-'s</td><td>possessive (genitive)</td><td>nouns, noun phrases</td><td>the girl's book</td></tr>
+            <tr><td class="kw">-s</td><td>3rd person singular present</td><td>verbs</td><td>she walks</td></tr>
+            <tr><td class="kw">-ed</td><td>past tense</td><td>verbs</td><td>she walked</td></tr>
+            <tr><td class="kw">-en / -ed</td><td>past participle</td><td>verbs</td><td>has eaten, has walked</td></tr>
+            <tr><td class="kw">-ing</td><td>progressive (present participle)</td><td>verbs</td><td>is walking</td></tr>
+            <tr><td class="kw">-er</td><td>comparative</td><td>(short) adjectives and adverbs</td><td>taller, faster</td></tr>
+            <tr><td class="kw">-est</td><td>superlative</td><td>(short) adjectives and adverbs</td><td>tallest, fastest</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Two caveats.</b> Possessive <i>'s</i> attaches to whole noun phrases (<i>the King of England's hat</i> = the hat of the King of England), so many modern grammars treat it as a <b>clitic</b>, not a suffix. And the past participle of regular verbs looks exactly like the past tense (<i>walked</i>): one form, two functions (<b>syncretism</b>).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Inflection or derivation? The criteria</h3>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Criterion</th><th>Inflection</th><th>Derivation</th></tr></thead>
+          <tbody>
+            <tr><th>New word?</th><td>No: forms of the same lexeme (WALK: walks, walked)</td><td>Yes: a new lexeme with its own dictionary entry (kind → kindness)</td></tr>
+            <tr><th>Word class</th><td>Never changes it</td><td>Often changes it (class-changing: kind → kindness), sometimes not (class-maintaining: child → childhood, happy → unhappy)</td></tr>
+            <tr><th>Syntax</th><td>Required by the sentence: agreement, tense (*she walk home yesterday)</td><td>Not demanded by syntax; a lexical choice</td></tr>
+            <tr><th>Productivity</th><td>Applies to (nearly) every member of the class</td><td>Gappy: warmth, length, but *coldth</td></tr>
+            <tr><th>Meaning</th><td>Fully regular: plural means 'more than one'</td><td>Often idiosyncratic: a <i>sweater</i> is not someone who sweats</td></tr>
+            <tr><th>Position</th><td>Outermost: teach-er-s, never *teach-s-er</td><td>Inside, closer to the root</td></tr>
+            <tr><th>How many</th><td>At most one inflectional suffix per English word</td><td>Several can stack: nation-al-iz-ation</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">No single criterion is perfect (comparative <i>-er</i> doesn't apply to every adjective: *<i>beautifuller</i>), so argue from several.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Allomorphy: the -s and -ed rules</h3>
+        <p>Plural <i>-s</i>, 3rd person <i>-s</i> and possessive <i>'s</i> all follow the same rule; so does past <i>-ed</i> (and the regular past participle). The choice depends on the <b>last sound</b> of the stem, not its spelling.</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Suffix</th><th>After</th><th>Allomorph</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td class="kw" rowspan="3">-s, -'s</td><td>sibilants <span class="ipa">/s z ʃ ʒ tʃ dʒ/</span></td><td class="ipa">/ɪz/</td><td>buses, quizzes, wishes, garages, churches, judges, boxes</td></tr>
+            <tr><td>other voiceless sounds <span class="ipa">/p t k f θ/</span></td><td class="ipa">/s/</td><td>cups, cats, books, cliffs, months, laughs</td></tr>
+            <tr><td>other voiced sounds, including all vowels</td><td class="ipa">/z/</td><td>cabs, dogs, pens, hills, breathes, bees, days</td></tr>
+            <tr><td class="kw" rowspan="3">-ed</td><td>alveolar plosives <span class="ipa">/t d/</span></td><td class="ipa">/ɪd/</td><td>wanted, needed, hated, added</td></tr>
+            <tr><td>other voiceless sounds <span class="ipa">/p k f θ s ʃ tʃ/</span></td><td class="ipa">/t/</td><td>hoped, kicked, laughed, kissed, wished, watched, fixed</td></tr>
+            <tr><td>other voiced sounds, including all vowels</td><td class="ipa">/d/</td><td>begged, loved, judged, played, showed</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Many books treat <span class="ipa">/z/</span> and <span class="ipa">/d/</span> as the underlying forms, with two rules: insert a vowel between two similar sounds, then devoice after a voiceless sound. GA-oriented books write <span class="ipa">/əz/</span> and <span class="ipa">/əd/</span> for <span class="ipa">/ɪz/</span> and <span class="ipa">/ɪd/</span>; same thing.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>What conditions the choice?</h3>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Conditioning</th><th>The choice depends on</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><th>Phonological</th><td>the neighbouring sounds; predictable by rule</td><td>plural <span class="ipa">/s z ɪz/</span>, past <span class="ipa">/t d ɪd/</span>, <i>a</i> vs <i>an</i>, <i>in- / im- / il- / ir-</i></td></tr>
+            <tr><th>Lexical</th><td>the particular word; must be memorized</td><td><i>oxen</i> (-en), <i>children</i> (-ren, plus a vowel change), <i>sheep</i> (zero), <i>feet</i> (vowel change), <i>criteria</i> (Greek plural)</td></tr>
+            <tr><th>Morphological</th><td>a particular morphological context, e.g. a following suffix</td><td><i>electric</i> /k/ → <i>electricity</i> /s/; <i>sane</i> /eɪ/ → <i>sanity</i> /æ/; <i>decide</i> /d/ → <i>decision</i> /ʒ/. The sounds alone don't trigger it: <i>kicking</i> keeps /k/ before /ɪ/, <i>saneness</i> keeps /eɪ/.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Terminology varies.</b> Some books lump lexical and morphological conditioning together as "grammatical" or "morphological" conditioning. The contrast every course tests is the same: predictable from sounds or not.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Special cases</h3>
+        <div class="grid2">
+          <div class="mini"><h3>Suppletion</h3><p>A grammatical form built on an unrelated stem: <i>go / went</i>, <i>be / am / is / was</i>, <i>good / better / best</i>, <i>bad / worse</i>. Some books call <i>bring / brought</i> or <i>think / thought</i> partial (weak) suppletion.</p></div>
+          <div class="mini"><h3>Internal modification</h3><p>A vowel change inside the stem marks the category: <i>sing / sang / sung</i> (ablaut), <i>foot / feet</i>, <i>mouse / mice</i> (umlaut, historically).</p></div>
+          <div class="mini"><h3>Zero morph</h3><p>A morpheme with no overt form, posited because of the pattern elsewhere: plural <i>sheep</i>, past <i>hit</i>, <i>put</i>. Conversion is sometimes analysed as zero-derivation for the same reason.</p></div>
+          <div class="mini"><h3>Cranberry morphemes</h3><p>Bound, occur in one word only, no meaning of their own: <i>cran-</i> (cranberry), <i>huckle-</i> (huckleberry), <i>luke-</i> (lukewarm), <i>-kempt</i> (unkempt). We still count them as morphemes because the rest of the word is clearly a morpheme.</p></div>
+          <div class="mini"><h3>Bound roots</h3><p>Latinate roots that never stand alone but recur with stable behaviour: <i>-ceive</i> (receive, deceive, conceive, with nouns in <i>-ception</i>), <i>-mit</i> (permit, submit, admit, with nouns in <i>-mission</i>). The shared alternation is the argument that they are real morphemes.</p></div>
+          <div class="mini"><h3>Empty morphs (debated)</h3><p>Material with no meaning that belongs to no morpheme, like the linking <i>-o-</i> in <i>speedometer</i> or <i>-i-</i> in <i>pesticide</i>. Others assign it to a neighbouring allomorph instead, so whether empty morphs exist is a matter of analysis.</p></div>
+          <div class="mini"><h3>Portmanteau morph</h3><p>One morph, several morphemes at once (cumulative exponence): <i>-s</i> in <i>walks</i> = 3rd person + singular + present; French <i>au</i> = <i>à</i> + <i>le</i>. Not the same as a blend ("portmanteau word").</p></div>
+        </div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Exam traps</h2>
+        <ul class="list">
+          <li><b>Counting letters or syllables.</b> <i>butter</i> is not <i>butt + -er</i>, <i>sing</i> contains no <i>-ing</i>, <i>table</i> contains no <i>-ble</i>. A morph must recur with the same meaning in other words.</li>
+          <li><b>Same form, different morpheme.</b> <i>-er</i>: agent (teach-er, derivational), comparative (tall-er, inflectional), nothing (butter). <i>-en</i>: participle (eat-en), verb-forming (dark-en), adjective-forming (wood-en), plural (ox-en). <i>-ed</i>: past (walk-ed) vs adjective from a noun (talent-ed, blue-eyed). <i>-ing</i>: progressive (is build-ing) vs noun (a new build-ing).</li>
+          <li><b><i>-ly</i> is not always adverbial.</b> <i>friendly</i>, <i>lovely</i>, <i>costly</i> are adjectives made from nouns.</li>
+          <li><b>Free ≠ lexical.</b> <i>the</i> is free and functional; <i>-ceive</i> is bound and a root.</li>
+          <li><b>Sound, not spelling.</b> <i>laughed</i> ends in /t/ (gh = /f/), <i>boxes</i> takes /ɪz/ because x = /ks/, <i>months</i> takes /s/ after /θ/, <i>breathes</i> takes /z/ after /ð/.</li>
+          <li><b>German final devoicing.</b> Plural /z/ in <i>dogs</i> and past /d/ in <i>begged</i> stay lenis, and the vowel before them stays long. Saying [dɒks] mixes up two allomorphs.</li>
+          <li><b>Inflection outside derivation.</b> In trees and bracketings, -s, -ed, -ing go on last: [[teach-er]-s].</li>
+          <li><b>Possessive <i>'s</i>.</b> Counted among the eight inflections in many introductions, but analysed as a clitic in others. Say which view you take.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WORD-FORMATION -->
+    <section class="panel" id="view-formation" role="tabpanel" aria-labelledby="tab-formation" hidden>
+      <div class="sheet stack">
+        <h2>Word-formation processes</h2>
+        <p class="small muted">Tap a card for examples and notes. Filter by what the process does to the form.</p>
+        <div class="chips" id="wffilter"></div>
+        <div class="cards" id="wfcards"></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Derivation in depth</h2>
+        <h3>Class-changing and class-maintaining</h3>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Affix</th><th>Change</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">-ness</td><td>A → N</td><td>kind → kindness</td></tr>
+            <tr><td class="kw">-ize</td><td>A / N → V</td><td>modern → modernize, hospital → hospitalize</td></tr>
+            <tr><td class="kw">-able</td><td>V → A</td><td>read → readable</td></tr>
+            <tr><td class="kw">-er</td><td>V → N</td><td>teach → teacher</td></tr>
+            <tr><td class="kw">-ful, -less</td><td>N → A</td><td>hope → hopeful, hopeless</td></tr>
+            <tr><td class="kw">en-, be-</td><td>A / N → V</td><td>large → enlarge, friend → befriend</td></tr>
+            <tr><td class="kw">un-, dis-</td><td>A → A, V → V (class-maintaining)</td><td>happy → unhappy, like → dislike</td></tr>
+            <tr><td class="kw">re-, mis-</td><td>V → V (class-maintaining)</td><td>write → rewrite, read → misread</td></tr>
+            <tr><td class="kw">-hood, -ship, -let</td><td>N → N (class-maintaining)</td><td>child → childhood, friend → friendship, book → booklet</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Most English prefixes are class-maintaining; <i>en-</i> and <i>be-</i> are the classic exceptions.</p>
+        <h3>Productivity and blocking</h3>
+        <p><b>Productivity</b> is how freely a pattern makes new words. <i>-ness</i> attaches to almost any adjective and new <i>-ness</i> words go unnoticed; <i>-th</i> (<i>warmth</i>, <i>length</i>) no longer makes new words. Corpus linguists (Baayen, Plag) measure it partly by <b>hapax legomena</b>: an affix with many words that occur only once in a corpus is actively being used to coin new ones.</p>
+        <p><b>Blocking</b>: a possible word is not formed because an established word already has that meaning. *<i>stealer</i> is blocked by <i>thief</i>, *<i>gloriosity</i> by <i>glory</i> (but <i>curiosity</i> is fine: there is no *<i>cury</i>), *<i>goed</i> by <i>went</i>. Blocking is a strong tendency, not a law: <i>scene-stealer</i> exists.</p>
+        <h3>Level 1 and Level 2 affixes</h3>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th></th><th>Level 1 (Class I)</th><th>Level 2 (Class II)</th></tr></thead>
+          <tbody>
+            <tr><th>Stress</th><td>Can shift the stress of the base</td><td>Stress-neutral</td></tr>
+            <tr><th>Sounds</th><td>Can change the base's sounds</td><td>Leave the base unchanged</td></tr>
+            <tr><th>Bases</th><td>Also bound roots; mostly Latinate</td><td>Free words; native and Latinate</td></tr>
+            <tr><th>Affixes</th><td>-ity, -ic, -ion, -ian, -ous, -al (adjectival), in-</td><td>-ness, -less, -ful, -ly, -er, -hood, -ment, un-</td></tr>
+            <tr><th>Examples</th><td>ˈactive → acˈtivity, ˈhero → heˈroic, eˈducate → eduˈcation, ˈmusic → muˈsician, ˈpresident → presiˈdential; sane /eɪ/ → sanity /æ/; in- assimilates: impossible, illegal</td><td>ˈhappy → ˈhappiness, ˈpurpose → ˈpurposeful, deˈvelop → deˈvelopment; un- does not assimilate: unlawful, unreal</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Level ordering</b> (lexical morphology, Siegel, Allen, Kiparsky) predicts that Level 2 affixes always sit outside Level 1 affixes: <i>hope-less-ness</i> is fine, *<i>fear-less-ity</i> is impossible. Famous counterexamples: <i>govern-ment-al</i> (Level 2 <i>-ment</i> inside Level 1 <i>-al</i>) and <i>un-grammatical-ity</i>. Plag and Hay explain ordering through each affix's own selectional restrictions and how parsable it is instead.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Compounding in depth</h2>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Type</th><th>Definition</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><th>Endocentric</th><td>Denotes a kind of its head</td><td>armchair (a chair), bookshelf, steamboat</td></tr>
+            <tr><th>Exocentric (bahuvrihi)</th><td>Not a kind of its head; the referent lies outside</td><td>redhead (a person), pickpocket, paperback, egghead</td></tr>
+            <tr><th>Copulative (dvandva)</th><td>Two equal parts: 'X and Y'</td><td>Austria-Hungary, bittersweet, a parent-teacher meeting</td></tr>
+            <tr><th>Appositional</th><td>One referent that is both X and Y</td><td>singer-songwriter, maidservant, fighter-bomber</td></tr>
+            <tr><th>Synthetic (verbal)</th><td>Head derived from a verb; the non-head is that verb's argument</td><td>truck driver (drives trucks), watchmaker, meat-eating</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Some textbooks use <i>copulative</i> for both coordinative types; others keep dvandva and appositional apart. Follow your lecturer's labels.</p>
+        <p><b>Head.</b> English compounds are right-headed (Williams' Righthand Head Rule): the right element fixes the word class (<i>sky-blue</i> is an adjective because <i>blue</i> is), the core meaning (<i>houseboat</i> is a boat, <i>boathouse</i> a house) and carries inflection (<i>bookshelves</i>). Exceptions: exocentric compounds, and lexicalized phrases like <i>passers-by</i>, <i>mothers-in-law</i>, <i>attorney general</i>.</p>
+        <p><b>Stress.</b> Compounds usually stress the first element, phrases the second:</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Compound</th><th>Phrase</th></tr></thead>
+          <tbody>
+            <tr><td>a ˈgreenhouse (glass building for plants)</td><td>a green ˈhouse (a house painted green)</td></tr>
+            <tr><td>a ˈblackbird (a species)</td><td>a black ˈbird (any bird that is black)</td></tr>
+            <tr><td>a ˈblackboard</td><td>a black ˈboard</td></tr>
+            <tr><td>the ˈWhite House</td><td>a white ˈhouse</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">The stress test has exceptions: <i>apple ˈpie</i> and <i>Fifth ˈAvenue</i> have phrasal stress although many treat them as compounds, while <i>ˈFifth Street</i> has compound stress.</p>
+        <p><b>Spelling</b> is no criterion. English writes compounds open (<i>truck driver</i>, <i>ice cream</i>), hyphenated (<i>sister-in-law</i>) or closed (<i>bookshelf</i>), often inconsistently. Better tests: stress, a meaning that isn't just the sum of the parts, and that the first part can't be modified on its own (*<i>a very greenhouse</i>).</p>
+        <p><b>Recursion.</b> A compound can contain compounds: [[[student film] society] committee].</p>
+        <p class="note"><b>German speakers:</b> German writes every compound as one word (<i>Lastwagenfahrer</i>) and uses linking elements (<i>Arbeit-s-amt</i>). English writes many compounds as two words (<i>truck driver</i>, not *<i>truckdriver</i>) and has only fossilized linking elements (<i>craftsman</i>). Check a dictionary; don't glue English compounds together.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Conversion</h2>
+        <p>The form stays the same, only the word class changes: noun → verb (<i>to bottle</i>, <i>to email</i>, <i>to microwave</i>), verb → noun (<i>a run</i>, <i>a big ask</i>), adjective → verb (<i>to empty</i>, <i>to slow down</i>), even preposition → verb (<i>to up the price</i>). The <b>direction</b> is decided by meaning (<i>to bottle</i> means 'put into a bottle', so the noun is basic), by history, and by frequency.</p>
+        <p>Some noun–verb pairs differ in stress: the noun is stressed on the first syllable, the verb on the second (capitals mark the stressed syllable). Whether these count as conversion is debated, since the form does change.</p>
+        <div class="scroll"><table class="tbl" id="stresspairs"></table></div>
+        <p class="note">German nominalizes infinitives freely (<i>das Laufen</i>), but English noun-to-verb conversion (<i>to google</i>, <i>to bin</i>) has no productive German equivalent: German needs a suffix (<i>googeln</i>).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>German-speaker trap: pseudo-anglicisms</h2>
+        <p>These look English but are German creations. Using them in English is a classic mistake.</p>
+        <div class="scroll"><table class="tbl" id="pseudo"></table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Exam traps</h2>
+        <ul class="list">
+          <li><b>Backformation vs clipping.</b> Clipping cuts arbitrarily and keeps the meaning and word class (<i>laboratory</i> → <i>lab</i>). Backformation removes something taken to be an affix and usually yields a new word class (<i>editor</i> N → <i>edit</i> V).</li>
+          <li><b>Blend vs compound.</b> A compound keeps both bases whole (<i>breakfast room</i>); a blend fuses fragments (<i>brunch</i>).</li>
+          <li><b>Acronym vs initialism.</b> NATO is said as a word; BBC letter by letter.</li>
+          <li><b>Calque vs borrowing.</b> <i>kindergarten</i> is borrowed (German form); <i>worldview</i> is a calque (English form, German pattern).</li>
+          <li><b>Conversion has a direction.</b> Name it: <i>bottle</i> N → V.</li>
+          <li><b>Eponyms look like compounds.</b> <i>sandwich</i> is not sand + wich; it is named after the Earl of Sandwich.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TREES & TYPOLOGY -->
+    <section class="panel" id="view-trees" role="tabpanel" aria-labelledby="tab-trees" hidden>
+      <div class="sheet stack">
+        <h2>Morphological trees</h2>
+        <p>A tree (or a labelled bracketing) shows the order in which a complex word is built. Each branching node joins exactly two parts (<b>binary branching</b>) and gets the word class of the result: N noun, V verb, A adjective, Adv adverb. Affixes carry no label of their own. The two parts under a node are its <b>immediate constituents</b>.</p>
+        <p class="note"><b>How to decide.</b> Check what each affix attaches to (re- and reversative un- take verbs, negative un- takes adjectives, -able takes verbs, -ness takes adjectives), and whether every intermediate node is an existing or possible word. <i>unhappiness</i> = [[un-happy]-ness], because *<i>happiness</i> + un- would mean 'not happiness'.</p>
+        <div class="chips" id="treepick"></div>
+        <div class="treebox" id="treeview" aria-live="polite"></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Structural ambiguity</h2>
+        <p>One string, two structures, two meanings. <i>unlockable</i> contains two different prefixes <i>un-</i>.</p>
+        <div class="pair" id="amb"></div>
+        <p class="small muted">Compounds can be ambiguous in the same way: <i>student film society</i>.</p>
+        <div class="pair" id="amb2"></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Bracketing paradoxes</h2>
+        <p>Words whose meaning needs one bracketing but whose form (phonology or affix restrictions) needs another.</p>
+        <div class="pair" id="para"></div>
+        <ul class="list">
+          <li><b>ungrammaticality</b>: meaning [[un-grammatical]-ity] 'the property of being ungrammatical', but level ordering wants Level 2 <i>un-</i> outside Level 1 <i>-ity</i>.</li>
+          <li><b>nuclear physicist</b>: semantically [[nuclear physics]-ist] (someone who does nuclear physics, not a physicist who is nuclear); morphologically <i>nuclear</i> modifies the word <i>physicist</i>. Same with <i>transformational grammarian</i>.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Draw your own tree</h3>
+        <p class="small muted">Type a labelled bracketing. Labels go right after an opening bracket; everything else is a morph. Example: [N [A un- [A kind]] -ness]</p>
+        <input class="input mono" id="mytree" type="text" value="[N [V [A [N nation] -al] -ize] -ation]" aria-label="Labelled bracketing" autocomplete="off" spellcheck="false">
+        <div class="treebox" id="myview" aria-live="polite"></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Morphological typology</h2>
+        <p>Languages differ in how much they pack into a word (<b>synthesis</b>: morphemes per word) and how cleanly morphemes can be separated (<b>fusion</b>). The four classic types are idealizations; real languages mix them.</p>
+        <div class="grid2">
+          <div class="mini"><h3>Isolating (analytic)</h3><p>Words are mostly one morpheme; grammar comes from word order and separate words. Mandarin, Vietnamese, Thai, Yoruba.</p>
+            <div class="scroll"><table class="igt"><tr><td>wǒ</td><td>chī</td><td>le</td><td>fàn</td></tr><tr><td>I</td><td>EAT</td><td>PFV</td><td>RICE</td></tr></table></div><p class="muted small">Mandarin: 'I ate (the) rice'</p></div>
+          <div class="mini"><h3>Agglutinating</h3><p>Several affixes per word, each with one meaning, clear boundaries. Turkish, Finnish, Hungarian, Japanese, Korean, Swahili.</p>
+            <div class="scroll"><table class="igt"><tr><td>ev</td><td>-ler</td><td>-im</td><td>-de</td></tr><tr><td>HOUSE</td><td>PL</td><td>MY</td><td>IN</td></tr></table></div><p class="muted small">Turkish: 'in my houses'</p></div>
+          <div class="mini"><h3>Fusional (inflecting)</h3><p>One affix carries several meanings at once and may fuse with the stem. Latin, Russian, Ancient Greek, Sanskrit; German partly.</p>
+            <div class="scroll"><table class="igt"><tr><td>am</td><td>-ō</td></tr><tr><td>LOVE</td><td>1SG.PRES.ACT.IND</td></tr></table></div><p class="muted small">Latin: 'I love'. Root-and-pattern languages like Arabic (k-t-b: <i>kataba</i> 'he wrote', <i>kitāb</i> 'book') are sometimes split off as introflexive.</p></div>
+          <div class="mini"><h3>Polysynthetic (incorporating)</h3><p>Very long words; one verb can hold subject, object and adverbial meanings, often by incorporating a noun. Inuktitut, Greenlandic, Mohawk, Chukchi.</p>
+            <p class="small"><i>qangatasuukkuvimmuuriaqalaaqtunga</i></p><p class="muted small">Inuktitut, one word: 'I'll have to go to the airport'</p></div>
+        </div>
+        <h3>Index of synthesis</h3>
+        <p class="small muted">Average morphemes per word in a text sample (Greenberg 1960).</p>
+        <div class="stack" id="bars" style="gap:8px"></div>
+        <p><b>English</b> is mostly analytic: <i>will go</i>, <i>more beautiful</i>, <i>the roof of the house</i>. It keeps some fusion (<i>-s</i> in <i>walks</i> = 3rd person + singular + present; <i>went</i>, <i>sang</i>) and agglutinating derivation (<i>un-help-ful-ness</i>). Old English, with its case endings, was far more synthetic (index about 2.1).</p>
+        <p class="note"><b>Don't confuse</b> polysynthetic with agglutinating. Turkish words are long chains of one-meaning affixes; polysynthetic words go further and contain several lexical roots, often a whole clause. Many polysynthetic languages are also agglutinating in technique.</p>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="panel" id="view-glossary" role="tabpanel" aria-labelledby="tab-glossary" hidden>
+      <div class="sheet stack">
+        <h2>Glossary</h2>
+        <input class="input" id="gq" type="search" placeholder="Search terms, definitions, examples" aria-label="Search the glossary" autocomplete="off">
+        <p class="small muted" id="gcount"></p>
+        <div id="glist"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Content follows the standard textbooks: Plag (Word-Formation in English), Katamba &amp; Stonham (Morphology), Bauer (Introducing Linguistic Morphology), and Haspelmath &amp; Sims (Understanding Morphology).</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+// ---------- helpers ----------
+function el(tag, attrs, kids){
+  var n = document.createElement(tag);
+  if (attrs) for (var k in attrs){
+    var v = attrs[k]; if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else if (k.slice(0,2) === 'on') n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  (kids || []).forEach(function(c){ if (c == null) return; n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+  return n;
+}
+function rnd(n){ return Math.floor(Math.random()*n); }
+function shuffle(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=rnd(i+1), t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function pick(a){ return a[rnd(a.length)]; }
+function uniq(a){ var s={}, o=[]; a.forEach(function(x){ if(!s[x]){ s[x]=1; o.push(x);} }); return o; }
+function fill(opts, pool, k){ var o = uniq(opts); var p = shuffle(pool); for (var i=0;i<p.length && o.length<k;i++) if (o.indexOf(p[i]) < 0) o.push(p[i]); return o; }
+var store = {
+  get:function(k, d){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set:function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+
+// ---------- tree parser + renderer ----------
+var LABELS = /^(N|V|A|Adj|Adv|P|Num)$/;
+function parseBr(s){
+  var toks = String(s).replace(/\[/g, ' [ ').replace(/\]/g, ' ] ').trim().split(/\s+/);
+  var i = 0;
+  function node(){
+    if (i >= toks.length || toks[0] === '') throw new Error('The bracketing is empty.');
+    if (toks[i] === '['){
+      i++;
+      var lab = '';
+      if (i < toks.length && LABELS.test(toks[i]) && toks[i+1] !== ']'){ lab = toks[i]; i++; }
+      var kids = [];
+      while (i < toks.length && toks[i] !== ']') kids.push(node());
+      if (toks[i] !== ']') throw new Error('A bracket is not closed.');
+      i++;
+      if (!kids.length) throw new Error('Empty brackets [ ].');
+      return {lab:lab, kids:kids};
+    }
+    if (toks[i] === ']') throw new Error('Too many closing brackets.');
+    return {leaf:toks[i++]};
+  }
+  var t = node();
+  if (i < toks.length) throw new Error('Extra material after the last bracket: wrap everything in one [ ].');
+  return t;
+}
+function svgN(tag, attrs){ var n = document.createElementNS('http://www.w3.org/2000/svg', tag); for (var k in attrs) n.setAttribute(k, attrs[k]); return n; }
+function treeSvg(str){
+  var t = parseBr(str);
+  var leaves = [], maxD = 0, nodes = [];
+  (function walk(n, d){ n.d = d; nodes.push(n); if (d > maxD) maxD = d; if (n.leaf != null){ leaves.push(n); return; } n.kids.forEach(function(k){ walk(k, d+1); }); })(t, 0);
+  if (t.leaf != null) maxD = 0;
+  var PAD = 10, ROW = 46, TOP = 22, x = PAD;
+  leaves.forEach(function(l){ var w = Math.max(52, l.leaf.length*8.6 + 22); l.x = x + w/2; x += w; });
+  var W = Math.round(x + PAD), H = TOP + maxD*ROW + 18;
+  (function px(n){ if (n.leaf != null) return n.x; var xs = n.kids.map(px); n.x = (xs[0] + xs[xs.length-1]) / 2; return n.x; })(t);
+  nodes.forEach(function(n){ n.y = n.leaf != null ? TOP + maxD*ROW : TOP + n.d*ROW; });
+  var s = svgN('svg', {class:'tree', viewBox:'0 0 '+W+' '+H, width:W, role:'img', 'aria-label':'Tree for '+str});
+  s.style.width = '100%'; s.style.maxWidth = W+'px'; s.style.minWidth = Math.round(W*0.78)+'px';
+  nodes.forEach(function(n){
+    if (n.leaf != null) return;
+    n.kids.forEach(function(k){
+      s.appendChild(svgN('line', {x1:n.x, y1:n.y+6, x2:k.x, y2:k.y-(k.leaf != null ? 15 : 13)}));
+    });
+  });
+  nodes.forEach(function(n){
+    var tx = svgN('text', {x:n.x, y:n.leaf != null ? n.y : n.y+1, 'text-anchor':'middle', class:n.leaf != null ? 'lf' : 'lab'});
+    tx.textContent = n.leaf != null ? n.leaf : (n.lab || '·');
+    s.appendChild(tx);
+  });
+  return s;
+}
+function treeBox(title, str, note){
+  var box = el('div', {class:'treebox'});
+  if (title) box.appendChild(el('h3', {text:title}));
+  try { box.appendChild(el('div', {class:'scroll'}, [treeSvg(str)])); }
+  catch(e){ box.appendChild(el('p', {class:'err', text:e.message})); }
+  box.appendChild(el('p', {class:'br', text:str}));
+  if (note) box.appendChild(el('p', {class:'small', text:note}));
+  return box;
+}
+
+// ---------- DATA: trees for the reference tab ----------
+var GALLERY = [
+  ['unhappiness','[N [A un- [A happy]] -ness]','Negative un- attaches to the adjective happy; -ness then makes the noun. Unhappiness means the state of being unhappy, not the absence of happiness.'],
+  ['reusable','[A [V re- [V use]] -able]','re- attaches to verbs, so reuse comes first; -able turns it into an adjective.'],
+  ['ungentlemanly','[A un- [A [N [A gentle] [N man]] -ly]]','gentleman is a compound noun; -ly makes an adjective of it (like friendly); un- negates the adjective. *ungentleman does not exist.'],
+  ['nationalization','[N [V [A [N nation] -al] -ize] -ation]','Each suffix fixes the class of the node it creates: N → A → V → N. (-ation is treated as one suffix.)'],
+  ['teachers','[N [N [V teach] -er] -s]','Derivation (-er) inside, inflection (-s) outside.'],
+  ['decentralization','[N [V de- [V [A central] -ize]] -ation]','de- attaches to the verb centralize; *decentral does not exist.'],
+  ['carelessness','[N [A [N care] -less] -ness]','Affixes attach to bases, never to each other.'],
+  ['ungrammaticality','[N [A un- [A grammatical]] -ity]','Meaning: the property of being ungrammatical. A level-ordering paradox (see below).'],
+  ['student film society','[N [N [N student] [N film]] [N society]]','A society for student films. Compounds are recursive and right-headed.'],
+  ['blackboard eraser','[N [N [A black] [N board]] [N [V erase] -er]]','A thing for wiping blackboards; both parts are complex.']
+];
+
+// ---------- DATA: drill 1, count the morphemes ----------
+// word, number, segmentation
+var COUNT = [
+  ["cats",2,"cat + -s (plural)."],
+  ["unhappy",2,"un- + happy."],
+  ["happiness",2,"happy + -ness (happi- is just a spelling variant)."],
+  ["unhappiness",3,"un- + happy + -ness."],
+  ["unbelievably",4,"un- + believe + -able + -ly."],
+  ["teachers",3,"teach + -er + -s."],
+  ["reworded",3,"re- + word + -ed."],
+  ["carelessness",3,"care + -less + -ness."],
+  ["dislikes",3,"dis- + like + -s."],
+  ["bookshelves",3,"book + shelf + -s (shelv- is an allomorph of shelf)."],
+  ["blackbirds",3,"black + bird + -s."],
+  ["table",1,"One morpheme. -ble here is not a suffix: ta- means nothing on its own."],
+  ["elephant",1,"Three syllables, one morpheme."],
+  ["crocodile",1,"Three syllables, one morpheme."],
+  ["kangaroo",1,"Three syllables, one morpheme."],
+  ["yellow",1,"Two syllables, one morpheme: -ow is not a suffix."],
+  ["the",1,"A free functional morpheme."],
+  ["and",1,"A free functional morpheme."],
+  ["friendships",3,"friend + -ship + -s."],
+  ["unfriendly",3,"un- + friend + -ly."],
+  ["readable",2,"read + -able."],
+  ["rereads",3,"re- + read + -s."],
+  ["oxen",2,"ox + -en (a lexically conditioned plural allomorph)."],
+  ["kingdoms",3,"king + -dom + -s."],
+  ["childhood",2,"child + -hood."],
+  ["governments",3,"govern + -ment + -s."],
+  ["employees",3,"employ + -ee + -s."],
+  ["sleepwalkers",4,"sleep + walk + -er + -s."],
+  ["housekeepers",4,"house + keep + -er + -s."],
+  ["toothbrushes",3,"tooth + brush + -es."],
+  ["helpfulness",3,"help + -ful + -ness."],
+  ["hopelessly",3,"hope + -less + -ly."],
+  ["modernizes",3,"modern + -ize + -s."],
+  ["preheated",3,"pre- + heat + -ed."],
+  ["ex-boyfriends",4,"ex- + boy + friend + -s."],
+  ["overcooked",3,"over- + cook + -ed."],
+  ["renewable",3,"re- + new + -able."],
+  ["singers",3,"sing + -er + -s."],
+  ["bluish",2,"blue + -ish."],
+  ["unbreakable",3,"un- + break + -able."],
+  ["disagreements",4,"dis- + agree + -ment + -s."],
+  ["walking",2,"walk + -ing."],
+  ["quickest",2,"quick + -est."],
+  ["enlargements",4,"en- + large + -ment + -s."],
+  ["mistreated",3,"mis- + treat + -ed."],
+  ["decoded",3,"de- + code + -ed."],
+  ["spoonful",2,"spoon + -ful."],
+  ["darkened",3,"dark + -en + -ed."],
+  ["repainted",3,"re- + paint + -ed."],
+  ["nonsmokers",4,"non- + smoke + -er + -s."],
+  ["wanted",2,"want + -ed."],
+  ["strongest",2,"strong + -est."],
+  ["bookcase",2,"book + case: a compound."],
+  ["unlockable",3,"un- + lock + -able."],
+  ["unkindness",3,"un- + kind + -ness."],
+  ["activists",4,"act + -ive + -ist + -s."]
+];
+
+// ---------- DATA: drill 2, classify a morpheme ----------
+var KIND = {FL:"Free lexical (content)", FF:"Free functional (grammatical)", BD:"Bound derivational", BI:"Bound inflectional"};
+var CLASSIFY = [
+  ["cats","cat","FL","A content word that can stand alone."],
+  ["unhappy","happy","FL","An adjective that can stand alone: free and lexical."],
+  ["teacher","teach","FL","A verb that can stand alone: free and lexical."],
+  ["kindness","kind","FL","An adjective that can stand alone."],
+  ["rewrite","write","FL","A verb that can stand alone."],
+  ["careless","care","FL","A noun that can stand alone."],
+  ["walked","walk","FL","A verb that can stand alone."],
+  ["employer","employ","FL","A verb that can stand alone."],
+  ["bookish","book","FL","A noun that can stand alone."],
+  ["friendship","friend","FL","A noun that can stand alone."],
+  ["taller","tall","FL","An adjective that can stand alone."],
+  ["greenhouse","house","FL","Each part of a compound is a free lexical morpheme."],
+  ["national","nation","FL","A noun that can stand alone."],
+  ["the cat sat down","the","FF","Articles are a closed class of grammar words."],
+  ["a cup of tea","of","FF","A preposition used for a purely grammatical relation: free functional."],
+  ["salt and pepper","and","FF","Conjunctions are a closed class."],
+  ["she left early","she","FF","Pronouns are a closed class."],
+  ["it will rain","will","FF","Auxiliaries and modals are function words."],
+  ["those books","those","FF","Demonstratives are a closed class."],
+  ["I stayed because it rained","because","FF","Conjunctions are a closed class."],
+  ["tea or coffee","or","FF","Conjunctions are a closed class."],
+  ["a dog barked","a","FF","Articles are a closed class."],
+  ["give it to them","them","FF","Pronouns are a closed class."],
+  ["unhappy","un-","BD","A prefix that makes a new adjective with the opposite meaning."],
+  ["kindness","-ness","BD","Makes a noun from an adjective: a new lexeme."],
+  ["teacher","-er","BD","Agent -er makes a noun from a verb. Compare comparative -er in taller, which is inflectional."],
+  ["rewrite","re-","BD","Makes a new verb meaning 'write again'."],
+  ["careless","-less","BD","Makes an adjective from a noun."],
+  ["hopeful","-ful","BD","Makes an adjective from a noun."],
+  ["modernize","-ize","BD","Makes a verb from an adjective."],
+  ["readable","-able","BD","Makes an adjective from a verb."],
+  ["dislike","dis-","BD","Makes a new verb with the opposite meaning."],
+  ["government","-ment","BD","Makes a noun from a verb."],
+  ["childhood","-hood","BD","Makes a new noun (class-maintaining, but still a new lexeme)."],
+  ["misread","mis-","BD","Makes a new verb meaning 'read wrongly'."],
+  ["employee","-ee","BD","Makes a noun for the person affected."],
+  ["friendly","-ly","BD","-ly here makes an adjective from a noun (friend → friendly), so it is derivational."],
+  ["darken","-en","BD","Verb-forming -en (dark → darken). Compare participle -en in eaten."],
+  ["wooden","-en","BD","Adjective-forming -en (wood → wooden)."],
+  ["talented","-ed","BD","-ed on a noun makes an adjective 'having X' (talented, blue-eyed). There is no verb 'to talent', so it can't be a past tense."],
+  ["a new building","-ing","BD","building is a noun naming a thing here: derivational -ing. Compare 'they are building', where -ing is inflectional."],
+  ["sleepy","-y","BD","Makes an adjective from a noun."],
+  ["freedom","-dom","BD","Makes a noun from an adjective."],
+  ["cats","-s","BI","Plural: a grammatical form of the same noun."],
+  ["she walks","-s","BI","3rd person singular present: required by agreement."],
+  ["walked","-ed","BI","Past tense."],
+  ["she is singing","-ing","BI","Progressive: a form of the verb sing."],
+  ["taller","-er","BI","Comparative -er: a form of tall, no new lexeme."],
+  ["tallest","-est","BI","Superlative."],
+  ["has eaten","-en","BI","Past participle."],
+  ["has walked","-ed","BI","Past participle (same form as the past tense: syncretism)."],
+  ["they are building a house","-ing","BI","Progressive: building is a form of the verb here."],
+  ["oxen","-en","BI","Plural: a lexically conditioned allomorph of the plural morpheme."],
+  ["dogs","-s","BI","Plural."]
+];
+
+// ---------- DATA: drill 3, inflection or derivation ----------
+// base, form, context, I/D, why
+var INFDER = [
+  ["walk","walked","I walked home","I","Past tense: the same lexeme WALK, demanded by the syntax."],
+  ["cat","cats","two cats","I","Plural: the same lexeme, fully regular meaning."],
+  ["tall","taller","she is taller","I","Comparative: a form of tall, no new lexeme."],
+  ["tall","tallest","the tallest","I","Superlative: a form of tall."],
+  ["eat","eaten","has eaten","I","Past participle: a form of eat."],
+  ["sing","singing","she is singing","I","Progressive participle: a form of sing."],
+  ["run","runs","she runs","I","3rd person singular: required by agreement."],
+  ["play","played","they played","I","Past tense."],
+  ["ox","oxen","two oxen","I","Plural, even though the allomorph -en is irregular."],
+  ["box","boxes","three boxes","I","Plural."],
+  ["big","bigger","a bigger car","I","Comparative."],
+  ["man","men","two men","I","Plural, marked by a vowel change instead of a suffix."],
+  ["go","went","we went","I","Past tense by suppletion: still a form of the lexeme GO."],
+  ["good","better","much better","I","Comparative by suppletion: still a form of GOOD."],
+  ["happy","happiness","","D","A new noun from an adjective: class-changing."],
+  ["happy","unhappy","","D","A new lexeme with a new meaning, although the class stays the same (class-maintaining)."],
+  ["teach","teacher","","D","A new noun (agent) from a verb."],
+  ["write","rewrite","","D","A new verb with its own meaning: class-maintaining derivation."],
+  ["dark","darken","","D","A new verb from an adjective."],
+  ["wood","wooden","","D","A new adjective from a noun."],
+  ["talent","talented","","D","A new adjective from a noun ('having talent')."],
+  ["friend","friendly","","D","A new adjective from a noun."],
+  ["modern","modernize","","D","A new verb from an adjective."],
+  ["read","readable","","D","A new adjective from a verb."],
+  ["child","childhood","","D","A new noun with a different meaning: class-maintaining derivation."],
+  ["king","kingdom","","D","A new noun: class-maintaining derivation."],
+  ["employ","employee","","D","A new noun from a verb."],
+  ["kind","unkind","","D","A new adjective with the opposite meaning."],
+  ["build","building","a tall building","D","Here building is a noun naming a thing, a lexeme of its own."],
+  ["nation","national","","D","A new adjective from a noun."],
+  ["hope","hopeless","","D","A new adjective from a noun."],
+  ["loyal","disloyal","","D","A new adjective with the opposite meaning."],
+  ["cook","cooker","a gas cooker","D","A new noun (an instrument) with an unpredictable meaning: a cooker is not a person who cooks."],
+  ["slow","slowness","","D","A new noun from an adjective."],
+  ["govern","government","","D","A new noun from a verb."],
+  ["paint","repaint","","D","A new verb: class-maintaining derivation."],
+  ["book","booklet","","D","A new noun (diminutive): class-maintaining derivation."],
+  ["legal","illegal","","D","A new adjective with the opposite meaning (in- appears as il- before l)."],
+  ["free","freedom","","D","A new noun from an adjective."]
+];
+
+// ---------- DATA: drill 4, word-formation process ----------
+var P = {
+  der:"Derivation (affixation)", comp:"Compounding", conv:"Conversion (zero-derivation)", clip:"Clipping", blend:"Blending",
+  back:"Backformation", acro:"Acronym (read as a word)", init:"Initialism (read letter by letter)", borr:"Borrowing (loanword)",
+  calq:"Calque (loan translation)", epon:"Eponym (from a name)", coin:"Coinage (invented from scratch)", redup:"Reduplication",
+  folk:"Folk etymology", neo:"Neoclassical compounding"
+};
+// distractors that would also be defensible for this process, so never offered
+var PEXCL = {blend:['comp','clip'], borr:['calq'], calq:['borr','comp','der'], epon:['conv','coin'], coin:['epon'], redup:['comp'], folk:['comp','borr','calq'], neo:['comp','borr','der']};
+var PNEAR = {der:['conv','comp','back'], comp:['der','blend','neo'], conv:['der','back','comp'], clip:['back','blend','acro'], blend:['back','der','acro'],
+  back:['clip','der','conv'], acro:['init','clip','blend'], init:['acro','clip','blend'], borr:['coin','epon','neo'], calq:['coin','neo','folk'],
+  epon:['borr','der','clip'], coin:['borr','blend','acro'], redup:['blend','der','conv'], folk:['back','blend','coin'], neo:['blend','calq','coin']};
+// shown, process, why, extra exclusions
+var WF = [
+  ["kindness","der","kind + suffix -ness: adjective to noun."],
+  ["unhappy","der","Prefix un- + happy: a new adjective with the opposite meaning."],
+  ["rewrite","der","Prefix re- + write: verb to verb."],
+  ["modernize","der","modern + -ize: adjective to verb."],
+  ["employee","der","employ + -ee: the person affected."],
+  ["careless","der","care + -less: noun to adjective."],
+  ["childhood","der","child + -hood: class-maintaining derivation."],
+  ["freedom","der","free + -dom: adjective to noun."],
+  ["readable","der","read + -able: verb to adjective."],
+  ["misplace","der","mis- + place."],
+  ["disloyal","der","dis- + loyal."],
+  ["prehistoric","der","pre- + historic."],
+  ["friendship","der","friend + -ship."],
+  ["darken","der","dark + -en: adjective to verb."],
+  ["decode","der","de- + code (reversative prefix)."],
+  ["sleepy","der","sleep + -y: noun to adjective."],
+  ["powerful","der","power + -ful: noun to adjective."],
+  ["booklet","der","book + diminutive -let."],
+  ["bookshelf","comp","book + shelf: two free bases, shelf is the head."],
+  ["toothbrush","comp","tooth + brush, right-headed."],
+  ["blackbird","comp","black + bird with compound stress (ˈblackbird): a species, not just any black bird."],
+  ["sunflower","comp","sun + flower."],
+  ["skyscraper","comp","sky + scraper (a synthetic compound). German calqued it as Wolkenkratzer."],
+  ["truck driver","comp","A synthetic compound: truck is the object of drive. English writes it as two words, but it is one compound."],
+  ["redhead","comp","An exocentric compound: a redhead is a person, not a kind of head."],
+  ["pickpocket","comp","An exocentric compound: a person who picks pockets."],
+  ["airport","comp","air + port."],
+  ["snowman","comp","snow + man."],
+  ["headache","comp","head + ache."],
+  ["waterproof","comp","water + proof: a noun + adjective compound."],
+  ["daydream","comp","day + dream."],
+  ["rainfall","comp","rain + fall."],
+  ["mailbox","comp","mail + box."],
+  ["heartbreak","comp","heart + break."],
+  ["sky-blue","comp","sky + blue: blue like the sky; blue as the head makes it an adjective."],
+  ["armchair","comp","arm + chair: an endocentric compound."],
+  ["the verb bottle (bottle the wine)","conv","Noun → verb with no affix."],
+  ["the verb butter (butter the toast)","conv","Noun → verb with no affix."],
+  ["the verb hammer (hammer a nail)","conv","Noun → verb with no affix."],
+  ["the verb text (text me later)","conv","Noun → verb with no affix."],
+  ["the verb chair (chair a meeting)","conv","Noun → verb with no affix."],
+  ["the verb elbow (elbow your way in)","conv","Noun → verb with no affix."],
+  ["the verb water (water the plants)","conv","Noun → verb with no affix."],
+  ["the verb microwave (microwave the soup)","conv","Noun → verb with no affix."],
+  ["the verb bin (bin the receipt)","conv","Noun → verb with no affix (British English)."],
+  ["the noun run (a morning run)","conv","Verb → noun with no affix."],
+  ["the noun swim (go for a swim)","conv","Verb → noun with no affix."],
+  ["the noun must (this film is a must)","conv","A modal verb used as a noun: conversion."],
+  ["the noun ask (that's a big ask)","conv","Verb → noun with no affix."],
+  ["the verb dirty (dirty your shoes)","conv","Adjective → verb with no affix."],
+  ["the verb clean (clean the kitchen)","conv","Adjective → verb with no affix."],
+  ["the verb up (up the price)","conv","Preposition/adverb → verb with no affix."],
+  ["the verb google (google the answer)","conv","The brand name is used as a verb without an affix: conversion. (Google itself was named after googol.)",["epon","coin"]],
+  ["ad","clip","advertisement → ad: back-clipping."],
+  ["phone","clip","telephone → phone: fore-clipping."],
+  ["flu","clip","influenza → flu: clipped at both ends."],
+  ["lab","clip","laboratory → lab."],
+  ["exam","clip","examination → exam."],
+  ["gym","clip","gymnasium → gym."],
+  ["fridge","clip","refrigerator → fridge: both ends, with a spelling change."],
+  ["bus","clip","omnibus → bus: fore-clipping."],
+  ["plane","clip","aeroplane / airplane → plane."],
+  ["memo","clip","memorandum → memo."],
+  ["photo","clip","photograph → photo."],
+  ["vet","clip","veterinarian → vet."],
+  ["prof","clip","professor → prof."],
+  ["demo","clip","demonstration → demo."],
+  ["cello","clip","violoncello → cello."],
+  ["deli","clip","delicatessen → deli."],
+  ["smog","blend","smoke + fog."],
+  ["brunch","blend","breakfast + lunch."],
+  ["motel","blend","motor + hotel."],
+  ["Brexit","blend","Britain + exit."],
+  ["spork","blend","spoon + fork."],
+  ["frenemy","blend","friend + enemy."],
+  ["webinar","blend","web + seminar."],
+  ["emoticon","blend","emotion + icon."],
+  ["glamping","blend","glamorous + camping."],
+  ["hangry","blend","hungry + angry."],
+  ["labradoodle","blend","labrador + poodle."],
+  ["camcorder","blend","camera + recorder."],
+  ["chortle","blend","chuckle + snort (coined by Lewis Carroll as a blend).",["coin"]],
+  ["Spanglish","blend","Spanish + English."],
+  ["guesstimate","blend","guess + estimate."],
+  ["infomercial","blend","information + commercial."],
+  ["edit (editor is older)","back","The -or of editor was treated as an agent suffix and removed: noun → verb. (French éditer may have helped.)"],
+  ["babysit (babysitter is older)","back","-er removed from babysitter."],
+  ["burgle (burglar is older)","back","burglar was reanalysed as burgl- + -ar."],
+  ["televise (television is older)","back","Modelled on revise/revision: -ion removed."],
+  ["donate (donation is older)","back","-ion removed from donation."],
+  ["emote (emotion is older)","back","-ion removed from emotion."],
+  ["enthuse (enthusiasm is older)","back","-iasm treated as a suffix and removed."],
+  ["peddle (peddler is older)","back","-er removed from peddler."],
+  ["pea (the older singular was pease)","back","pease sounded like a plural, so a new singular pea was formed."],
+  ["laze (lazy is older)","back","-y treated as a suffix and removed."],
+  ["resurrect (resurrection is older)","back","-ion removed."],
+  ["liaise (liaison is older)","back","liaison reanalysed as liais- + -on."],
+  ["diagnose (diagnosis is older)","back","-is removed from diagnosis."],
+  ["typewrite (typewriter is older)","back","-er removed."],
+  ["sightsee (sightseeing is older)","back","-ing removed."],
+  ["air-condition (air-conditioning is older)","back","-ing removed."],
+  ["self-destruct (self-destruction is older)","back","-ion removed."],
+  ["NATO","acro","North Atlantic Treaty Organization, pronounced as a word."],
+  ["laser","acro","Light Amplification by Stimulated Emission of Radiation, pronounced as a word."],
+  ["radar","acro","RAdio Detection And Ranging, pronounced as a word."],
+  ["scuba","acro","Self-Contained Underwater Breathing Apparatus, pronounced as a word."],
+  ["UNESCO","acro","Pronounced as a word."],
+  ["NASA","acro","Pronounced as a word."],
+  ["sonar","acro","SOund NAvigation and Ranging, pronounced as a word."],
+  ["PIN","acro","Personal Identification Number, pronounced as a word."],
+  ["OPEC","acro","Pronounced as a word."],
+  ["UNICEF","acro","Pronounced as a word."],
+  ["FOMO","acro","Fear Of Missing Out, pronounced as a word."],
+  ["AIDS","acro","Pronounced as a word."],
+  ["BBC","init","Said letter by letter: B-B-C."],
+  ["FBI","init","Said letter by letter."],
+  ["USA","init","Said letter by letter."],
+  ["CEO","init","Said letter by letter."],
+  ["DVD","init","Said letter by letter."],
+  ["EU","init","Said letter by letter."],
+  ["DIY","init","Said letter by letter."],
+  ["ATM","init","Said letter by letter."],
+  ["VIP","init","Said letter by letter."],
+  ["NHS","init","Said letter by letter."],
+  ["HIV","init","Said letter by letter."],
+  ["UK","init","Said letter by letter."],
+  ["kindergarten","borr","Borrowed from German, form and all."],
+  ["angst","borr","Borrowed from German (or Danish)."],
+  ["zeitgeist","borr","Borrowed from German."],
+  ["ballet","borr","Borrowed from French."],
+  ["croissant","borr","Borrowed from French."],
+  ["pizza","borr","Borrowed from Italian."],
+  ["tsunami","borr","Borrowed from Japanese."],
+  ["sushi","borr","Borrowed from Japanese."],
+  ["safari","borr","Borrowed from Swahili."],
+  ["algebra","borr","Borrowed from Arabic (via Latin)."],
+  ["shampoo","borr","Borrowed from Hindi."],
+  ["schadenfreude","borr","Borrowed from German."],
+  ["rucksack","borr","Borrowed from German."],
+  ["kitsch","borr","Borrowed from German."],
+  ["ombudsman","borr","Borrowed from Swedish."],
+  ["tycoon","borr","Borrowed from Japanese."],
+  ["worldview (German Weltanschauung)","calq","Welt = world, Anschauung = view: translated piece by piece into English material."],
+  ["superman (German Übermensch)","calq","über = super, Mensch = man."],
+  ["loanword (German Lehnwort)","calq","Lehn = loan, Wort = word."],
+  ["flea market (French marché aux puces)","calq","Translated element by element."],
+  ["thought experiment (German Gedankenexperiment)","calq","Gedanke = thought, Experiment = experiment."],
+  ["antibody (German Antikörper)","calq","anti + Körper 'body'."],
+  ["standpoint (German Standpunkt)","calq","stand + Punkt 'point'."],
+  ["beer garden (German Biergarten)","calq","Translated element by element."],
+  ["power politics (German Machtpolitik)","calq","Macht = power, Politik = politics."],
+  ["homesickness (German Heimweh)","calq","Modelled on Heimweh, home + 'woe'."],
+  ["it goes without saying (French ça va sans dire)","calq","A phrase translated word by word."],
+  ["point of view (French point de vue)","calq","Translated element by element."],
+  ["free verse (French vers libre)","calq","Translated element by element."],
+  ["masterpiece (Dutch meesterstuk)","calq","meester = master, stuk = piece."],
+  ["brainwashing (Chinese xǐnǎo 'wash brain')","calq","Translated element by element."],
+  ["sandwich","epon","Named after the Earl of Sandwich. Not a compound of sand + wich."],
+  ["boycott","epon","From Captain Charles Boycott, who was ostracized by his tenants."],
+  ["cardigan","epon","From the Earl of Cardigan."],
+  ["diesel","epon","From the engineer Rudolf Diesel."],
+  ["wellington (boot)","epon","From the Duke of Wellington."],
+  ["leotard","epon","From the acrobat Jules Léotard."],
+  ["braille","epon","From Louis Braille."],
+  ["volt","epon","From Alessandro Volta.",["clip"]],
+  ["watt","epon","From James Watt."],
+  ["shrapnel","epon","From Henry Shrapnel."],
+  ["mackintosh","epon","From Charles Macintosh, who patented waterproof fabric."],
+  ["ohm","epon","From Georg Ohm."],
+  ["Kodak","coin","An invented brand name with no prior meaning."],
+  ["googol","coin","Invented by a mathematician's young nephew for 10 to the power of 100."],
+  ["blurb","coin","Invented by the humorist Gelett Burgess."],
+  ["grok","coin","Invented by Robert Heinlein in a science-fiction novel."],
+  ["quark","coin","A nonsense word from James Joyce, adopted by physics."],
+  ["so-so","redup","Full reduplication."],
+  ["bye-bye","redup","Full reduplication."],
+  ["goody-goody","redup","Full reduplication."],
+  ["ping-pong","redup","Ablaut reduplication: i → o."],
+  ["tick-tock","redup","Ablaut reduplication: i → o."],
+  ["flip-flop","redup","Ablaut reduplication: i → o."],
+  ["hip-hop","redup","Ablaut reduplication: i → o."],
+  ["chit-chat","redup","Ablaut reduplication of chat."],
+  ["dilly-dally","redup","Reduplication of dally."],
+  ["wishy-washy","redup","Ablaut reduplication: i → a."],
+  ["teeny-weeny","redup","Rhyming reduplication."],
+  ["hanky-panky","redup","Rhyming reduplication."],
+  ["fancy-shmancy","redup","shm-reduplication: dismissive."],
+  ["knick-knack","redup","Ablaut reduplication: i → a."],
+  ["bridegroom (Old English brȳdguma, guma 'man')","folk","The obsolete guma was reshaped into the familiar groom."],
+  ["crayfish (Old French crevice)","folk","The ending was reinterpreted as fish, though a crayfish is not a fish."],
+  ["cockroach (Spanish cucaracha)","folk","Reshaped into the familiar cock + roach."],
+  ["female (Old French femelle)","folk","Reshaped to look like male, though the two words are unrelated."],
+  ["shamefaced (older shamefast)","folk","fast 'firm' was reinterpreted as face."],
+  ["hangnail (older agnail)","folk","Reshaped as if from hang + nail."],
+  ["penthouse (Middle English pentis)","folk","Reshaped after house."],
+  ["chaise lounge (French chaise longue)","folk","longue 'long' was reinterpreted as lounge (mainly American)."],
+  ["sparrowgrass (dialect, from asparagus)","folk","Reshaped as if from sparrow + grass."],
+  ["muskrat (Algonquian musquash)","folk","Reshaped as if from musk + rat."],
+  ["salt cellar (Middle English saler 'salt box')","folk","saler was reinterpreted as cellar."],
+  ["forlorn hope (Dutch verloren hoop 'lost troop')","folk","hoop 'troop' was reinterpreted as hope."],
+  ["biology","neo","Greek bio- 'life' + -logy 'study': two bound combining forms."],
+  ["telephone","neo","Greek tele- 'far' + -phone 'sound'."],
+  ["photograph","neo","Greek photo- 'light' + -graph 'writing'."],
+  ["geology","neo","Greek geo- 'earth' + -logy."],
+  ["xenophobia","neo","Greek xeno- 'foreign' + -phobia 'fear'."],
+  ["bibliophile","neo","Greek biblio- 'book' + -phile 'lover'."],
+  ["astronaut","neo","Greek astro- 'star' + -naut 'sailor'."],
+  ["cardiology","neo","Greek cardio- 'heart' + -logy."],
+  ["thermostat","neo","Greek thermo- 'heat' + -stat 'standing'."],
+  ["microscope","neo","Greek micro- 'small' + -scope 'look at'."]
+];
+// German pseudo-anglicisms: German word, what English speakers say, what the English look-alike means
+var PSEUDO = [
+  ["Handy","mobile (phone) / cell phone","handy is an adjective: useful, convenient"],
+  ["Beamer","projector","Beamer is slang for a BMW car"],
+  ["Oldtimer","vintage car / classic car","an old-timer is an elderly person or a veteran"],
+  ["Public Viewing","open-air screening / fan zone","a public viewing is a chance to see a dead person's body before a funeral (esp. American)"],
+  ["Smoking","dinner jacket (BrE) / tuxedo (AmE)","smoking is just the act of smoking"],
+  ["Homeoffice","working from home","the Home Office is the British interior ministry"],
+  ["Shooting (Fotoshooting)","photo shoot","a shooting involves a gun"],
+  ["Showmaster","TV host / presenter","not an English word"],
+  ["Talkmaster","talk-show host","not an English word"],
+  ["Basecap","baseball cap","not an English word"],
+  ["Pullunder","sweater vest (AmE) / tank top (BrE)","not an English word"],
+  ["Peeling","(facial) scrub, exfoliation","peeling means skin or paint coming off in strips"],
+  ["Slip","briefs / underpants","a slip is a woman's undergarment, or a small mistake"],
+  ["Twen","twentysomething","not an English word"],
+  ["Flipper","pinball machine","a flipper is a fin, or one of the paddles in pinball"],
+  ["Dressman","male model","not an English word"]
+];
+var STRESSPAIRS = ["record","permit","contrast","protest","import","export","object","present","increase","conduct","rebel","suspect","insult","convict","produce"];
+
+// ---------- DATA: drill 5, allomorphs ----------
+var SIB = ['s','z','ʃ','ʒ','tʃ','dʒ'], VLS_S = ['p','t','k','f','θ'], VLS_D = ['p','k','f','θ','s','ʃ','tʃ'];
+// word, kind (pl, 3sg, poss, past), final sound, spelling note
+var ALLOW = [
+  ["cats","pl","t",""],["cups","pl","p",""],["books","pl","k",""],["cliffs","pl","f",""],["months","pl","θ"," (spelled th)"],["myths","pl","θ"," (spelled th)"],
+  ["dogs","pl","ɡ",""],["cabs","pl","b",""],["beds","pl","d",""],["bees","pl","iː",", a vowel"],["days","pl","eɪ",", a vowel"],["pens","pl","n",""],["songs","pl","ŋ"," (spelled ng)"],["hills","pl","l",""],["toys","pl","ɔɪ",", a vowel"],["dreams","pl","m",""],
+  ["buses","pl","s",""],["quizzes","pl","z",""],["wishes","pl","ʃ",""],["garages","pl","ʒ"," (or /dʒ/ in another common pronunciation)"],["churches","pl","tʃ",""],["judges","pl","dʒ",""],["boxes","pl","s"," (x = /ks/)"],["roses","pl","z"," (spelled s)"],
+  ["laughs","3sg","f"," (spelled gh)"],["breathes","3sg","ð"," (spelled the)"],["loves","3sg","v",""],["plays","3sg","eɪ",", a vowel"],["watches","3sg","tʃ",""],["rushes","3sg","ʃ",""],["kicks","3sg","k",""],["sees","3sg","iː",", a vowel"],
+  ["Bob's","poss","b",""],["George's","poss","dʒ",""],["Alice's","poss","s",""],["Jack's","poss","k",""],["Pat's","poss","t",""],["Emma's","poss","ə",", a vowel"],
+  ["hoped","past","p",""],["kicked","past","k",""],["laughed","past","f"," (spelled gh)"],["kissed","past","s",""],["wished","past","ʃ",""],["watched","past","tʃ",""],["fixed","past","s"," (x = /ks/)"],["coughed","past","f"," (spelled gh)"],["stopped","past","p",""],
+  ["begged","past","ɡ",""],["judged","past","dʒ",""],["played","past","eɪ",", a vowel"],["loved","past","v",""],["breathed","past","ð",""],["buzzed","past","z",""],["rubbed","past","b",""],["seemed","past","m",""],["filled","past","l",""],["rained","past","n",""],
+  ["wanted","past","t",""],["needed","past","d",""],["hated","past","t",""],["added","past","d",""],["faded","past","d",""],["started","past","t",""],["landed","past","d",""],["waited","past","t",""]
+];
+var AKIND = {pl:"plural", "3sg":"3rd person singular", poss:"possessive", past:"past tense"};
+function alloAnswer(a){
+  var f = a[2];
+  if (a[1] === 'past'){
+    if (f === 't' || f === 'd') return ['/ɪd/', 'an alveolar plosive like the suffix itself, so a vowel is inserted'];
+    if (VLS_D.indexOf(f) >= 0) return ['/t/', 'a voiceless sound, so the suffix is voiceless too'];
+    return ['/d/', 'a voiced sound, so the suffix is voiced'];
+  }
+  if (SIB.indexOf(f) >= 0) return ['/ɪz/', 'a sibilant, so a vowel is inserted to keep the two sibilants apart'];
+  if (VLS_S.indexOf(f) >= 0) return ['/s/', 'a voiceless sound, so the suffix is voiceless too'];
+  return ['/z/', 'a voiced sound, so the suffix is voiced'];
+}
+// how is the form made?
+var AF = {REG:"Regular suffix, allomorph chosen by the last sound", EN:"Lexically conditioned suffix -en / -n", VOW:"Vowel change in the stem", ZERO:"Zero: no overt change", SUPP:"Suppletion: an unrelated form", FOR:"Borrowed (foreign) plural"};
+// form, of, key, extra exclusions
+var AFORM = [
+  ["oxen","the plural of ox","EN"],["eaten","the past participle of eat","EN"],["taken","the past participle of take","EN"],["given","the past participle of give","EN"],["shaken","the past participle of shake","EN"],["fallen","the past participle of fall","EN"],["seen","the past participle of see","EN"],["known","the past participle of know","EN"],["shown","the past participle of show","EN"],["drawn","the past participle of draw","EN"],["beaten","the past participle of beat","EN"],
+  ["feet","the plural of foot","VOW"],["geese","the plural of goose","VOW"],["teeth","the plural of tooth","VOW"],["mice","the plural of mouse","VOW"],["men","the plural of man","VOW"],["lice","the plural of louse","VOW"],
+  ["sang","the past tense of sing","VOW"],["swam","the past tense of swim","VOW"],["drank","the past tense of drink","VOW"],["rode","the past tense of ride","VOW"],["began","the past tense of begin","VOW"],["sat","the past tense of sit","VOW"],["came","the past tense of come","VOW"],["ran","the past tense of run","VOW"],["grew","the past tense of grow","VOW"],["wrote","the past tense of write","VOW"],
+  ["sheep","the plural of sheep","ZERO"],["deer","the plural of deer","ZERO"],["aircraft","the plural of aircraft","ZERO"],["moose","the plural of moose","ZERO"],["species","the plural of species","ZERO"],["salmon","the plural of salmon","ZERO"],
+  ["hit","the past tense of hit","ZERO"],["cut","the past tense of cut","ZERO"],["put","the past tense of put","ZERO"],["set","the past tense of set","ZERO"],["let","the past tense of let","ZERO"],["hurt","the past tense of hurt","ZERO"],["shut","the past tense of shut","ZERO"],
+  ["went","the past tense of go","SUPP"],["was","the past tense of be","SUPP"],["better","the comparative of good","SUPP",["REG"]],["best","the superlative of good","SUPP",["REG"]],["worse","the comparative of bad","SUPP"],["worst","the superlative of bad","SUPP",["REG"]],
+  ["criteria","the plural of criterion","FOR"],["phenomena","the plural of phenomenon","FOR"],["cacti","the plural of cactus","FOR"],["alumni","the plural of alumnus","FOR"],["analyses","the plural of analysis","FOR"],["larvae","the plural of larva","FOR"],["theses","the plural of thesis","FOR"],["curricula","the plural of curriculum","FOR"],["nuclei","the plural of nucleus","FOR"],["stimuli","the plural of stimulus","FOR"],["bacteria","the plural of bacterium","FOR"],
+  ["cats","the plural of cat","REG"],["horses","the plural of horse","REG"],["walked","the past tense of walk","REG"],["wanted","the past tense of want","REG"],["played","the past tense of play","REG"]
+];
+var AFWHY = {
+  EN:"-en / -n is an allomorph of the participle (or plural) morpheme found only with particular words: lexically conditioned, it has to be learned.",
+  VOW:"No suffix: the category is marked by changing the stem vowel (internal modification).",
+  ZERO:"Nothing changes, so the category is marked by a zero morph.",
+  SUPP:"The form is not built on the same stem at all: suppletion.",
+  FOR:"The plural ending was borrowed together with the word from Latin or Greek.",
+  REG:"The regular suffix, whose allomorph is chosen by the stem's last sound."
+};
+// conditioning: item, phon/lex/morph, why
+var COND = [
+  ["the /s/ of cats vs the /z/ of dogs","P","Predictable from the stem's last sound (voiceless /t/ vs voiced /ɡ/)."],
+  ["the /ɪz/ of horses","P","Predictable: the stem ends in a sibilant."],
+  ["the /ɪd/ of wanted","P","Predictable: the stem ends in /t/."],
+  ["the /t/ of hoped","P","Predictable: the stem ends in voiceless /p/."],
+  ["an (an apple) vs a (a pear)","P","Predictable: an before a vowel sound, a before a consonant sound."],
+  ["im- in impossible (vs in- in incomplete)","P","Predictable: the nasal takes the place of the next consonant, bilabial /m/ before /p/."],
+  ["the -en of oxen","L","Only ox takes it; it has to be memorized for that word."],
+  ["the zero plural of sheep","L","Only certain words have it; nothing in the sound predicts it (cf. sheep vs jeeps)."],
+  ["the vowel change in feet","L","Only certain words; boot → boots shows the sounds don't predict it."],
+  ["the -a of criteria","L","Only this borrowed word (and a few others) takes it."],
+  ["the -ren of children","L","Unique to this word."],
+  ["the /s/ of electricity (electric has /k/)","M","Triggered by the suffix -ity, not by the sounds: kicking keeps /k/ before /ɪ/."],
+  ["the /s/ of criticism (critic has /k/)","M","Triggered by particular suffixes (-ism, -ize), not by the sounds: picking keeps /k/."],
+  ["the /s/ of publicity (public has /k/)","M","Triggered by the suffix -ity, not by the sounds."],
+  ["the /ʒ/ of decision (decide has /d/)","M","Triggered by the suffix -ion; /d/ before other vowels stays /d/ (deciding)."],
+  ["the /ʒ/ of division (divide has /d/)","M","Triggered by the suffix -ion, not by the sounds."],
+  ["the /æ/ of sanity (sane has /eɪ/)","M","Triggered by Level 1 -ity; Level 2 -ness keeps /eɪ/ (saneness)."],
+  ["the /e/ of serenity (serene has /iː/)","M","Triggered by Level 1 -ity, not by the sounds."],
+  ["the /ɪ/ of divinity (divine has /aɪ/)","M","Triggered by Level 1 -ity, not by the sounds."]
+];
+var CONDL = {P:"Phonologically conditioned (by the neighbouring sounds)", L:"Lexically conditioned (the word itself decides)", M:"Morphologically conditioned (a particular suffix triggers it)"};
+
+// ---------- DATA: drill 6, trees ----------
+// key, word, criterion, right, wrong x3, why
+var TREEQ = [
+  ["unhappiness","unhappiness","","[N [A un- [A happy]] -ness]",["[N un- [N [A happy] -ness]]","[A un- [N [A happy] -ness]]","[N [V un- [A happy]] -ness]"],"Unhappiness is 'the state of being unhappy', not 'not happiness': negative un- attaches to the adjective, then -ness makes a noun."],
+  ["unkindness","unkindness","","[N [A un- [A kind]] -ness]",["[N un- [N [A kind] -ness]]","[A un- [N [A kind] -ness]]","[N [V un- [A kind]] -ness]"],"un- negates the adjective kind; -ness turns unkind into a noun."],
+  ["reusable","reusable","","[A [V re- [V use]] -able]",["[A re- [A [V use] -able]]","[V re- [A [V use] -able]]","[A [N re- [N use]] -able]"],"re- attaches to verbs (rewrite, reuse), not adjectives: reuse first, then -able."],
+  ["refillable","refillable","","[A [V re- [V fill]] -able]",["[A re- [A [V fill] -able]]","[V re- [A [V fill] -able]]","[A [N re- [N fill]] -able]"],"re- attaches to verbs: refill first, then -able."],
+  ["ungentlemanly","ungentlemanly","","[A un- [A [N gentleman] -ly]]",["[A [N un- [N gentleman]] -ly]","[Adv un- [Adv [N gentleman] -ly]]","[N [A un- [A gentle]] [A manly]]"],"-ly makes an adjective from the noun gentleman (like friendly); un- then negates that adjective. *ungentleman doesn't exist."],
+  ["nationalization","nationalization","","[N [V [A [N nation] -al] -ize] -ation]",["[N [A [V [N nation] -al] -ize] -ation]","[N [N [A [N nation] -al] -ize] -ation]","[V [V [A [N nation] -al] -ize] -ation]"],"nation (N) → national (A) → nationalize (V) → nationalization (N)."],
+  ["unlockA","unlockable","meaning 'able to be unlocked'","[A [V un- [V lock]] -able]",["[A un- [A [V lock] -able]]","[V un- [A [V lock] -able]]","[A [A un- [V lock]] -able]"],"Reversative un- attaches to verbs (untie, undo): unlock first, then -able 'can be unlocked'."],
+  ["unlockB","unlockable","meaning 'impossible to lock'","[A un- [A [V lock] -able]]",["[A [V un- [V lock]] -able]","[V un- [A [V lock] -able]]","[A [A un- [V lock]] -able]"],"Negative un- attaches to the adjective lockable: 'not lockable'."],
+  ["undoA","undoable","meaning 'able to be undone'","[A [V un- [V do]] -able]",["[A un- [A [V do] -able]]","[V un- [A [V do] -able]]","[A [A un- [V do]] -able]"],"Reversative un- + do gives the verb undo; -able: 'can be undone'."],
+  ["undoB","undoable","meaning 'not doable'","[A un- [A [V do] -able]]",["[A [V un- [V do]] -able]","[V un- [A [V do] -able]]","[A [A un- [V do]] -able]"],"Negative un- attaches to the adjective doable."],
+  ["unhappierS","unhappier","matching its MEANING 'more unhappy'","[A [A un- [A happy]] -er]",["[A un- [A [A happy] -er]]","[N [A un- [A happy]] -er]","[V un- [A [A happy] -er]]"],"It is the comparative of unhappy. This is a bracketing paradox: the phonology (next question type) points the other way."],
+  ["unhappierP","unhappier","that respects the rule that comparative -er only attaches to short bases (*beautifuller)","[A un- [A [A happy] -er]]",["[A [A un- [A happy]] -er]","[N un- [N [A happy] -er]]","[A [V un- [A happy]] -er]"],"Two-syllable happy can take -er; three-syllable unhappy shouldn't. So the form wants un- + happier, while the meaning wants [unhappy]-er: a bracketing paradox."],
+  ["sfsA","student film society","meaning 'a society for student films'","[N [N [N student] [N film]] [N society]]",["[N [N student] [N [N film] [N society]]]","[N [N student] [N film] [N society]]","[A [N [N student] [N film]] [N society]]"],"student film is a unit; society is the head. Morphological trees branch in two."],
+  ["sfsB","student film society","meaning 'a film society made up of students'","[N [N student] [N [N film] [N society]]]",["[N [N [N student] [N film]] [N society]]","[N [N student] [N film] [N society]]","[A [N student] [N [N film] [N society]]]"],"film society is a unit; student modifies the whole."],
+  ["unbelievable","unbelievable","","[A un- [A [V believe] -able]]",["[A [V un- [V believe]] -able]","[V un- [A [V believe] -able]]","[A [A un- [V believe]] -able]"],"*unbelieve is not a verb (reversative un- needs an undoable action), so negative un- attaches to believable."],
+  ["uncontrollable","uncontrollable","","[A un- [A [V control] -able]]",["[A [V un- [V control]] -able]","[V un- [A [V control] -able]]","[A [A un- [V control]] -able]"],"*uncontrol is not a verb; negative un- attaches to controllable."],
+  ["carelessness","carelessness","","[N [A [N care] -less] -ness]",["[N [N care] [N -less -ness]]","[A [A [N care] -less] -ness]","[N [V [N care] -less] -ness]"],"Affixes attach to bases, not to each other: care (N) → careless (A) → carelessness (N)."],
+  ["helplessness","helplessness","","[N [A [N help] -less] -ness]",["[N [N help] [N -less -ness]]","[A [A [N help] -less] -ness]","[N [V [N help] -less] -ness]"],"help (N) → helpless (A) → helplessness (N)."],
+  ["decentralization","decentralization","","[N [V de- [V [A central] -ize]] -ation]",["[N [V [A de- [A central]] -ize] -ation]","[N [N de- [N [A central] -ize]] -ation]","[A [V de- [V [A central] -ize]] -ation]"],"central (A) → centralize (V) → decentralize (V) → decentralization (N). *decentral doesn't exist."],
+  ["teachers","teachers","","[N [N [V teach] -er] -s]",["[N [V [V teach] -s] -er]","[N [V teach] [N -er -s]]","[V [N [V teach] -er] -s]"],"Derivation inside, inflection outside: teacher is formed first, then pluralized."],
+  ["employers","employers","","[N [N [V employ] -er] -s]",["[N [V [V employ] -s] -er]","[N [V employ] [N -er -s]]","[V [N [V employ] -er] -s]"],"Derivation inside, inflection outside."],
+  ["modernizes","modernizes","","[V [V [A modern] -ize] -s]",["[V [A [A modern] -s] -ize]","[V [A modern] [V -ize -s]]","[A [V [A modern] -ize] -s]"],"modern (A) → modernize (V) → modernizes (3rd person singular)."],
+  ["kindnesses","kindnesses","","[N [N [A kind] -ness] -es]",["[N [A [A kind] -es] -ness]","[N [A kind] [N -ness -es]]","[A [N [A kind] -ness] -es]"],"kind (A) → kindness (N) → plural. Inflection goes outside."],
+  ["ungrammaticality","ungrammaticality","","[N [A un- [A grammatical]] -ity]",["[N un- [N [A grammatical] -ity]]","[A un- [N [A grammatical] -ity]]","[N [V un- [A grammatical]] -ity]"],"It means 'the property of being ungrammatical', so un- attaches to the adjective first (a level-ordering paradox, since un- is Level 2 and -ity Level 1)."],
+  ["reconsideration","reconsideration","","[N [V re- [V consider]] -ation]",["[N re- [N [V consider] -ation]]","[V re- [N [V consider] -ation]]","[N [A re- [V consider]] -ation]"],"re- attaches to verbs: reconsider, then -ation nominalizes."],
+  ["enlargement","enlargement","","[N [V en- [A large]] -ment]",["[N en- [N [A large] -ment]]","[V [V en- [A large]] -ment]","[N [A en- [A large]] -ment]"],"en- turns the adjective large into the verb enlarge; -ment attaches to verbs. *largement doesn't exist."],
+  ["unfriendliness","unfriendliness","","[N [A un- [A [N friend] -ly]] -ness]",["[N un- [N [A [N friend] -ly] -ness]]","[N [Adv un- [Adv [N friend] -ly]] -ness]","[A [A un- [A [N friend] -ly]] -ness]"],"friend (N) → friendly (A, not an adverb) → unfriendly (A) → unfriendliness (N)."],
+  ["readability","readability","","[N [A [V read] -able] -ity]",["[N [V read] [N -able -ity]]","[A [A [V read] -able] -ity]","[N [N [V read] -able] -ity]"],"read (V) → readable (A) → readability (N); -abil- is the allomorph of -able before -ity."],
+  ["industrialize","industrialize","","[V [A [N industry] -al] -ize]",["[V [N industry] [V -al -ize]]","[V [N [N industry] -al] -ize]","[A [A [N industry] -al] -ize]"],"industry (N) → industrial (A) → industrialize (V)."],
+  ["blackboard","blackboard eraser","meaning 'a thing for wiping blackboards'","[N [N [A black] [N board]] [N [V erase] -er]]",["[N [A black] [N [N board] [N [V erase] -er]]]","[N [N [A black] [N board]] [V [V erase] -er]]","[V [N [A black] [N board]] [N [V erase] -er]]"],"blackboard and eraser are each complex; eraser is the head. [black [board eraser]] would be a board eraser that is black."],
+  ["rewritten","rewritten","","[V [V re- [V write]] -en]",["[V re- [V [V write] -en]]","[A [A re- [V write]] -en]","[N [V re- [V write]] -en]"],"Derivation (re-) inside, inflection (participle -en) outside."]
+];
+
+// ---------- DATA: drill 7, typology ----------
+var TY = {I:"Isolating (analytic)", A:"Agglutinating", F:"Fusional (inflecting)", P:"Polysynthetic"};
+var TYPQ = [
+  ["Mandarin Chinese","I","Words rarely change form; aspect is a separate particle (le) and word order does the grammar."],
+  ["Vietnamese","I","Greenberg's index of synthesis for Vietnamese is about 1.06: almost one morpheme per word."],
+  ["Thai","I","Grammatical meanings are expressed by separate words and word order."],
+  ["Yoruba","I","Largely isolating: grammatical meanings are separate words."],
+  ["Turkish","A","Long chains of suffixes, each with one meaning: ev-ler-im-de 'in my houses'."],
+  ["Finnish","A","Stacks case, number and possessive suffixes with clear boundaries."],
+  ["Hungarian","A","ház-ak-ban 'in houses': one suffix per meaning."],
+  ["Japanese","A","Verb suffixes line up one meaning at a time: tabe-sase-rare-ta."],
+  ["Korean","A","Agglutinating verb and noun morphology."],
+  ["Swahili","A","Verb prefixes for subject, tense and object string together: ni-ta-ku-penda 'I will love you'."],
+  ["Latin","F","Endings combine case, number and gender (nouns) or person, number, tense, mood, voice (verbs) in one morph."],
+  ["Russian","F","Case endings fuse case and number: knig-ami 'with books'."],
+  ["Ancient Greek","F","Classic fusional inflection."],
+  ["Sanskrit","F","Classic fusional inflection (Greenberg's index about 2.6)."],
+  ["Polish","F","Case endings fuse case, number and gender."],
+  ["Inuktitut","P","One word can express a whole English sentence."],
+  ["Mohawk","P","Famous for noun incorporation: the object noun is built into the verb."],
+  ["West Greenlandic","P","Long words built from a root plus many derivational and inflectional suffixes."],
+  ["Classical Nahuatl","P","Incorporates nouns into verbs and builds long verb complexes."],
+  ["Chukchi","P","Noun incorporation and very long verb words."],
+  ["Turkish ev-ler-im-de 'in my houses' (house-PL-my-in)","A","Each suffix has exactly one meaning and boundaries are clean."],
+  ["Turkish gel-me-di-m 'I didn't come' (come-NEG-PAST-I)","A","One suffix per meaning, lined up in order."],
+  ["Finnish talo-i-ssa-ni 'in my houses' (house-PL-in-my)","A","One suffix per meaning."],
+  ["Hungarian ház-ak-ban 'in (the) houses' (house-PL-in)","A","One suffix per meaning."],
+  ["Swahili ni-ta-ku-penda 'I will love you' (I-FUT-you-love)","A","Each prefix has one meaning; boundaries are clear."],
+  ["Japanese tabe-sase-rare-ta 'was made to eat' (eat-CAUSE-PASSIVE-PAST)","A","One suffix per meaning."],
+  ["Mandarin wǒ chī le fàn 'I ate (the) rice' (I eat PFV rice)","I","Every word is one morpheme; aspect is a separate particle."],
+  ["Vietnamese tôi sẽ đi 'I will go' (I FUT go)","I","Future is a separate word; the verb doesn't change."],
+  ["Latin am-ō 'I love': the one ending -ō marks 1st person + singular + present + active + indicative","F","Several meanings in one unsegmentable ending."],
+  ["Latin domin-ōrum 'of the masters': -ōrum marks genitive + plural at once","F","Case and number fused in one ending."],
+  ["Russian knig-ami 'with books': -ami marks instrumental + plural at once","F","Case and number fused in one ending."],
+  ["Spanish habl-ó 'he/she spoke': -ó marks 3rd person + singular + past at once","F","Person, number and tense fused in one ending."],
+  ["German des Kind-es: -es marks genitive + singular at once","F","Case and number fused: German is partly fusional."],
+  ["English walk-s: -s marks 3rd person + singular + present at once","F","A fusional (cumulative) suffix in mostly analytic English."],
+  ["Inuktitut qangatasuukkuvimmuuriaqalaaqtunga, one word for 'I'll have to go to the airport'","P","A whole clause in one word."],
+  ["Mohawk forms one verb meaning 'I bed-bought' by building the noun into the verb","P","Noun incorporation is the hallmark of polysynthesis."],
+  ["Words are mostly single morphemes; grammar is carried by word order and separate words.","I","That is the definition of isolating."],
+  ["Each affix has one meaning, and affixes line up with clean boundaries.","A","That is the definition of agglutinating."],
+  ["One affix expresses several grammatical meanings at once, and the stem itself may change.","F","That is the definition of fusional."],
+  ["A single word can say what English needs a whole sentence for, often by incorporating a noun into the verb.","P","That is the definition of polysynthetic."],
+  ["Index of synthesis close to 1.0","I","About one morpheme per word: isolating (Vietnamese 1.06)."],
+  ["Index of synthesis above 3","P","Many morphemes per word: polysynthetic (Greenberg's Eskimo sample 3.72)."]
+];
+var SYNTH = [["Vietnamese",1.06],["English",1.68],["Old English",2.12],["Swahili",2.55],["Sanskrit",2.59],["Inuit (Greenberg: Eskimo)",3.72]];
+
+// ---------- DATA: glossary (also drill 8) ----------
+// term, definition, example, group, exclusions
+var GLOSS = [
+  ["morpheme","The smallest unit of language that carries meaning or a grammatical function.","unkindness = un- + kind + -ness","m"],
+  ["morph","The concrete form (a sequence of sounds or letters) that realizes a morpheme in a particular word.","/s/ in cats and /z/ in dogs are two morphs","m"],
+  ["allomorph","One of several morphs that realize the same morpheme, chosen by context.","plural /s/, /z/, /ɪz/; in- / im- / il- / ir-","m"],
+  ["free morpheme","A morpheme that can stand on its own as a word.","dog, happy, the","m",["simplex word"]],
+  ["bound morpheme","A morpheme that cannot occur alone and must attach to another morpheme.","un-, -ness, -s, -ceive","m",["affix","clitic"]],
+  ["lexical morpheme (content morpheme)","A morpheme with dictionary-type meaning, belonging to an open class to which new members are easily added.","dog, run, green","m"],
+  ["functional morpheme (grammatical morpheme)","A free morpheme that mainly expresses grammatical relations; a closed class.","the, of, and, she, will","m"],
+  ["root","The irreducible core of a word, left when all affixes are removed, carrying its main meaning.","touch in untouchables","m",["simplex word","base","stem"]],
+  ["stem","The form to which inflectional affixes attach; it may already contain derivational affixes.","untouchable in untouchables","m",["base","root"]],
+  ["base","Any form to which an affix is attached, whether a root or an already complex form.","touchable is the base of un- in untouchable","m",["stem","root"]],
+  ["affix","A bound morpheme attached to a base; the umbrella term for prefixes, suffixes, infixes and circumfixes.","un-, -ness, -s","m",["bound morpheme","clitic"]],
+  ["prefix","An affix attached before the base.","un-, re-, pre-","m"],
+  ["suffix","An affix attached after the base.","-ness, -s, -ize","m",["clitic"]],
+  ["infix","An affix inserted inside a root or base.","Tagalog s-um-ulat","m",["expletive infixation"]],
+  ["circumfix","An affix in two parts that surround the base and work as one unit.","German ge-spiel-t","m"],
+  ["expletive infixation","Inserting a swear word or intensifier inside an English word, right before its stressed syllable.","abso-bloody-lutely","m",["infix"]],
+  ["simplex word","A word that consists of a single morpheme.","table, elephant","m",["free morpheme","root"]],
+  ["complex word","A word that consists of more than one morpheme.","unkindness, bookshelf","m"],
+  ["clitic","A form that behaves like a separate word in the syntax but leans on a neighbouring word in pronunciation.","'s in the King of England's hat; 'll in I'll","m",["affix","suffix","bound morpheme"]],
+  ["inflection","Morphology that makes different forms of the same lexeme to express grammatical categories the syntax requires.","walk, walks, walked, walking","i",["paradigm"]],
+  ["derivation","Morphology that creates a new lexeme from an existing one, often changing its word class.","kind → kindness, happy → unhappy","i"],
+  ["class-changing affix","A derivational affix that gives its output a different word class from its base.","-ness (A → N), -ize (A → V)","i"],
+  ["class-maintaining affix","A derivational affix whose output has the same word class as its base.","un- (happy → unhappy), -hood (child → childhood)","i"],
+  ["lexeme","An abstract dictionary word that groups all its inflected forms.","WALK covers walk, walks, walked, walking","i",["word-form","paradigm"]],
+  ["word-form","One concrete inflected form of a lexeme.","walked is a word-form of WALK","i",["lexeme"]],
+  ["paradigm","The full set of inflected forms of one lexeme.","sing, sings, sang, sung, singing","i",["lexeme","inflection"]],
+  ["syncretism","One form serving two or more grammatical functions within a paradigm.","walked as past tense and past participle","i"],
+  ["suppletion","Expressing a grammatical form with a completely or largely unrelated stem.","go / went, good / better","a",["internal modification (ablaut, umlaut)"]],
+  ["internal modification (ablaut, umlaut)","Marking a grammatical category by changing a sound inside the stem instead of adding an affix.","sing / sang, foot / feet","a",["suppletion"]],
+  ["zero morph","A morpheme with no overt form, posited because of the pattern in other words.","the plural of sheep; the past of hit","a",["conversion (zero-derivation)"]],
+  ["portmanteau morph","A single morph that realizes several morphemes or grammatical meanings at once (cumulative exponence).","-s in walks: 3rd person + singular + present","a",["blending","fusional (inflecting) language"]],
+  ["cranberry morpheme","A bound morpheme that occurs in only one word and has no meaning outside it.","cran- in cranberry, luke- in lukewarm","a",["bound root","empty morph"]],
+  ["bound root","A root that cannot be a word on its own but recurs in several words.","-ceive in receive, deceive, conceive","a",["cranberry morpheme","combining form"]],
+  ["empty morph","A piece of form that carries no meaning and belongs to no morpheme; its existence is debated.","the linking -o- in speedometer","a",["cranberry morpheme","zero morph"]],
+  ["phonologically conditioned allomorphy","The choice of allomorph is predictable from the surrounding sounds.","plural /s z ɪz/; a vs an","a"],
+  ["lexically conditioned allomorphy","The choice of allomorph depends on the particular word and has to be memorized.","ox → oxen, not *oxes","a",["morphologically conditioned allomorphy"]],
+  ["morphologically conditioned allomorphy","The choice of allomorph depends on a particular morphological context, such as a specific following affix.","electric /k/ but electricity /s/","a",["lexically conditioned allomorphy"]],
+  ["productivity","The degree to which a pattern is actually used to form new words.","-ness is productive; -th (warmth) is not","w"],
+  ["hapax legomenon","A word that occurs only once in a corpus; many of them with an affix signal that the affix is productive.","a one-off -ness word in a large corpus","w",["nonce formation"]],
+  ["nonce formation","A word made up on the spot for one occasion and not (yet) part of the lexicon.","a very un-Monday-ish feeling","w",["hapax legomenon","coinage","neologism"]],
+  ["neologism","A recently created word of any formation type that has begun to spread.","doomscrolling, staycation","w",["coinage","nonce formation","eponym"]],
+  ["blocking","The non-formation of a possible word because an established word with the same meaning already exists.","*stealer blocked by thief; *gloriosity by glory","w"],
+  ["Level 1 affix","An affix (often Latinate) that attaches early, can attach to bound roots, and can shift stress and change the base's sounds.","-ity: ˈactive → acˈtivity","w",["Level 2 affix"]],
+  ["Level 2 affix","A stress-neutral affix that attaches outside Level 1 affixes and leaves the base unchanged.","-ness: ˈhappy → ˈhappiness","w",["Level 1 affix"]],
+  ["level ordering","The hypothesis that all Level 1 affixation happens before Level 2, so Level 2 affixes sit outside Level 1 ones.","hope-less-ness, but *fear-less-ity","w"],
+  ["lexicalization","The process by which a complex word becomes an established unit whose meaning or form is no longer fully predictable from its parts.","awful no longer means 'full of awe'","w"],
+  ["compound","A word made of two or more bases.","bookshelf, blackbird","c",["endocentric compound","exocentric compound (bahuvrihi)","copulative compound (dvandva)","appositional compound","synthetic compound (verbal compound)","neoclassical compound"]],
+  ["head","The element that determines a complex word's word class and core meaning and carries its inflection.","shelf in bookshelf","c",["right-hand head rule"]],
+  ["right-hand head rule","The generalization that in English the head of a complex word is its rightmost element.","houseboat (a boat) vs boathouse (a house)","c",["head"]],
+  ["endocentric compound","A compound that denotes a subtype of what its head denotes.","an armchair is a kind of chair","c",["compound"]],
+  ["exocentric compound (bahuvrihi)","A compound that does not denote a kind of its head; the referent lies outside the compound.","redhead (a person), pickpocket","c",["compound"]],
+  ["copulative compound (dvandva)","A coordinative compound whose two parts are on an equal footing: 'X and Y'.","Austria-Hungary, bittersweet","c",["compound","appositional compound"]],
+  ["appositional compound","A coordinative compound with a single referent that is both X and Y.","singer-songwriter, maidservant","c",["compound","copulative compound (dvandva)"]],
+  ["synthetic compound (verbal compound)","A compound whose head is derived from a verb and whose non-head is an argument of that verb.","truck driver, watchmaker","c",["compound"]],
+  ["conversion (zero-derivation)","Using a word in a new word class without adding any affix.","a bottle → to bottle; to run → a run","w",["zero morph"]],
+  ["clipping","Shortening a word by cutting off part of it, without changing its meaning or word class.","laboratory → lab, influenza → flu","w",["backformation"]],
+  ["blending","Fusing parts of two words, usually the beginning of one and the end of the other.","smoke + fog → smog","w",["portmanteau morph"]],
+  ["backformation","Forming a new word by removing what is taken to be an affix from an existing word.","editor → edit, babysitter → babysit","w",["clipping"]],
+  ["acronym","A word formed from the initial letters of a phrase and pronounced as a word.","NATO, laser","w"],
+  ["initialism","An abbreviation formed from initial letters and pronounced letter by letter.","BBC, FBI, CEO","w",["acronym"]],
+  ["borrowing (loanword)","Taking a word, form and all, from another language.","kindergarten (German), sushi (Japanese)","w",["calque (loan translation)","pseudo-anglicism"]],
+  ["calque (loan translation)","Translating a foreign word or phrase element by element into native material.","Weltanschauung → worldview","w",["borrowing (loanword)"]],
+  ["pseudo-anglicism","A word in another language made from English material but not used in English (in that meaning).","German Handy 'mobile phone', Beamer 'projector'","w",["borrowing (loanword)"]],
+  ["coinage","Inventing an entirely new root, not built from existing morphemes.","Kodak, googol","w",["eponym","neologism","nonce formation"]],
+  ["eponym","A common word derived from the name of a person (or place).","sandwich, boycott, cardigan","w",["coinage","neologism","conversion (zero-derivation)"]],
+  ["reduplication","Repeating all or part of a base, sometimes with a change of vowel or consonant.","bye-bye, ping-pong, fancy-shmancy","w"],
+  ["folk etymology","Reshaping an unfamiliar word so that it seems to contain familiar words.","Spanish cucaracha → cockroach","w"],
+  ["neoclassical compound","A compound built from Greek or Latin combining forms that are bound in English.","biology, telephone","c",["compound","hybrid formation","combining form"]],
+  ["combining form","A bound element of Greek or Latin origin used to build neoclassical compounds, at the start or the end of the word.","bio-, tele-, -logy, -phone","c",["bound root","neoclassical compound","affix"]],
+  ["hybrid formation","A word that combines elements from different source languages.","television: Greek tele- + Latin vision","c",["neoclassical compound"]],
+  ["isolating (analytic) language","A language whose words typically consist of one morpheme, with grammar expressed by word order and separate words.","Mandarin, Vietnamese","t"],
+  ["agglutinating language","A language whose words contain several clearly separable affixes, each with one meaning.","Turkish ev-ler-im-de 'in my houses'","t"],
+  ["fusional (inflecting) language","A language whose affixes typically express several grammatical meanings at once and may fuse with the stem.","Latin am-ō 'I love'","t",["portmanteau morph"]],
+  ["polysynthetic language","A language in which one word can contain many morphemes, often including several roots, so that a word can express a whole clause.","Inuktitut, Mohawk","t",["noun incorporation"]],
+  ["noun incorporation","Building a noun, usually the object, into a verb to form one complex verb.","Mohawk 'I bed-bought'","t",["polysynthetic language"]],
+  ["index of synthesis","The average number of morphemes per word in a text.","Vietnamese about 1.06, English about 1.68","t"],
+  ["immediate constituents","The two parts that a complex word (or a part of it) splits into at each level of its structure.","unhappiness → unhappy + -ness","t"],
+  ["bracketing paradox","A word whose meaning requires one bracketing but whose form requires another.","unhappier: means [[unhappy]-er], but -er needs a short base","t"]
+];
+
+// ---------- DATA: word-formation cards ----------
+// terms that would also (more loosely) fit another entry's definition: never offered as its distractors
+var GX = {
+  "allomorph":["morph"], "morph":["allomorph"], "free morpheme":["morpheme"], "bound morpheme":["morpheme"],
+  "lexical morpheme (content morpheme)":["morpheme","free morpheme"], "functional morpheme (grammatical morpheme)":["morpheme","free morpheme"],
+  "prefix":["affix","bound morpheme"], "suffix":["affix","bound morpheme"], "infix":["affix","bound morpheme"], "circumfix":["affix","bound morpheme"],
+  "class-changing affix":["affix","derivation","bound morpheme","Level 1 affix","Level 2 affix"], "class-maintaining affix":["affix","derivation","bound morpheme","Level 1 affix","Level 2 affix"],
+  "Level 1 affix":["affix","bound morpheme","class-changing affix","class-maintaining affix"], "Level 2 affix":["affix","bound morpheme","class-changing affix","class-maintaining affix"],
+  "bound root":["root","bound morpheme"], "cranberry morpheme":["bound morpheme","morpheme","root"], "empty morph":["morph"],
+  "zero morph":["morph","morpheme"], "portmanteau morph":["morph","syncretism"], "syncretism":["portmanteau morph"],
+  "agglutinating language":["polysynthetic language"], "polysynthetic language":["agglutinating language"],
+  "simplex word":["morpheme"], "combining form":["bound morpheme","morpheme"]
+};
+GLOSS.forEach(function(g){ if (GX[g[0]]) g[4] = (g[4] || []).concat(GX[g[0]]); });
+
+var WGROUPS = [['all','All'],['add','Adding & combining'],['conv','No added form'],['short','Shortening'],['contact','Language contact'],['new','Invention & reshaping']];
+var WCARDS = [
+  {g:'add', t:'Derivation', d:'Adding a derivational affix to a base to make a new lexeme.', ex:['kind → kindness','happy → unhappy','modern → modernize','employ → employee','child → childhood'], n:'Class-changing (kind A → kindness N) or class-maintaining (child N → childhood N, and most prefixes). See Derivation in depth below.'},
+  {g:'add', t:'Compounding', d:'Joining two or more bases into one word.', ex:['bookshelf','blackbird','truck driver','redhead','sister-in-law'], n:'Right-hand head, stress usually on the first element, spelling unreliable. See Compounding in depth below.'},
+  {g:'add', t:'Neoclassical compounds', d:'Compounds of Greek or Latin combining forms that are bound in English.', ex:['bio + logy → biology','tele + phone → telephone','photo + graph → photograph','xeno + phobia → xenophobia','television (Greek tele- + Latin vision: a hybrid)'], n:'The parts are bound but behave like roots, not affixes: they combine with each other (biology has no free part), and some occur at either end (graphology, photograph).'},
+  {g:'add', t:'Reduplication', d:'Repeating all or part of a base, often with a change.', ex:['bye-bye, goody-goody (full)','teeny-weeny, hanky-panky (rhyming)','ping-pong, flip-flop, chit-chat (vowel change)','fancy-shmancy (shm-reduplication, dismissive)','"the SALAD-salad" (contrastive: the real, prototypical one)'], n:'Marginal in English, central in many languages: Indonesian rumah \'house\', rumah-rumah \'houses\'.'},
+  {g:'conv', t:'Conversion (zero-derivation)', d:'Using a word in a new word class with no change of form.', ex:['a bottle → to bottle','to run → a run','empty (A) → to empty','up → to up the price','the brand Google → to google'], n:'Very productive in English, especially noun → verb. The direction is decided by meaning (to bottle = put in a bottle, so the noun is basic), history and frequency.'},
+  {g:'short', t:'Clipping', d:'Cutting off part of a word; meaning and word class stay the same.', ex:['advertisement → ad (back-clipping)','telephone → phone (fore-clipping)','influenza → flu (both ends)','laboratory → lab','refrigerator → fridge'], n:'Clippings start out informal; many become neutral (bus from omnibus, pub from public house).'},
+  {g:'short', t:'Blending', d:'Fusing parts of two words, usually the start of one and the end of the other.', ex:['smoke + fog → smog','breakfast + lunch → brunch','motor + hotel → motel','Britain + exit → Brexit','spoon + fork → spork'], n:'Also called portmanteau words. One part can stay whole: Brexit keeps exit.'},
+  {g:'short', t:'Backformation', d:'Removing what looks like an affix from an existing word.', ex:['editor → edit','babysitter → babysit','burglar → burgle','television → televise','donation → donate'], n:'It looks like ordinary derivation run backwards; only history tells you (editor is older than edit). Unlike clipping, it usually creates a new word class.'},
+  {g:'short', t:'Acronyms and initialisms', d:'Words made from the initial letters (or parts) of a phrase.', ex:['NATO, laser, radar, scuba (acronyms: said as words)','BBC, FBI, CEO, DVD (initialisms: letter by letter)','CD-ROM, JPEG (mixed)'], n:'Many books use acronym for both; when your course distinguishes them, acronym = pronounced as a word, initialism = letter by letter.'},
+  {g:'contact', t:'Borrowing', d:'Taking a word over from another language, form and all.', ex:['kindergarten, angst, zeitgeist (German)','ballet, croissant (French)','pizza (Italian)','sushi, tsunami (Japanese)','algebra (Arabic)'], n:'Most of English dictionary vocabulary comes from Latin and French, though the most frequent everyday words are Germanic.'},
+  {g:'contact', t:'Calque (loan translation)', d:'Translating a foreign word or phrase piece by piece with native material.', ex:['Weltanschauung → worldview','Übermensch → superman','marché aux puces → flea market','English skyscraper → German Wolkenkratzer'], n:'The form is native; only the pattern is borrowed. Contrast borrowing, where the form itself comes in (kindergarten).'},
+  {g:'contact', t:'Pseudo-anglicisms', d:'Words in another language made from English material that English speakers don\'t use in that meaning.', ex:['Handy','Beamer','Oldtimer','Public Viewing'], n:'Not an English word-formation process, but the classic German-speaker trap. See the table below.'},
+  {g:'new', t:'Coinage and eponyms', d:'Coinage invents a new root from nothing; eponyms turn a name into a common word.', ex:['Kodak, googol, blurb (coinages)','sandwich, boycott, cardigan, diesel, watt (eponyms)','hoover, kleenex (brand names that became generic)'], n:'Many books treat eponyms as a kind of coinage. Brand names turned into verbs (to google, to hoover) are conversion.'},
+  {g:'new', t:'Folk etymology', d:'Reshaping an unfamiliar word so that it seems to contain familiar words.', ex:['Spanish cucaracha → cockroach','Old English brȳdguma → bridegroom','Old French crevice → crayfish','chaise longue → chaise lounge (AmE)','asparagus → sparrowgrass (dialect)'], n:'Speakers impose a false analysis; the result looks like a compound but did not start out as one.'}
+];
+
+// ---------- tabs ----------
+var VIEWS = ['drill','morphemes','formation','trees','glossary'];
+function show(v){
+  if (VIEWS.indexOf(v) < 0) v = 'drill';
+  VIEWS.forEach(function(x){
+    document.getElementById('view-'+x).hidden = x !== v;
+    document.getElementById('tab-'+x).setAttribute('aria-selected', x === v ? 'true' : 'false');
+  });
+}
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click', function(){ var v = b.getAttribute('data-view'); try{ history.replaceState(null, '', '#'+v); }catch(e){ location.hash = v; } show(v); });
+});
+window.addEventListener('hashchange', function(){ show(location.hash.slice(1)); });
+
+// ---------- word-formation tab ----------
+var wfGroup = 'all';
+function buildWF(){
+  var f = document.getElementById('wffilter'), host = document.getElementById('wfcards');
+  WGROUPS.forEach(function(g){
+    f.appendChild(el('button', {class:'chip', type:'button', 'data-g':g[0], 'aria-pressed': g[0] === wfGroup ? 'true' : 'false', text:g[1], onclick:function(){ wfGroup = g[0]; drawWF(); }}));
+  });
+  WCARDS.forEach(function(c){
+    var d = el('details', {class:'card', 'data-g':c.g}, [
+      el('summary', null, [el('span', {class:'ct'}, [c.t, el('span', {class:'cd', text:c.d})]), el('span', {class:'plus', 'aria-hidden':'true', text:'+'})]),
+      el('div', {class:'body'}, [el('div', {class:'ex'}, c.ex.map(function(x){ return el('span', {text:x}); })), el('p', {class:'small', text:c.n})])
+    ]);
+    host.appendChild(d);
+  });
+  drawWF();
+  var sp = document.getElementById('stresspairs');
+  sp.appendChild(el('thead', null, [el('tr', null, [el('th', {text:'Word'}), el('th', {text:'Noun'}), el('th', {text:'Verb'})])]));
+  var tb = el('tbody');
+  STRESSPAIRS.forEach(function(w){ var c = sylCut(w); tb.appendChild(el('tr', null, [el('td', {class:'kw', text:w}), el('td', {text:w.slice(0, c).toUpperCase() + w.slice(c)}), el('td', {text:w.slice(0, c) + w.slice(c).toUpperCase()})])); });
+  sp.appendChild(tb);
+  var pt = document.getElementById('pseudo');
+  pt.appendChild(el('thead', null, [el('tr', null, [el('th', {text:'German'}), el('th', {text:'Say in English'}), el('th', {text:'The English look-alike'})])]));
+  var tb2 = el('tbody');
+  PSEUDO.forEach(function(p){ tb2.appendChild(el('tr', null, [el('td', {class:'kw', text:p[0]}), el('td', {text:p[1]}), el('td', {class:'small muted', text:p[2]})])); });
+  pt.appendChild(tb2);
+}
+// where the first syllable of each stress-pair word ends (for capitalizing the stressed half)
+var SYLCUT = {record:2, permit:3, contrast:3, protest:3, 'import':2, 'export':2, object:2, present:3, increase:2, conduct:3, rebel:2, suspect:3, insult:2, convict:3, produce:3};
+function sylCut(w){ return SYLCUT[w] || 2; }
+function drawWF(){
+  document.querySelectorAll('#wffilter .chip').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-g') === wfGroup ? 'true' : 'false'); });
+  document.querySelectorAll('#wfcards .card').forEach(function(c){ c.hidden = !(wfGroup === 'all' || c.getAttribute('data-g') === wfGroup); });
+}
+
+// ---------- trees tab ----------
+var treeSel = 0;
+function buildTrees(){
+  var tp = document.getElementById('treepick');
+  GALLERY.forEach(function(g, i){ tp.appendChild(el('button', {class:'chip', type:'button', 'aria-pressed': i === treeSel ? 'true' : 'false', text:g[0], onclick:function(){ treeSel = i; drawTree(); }})); });
+  drawTree();
+  var amb = document.getElementById('amb');
+  amb.appendChild(treeBox("'able to be unlocked'", '[A [V un- [V lock]] -able]', 'Reversative un- (as in untie) makes the verb unlock; -able then makes an adjective: a door you can unlock.'));
+  amb.appendChild(treeBox("'impossible to lock'", '[A un- [A [V lock] -able]]', 'lock + -able gives lockable; negative un- (as in unhappy) then negates it: a lid that cannot be locked.'));
+  var amb2 = document.getElementById('amb2');
+  amb2.appendChild(treeBox("'a society for student films'", '[N [N [N student] [N film]] [N society]]', ''));
+  amb2.appendChild(treeBox("'a film society of students'", '[N [N student] [N [N film] [N society]]]', ''));
+  var para = document.getElementById('para');
+  para.appendChild(treeBox('unhappier: by meaning', '[A [A un- [A happy]] -er]', "It means 'more unhappy', the comparative of unhappy."));
+  para.appendChild(treeBox('unhappier: by form', '[A un- [A [A happy] -er]]', 'Comparative -er only attaches to short bases (happier, but *beautifuller), and three-syllable unhappy is too long.'));
+  var inp = document.getElementById('mytree');
+  function drawMine(){ var v = document.getElementById('myview'); v.textContent = ''; try{ v.appendChild(el('div', {class:'scroll'}, [treeSvg(inp.value)])); }catch(e){ v.appendChild(el('p', {class:'err', text:e.message})); } }
+  inp.addEventListener('input', drawMine); drawMine();
+  var bars = document.getElementById('bars');
+  SYNTH.forEach(function(s){
+    bars.appendChild(el('div', {class:'barrow'}, [el('span', {text:s[0]}), el('span', {class:'track'}, [el('i', {class:'fillb', style:'width:'+Math.round(s[1]/4*100)+'%'})]), el('span', {class:'v', text:s[1].toFixed(2)})]));
+  });
+}
+function drawTree(){
+  document.querySelectorAll('#treepick .chip').forEach(function(b, i){ b.setAttribute('aria-pressed', i === treeSel ? 'true' : 'false'); });
+  var v = document.getElementById('treeview'); v.textContent = '';
+  var g = GALLERY[treeSel];
+  v.appendChild(el('h3', {text:g[0]}));
+  try { v.appendChild(el('div', {class:'scroll'}, [treeSvg(g[1])])); }
+  catch(e){ v.appendChild(el('p', {class:'err', text:e.message})); }
+  v.appendChild(el('p', {class:'br', text:g[1]}));
+  v.appendChild(el('p', {class:'small', text:g[2]}));
+}
+
+// ---------- glossary tab ----------
+function buildGloss(){
+  var list = document.getElementById('glist'), q = document.getElementById('gq');
+  var sorted = GLOSS.slice().sort(function(a, b){ return a[0].toLowerCase() < b[0].toLowerCase() ? -1 : 1; });
+  var rows = sorted.map(function(g){
+    var r = el('div', {class:'gl'}, [el('div', {class:'term', text:g[0]}), el('div', {class:'gdef', text:g[1]}), el('div', {class:'gex', text:'e.g. ' + g[2]})]);
+    r._k = (g[0] + ' ' + g[1] + ' ' + g[2]).toLowerCase();
+    list.appendChild(r); return r;
+  });
+  function filt(){
+    var t = q.value.trim().toLowerCase(), n = 0;
+    rows.forEach(function(r){ var on = !t || r._k.indexOf(t) >= 0; r.hidden = !on; if (on) n++; });
+    document.getElementById('gcount').textContent = n + ' of ' + rows.length + ' terms';
+  }
+  q.addEventListener('input', filt); filt();
+}
+
+// ---------- quiz generators ----------
+function b(t){ return el('b', {text:t}); }
+var CATS = [
+  {id:'count', name:'Count the morphemes', gen:function(){
+    var c = pick(COUNT), n = c[1];
+    var lo = Math.max(1, Math.min(n - rnd(3), 3)); if (n - lo > 3) lo = n - 3;
+    var opts = []; for (var k = lo; k < lo + 4; k++) opts.push(String(k));
+    return {id:'cnt:'+c[0], cat:'Count the morphemes', prompt:['How many morphemes are in this word?'], big:c[0], ok:String(n), opts:opts, fixed:true, why:c[0]+': '+c[2]};
+  }},
+  {id:'classify', name:'Classify the morpheme', gen:function(){
+    var c = pick(CLASSIFY);
+    return {id:'cls:'+c[0]+'|'+c[1], cat:'Classify the morpheme', prompt:['In ', b(c[0]), ', what kind of morpheme is ', b(c[1]), '?'], ok:KIND[c[2]], opts:[KIND.FL, KIND.FF, KIND.BD, KIND.BI], fixed:true, why:c[3]};
+  }},
+  {id:'infder', name:'Inflection or derivation?', gen:function(){
+    var c = pick(INFDER);
+    var p = ['Is ', b(c[0]+' → '+c[1]), ' inflection or derivation?'];
+    if (c[2]) p.push(' (as in ', el('i', {text:c[2]}), ')');
+    return {id:'inf:'+c[0]+'>'+c[1], cat:'Inflection or derivation?', prompt:p, ok:c[3] === 'I' ? 'Inflection' : 'Derivation', opts:['Inflection','Derivation'], fixed:true, why:c[4]};
+  }},
+  {id:'process', name:'Word-formation process', gen:function(){
+    if (Math.random() < .14){
+      var ps = pick(PSEUDO);
+      var pool = PSEUDO.filter(function(x){ return x !== ps; }).map(function(x){ return x[1]; });
+      return {id:'ps:'+ps[0], cat:'Pseudo-anglicisms', prompt:['German ', b(ps[0]), ' is a pseudo-anglicism. What do English speakers actually say?'], ok:ps[1], opts:fill([ps[1]], pool, 4), why:'German '+ps[0]+' = English '+ps[1]+'. ' + (ps[2] === 'not an English word' ? ps[0]+' is not an English word at all.' : 'In English, '+ps[2]+'.')};
+    }
+    var w = pick(WF), key = w[1], ex = (PEXCL[key] || []).concat(w[3] || []);
+    var allowed = Object.keys(P).filter(function(k){ return k !== key && ex.indexOf(k) < 0; });
+    var near = shuffle((PNEAR[key] || []).filter(function(k){ return allowed.indexOf(k) >= 0; })).slice(0, 2);
+    var opts = fill([P[key]].concat(near.map(function(k){ return P[k]; })), allowed.map(function(k){ return P[k]; }), 4);
+    return {id:'wf:'+w[0], cat:'Word-formation process', prompt:['Which process formed ', b(w[0]), '?'], ok:P[key], opts:opts, why:w[2]};
+  }},
+  {id:'allo', name:'Allomorphs', gen:function(){
+    var r = Math.random();
+    if (r < .58){
+      var a = pick(ALLOW), ans = alloAnswer(a), past = a[1] === 'past';
+      var why = a[0]+' ends in /'+a[2]+'/'+a[3]+', '+ans[1]+': '+ans[0]+'.';
+      if ((ans[0] === '/z/' || ans[0] === '/d/') && Math.random() < .5) why += ' Keep it voiced (lenis): German final devoicing would turn it into '+(ans[0] === '/z/' ? '/s/' : '/t/')+'.';
+      return {id:'al:'+a[0], cat:'Allomorphs', prompt:['Which allomorph of the ', b(AKIND[a[1]]), ' suffix is in ', b(a[0]), '?'], ok:ans[0], opts:past ? ['/t/','/d/','/ɪd/'] : ['/s/','/z/','/ɪz/'], fixed:true, ipaOpts:true, why:why};
+    }
+    if (r < .82){
+      var f = pick(AFORM), key = f[2], ex = f[3] || [];
+      var isPl = f[1].indexOf('plural') >= 0;
+      var allowed = Object.keys(AF).filter(function(k){ return k !== key && ex.indexOf(k) < 0 && (isPl || k !== 'FOR'); });
+      return {id:'af:'+f[0], cat:'How is the form made?', prompt:['How is ', b(f[0]), ' (', f[1], ') formed?'], ok:AF[key], opts:fill([AF[key]], allowed.map(function(k){ return AF[k]; }), 4), why:f[0]+': '+AFWHY[key]};
+    }
+    var c = pick(COND), other = c[1] === 'P' ? (Math.random() < .5 ? 'L' : 'M') : 'P';
+    var opts2 = [CONDL[c[1]], CONDL[other]].sort();
+    return {id:'ac:'+c[0], cat:'Conditioning', prompt:['What conditions ', b(c[0]), '?'], ok:CONDL[c[1]], opts:opts2, fixed:true, why:c[2]};
+  }},
+  {id:'tree', name:'Pick the tree', gen:function(){
+    var t = pick(TREEQ);
+    var p = ['Which bracketing is right for ', b(t[1])];
+    if (t[2]) p.push(' ', el('i', {text:t[2]}));
+    p.push('?');
+    return {id:'tr:'+t[0], cat:'Morphological structure', prompt:p, ok:t[3], opts:[t[3]].concat(t[4]), bracket:true, tree:t[3], why:t[5]};
+  }},
+  {id:'typo', name:'Typology', gen:function(){
+    var t = pick(TYPQ);
+    var isLang = t[0].indexOf(' ') < 0 || /^(Mandarin Chinese|Ancient Greek|West Greenlandic|Classical Nahuatl)$/.test(t[0]);
+    var p = isLang ? ['Which morphological type is ', b(t[0]), ' the classic example of?'] : ['Which morphological type does this show?', el('span', {class:'def', text:t[0]})];
+    return {id:'ty:'+t[0], cat:'Typology', prompt:p, ok:TY[t[1]], opts:[TY.I, TY.A, TY.F, TY.P], fixed:true, why:t[2]};
+  }},
+  {id:'terms', name:'Terms', gen:function(){
+    var g = pick(GLOSS), ex = (g[4] || []).concat([g[0]]);
+    var same = GLOSS.filter(function(x){ return x[3] === g[3] && ex.indexOf(x[0]) < 0; }).map(function(x){ return x[0]; });
+    var all = GLOSS.filter(function(x){ return ex.indexOf(x[0]) < 0; }).map(function(x){ return x[0]; });
+    var opts = fill([g[0]].concat(shuffle(same).slice(0, 2)), all, 4);
+    return {id:'tm:'+g[0], cat:'Terms', prompt:['Which term fits this definition?', el('span', {class:'def', text:g[1]})], ok:g[0], opts:opts, why:g[0]+': '+g[1]+' Example: '+g[2]+'.'};
+  }}
+];
+
+// ---------- drill engine ----------
+var SKEY = 'wortwerkstatt.v1';
+var stats = store.get(SKEY, {}); // id -> [seen, wrong]
+var prefs = store.get(SKEY+'.prefs', {cats:CATS.map(function(c){ return c.id; }), len:20});
+var enabled = prefs.cats && prefs.cats.length ? prefs.cats.filter(function(id){ return CATS.some(function(c){ return c.id === id; }); }) : [];
+if (!enabled.length) enabled = CATS.map(function(c){ return c.id; });
+var round = null;
+
+function weightOf(id){ var s = stats[id]; if (!s) return 1.4; var miss = s[1] / Math.max(1, s[0]); return .5 + miss*3 + (s[0] < 2 ? .4 : 0); }
+function nextQ(onlyMisses){
+  var best = null, bestScore = -1;
+  for (var tries = 0; tries < 14; tries++){
+    var cat = CATS.filter(function(c){ return enabled.indexOf(c.id) >= 0; });
+    if (!cat.length) cat = CATS;
+    var q = pick(cat).gen();
+    if (round && round.used[q.id] && tries < 13) continue;
+    var w = weightOf(q.id);
+    if (onlyMisses && !(stats[q.id] && stats[q.id][1] > 0) && tries < 13) continue;
+    var sc = w * (0.6 + Math.random());
+    if (sc > bestScore){ best = q; bestScore = sc; }
+    if (tries > 4 && best) break;
+  }
+  return best;
+}
+function startRound(onlyMisses){
+  var len = parseInt(document.getElementById('len').value, 10) || 20;
+  if (onlyMisses){ var any = Object.keys(stats).some(function(k){ return stats[k][1] > 0; }); if (!any) onlyMisses = false; }
+  round = {len:len, pos:0, right:0, done:0, used:{}, missed:[], onlyMisses:!!onlyMisses};
+  document.getElementById('sc-len').textContent = len;
+  ask();
+}
+function updScore(){
+  document.getElementById('sc-right').textContent = round.right;
+  document.getElementById('sc-done').textContent = round.done;
+  document.getElementById('sc-pos').textContent = Math.min(round.pos+1, round.len);
+  document.getElementById('sc-bar').style.width = (100*round.done/round.len)+'%';
+}
+var cur = null, answered = false;
+function ask(){
+  updScore();
+  var host = document.getElementById('qhost'); host.textContent = '';
+  if (round.pos >= round.len){ return summary(); }
+  cur = nextQ(round.onlyMisses); round.used[cur.id] = 1; answered = false;
+  var card = el('div', {class:'qcard'});
+  card.appendChild(el('div', {class:'qcat', text:cur.cat}));
+  card.appendChild(el('div', {class:'qprompt'}, cur.prompt.slice()));
+  if (cur.big) card.appendChild(el('div', {class:'qbig', text:cur.big}));
+  var opts = uniq(cur.opts).slice(0, 4); if (opts.indexOf(cur.ok) < 0) opts[opts.length-1] = cur.ok;
+  if (!cur.fixed) opts = shuffle(opts);
+  var grid = el('div', {class:'opts', role:'group', 'aria-label':'Answers'});
+  opts.forEach(function(o, i){
+    grid.appendChild(el('button', {class:'opt', type:'button', 'data-v':o, onclick:function(){ answer(o); }}, [el('span', {class:'k', text:String(i+1)}), el('span', {class:'t'+(cur.ipaOpts ? ' ipa' : '')+(cur.bracket ? ' br' : ''), text:o})]));
+  });
+  card.appendChild(grid);
+  card.appendChild(el('div', {id:'whyhost'}));
+  host.appendChild(card);
+}
+function answer(o){
+  if (answered) return; answered = true;
+  var good = o === cur.ok;
+  document.querySelectorAll('#qhost .opt').forEach(function(btn){
+    btn.disabled = true; var v = btn.getAttribute('data-v');
+    if (v === cur.ok) btn.classList.add('right'); else if (v === o) btn.classList.add('wrong');
+  });
+  var s = stats[cur.id] || [0,0]; s[0]++; if (!good) s[1]++; else if (s[1] > 0 && s[0] > 3) s[1] = Math.max(0, s[1]-1);
+  stats[cur.id] = s; store.set(SKEY, stats);
+  round.done++; if (good) round.right++; else round.missed.push(cur);
+  var why = el('div', {class:'why'}, [
+    el('div', {class:'verdict '+(good ? 'ok' : 'no'), text: good ? 'Right.' : 'Not quite. Answer: '+cur.ok}),
+    el('div', {text:cur.why})
+  ]);
+  if (cur.tree){ try{ why.appendChild(el('div', {class:'scroll', style:'margin-top:8px'}, [treeSvg(cur.tree)])); }catch(e){} }
+  var row = el('div', {class:'row', style:'margin-top:10px'}, [el('button', {class:'btn', type:'button', id:'next', onclick:function(){ round.pos++; ask(); }, text: round.pos+1 >= round.len ? 'See results' : 'Next'})]);
+  why.appendChild(row);
+  document.getElementById('whyhost').appendChild(why);
+  updScore();
+  try{ document.getElementById('next').focus({preventScroll:true}); }catch(e){}
+}
+function summary(){
+  var host = document.getElementById('qhost');
+  var pct = Math.round(100*round.right/Math.max(1, round.done));
+  host.appendChild(el('div', {class:'stack'}, [
+    el('h3', {text: round.right+' of '+round.done+' right ('+pct+'%)'}),
+    el('p', {class:'muted', text: round.missed.length ? 'These come back more often in the next rounds:' : 'Clean round. Try 40 questions or a harder section.'}),
+    round.missed.length ? el('ul', {class:'summary-list'}, round.missed.map(function(q){ return el('li', null, [el('b', {text:q.cat+': '}), el('span', {class:q.ipaOpts ? 'ipa' : '', text:(q.big ? q.big+' → ' : '')+q.ok}), el('div', {class:'small muted', text:q.why})]); })) : null,
+    el('div', {class:'row'}, [el('button', {class:'btn', type:'button', onclick:function(){ startRound(false); }, text:'New round'}), round.missed.length ? el('button', {class:'btn quiet', type:'button', onclick:function(){ startRound(true); }, text:'Drill my misses'}) : null])
+  ]));
+}
+function buildCats(){
+  var h = document.getElementById('cats');
+  CATS.forEach(function(c){
+    var btn = el('button', {class:'chip', type:'button', 'aria-pressed': enabled.indexOf(c.id) >= 0 ? 'true' : 'false', text:c.name});
+    btn.addEventListener('click', function(){
+      var i = enabled.indexOf(c.id);
+      if (i >= 0){ if (enabled.length > 1) enabled.splice(i, 1); } else enabled.push(c.id);
+      document.querySelectorAll('#cats .chip').forEach(function(x, k){ x.setAttribute('aria-pressed', enabled.indexOf(CATS[k].id) >= 0 ? 'true' : 'false'); });
+      savePrefs();
+    });
+    h.appendChild(btn);
+  });
+}
+function savePrefs(){ store.set(SKEY+'.prefs', {cats:enabled, len:parseInt(document.getElementById('len').value, 10) || 20}); }
+document.getElementById('len').value = String(prefs.len || 20);
+document.getElementById('len').addEventListener('change', savePrefs);
+document.getElementById('restart').addEventListener('click', function(){ startRound(false); });
+document.getElementById('misses').addEventListener('click', function(){ startRound(true); });
+document.addEventListener('keydown', function(e){
+  if (document.getElementById('view-drill').hidden || e.ctrlKey || e.metaKey || e.altKey) return;
+  var t = e.target; if (t && (t.tagName === 'SELECT' || t.tagName === 'INPUT')) return;
+  if (!answered && /^[1-4]$/.test(e.key)){ var bt = document.querySelectorAll('#qhost .opt')[+e.key-1]; if (bt){ e.preventDefault(); bt.click(); } }
+  else if (answered && e.key === 'Enter'){ var n = document.getElementById('next'); if (n && document.activeElement !== n){ e.preventDefault(); n.click(); } }
+});
+
+// ---------- boot ----------
+buildWF(); buildTrees(); buildGloss(); buildCats();
+startRound(false);
+show(location.hash.slice(1) || 'drill');
+})();
+</script>
+</body>
+</html>

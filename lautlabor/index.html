@@ -170,6 +170,10 @@ table{border-collapse:collapse; font-size:.85rem}
 .cmp thead th{font:800 .68rem/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
 .cmp td.ipa{font-size:1.08rem; white-space:nowrap}
 .cmp td.w{font-weight:800}
+.sets{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0}
+.sets a{font:700 .78rem/1 var(--font-body); color:var(--muted); text-decoration:none; padding:7px 10px; border:1px solid var(--line); border-radius:999px; background:var(--surface)}
+.sets a:hover{color:var(--ink); border-color:var(--berry)}
+.sets a[aria-current="page"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
 footer{margin-top:30px; font-size:.8rem; color:var(--muted)}
 @media (prefers-reduced-motion: reduce){ .bar > i{transition:none} }
 </style>
@@ -180,6 +184,16 @@ footer{margin-top:30px; font-size:.8rem; color:var(--muted)}
     <h1>Das Lautlabor <span class="slash">/ˈlaʊtlaˌboːɐ̯/</span></h1>
     <p class="lede">The whole consonant and vowel system of English, the allophone rules that narrow transcription is built on, and every major RP vs GA difference. <b>Drill</b> quizzes you and brings back the ones you miss.</p>
   </header>
+
+  <nav class="sets" aria-label="Study set">
+    <a href="../lautlabor/" aria-current="page">Phonetics</a>
+    <a href="../morphologie/">Morphology</a>
+    <a href="../syntax/">Syntax</a>
+    <a href="../sprachgemeinschaft/">Language in society</a>
+    <a href="../semantik/">Semantics</a>
+    <a href="../pragmatik/">Pragmatics</a>
+    <a href="../grammatik/">Advanced grammar</a>
+  </nav>
 
   <nav class="tabs" role="tablist" aria-label="Sections">
     <button class="tab" role="tab" id="tab-drill" data-view="drill">Drill</button>

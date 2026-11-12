@@ -1,0 +1,1673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Die Bedeutungskammer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..800&family=Young+Serif&family=Noto+Serif:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 44C8.5 35.5 3.5 26 4.6 17.8 5.6 11 11 8.6 20 8.6S34.4 11 35.4 17.8C36.5 26 31.5 35.5 20 44Z' fill='%23e0285a'/%3E%3Cpath d='M20 10.5c-2.6-3.6-7.6-5-11.6-3.2 3.6.8 5.8 2.4 6.8 4.4-3.7.1-6.6 1.9-7.9 4.8 4-1.2 8.1-1.8 12.7-1.8s8.7.6 12.7 1.8c-1.3-2.9-4.2-4.7-7.9-4.8 1-2 3.2-3.6 6.8-4.4-4-1.8-9 .4-11.6 3.2Z' fill='%233e9a4b'/%3E%3C/svg%3E">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style id="chest-style">
+/* Layout: one column study notebook. Header, study-set nav, a tab strip (Drill / Word meaning / Sentence meaning / Signs / Glossary), then one panel at a time. */
+:root{
+  --bg:#fbf0f3; --bg-glow:#f8d9e3; --surface:#fffafc; --chip:#fde7ee;
+  --ink:#2b1320; --muted:#7c5767; --line:#efd2dc;
+  --berry:#d4235c; --berry-ink:#ad1747; --on-berry:#ffffff; --ring:rgba(212,35,92,.22);
+  --brass:#c9982e; --brass-text:#86600f;
+  --rp:#1f6f8b; --rp-chip:#e2f1f6; --ga:#a2461c; --ga-chip:#fbe9df;
+  --good:#2e7d4f; --good-chip:#e3f4e9; --bad:#b3261e; --bad-chip:#fbe4e2;
+  --font-word:"Young Serif",Georgia,"Times New Roman",serif;
+  --font-body:"Nunito Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-ipa:"Gentium Plus","Charis SIL","Doulos SIL","Noto Serif","Lucida Sans Unicode","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+    --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+    --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+    --brass:#e0b04a; --brass-text:#e9c36a;
+    --rp:#7cc6df; --rp-chip:#14303b; --ga:#f2a27a; --ga-chip:#3b2016;
+    --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+  --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+  --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+  --brass:#e0b04a; --brass-text:#e9c36a;
+  --rp:#7cc6df; --rp-chip:#14303b; --ga:#f2a27a; --ga-chip:#3b2016;
+  --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:radial-gradient(1100px 460px at 50% -8%, var(--bg-glow), transparent 62%), var(--bg);
+  background-color:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.5;
+}
+.wrap{max-width:820px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:26px 48px}
+.ipa{font-family:var(--font-ipa); font-feature-settings:"liga" 0}
+.eyebrow{font:800 .72rem/1 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--berry-ink); margin:0}
+h1{font:400 clamp(2.3rem, 9vw, 3.6rem)/1 var(--font-word); margin:.2em 0 .15em; text-wrap:balance}
+h1 .slash{font-family:var(--font-ipa); color:var(--berry); font-weight:400}
+h2{font:400 1.45rem/1.2 var(--font-word); margin:0; text-wrap:balance}
+h3{font:800 1rem/1.3 var(--font-body); margin:0}
+p{margin:0}
+ul{margin:0}
+.lede{max-width:60ch; color:var(--muted)}
+.lede b{color:var(--ink)}
+.stack{display:grid; gap:14px}
+.stack > *{min-width:0}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+
+/* study-set nav */
+.sets{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0}
+.sets a{font:700 .78rem/1 var(--font-body); color:var(--muted); text-decoration:none; padding:7px 10px; border:1px solid var(--line); border-radius:999px; background:var(--surface)}
+.sets a:hover{color:var(--ink); border-color:var(--berry)}
+.sets a[aria-current="page"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+
+/* tabs */
+.tabs{display:flex; flex-wrap:wrap; gap:6px; margin:20px 0 18px; padding:5px; background:var(--chip); border:1px solid var(--line); border-radius:10px}
+.tab{appearance:none; border:0; background:none; font:700 .9rem/1 var(--font-body); color:var(--muted); padding:10px 12px; border-radius:7px; cursor:pointer; flex:1 1 auto; text-align:center}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--surface); color:var(--berry-ink); box-shadow:0 1px 3px var(--ring)}
+.tab:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible, input:focus-visible{outline:3px solid var(--berry); outline-offset:2px}
+
+.panel{display:grid; gap:18px}
+.panel > *{min-width:0}
+.sheet{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; min-width:0}
+.note{border-left:3px solid var(--brass); padding:2px 0 2px 12px; color:var(--muted); font-size:.92rem}
+.note b{color:var(--ink)}
+a.inl{color:var(--berry-ink); font-weight:700}
+
+/* chips & buttons */
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{appearance:none; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:700 .8rem/1 var(--font-body); padding:8px 11px; border-radius:999px; cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+.btn{appearance:none; border:0; background:var(--berry); color:var(--on-berry); font:800 .92rem/1 var(--font-body); padding:12px 16px; border-radius:8px; cursor:pointer}
+.btn.quiet{background:transparent; color:var(--berry-ink); border:1px solid var(--line)}
+.btn:disabled{opacity:.45; cursor:default}
+.row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+
+/* drill */
+.score{display:flex; flex-wrap:wrap; gap:16px; align-items:baseline; font-variant-numeric:tabular-nums}
+.score b{font:400 1.5rem/1 var(--font-word); color:var(--ink)}
+.bar{height:6px; border-radius:3px; background:var(--chip); overflow:hidden}
+.bar > i{display:block; height:100%; width:0; background:var(--berry); transition:width .25s}
+.qcard{display:grid; gap:14px}
+.qcard > *{min-width:0}
+.qcat{font:800 .68rem/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.qprompt{font-size:1.08rem; line-height:1.45; min-width:0; overflow-wrap:anywhere}
+.qprompt .def{display:block; margin-top:8px; padding:10px 12px; border-radius:8px; background:var(--chip); font-size:1rem}
+.qprompt .sl{display:block; margin-top:6px; padding:8px 12px; border-radius:8px; background:var(--chip); font-size:1rem}
+.qprompt .sl b{color:var(--berry-ink)}
+.opts{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+@media (max-width:520px){ .opts{grid-template-columns:1fr} }
+.opt{appearance:none; text-align:left; display:flex; gap:10px; align-items:center; border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:12px; border-radius:9px; cursor:pointer; font:600 .98rem/1.3 var(--font-body); min-width:0}
+.opt .k{flex:none; display:grid; place-items:center; width:22px; height:22px; border-radius:5px; background:var(--chip); color:var(--muted); font:800 .72rem/1 var(--font-body)}
+.opt .t{min-width:0; overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--berry)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--good-chip); border-color:var(--good)}
+.opt.right .k{background:var(--good); color:var(--surface)}
+.opt.wrong{background:var(--bad-chip); border-color:var(--bad)}
+.opt.wrong .k{background:var(--bad); color:var(--surface)}
+.why{border-radius:9px; padding:12px 14px; background:var(--chip); font-size:.94rem; min-width:0}
+.why .verdict{font-weight:800; margin-bottom:4px; overflow-wrap:anywhere}
+.why .verdict.ok{color:var(--good)} .why .verdict.no{color:var(--bad)}
+.summary-list{display:grid; gap:6px; padding:0; margin:0; list-style:none}
+.summary-list li{padding:8px 10px; border:1px solid var(--line); border-radius:8px; font-size:.92rem; overflow-wrap:anywhere}
+
+/* tables */
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%}
+table{border-collapse:collapse; font-size:.88rem}
+.tbl{width:100%}
+.tbl th, .tbl td{border-bottom:1px solid var(--line); padding:7px 8px; text-align:left; vertical-align:top}
+.tbl thead th{font:800 .68rem/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.tbl tbody th{font:800 .82rem/1.3 var(--font-body); color:var(--ink); white-space:nowrap}
+.tbl .kw{font-weight:800; white-space:nowrap}
+.tbl .nw{white-space:nowrap}
+.mx th, .mx td{border:1px solid var(--line); padding:6px 10px; text-align:center}
+.mx thead th{font:800 .7rem/1.2 var(--font-body); letter-spacing:.06em; color:var(--muted)}
+.mx tbody th{text-align:left; font-weight:800}
+.mx td.p{color:var(--good); font-weight:800}
+.mx td.m{color:var(--bad); font-weight:800}
+.mx td.z{color:var(--muted); font-weight:800}
+.para td{border:1px solid var(--line); padding:6px 10px; text-align:center; white-space:nowrap}
+.para tr:first-child td{background:var(--chip); font-weight:800}
+.ex{display:flex; flex-wrap:wrap; gap:8px}
+.ex span{background:var(--chip); border-radius:6px; padding:4px 8px; font-size:.9rem}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px}
+.mini{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--bg); min-width:0; display:grid; gap:6px; align-content:start}
+.mini p{font-size:.92rem}
+.list{padding-left:18px; display:grid; gap:8px}
+
+/* cards */
+.cards{display:grid; gap:10px}
+details.card{border:1px solid var(--line); border-radius:12px; background:var(--bg); min-width:0}
+details.card > summary{list-style:none; cursor:pointer; padding:13px 15px; display:flex; gap:12px; align-items:baseline; justify-content:space-between}
+details.card > summary::-webkit-details-marker{display:none}
+details.card > summary .ct{font:800 1rem/1.3 var(--font-body); min-width:0}
+details.card > summary .cd{display:block; font:400 .88rem/1.4 var(--font-body); color:var(--muted); margin-top:3px}
+details.card > summary .plus{flex:none; font:800 1.1rem/1 var(--font-body); color:var(--berry-ink)}
+details.card[open] > summary .plus{transform:rotate(45deg)}
+details.card[open]{border-color:var(--berry)}
+.card .body{padding:0 15px 15px; display:grid; gap:10px}
+.card .body > *{min-width:0}
+
+/* diagrams */
+.diag{width:100%; max-width:440px; height:auto; display:block; margin:4px auto}
+.diag .ln{stroke:var(--muted); stroke-width:1.6; fill:none}
+.diag .dash{stroke-dasharray:6 5}
+.diag .shape{fill:var(--chip); stroke:var(--berry); stroke-width:1.6}
+.diag .t{fill:var(--ink); font:800 13px var(--font-body)}
+.diag .s{fill:var(--muted); font:600 11.5px var(--font-body)}
+.diag .ac{fill:var(--berry-ink); font:800 13px var(--font-body)}
+.diag .ip{fill:var(--ink); font:400 17px var(--font-ipa)}
+.diag .ah{fill:var(--muted)}
+
+/* glossary */
+.input{width:100%; border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:8px; padding:10px 12px; font:600 .95rem/1.3 var(--font-body)}
+.gl{display:grid; gap:4px; padding:12px 0; border-bottom:1px solid var(--line); min-width:0}
+.gl:last-child{border-bottom:0}
+.gl .term{font:800 1rem/1.3 var(--font-body); color:var(--berry-ink)}
+.gl .gdef{font-size:.95rem}
+.gl .gex{font-size:.88rem; color:var(--muted)}
+footer{margin-top:30px; font-size:.8rem; color:var(--muted)}
+@media (prefers-reduced-motion: reduce){ .bar > i{transition:none} }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Semantics · meaning in words and sentences</p>
+    <h1>Die Bedeutungskammer <span class="slash">/bəˈdɔʏtʊŋsˌkamɐ/</span></h1>
+    <p class="lede">How English means: sense and reference, the relations between words, entailment and presupposition, thematic roles, situation types, and the theory of signs underneath it all. <b>Drill</b> quizzes you and brings back the ones you miss.</p>
+  </header>
+
+  <nav class="sets" aria-label="Study set">
+    <a href="../lautlabor/">Phonetics</a>
+    <a href="../morphologie/">Morphology</a>
+    <a href="../syntax/">Syntax</a>
+    <a href="../sprachgemeinschaft/">Language in society</a>
+    <a href="../semantik/" aria-current="page">Semantics</a>
+    <a href="../pragmatik/">Pragmatics</a>
+    <a href="../grammatik/">Advanced grammar</a>
+  </nav>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-drill" data-view="drill">Drill</button>
+    <button class="tab" role="tab" id="tab-words" data-view="words">Word meaning</button>
+    <button class="tab" role="tab" id="tab-sentences" data-view="sentences">Sentence meaning</button>
+    <button class="tab" role="tab" id="tab-signs" data-view="signs">Signs (semiotics)</button>
+    <button class="tab" role="tab" id="tab-glossary" data-view="glossary">Glossary</button>
+  </nav>
+
+  <main>
+    <!-- DRILL -->
+    <section class="panel" id="view-drill" role="tabpanel" aria-labelledby="tab-drill">
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between">
+          <h2>Drill</h2>
+          <div class="score"><span>Score <b id="sc-right">0</b>/<span id="sc-done">0</span></span><span class="muted small">Question <span id="sc-pos">1</span> of <span id="sc-len">20</span></span></div>
+        </div>
+        <div class="bar" aria-hidden="true"><i id="sc-bar"></i></div>
+        <div id="qhost"></div>
+      </div>
+      <div class="sheet stack">
+        <h3>What to practise</h3>
+        <div class="chips" id="cats"></div>
+        <div class="row">
+          <label class="small muted" for="len">Questions per round</label>
+          <select id="len" class="chip" style="padding:7px 10px">
+            <option value="10">10</option><option value="20" selected>20</option><option value="40">40</option>
+          </select>
+          <button class="btn" id="restart">New round</button>
+          <button class="btn quiet" id="misses">Only my misses</button>
+        </div>
+        <p class="small muted" id="memo">Questions you get wrong come back more often. Keys 1 to 4 answer, Enter goes on.</p>
+      </div>
+    </section>
+
+    <!-- WORD MEANING -->
+    <section class="panel" id="view-words" role="tabpanel" aria-labelledby="tab-words" hidden>
+      <div class="sheet stack">
+        <h2>Sense and reference</h2>
+        <p>Frege (1892) split meaning in two. The <b>reference</b> of an expression is the thing in the world it picks out (the <b>referent</b>). Its <b>sense</b> is the way it presents that thing, the information it carries. <i>The Morning Star</i> and <i>the Evening Star</i> have the same referent, the planet Venus, but different senses. That is why <i>The Morning Star is the Evening Star</i> was a real astronomical discovery, while <i>The Morning Star is the Morning Star</i> tells you nothing.</p>
+        <p>Reference depends on the occasion of use: <i>the president</i>, <i>I</i>, <i>today</i>, <i>my mother</i> keep their sense but pick out different referents depending on who says them, when and where. Some expressions have sense but no referent at all: <i>the present king of France</i>, <i>unicorn</i>.</p>
+        <p class="note"><b>German-speaker trap.</b> Frege wrote <i>Sinn</i> and <i>Bedeutung</i>. His <i>Bedeutung</i> is <b>reference</b>, not "meaning", and his <i>Sinn</i> is <b>sense</b>. Translating <i>Bedeutung</i> as "meaning" in an exam answer on Frege turns the distinction upside down.</p>
+        <div class="grid2">
+          <div class="mini"><h3>Denotation vs connotation</h3><p><b>Denotation</b>: the core meaning that links a word to the things it applies to. <b>Connotation</b>: the extra associations, emotional or cultural, that come with it. <i>slim</i>, <i>skinny</i> and <i>scrawny</i> share a denotation (having little body fat) but connote approval, mild disapproval and strong disapproval.</p></div>
+          <div class="mini"><h3>Extension vs intension</h3><p><b>Extension</b>: the set of all things an expression applies to (every dog there is). <b>Intension</b>: the properties something must have to belong to that set. Two expressions can share an extension and differ in intension: <i>creature with a heart</i> and <i>creature with kidneys</i> pick out the same animals (Quine's example) but don't mean the same.</p></div>
+          <div class="mini"><h3>Reference vs denotation</h3><p>In Lyons's terms, <b>denotation</b> is a stable relation between a lexeme and a class of things, independent of any utterance: <i>dog</i> denotes dogs. <b>Reference</b> happens in an utterance: in <i>The dog is ill</i> the speaker refers to one particular dog.</p></div>
+        </div>
+        <p class="note"><b>Terms overlap between books.</b> Sense and intension are close cousins, and so are denotation and extension. Philosophers often use "denotation" for what linguists call reference. Use the pairs your lecturer uses and define them when you write.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Leech's seven types of meaning</h2>
+        <p class="small muted">Leech (1974) separates conceptual meaning from five kinds of associative meaning, plus thematic meaning, which comes from how a message is organised.</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Type</th><th>What it is</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><th>Conceptual</th><td>The logical, denotative core. Can be stated as features or truth conditions.</td><td><i>woman</i>: +HUMAN, +ADULT, −MALE</td></tr>
+            <tr><th>Connotative</th><td>Properties people associate with the referent beyond the core, which can vary by culture, period and person.</td><td><i>December</i> suggests cold, dark days to a European and summer holidays to an Australian.</td></tr>
+            <tr><th>Social</th><td>What a word reveals about the situation of use: dialect, register, formality, period.</td><td><i>domicile</i> / <i>residence</i> / <i>home</i> / <i>digs</i></td></tr>
+            <tr><th>Affective</th><td>The speaker's feelings or attitude, towards the topic or the listener.</td><td><i>I'm terribly sorry to interrupt</i> vs <i>Shut up</i></td></tr>
+            <tr><th>Reflected</th><td>One sense of a word rubbing off on another, often a taboo sense crowding out the neutral one.</td><td><i>intercourse</i>, <i>erection</i> now hard to use in their older neutral senses</td></tr>
+            <tr><th>Collocative</th><td>Associations a word picks up from the words it usually occurs with.</td><td><i>pretty</i> (girl, flowers, village) vs <i>handsome</i> (man, car, building); <i>a handsome woman</i> means something different from <i>a pretty woman</i></td></tr>
+            <tr><th>Thematic</th><td>What the order and emphasis of a message communicate.</td><td><i>Mary wrote the report</i> vs <i>The report was written by Mary</i></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Lexical (sense) relations</h2>
+        <p class="small muted">Tap a card for tests and examples. These relations hold between senses, not between word forms, so one form can be in several relations through different senses.</p>
+        <div class="cards">
+          <details class="card"><summary><span class="ct">Synonymy<span class="cd">same or nearly the same meaning: big / large</span></span><span class="plus">+</span></summary>
+            <div class="body">
+              <p><b>Absolute synonyms</b> would be interchangeable in every context with no change in meaning of any kind. They hardly exist: languages tend not to keep two words for exactly the same job. Real synonyms are <b>near-synonyms</b> that differ in at least one of these:</p>
+              <ul class="list">
+                <li><b>Dialect</b>: <i>autumn</i>/<i>fall</i>, <i>lorry</i>/<i>truck</i>, <i>flat</i>/<i>apartment</i>.</li>
+                <li><b>Register / formality</b>: <i>buy</i>/<i>purchase</i>, <i>kid</i>/<i>child</i>, <i>hide</i>/<i>conceal</i>.</li>
+                <li><b>Connotation</b>: <i>slim</i>/<i>skinny</i>, <i>die</i>/<i>pass away</i>.</li>
+                <li><b>Collocation</b>: <i>a big mistake</i> vs <i>?a large mistake</i>; <i>my big sister</i> but not <i>*my large sister</i>; <i>start a car</i> but not <i>*begin a car</i>.</li>
+              </ul>
+              <p><b>Test</b>: substitute one for the other in many sentences. If the truth conditions never change, the words are (cognitive) synonyms. Mutual entailment: <i>This is a big house</i> ⇔ <i>This is a large house</i>.</p>
+            </div>
+          </details>
+          <details class="card"><summary><span class="ct">Antonymy<span class="cd">four kinds of opposite; keep them apart</span></span><span class="plus">+</span></summary>
+            <div class="body">
+              <div class="scroll"><table class="tbl">
+                <thead><tr><th>Type</th><th>Logic</th><th>Tests</th><th>Examples</th></tr></thead>
+                <tbody>
+                  <tr><th>Gradable</th><td>Opposite ends of a scale with a middle ground. Not X does not mean Y: <i>not hot</i> ≠ <i>cold</i>.</td><td><i>very X</i>, <i>X-er than</i>, <i>How X is it?</i> all work; <i>neither X nor Y</i> is possible.</td><td>hot/cold, old/young, rich/poor, wide/narrow</td></tr>
+                  <tr><th>Complementary (binary)</th><td>Divide a domain in two with nothing in between. Not X = Y.</td><td><i>very</i> and comparatives are odd; <i>neither X nor Y</i> is a contradiction.</td><td>dead/alive, married/unmarried, true/false, pass/fail</td></tr>
+                  <tr><th>Converse (relational)</th><td>One relation seen from either side: X R Y ⇔ Y R′ X.</td><td>Swap the two participants and the other word: <i>A is above B</i> ⇔ <i>B is below A</i>.</td><td>buy/sell, parent/child, above/below, husband/wife, lend/borrow</td></tr>
+                  <tr><th>Reversive (directional)</th><td>Movement or change in opposite directions; one undoes the other.</td><td>Often formed with <i>un-</i>, <i>dis-</i>, <i>de-</i>.</td><td>tie/untie, enter/leave, rise/fall, appear/disappear</td></tr>
+                </tbody>
+              </table></div>
+              <p class="note"><b>Textbooks vary.</b> Some reserve "antonymy" for gradable pairs only and call the others complementaries, converses and reversives (Lyons, Cruse). Some treat reversives as a kind of directional opposite rather than antonymy at all, and Saeed calls them "reverses". Comparatives of gradable antonyms are converses: <i>bigger than</i>/<i>smaller than</i>.</p>
+              <p><b>Markedness</b>: in a gradable pair one term is usually neutral in questions. <i>How old is the baby?</i> doesn't suggest the baby is old; <i>How young is she?</i> suggests she is young. <i>old</i>, <i>long</i>, <i>tall</i>, <i>wide</i> are the unmarked members.</p>
+            </div>
+          </details>
+          <details class="card"><summary><span class="ct">Hyponymy<span class="cd">kind-of inclusion: tulip → flower</span></span><span class="plus">+</span></summary>
+            <div class="body">
+              <p>The meaning of the <b>hyponym</b> includes the meaning of the <b>hypernym</b> (also called the <b>superordinate</b>): a tulip is a kind of flower. Words at the same level under one hypernym are <b>co-hyponyms</b>; they are incompatible with each other (<i>tulip</i>, <i>rose</i>, <i>daisy</i>: one flower can't be two of them).</p>
+              <p><b>Tests</b>: <i>X is a kind/type of Y</i>; one-way entailment: <i>I picked a tulip</i> entails <i>I picked a flower</i>, not the other way round.</p>
+              <p>Hyponymy is <b>transitive</b>: a robin is a bird, a bird is an animal, so a robin is an animal. Stacked levels form a <b>taxonomy</b>: <i>animal</i> &gt; <i>bird</i> &gt; <i>robin</i>. Verbs have hyponyms too: <i>murder</i> &lt; <i>kill</i>, <i>stroll</i> &lt; <i>walk</i>, <i>whisper</i> &lt; <i>speak</i>.</p>
+              <p>A language can lack a hypernym where you expect one: English has no everyday word covering both <i>uncle</i> and <i>aunt</i> (a <b>lexical gap</b>).</p>
+            </div>
+          </details>
+          <details class="card"><summary><span class="ct">Meronymy<span class="cd">part–whole: finger → hand</span></span><span class="plus">+</span></summary>
+            <div class="body">
+              <p>The <b>meronym</b> names a part, the <b>holonym</b> the whole: <i>finger</i> is a meronym of <i>hand</i>, <i>petal</i> of <i>flower</i>, <i>chapter</i> of <i>book</i>.</p>
+              <p><b>Test</b>: <i>X is part of Y</i>, <i>A Y has X</i>. Not <i>X is a kind of Y</i>: a petal isn't a kind of flower.</p>
+              <p><b>Not always transitive.</b> A cylinder is part of an engine and an engine is part of a car, so a cylinder is part of a car. But a handle is part of a door and a door is part of a house, and <i>?The house has a handle</i> is odd. Different kinds of part (functional parts, segments, members of a group, the stuff something is made of) don't chain freely.</p>
+            </div>
+          </details>
+          <details class="card"><summary><span class="ct">Homonymy vs polysemy<span class="cd">two words, or one word with several senses?</span></span><span class="plus">+</span></summary>
+            <div class="body">
+              <p><b>Homonymy</b>: unrelated words that happen to share a form. <b>Polysemy</b>: one word with several related senses.</p>
+              <div class="scroll"><table class="tbl">
+                <thead><tr><th></th><th>Same sound?</th><th>Same spelling?</th><th>Examples</th></tr></thead>
+                <tbody>
+                  <tr><th>Homophones</th><td>yes</td><td>no</td><td>sea/see, meat/meet, knight/night, right/write</td></tr>
+                  <tr><th>Homographs</th><td>no</td><td>yes</td><td>lead /liːd/ (guide) vs lead /led/ (metal); bass; wind</td></tr>
+                  <tr><th>Full homonyms</th><td>yes</td><td>yes</td><td>bat (animal / club), bark (dog / tree), bear (animal / carry)</td></tr>
+                </tbody>
+              </table></div>
+              <p><b>Polysemy</b>: <i>mouth</i> (of a person, of a river), <i>foot</i> (of a person, of a mountain), <i>bright</i> (light, student). The senses are linked, usually by metaphor or metonymy.</p>
+              <p><b>Criteria</b>: (1) <b>etymology</b>: did the senses come from one source? (2) <b>speaker intuition</b>: do speakers feel the senses are connected? The two can disagree. <i>ear</i> (organ) and <i>ear</i> (of corn) come from two different Old English words, yet many speakers feel a link. <i>pupil</i> (student) and <i>pupil</i> (of the eye) go back to the same Latin source, yet few speakers feel any link. Because of cases like these, exam questions use clear examples.</p>
+              <p><b>Dictionaries</b> give homonyms separate entries (bat¹, bat²) and list polysemous senses as numbered senses inside one entry.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Componential analysis</h2>
+        <p>Break word meanings into binary <b>semantic features</b> (components), written in capitals with + or −. Words that differ in one feature contrast minimally; shared features explain why words form a field.</p>
+        <div class="scroll"><table class="mx">
+          <thead><tr><th></th><th>HUMAN</th><th>BOVINE</th><th>ADULT</th><th>MALE</th></tr></thead>
+          <tbody>
+            <tr><th>man</th><td class="p">+</td><td class="m">−</td><td class="p">+</td><td class="p">+</td></tr>
+            <tr><th>woman</th><td class="p">+</td><td class="m">−</td><td class="p">+</td><td class="m">−</td></tr>
+            <tr><th>boy</th><td class="p">+</td><td class="m">−</td><td class="m">−</td><td class="p">+</td></tr>
+            <tr><th>girl</th><td class="p">+</td><td class="m">−</td><td class="m">−</td><td class="m">−</td></tr>
+            <tr><th>child</th><td class="p">+</td><td class="m">−</td><td class="m">−</td><td class="z">±</td></tr>
+            <tr><th>bull</th><td class="m">−</td><td class="p">+</td><td class="p">+</td><td class="p">+</td></tr>
+            <tr><th>cow</th><td class="m">−</td><td class="p">+</td><td class="p">+</td><td class="m">−</td></tr>
+            <tr><th>calf</th><td class="m">−</td><td class="p">+</td><td class="m">−</td><td class="z">±</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">± = unspecified. −HUMAN alone doesn't get you to cattle; you need something like BOVINE to keep <i>bull</i> apart from <i>stallion</i>.</p>
+        <p>Features explain relations neatly: <i>man</i> and <i>woman</i> are incompatible because they differ in MALE; <i>boy</i> entails <i>child</i> because it has every feature of <i>child</i>. Redundancy rules save writing: +HUMAN implies +ANIMATE.</p>
+        <h3>Problems</h3>
+        <ul class="list">
+          <li><b>Which features are primitive?</b> There is no agreed list, and features like BOVINE look like the word itself in capitals (circularity).</li>
+          <li><b>Binarity is forced.</b> ADULT is a matter of degree (<i>teenager</i>), and many meanings aren't +/− at all.</li>
+          <li><b>Most of the vocabulary resists it.</b> Kinship and animal terms work; <i>game</i>, <i>chair</i>, <i>justice</i> or colour terms don't decompose into a neat checklist.</li>
+          <li><b>Generic uses break the grid.</b> <i>a herd of cows</i> can include bulls; <i>man</i> was long used for humans in general.</li>
+          <li><b>No room for typicality.</b> Every feature is necessary and sufficient, so a penguin is as much a bird as a robin. Prototype theory starts here.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Prototype theory</h2>
+        <p>Rosch's experiments in the 1970s showed that categories have a <b>centre</b> and a <b>periphery</b>. Asked to rate how good an example of <i>bird</i> something is, speakers rank <i>robin</i> and <i>sparrow</i> high and <i>penguin</i>, <i>ostrich</i> or <i>emu</i> low, and they recognise central members faster. The best example is the <b>prototype</b>. A penguin is fully a bird, just not a typical one: typicality is not membership.</p>
+        <ul class="list">
+          <li><b>Fuzzy boundaries</b>: members share a cluster of typical properties (flies, small, sings, builds nests) rather than one checklist. Wittgenstein's <i>game</i> has no single property common to all games, only overlapping <b>family resemblances</b>.</li>
+          <li><b>Labov's cups</b> (1973): speakers labelled drawings of containers whose width-to-height ratio varied. Wider ones slid from <i>cup</i> to <i>bowl</i>, taller ones to <i>vase</i>, with no sharp line, and context moved the line: filled with mashed potatoes, the same object became a bowl more often; holding flowers, a vase.</li>
+          <li><b>Basic level</b>: in a taxonomy one level is psychologically privileged. <i>dog</i> (not <i>animal</i> or <i>terrier</i>), <i>chair</i> (not <i>furniture</i> or <i>kitchen chair</i>): learned first, short, used by default, easy to picture.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Semantic fields</h2>
+        <p>Words in one area of meaning (kinship, colour, cooking, temperature) form a <b>semantic field</b> and divide it up between them, so each word's value depends on its neighbours. Languages cut the same field differently:</p>
+        <div class="grid2">
+          <div class="mini"><h3>German one word, English two</h3><p><i>Uhr</i> = <i>clock</i> / <i>watch</i>; <i>Himmel</i> = <i>sky</i> / <i>heaven</i>; <i>Fleisch</i> = <i>meat</i> / <i>flesh</i>.</p></div>
+          <div class="mini"><h3>English one word, German two</h3><p><i>wall</i> = <i>Wand</i> (inside) / <i>Mauer</i> (free-standing); <i>know</i> = <i>wissen</i> / <i>kennen</i>.</p></div>
+          <div class="mini"><h3>Lexical gaps</h3><p>A slot in the field with no single word: English has no everyday word for <i>aunt or uncle</i>; <i>sibling</i> exists but is technical, where German <i>Geschwister</i> is everyday.</p></div>
+        </div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Metaphor and metonymy</h2>
+        <div class="grid2">
+          <div class="mini"><h3>Conceptual metaphor</h3><p>Lakoff &amp; Johnson (1980): we understand one domain (the <b>target</b>, usually abstract) in terms of another (the <b>source</b>, usually concrete). The link is <b>similarity</b> across two domains, and the mapping is systematic, not one-off.</p>
+            <p><b>ARGUMENT IS WAR</b>: <i>attack a position</i>, <i>indefensible claims</i>, <i>shoot down an argument</i>, <i>win</i> a debate.<br><b>TIME IS MONEY</b>: <i>spend</i>, <i>waste</i>, <i>save</i>, <i>invest</i> time; <i>running out of</i> time.<br><b>LOVE IS A JOURNEY</b>: <i>at a crossroads</i>, <i>going nowhere</i>, <i>a dead end</i>.<br><b>MORE IS UP / HAPPY IS UP</b>: prices <i>soar</i>; I'm feeling <i>down</i>.</p></div>
+          <div class="mini"><h3>Metonymy</h3><p>One thing stands for another it is closely <b>associated</b> with inside the <b>same domain</b> (contiguity, not similarity).</p>
+            <p><i>The kettle is boiling</i> (container for contents).<br><i>Downing Street said</i> (place for institution).<br><i>The ham sandwich wants the bill</i> (food ordered for the customer).<br><i>I'm reading Shakespeare</i> (producer for product).<br><i>The buses are on strike</i> (object for user).<br><i>Watergate</i> (place for event).</p></div>
+          <div class="mini"><h3>Synecdoche</h3><p>Part for whole: <i>all hands on deck</i>, <i>fifty head of cattle</i>, <i>new faces</i>, <i>nice wheels</i>. This page treats synecdoche as a <b>kind of metonymy</b>, as Lakoff &amp; Johnson do (their PART FOR WHOLE). Rhetoric books list it separately and also count whole-for-part and kind-for-member uses.</p></div>
+        </div>
+        <p class="note"><b>Quick test.</b> Ask "is it like it?" vs "is it next to / part of / connected with it?" A lawyer who is <i>a shark</i> resembles a shark: metaphor. <i>The Crown</i> doesn't resemble the monarch; it belongs to her or him: metonymy. A <b>simile</b> makes the comparison explicit with <i>like</i> or <i>as</i>: <i>He fights like a lion</i>.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>False friends are a semantics problem</h2>
+        <p>Many English–German false friends are cognates (words with a shared origin) whose meanings drifted apart through semantic change. Same form, different sense: exactly the kind of mismatch semantics describes.</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>English</th><th>means</th><th>German</th><th>means</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">become</td><td>werden</td><td class="kw">bekommen</td><td>get, receive</td></tr>
+            <tr><td class="kw">gift</td><td>Geschenk</td><td class="kw">Gift</td><td>poison</td></tr>
+            <tr><td class="kw">actual</td><td>tatsächlich, wirklich</td><td class="kw">aktuell</td><td>current, up to date</td></tr>
+            <tr><td class="kw">eventually</td><td>schließlich, irgendwann</td><td class="kw">eventuell</td><td>possibly, perhaps</td></tr>
+            <tr><td class="kw">sensible</td><td>vernünftig</td><td class="kw">sensibel</td><td>sensitive</td></tr>
+            <tr><td class="kw">chef</td><td>Koch (in a restaurant)</td><td class="kw">Chef</td><td>boss</td></tr>
+            <tr><td class="kw">also</td><td>auch</td><td class="kw">also</td><td>so, therefore</td></tr>
+            <tr><td class="kw">brave</td><td>mutig</td><td class="kw">brav</td><td>well-behaved</td></tr>
+            <tr><td class="kw">map</td><td>Landkarte, Stadtplan</td><td class="kw">Mappe</td><td>folder</td></tr>
+            <tr><td class="kw">art</td><td>Kunst</td><td class="kw">Art</td><td>kind, type</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Exam traps: word meaning</h2>
+        <ul class="list">
+          <li><b>Hyponymy vs meronymy.</b> "Kind of" vs "part of". A petal is part of a flower, not a kind of flower; a tulip is a kind of flower, not part of one.</li>
+          <li><b>Converse is not complementary.</b> <i>buy</i>/<i>sell</i> don't split a domain into two halves; they describe one transaction from two sides. Swap the participants to test.</li>
+          <li><b>Gradable vs complementary.</b> Try <i>very</i>, a comparative and <i>neither X nor Y</i>. <i>very hot</i> and <i>neither hot nor cold</i> are fine; <i>?very dead</i> and <i>?neither dead nor alive</i> are jokes or contradictions.</li>
+          <li><b>Homonymy is about origin and relatedness, not spelling.</b> <i>knight</i>/<i>night</i> (different spelling) are homonyms in the broad sense; <i>mouth</i> of a river (same spelling) is polysemy.</li>
+          <li><b>Sense ≠ reference.</b> Same referent does not mean same sense (<i>Morning Star</i>/<i>Evening Star</i>), and same sense does not mean same referent (<i>I</i> said by two people).</li>
+          <li><b>Frege's <i>Bedeutung</i> = reference.</b> Not "meaning".</li>
+          <li><b>True synonymy is rare.</b> Never claim two words are "the same" without naming the dimension they differ on: dialect, register, connotation, collocation.</li>
+          <li><b>Metaphor = similarity across domains; metonymy = association within a domain.</b> <i>The kettle is boiling</i> is metonymy, not a metaphor.</li>
+          <li><b>A prototype is the best example, not a definition.</b> Atypical members (penguin) are still members.</li>
+          <li><b>False friends.</b> <i>eventually</i> = in the end, never "maybe"; <i>actual</i> = real, never "current"; <i>become</i> = werden.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SENTENCE MEANING -->
+    <section class="panel" id="view-sentences" role="tabpanel" aria-labelledby="tab-sentences" hidden>
+      <div class="sheet stack">
+        <h2>Truth conditions and compositionality</h2>
+        <p>To know what a declarative sentence means is to know what the world would have to be like for it to be true: its <b>truth conditions</b>. You can know the truth conditions of <i>There are seventeen people in the next room</i> without knowing whether it is true. The abstract meaning shared by <i>Ann loves Tom</i> and <i>Tom is loved by Ann</i> is a <b>proposition</b>.</p>
+        <p><b>Compositionality</b> (Frege's principle): the meaning of a complex expression is determined by the meanings of its parts and the way they are put together. That is why you understand sentences you've never heard, and why <i>The dog bit the man</i> and <i>The man bit the dog</i> differ: same words, different structure.</p>
+        <p><b>Idioms</b> are the main exception: the meaning of <i>kick the bucket</i>, <i>spill the beans</i> or <i>pull someone's leg</i> can't be worked out from the parts. They are stored whole, like words. Idioms differ in how frozen they are: <i>the beans were spilled</i> still works, <i>?the bucket was kicked</i> loses the idiomatic reading.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Entailment and presupposition</h2>
+        <p><b>Entailment</b>: A entails B if, whenever A is true, B must be true. <i>The anarchist assassinated the president</i> entails <i>The president died</i>. Test: <i>A, but not B</i> is a contradiction (<i>?The anarchist assassinated the president but the president didn't die</i>).</p>
+        <ul class="list">
+          <li><b>One-way</b>: <i>Lucy owns a dog</i> → <i>Lucy owns an animal</i>, not back. Hyponymy produces one-way entailments.</li>
+          <li><b>Mutual</b> (two-way) entailment = <b>paraphrase</b>, the sentence-level version of synonymy: <i>John sold the car to Mary</i> ⇔ <i>Mary bought the car from John</i>.</li>
+        </ul>
+        <p><b>Presupposition</b>: background information a sentence takes for granted. <i>John stopped smoking</i> presupposes <i>John used to smoke</i>.</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>The negation test</th><th>Entailment</th><th>Presupposition</th></tr></thead>
+          <tbody>
+            <tr><th>A</th><td><i>Tom broke the vase.</i> → <i>The vase broke.</i></td><td><i>Tom regrets breaking the vase.</i> → <i>Tom broke the vase.</i></td></tr>
+            <tr><th>not-A</th><td><i>Tom didn't break the vase.</i> → nothing about the vase.</td><td><i>Tom doesn't regret breaking the vase.</i> → still <i>Tom broke the vase.</i></td></tr>
+            <tr><th>Result</th><td>Lost under negation.</td><td>Survives negation (also questions: <i>Does Tom regret...?</i>).</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Triggers</b>: definite descriptions (<i>the king of France</i>), possessives (<i>Mary's brother</i>), factive verbs (<i>know</i>, <i>regret</i>, <i>realise</i>), change-of-state verbs (<i>stop</i>, <i>start</i>, <i>continue</i>), iteratives (<i>again</i>), clefts (<i>It was Tom who...</i>), implicatives (<i>manage</i> presupposes trying), temporal clauses (<i>before</i>, <i>after</i>, <i>when</i>).</p>
+        <p class="note"><b>Overlap.</b> The positive sentence usually entails its presuppositions too: <i>Mary's brother is a pilot</i> both entails and presupposes that Mary has a brother. What makes it a presupposition is that it survives negation. Presuppositions can also be cancelled (<i>The king of France isn't bald: there is no king of France</i>) and they behave differently in context; that side belongs to <a class="inl" href="../pragmatik/">Pragmatics</a>.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Analytic, synthetic, contradiction</h2>
+        <div class="grid2">
+          <div class="mini"><h3>Analytic</h3><p>True by virtue of meaning alone. <i>Bachelors are unmarried.</i> <i>A puppy is a young dog.</i> A <b>tautology</b> is the extreme case: <i>Either it's raining or it isn't.</i> (Pragmatically, tautologies like <i>Boys will be boys</i> still communicate something.)</p></div>
+          <div class="mini"><h3>Synthetic</h3><p>True or false depending on the facts. <i>My neighbour is unmarried.</i> <i>It's raining in Graz.</i> You have to check the world.</p></div>
+          <div class="mini"><h3>Contradiction</h3><p>False by virtue of meaning alone: <i>My brother is an only child.</i> <i>This square has five sides.</i> Two sentences contradict each other when the truth of one guarantees the falsity of the other: <i>Lucy is alive</i> / <i>Lucy is dead</i>.</p></div>
+        </div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Anomaly and selectional restrictions</h2>
+        <p>Chomsky's <i>Colourless green ideas sleep furiously</i> is grammatically perfect and semantically <b>anomalous</b>: <i>colourless</i> clashes with <i>green</i>, ideas can't be green or sleep, and nobody sleeps furiously. The clash comes from <b>selectional restrictions</b>, the semantic requirements a word places on its neighbours:</p>
+        <ul class="list">
+          <li><i>drink</i> wants a liquid object: <i>?drink the sandwich</i>.</li>
+          <li><i>frighten</i> wants an animate object: <i>?The noise frightened the table</i>.</li>
+          <li><i>elapse</i> wants a period of time as subject: <i>?The table elapsed</i>.</li>
+          <li><i>pregnant</i> wants a female subject (in the literal sense).</li>
+        </ul>
+        <p>Metaphor and poetry break selectional restrictions on purpose: <i>time flies</i>, <i>a furious silence</i>.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Ambiguity and vagueness</h2>
+        <div class="grid2">
+          <div class="mini"><h3>Lexical ambiguity</h3><p>One word has two meanings (homonymy or polysemy); the structure is the same. <i>She went to the bank.</i> <i>She can't bear children.</i></p></div>
+          <div class="mini"><h3>Structural ambiguity</h3><p>The words are the same, but they can be grouped in two ways.<br><i>old [men and women]</i> / <i>[old men] and women</i><br><i>I saw [the man with the telescope]</i> / <i>I [saw the man] [with the telescope]</i><br><i>Visiting relatives can be boring</i> (going to visit them / relatives who visit)</p></div>
+          <div class="mini"><h3>Scope ambiguity</h3><p><i>Every student read a book.</i> (a) for each student, some book or other (every &gt; a); (b) one particular book that every student read (a &gt; every). Reading (b) entails (a). Same for negation: <i>All the students didn't pass</i> (none passed / not all passed).</p></div>
+        </div>
+        <p><b>Vague is not ambiguous.</b> A vague expression has one meaning that is unspecific: <i>Ann's cousin arrived</i> doesn't say whether the cousin is male or female, but <i>cousin</i> doesn't have two senses. <i>tall</i>, <i>many</i>, <i>soon</i> are vague about where the line is.</p>
+        <p><b>Identity test</b> (with <i>so did</i> / <i>do so</i>): an ambiguous word must be read the same way in both halves. <i>Ann went to the bank and so did Ben</i> can't mean one went to a riverbank and the other to a savings bank. A vague word can be resolved differently: <i>Ann's cousin arrived and so did Ben's</i> is fine with a female cousin and a male one. So <i>bank</i> is ambiguous, <i>cousin</i> vague.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Thematic (semantic) roles</h2>
+        <p class="small muted">The part a participant plays in the situation. Lists and labels vary by textbook; these are the usual ones (Saeed).</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Role</th><th>Definition</th><th>Example (role in brackets)</th></tr></thead>
+          <tbody>
+            <tr><th>Agent</th><td>Deliberate, usually animate instigator of an action.</td><td>[Ann] opened the door.</td></tr>
+            <tr><th>Patient</th><td>Entity affected by the action, typically changing state.</td><td>Ann broke [the vase]. / [The ice] melted.</td></tr>
+            <tr><th>Theme</th><td>Entity moved by the action, or whose location is described; not changed itself.</td><td>Ann passed [the salt] to Ben. / [The book] is on the table.</td></tr>
+            <tr><th>Experiencer</th><td>Entity that perceives or feels something, without controlling it.</td><td>[Ann] heard a noise. / Spiders frighten [Ann].</td></tr>
+            <tr><th>Stimulus</th><td>What causes the feeling or perception.</td><td>Ann fears [spiders]. / [The news] surprised Ann.</td></tr>
+            <tr><th>Instrument</th><td>Means by which an action is carried out.</td><td>Ann cut the bread with [a knife].</td></tr>
+            <tr><th>Goal</th><td>Place or entity towards which something moves.</td><td>Ann drove to [Linz].</td></tr>
+            <tr><th>Recipient</th><td>A kind of goal: the one who receives something in a change of possession.</td><td>Ann gave [Ben] a book.</td></tr>
+            <tr><th>Source</th><td>Place or entity from which something moves.</td><td>Ann came back from [Linz].</td></tr>
+            <tr><th>Location</th><td>Where something is or happens.</td><td>Ann waited in [the hall].</td></tr>
+            <tr><th>Beneficiary</th><td>The one for whose benefit the action is done.</td><td>Ann baked a cake for [Ben].</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Patient vs theme.</b> Many books merge them (using "theme" for both), or draw the line differently. Dowty's proto-roles (proto-agent, proto-patient) replace the list with clusters of properties. Say which system you use.</p>
+        <h3>Roles are not grammatical functions</h3>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Sentence</th><th>Subject</th><th>Its role</th></tr></thead>
+          <tbody>
+            <tr><td>Tom opened the door with the key.</td><td>Tom</td><td>agent</td></tr>
+            <tr><td>The key opened the door.</td><td>the key</td><td>instrument</td></tr>
+            <tr><td>The door opened.</td><td>the door</td><td>patient (or theme)</td></tr>
+            <tr><td>The door was opened by Tom.</td><td>the door</td><td>patient (or theme); Tom in the <i>by</i>-phrase is still agent</td></tr>
+            <tr><td>Tom fears spiders. / Spiders frighten Tom.</td><td>Tom / spiders</td><td>experiencer / stimulus</td></tr>
+            <tr><td>This tent sleeps four people.</td><td>this tent</td><td>location</td></tr>
+          </tbody>
+        </table></div>
+        <p>Subject, object and so on are syntactic; roles are semantic. Passive, middle (<i>This bread cuts easily</i>) and causative alternations move the same role into different functions.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Situation types (Aktionsart)</h2>
+        <p>Vendler (1957) sorted predicates into four classes by three properties: <b>dynamic</b> (something happens), <b>durative</b> (it takes time) and <b>telic</b> (it has a built-in endpoint).</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Type</th><th>Dynamic</th><th>Durative</th><th>Telic</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><th>State</th><td>−</td><td>+</td><td>−</td><td>know the answer, love, own, be tall, resemble</td></tr>
+            <tr><th>Activity</th><td>+</td><td>+</td><td>−</td><td>run, swim, push a cart, laugh, drive around</td></tr>
+            <tr><th>Accomplishment</th><td>+</td><td>+</td><td>+</td><td>run a mile, draw a circle, build a house, eat an apple</td></tr>
+            <tr><th>Achievement</th><td>+</td><td>−</td><td>+</td><td>recognise, spot, reach the top, win the race, die</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Tests</h3>
+        <ul class="list">
+          <li><b>Progressive</b>: odd with most states (<i>*She is knowing the answer</i>); fine with activities and accomplishments; with achievements it describes the run-up, not the event (<i>He is dying</i>, <i>They are reaching the summit</i>).</li>
+          <li><b><i>for an hour</i></b>: fine with states and activities (<i>swam for an hour</i>); odd with accomplishments (<i>?built a house for an hour</i>, unless unfinished); with achievements only as repetition or the result state (<i>?recognised her for an hour</i>).</li>
+          <li><b><i>in an hour</i></b>: fine with accomplishments (<i>drew a circle in a minute</i>) and achievements, where it gives the time until the event (<i>reached the top in an hour</i>); odd with activities and states (<i>?swam in an hour</i>).</li>
+          <li><b>Imperfective paradox</b>: <i>was running</i> entails <i>ran</i> (activity), but <i>was drawing a circle</i> doesn't entail <i>drew a circle</i> (accomplishment: you can be interrupted).</li>
+          <li><b>Dynamic test</b>: <i>What she did was...</i> and imperatives work with the dynamic classes, not with states (<i>?Know the answer!</i>).</li>
+        </ul>
+        <p class="note"><b>The whole predicate counts, not the verb.</b> <i>run</i> is an activity, <i>run a mile</i> an accomplishment; <i>eat apples</i> (bare plural) is an activity, <i>eat an apple</i> an accomplishment; <i>sing</i> vs <i>sing a song</i>. Smith (1991) added a fifth class, <b>semelfactives</b>: instantaneous, atelic events like <i>knock</i>, <i>cough</i>, <i>blink</i>, which give repetition in the progressive (<i>He was coughing</i>).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Deixis</h2>
+        <p>Words whose reference shifts with the speech situation (<i>I</i>, <i>you</i>, <i>here</i>, <i>there</i>, <i>now</i>, <i>yesterday</i>, <i>this</i>) have a fixed sense and context-dependent reference. They sit on the border with pragmatics; person, place, time, social and discourse deixis are covered on the <a class="inl" href="../pragmatik/">Pragmatics</a> page.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Exam traps: sentence meaning</h2>
+        <ul class="list">
+          <li><b>Presupposition vs entailment.</b> Negate A. If B still follows, it's a presupposition; if it disappears, it was only an entailment.</li>
+          <li><b>Implicature is not entailment.</b> <i>Some students passed</i> suggests <i>not all</i>, but doesn't entail it: <i>Some students passed, in fact all of them did</i> is not a contradiction.</li>
+          <li><b>Non-factive verbs.</b> <i>believe</i>, <i>think</i>, <i>say</i>, <i>try</i> don't commit the speaker to their complement; <i>know</i>, <i>realise</i>, <i>regret</i>, <i>manage</i> do.</li>
+          <li><b>Roles ≠ functions.</b> The subject is not automatically the agent: <i>The key opened the door</i> (instrument), <i>The vase broke</i> (patient), <i>Tom received a letter</i> (recipient).</li>
+          <li><b>Vague ≠ ambiguous.</b> Use the <i>so did</i> test before you call something ambiguous.</li>
+          <li><b>Lexical vs structural.</b> If you can paraphrase the two readings by regrouping the same words (brackets, different trees), it's structural. If one word has two senses, it's lexical.</li>
+          <li><b>Classify the predicate, not the verb.</b> <i>write</i> vs <i>write a letter</i>. And achievements in the progressive don't mean the event happened (<i>He was dying</i> but survived).</li>
+          <li><b>For German speakers:</b> Standard German has no fully grammaticalised progressive (the colloquial <i>am</i>-progressive, <i>Sie ist am Lesen</i>, is restricted), so run the Vendler tests in English, not in translation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SIGNS -->
+    <section class="panel" id="view-signs" role="tabpanel" aria-labelledby="tab-signs" hidden>
+      <div class="sheet stack">
+        <h2>Semiotics: the study of signs</h2>
+        <p>Semantics studies meaning in language; <b>semiotics</b> (semiology, in Saussure's term) studies signs of every kind: words, gestures, traffic lights, pictures, smoke. The two founding traditions are Saussure's (linguistic, two-part sign) and Peirce's (philosophical, three-part sign).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Saussure's sign</h2>
+        <svg class="diag" viewBox="0 0 420 200" role="img" aria-label="Saussure's sign: an oval split into the signified (concept tree) above and the signifier (sound image /triː/) below, with arrows linking them">
+          <defs><marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+          <ellipse class="shape" cx="210" cy="100" rx="120" ry="80"/>
+          <line class="ln" x1="90" y1="100" x2="330" y2="100"/>
+          <text class="s" x="210" y="54" text-anchor="middle">SIGNIFIED (signifié)</text>
+          <text class="ac" x="210" y="78" text-anchor="middle">the concept TREE</text>
+          <text class="s" x="210" y="126" text-anchor="middle">SIGNIFIER (signifiant)</text>
+          <text class="ip" x="210" y="152" text-anchor="middle">/triː/</text>
+          <line class="ln" x1="60" y1="72" x2="60" y2="128" marker-start="url(#ah1)" marker-end="url(#ah1)"/>
+          <line class="ln" x1="360" y1="72" x2="360" y2="128" marker-start="url(#ah1)" marker-end="url(#ah1)"/>
+        </svg>
+        <p>The sign is a two-sided psychological unit: a <b>signifier</b> (a sound-image, the mental imprint of the sound) joined to a <b>signified</b> (a concept). Neither is the real tree; the referent in the world is not part of Saussure's sign.</p>
+        <div class="grid2">
+          <div class="mini"><h3>Arbitrariness</h3><p>Nothing in the concept TREE calls for the sounds /triː/: German <i>Baum</i>, French <i>arbre</i>. The link is fixed by convention. Saussure allowed <b>relative motivation</b>: <i>nineteen</i> is motivated by <i>nine</i> + <i>-teen</i>, while <i>ten</i> is fully arbitrary.</p></div>
+          <div class="mini"><h3>Linearity</h3><p>The spoken signifier unfolds in time, one element after another, so language is a chain. (A picture shows everything at once.)</p></div>
+          <div class="mini"><h3>Langue vs parole</h3><p><b>Langue</b>: the shared, abstract system of a community. <b>Parole</b>: individual acts of speaking. Saussure made langue the object of linguistics. (Compare Chomsky's competence/performance, which is individual and mental.)</p></div>
+          <div class="mini"><h3>Synchrony vs diachrony</h3><p><b>Synchronic</b>: the system at one point in time. <b>Diachronic</b>: its change through time. Saussure put synchrony first: speakers don't need history to use their language.</p></div>
+          <div class="mini"><h3>Value (valeur)</h3><p>A sign's value comes from its contrasts with the other signs in the system. French <i>mouton</i> covers both the animal and the meat; English divides the field into <i>sheep</i> and <i>mutton</i>, so <i>sheep</i> has a different value from <i>mouton</i>.</p></div>
+        </div>
+        <h3>Syntagmatic vs paradigmatic relations</h3>
+        <div class="scroll"><table class="para">
+          <tbody>
+            <tr><td>The</td><td>cat</td><td>sat</td><td>on the mat</td></tr>
+            <tr><td>A</td><td>dog</td><td>slept</td><td>under the table</td></tr>
+            <tr><td>My</td><td>parrot</td><td>waited</td><td>by the door</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Syntagmatic</b> (horizontal, "and... and"): relations between units that combine in a chain, <i>the + cat + sat</i>. Collocation and selectional restrictions are syntagmatic. <b>Paradigmatic</b> (vertical, "or... or"): relations between units that can replace each other in one slot, <i>cat / dog / parrot</i>. Synonymy, antonymy and hyponymy are paradigmatic relations. (Saussure himself spoke of "associative" relations; "paradigmatic" is the later term.)</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Ogden &amp; Richards' semiotic triangle</h2>
+        <svg class="diag" viewBox="0 0 420 250" role="img" aria-label="Semiotic triangle: thought or reference at the top, symbol bottom left, referent bottom right; the base line between symbol and referent is dashed">
+          <line class="ln" x1="210" y1="52" x2="66" y2="196"/>
+          <line class="ln" x1="210" y1="52" x2="354" y2="196"/>
+          <line class="ln dash" x1="66" y1="196" x2="354" y2="196"/>
+          <text class="ac" x="210" y="26" text-anchor="middle">THOUGHT or REFERENCE</text>
+          <text class="s" x="210" y="42" text-anchor="middle">the concept DOG</text>
+          <text class="ac" x="58" y="218" text-anchor="middle">SYMBOL</text>
+          <text class="s" x="58" y="234" text-anchor="middle">the word dog</text>
+          <text class="ac" x="362" y="218" text-anchor="middle">REFERENT</text>
+          <text class="s" x="362" y="234" text-anchor="middle">an actual dog</text>
+          <text class="s" x="118" y="118" text-anchor="end">symbolises</text>
+          <text class="s" x="302" y="118" text-anchor="start">refers to</text>
+          <text class="s" x="210" y="188" text-anchor="middle">stands for (only indirectly)</text>
+        </svg>
+        <p>Ogden and Richards (1923) put the referent back in. A word (<b>symbol</b>) evokes a concept (<b>thought or reference</b>), and the concept relates to a thing in the world (<b>referent</b>). The base line is dotted: there is no direct link between a word and a thing; the connection always runs through the mind. This is the arbitrariness of the sign seen from another angle.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Peirce: icon, index, symbol</h2>
+        <p>For Peirce a sign has three parts: the sign vehicle (representamen), the <b>object</b> it stands for, and the <b>interpretant</b>, the understanding it produces. His best-known division sorts signs by how they connect to their object:</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Type</th><th>Link to the object</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><th>Icon</th><td><b>Resemblance</b>: the sign looks, sounds or is structured like what it stands for.</td><td>a portrait, a statue, a map, a floor plan, a road sign showing a deer, a scale model, a caricature, a mime of drinking; onomatopoeia like <i>cuckoo</i> (partly)</td></tr>
+            <tr><th>Index</th><td><b>Physical or causal connection</b> (contiguity): the sign is caused by, or points to, its object.</td><td>smoke for fire, footprints, a fever for an infection, a weathervane for wind direction, a pointing finger, a knock at the door, dark clouds for rain, a regional accent for where someone grew up</td></tr>
+            <tr><th>Symbol</th><td><b>Convention</b>: the link is learned and arbitrary.</td><td>most words (<i>tree</i>, <i>Baum</i>), traffic lights, flags, a wedding ring, numerals, the € sign, a white flag for surrender, nodding for <i>yes</i></td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Mixed signs are the norm.</b> A photograph resembles its object (icon) and was physically caused by light from it (index). A dove is iconic of a dove but symbolic of peace. Peirce himself treated words like <i>this</i>, <i>here</i> and <i>I</i> as indexical. For exam answers, name the dominant link and say what else is mixed in.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Motivation vs arbitrariness</h2>
+        <p>Most linguistic signs are arbitrary, but language has pockets of <b>motivation</b> (iconicity), where form reflects meaning:</p>
+        <ul class="list">
+          <li><b>Onomatopoeia</b> imitates sounds, but only partly: the cock crows <i>cock-a-doodle-doo</i> in English, <i>kikeriki</i> in German, <i>cocorico</i> in French; the dog says <i>woof</i> or <i>bow-wow</i> vs <i>wau wau</i>. Each language fits the imitation to its own sound system, so onomatopoeia is iconic and conventional at once.</li>
+          <li><b>Sound symbolism / phonaesthemes</b>: recurring sound–meaning links without being morphemes. <i>gl-</i> and light: <i>glow</i>, <i>gleam</i>, <i>glitter</i>, <i>glisten</i>; <i>sn-</i> and the nose: <i>sniff</i>, <i>snore</i>, <i>sneeze</i>, <i>snout</i>.</li>
+          <li><b>Iconicity in syntax</b>: the order of clauses mirrors the order of events. <i>She got married and had a baby</i> is understood differently from <i>She had a baby and got married</i>; <i>veni, vidi, vici</i>.</li>
+          <li><b>Relative motivation</b> (Saussure): complex words are partly transparent (<i>nineteen</i>, <i>teacher</i>, <i>pear tree</i>) even though their parts are arbitrary.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Hockett's design features</h2>
+        <p class="small muted">Hockett (1960) listed the properties of human language to compare it with animal communication. The core 13 are below; he later added prevarication, reflexiveness and learnability.</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Feature</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><th>Vocal-auditory channel</th><td>Produced by the vocal tract, received by the ear. (Sign languages show it isn't essential to language.)</td></tr>
+            <tr><th>Broadcast transmission, directional reception</th><td>Sound goes out in all directions; the hearer can tell where it comes from.</td></tr>
+            <tr><th>Rapid fading</th><td>Spoken signals vanish at once (unlike writing or animal scent marks).</td></tr>
+            <tr><th>Interchangeability</th><td>Any speaker can also be a receiver and can say what they understand.</td></tr>
+            <tr><th>Total feedback</th><td>Speakers hear their own messages and can monitor them.</td></tr>
+            <tr><th>Specialisation</th><td>The signal serves only to communicate; it does no other physical work.</td></tr>
+            <tr><th>Semanticity</th><td>Signals are linked to meanings.</td></tr>
+            <tr><th>Arbitrariness</th><td>No natural link between form and meaning.</td></tr>
+            <tr><th>Discreteness</th><td>Messages are built from distinct units (/p/ vs /b/), not a continuous scale.</td></tr>
+            <tr><th>Displacement</th><td>We can talk about things remote in time and space, past, future, imaginary. Bee dances show a limited form.</td></tr>
+            <tr><th>Productivity (openness)</th><td>New messages can be made and understood without limit.</td></tr>
+            <tr><th>Cultural (traditional) transmission</th><td>Language is learned from the community, not inherited genetically.</td></tr>
+            <tr><th>Duality of patterning</th><td>Meaningless units (sounds) combine into meaningful units (words): /k/ /æ/ /t/ give <i>cat</i>, <i>act</i>, <i>tack</i>.</td></tr>
+            <tr><th>Prevarication (added)</th><td>Language can be used to lie or talk about the fictional.</td></tr>
+            <tr><th>Reflexiveness (added)</th><td>Language can talk about language.</td></tr>
+            <tr><th>Learnability (added)</th><td>A speaker of one language can learn another.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Introductory courses usually stress displacement, arbitrariness, productivity, cultural transmission and duality as the features that set human language apart. Animal systems have some features (vervet monkey alarm calls are semantic and arbitrary) but not the whole set.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Exam traps: signs</h2>
+        <ul class="list">
+          <li><b>The signified is a concept, not a thing.</b> Saussure's sign is entirely mental. The thing in the world is the referent, which belongs to the Ogden &amp; Richards triangle, not to Saussure's sign.</li>
+          <li><b>Arbitrary ≠ random or freely chosen.</b> The link is conventional; one speaker can't decide to call a tree a <i>blick</i>.</li>
+          <li><b>Peirce's "symbol" is a technical term.</b> A dove for peace is a symbol because the link is conventional, not because it is "symbolic" in the everyday sense.</li>
+          <li><b>Index = connection, not just pointing.</b> Smoke and fever are indices because they are caused by their objects.</li>
+          <li><b>Onomatopoeia is only partly iconic.</b> Compare languages before you call it "natural".</li>
+          <li><b>Syntagmatic = combination (chain); paradigmatic = choice (substitution).</b> Don't swap the axes.</li>
+          <li><b>Duality ≠ discreteness.</b> Discreteness is about distinct units; duality is about two levels, meaningless sounds and meaningful words.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="panel" id="view-glossary" role="tabpanel" aria-labelledby="tab-glossary" hidden>
+      <div class="sheet stack">
+        <h2>Glossary</h2>
+        <input class="input" id="gq" type="search" placeholder="Search terms, definitions, examples" aria-label="Search the glossary" autocomplete="off">
+        <p class="small muted" id="gcount"></p>
+        <div id="glist"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Content follows the standard textbooks: Saeed (Semantics), Löbner (Understanding Semantics), Cruse (Meaning in Language) and Lyons (Semantics); the semiotics tab draws on the ideas of Saussure and Peirce.</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+// ---------- helpers ----------
+function el(tag, attrs, kids){
+  var n = document.createElement(tag);
+  if (attrs) for (var k in attrs){
+    var v = attrs[k]; if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else if (k.slice(0,2) === 'on') n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  (kids || []).forEach(function(c){ if (c == null) return; n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+  return n;
+}
+function rnd(n){ return Math.floor(Math.random()*n); }
+function shuffle(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=rnd(i+1), t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function pick(a){ return a[rnd(a.length)]; }
+function uniq(a){ var s={}, o=[]; a.forEach(function(x){ if(!s[x]){ s[x]=1; o.push(x);} }); return o; }
+function b(t){ return el('b', {text:t}); }
+function it(t){ return el('i', {text:t}); }
+function art(w){ return (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w; }
+function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+var store = {
+  get:function(k, d){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set:function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+function fill(opts, pool, k){ var o = uniq(opts); var p = shuffle(pool); for (var i=0;i<p.length && o.length<k;i++) if (o.indexOf(p[i]) < 0) o.push(p[i]); return o; }
+// render "pre [target] post" with the bracketed part in bold
+function bracket(s){
+  var i = s.indexOf('['), j = s.indexOf(']');
+  if (i < 0 || j < i) return el('span', {class:'sl', text:s});
+  return el('span', {class:'sl'}, [s.slice(0, i), b('[' + s.slice(i+1, j) + ']'), s.slice(j+1)]);
+}
+
+// ---------- DATA: lexical relations ----------
+var REL_LAB = {SYN:'Synonymy', GRAD:'Gradable antonymy', COMP:'Complementary antonymy', CONV:'Converseness', HYP:'Hyponymy', MER:'Meronymy', HOM:'Homonymy', POL:'Polysemy'};
+var REL_NEAR = {SYN:['HYP','POL'], GRAD:['COMP','CONV'], COMP:['GRAD','CONV'], CONV:['COMP','GRAD'], HYP:['MER','SYN'], MER:['HYP'], HOM:['POL'], POL:['HOM']};
+// word, word, note
+var SYN = [
+  ['big','large','They differ in collocation: a big mistake, my big sister, but not *my large sister.'],
+  ['buy','purchase','Purchase is more formal (register).'],
+  ['begin','start','You can start a car or an engine, but not *begin a car.'],
+  ['sofa','couch','Nearly interchangeable; the choice depends on region and speaker.'],
+  ['answer','reply','Grammar differs: answer a letter, but reply to a letter.'],
+  ['rich','wealthy','Rich has extra senses (a rich sauce, rich soil) that wealthy lacks.'],
+  ['quick','fast','Collocation differs: fast food, a quick glance.'],
+  ['hide','conceal','Conceal is more formal.'],
+  ['help','assist','Assist is more formal.'],
+  ['kid','child','Kid is informal (register).'],
+  ['autumn','fall','Dialect: autumn is British, fall is American for the season.'],
+  ['lorry','truck','Dialect: lorry is British, truck American (and now common in Britain too).'],
+  ['flat','apartment','Dialect: flat is British, apartment American.'],
+  ['die','pass away','Pass away is a euphemism: same denotation, gentler connotation.'],
+  ['clever','smart','Smart has another sense in British English: well-dressed.'],
+  ['mistake','error','Error is more formal or technical (a typing error, human error).'],
+  ['ill','sick','In British English ill is mostly predicative (the child is ill, but a sick child), and sick can also mean vomiting.'],
+  ['shut','close','Close is wider: you close a bank account or a meeting, not usually *shut a bank account.'],
+  ['maybe','perhaps','Perhaps is slightly more formal.'],
+  ['fridge','refrigerator','Fridge is an informal clipping of refrigerator.'],
+  ['little','small','Little often adds feeling (a sweet little house); small is neutral and used for sizes (small, medium, large).'],
+  ['gift','present','Gift is a little more formal and also means a talent. (Careful: German Gift means poison.)']
+];
+var GRAD = [
+  ['hot','cold','Warm, lukewarm and cool lie in between.'],
+  ['big','small','Medium-sized lies in between.'],
+  ['long','short',''],
+  ['old','young','Middle-aged lies in between. Old is the unmarked term: How old is the baby? doesn’t suggest the baby is old.'],
+  ['happy','sad',''],
+  ['rich','poor',''],
+  ['heavy','light','Here light means “not heavy”.'],
+  ['fast','slow',''],
+  ['wide','narrow',''],
+  ['high','low',''],
+  ['good','bad',''],
+  ['easy','difficult',''],
+  ['early','late','You can be very early or a bit late, and on time lies in between.'],
+  ['strong','weak',''],
+  ['tall','short',''],
+  ['thick','thin',''],
+  ['deep','shallow',''],
+  ['expensive','cheap',''],
+  ['loud','quiet','']
+];
+// word, word, note, context
+var COMP = [
+  ['dead','alive','Very dead or half alive are figurative.',''],
+  ['married','unmarried','',''],
+  ['true','false','','(of a statement)'],
+  ['pass','fail','','(an exam)'],
+  ['on','off','','(a light switch)'],
+  ['present','absent','','(at a meeting)'],
+  ['hit','miss','','(a target)'],
+  ['odd','even','','(whole numbers)'],
+  ['mortal','immortal','',''],
+  ['occupied','vacant','','(a toilet cubicle)'],
+  ['include','exclude','',''],
+  ['obey','disobey','','(an order)']
+];
+var CONV = [
+  ['buy','sell','A sold the car to B ⇔ B bought the car from A.'],
+  ['parent','child','A is B’s parent ⇔ B is A’s child (child in its relational sense, offspring).'],
+  ['above','below','A is above B ⇔ B is below A.'],
+  ['husband','wife','A is B’s husband ⇔ B is A’s wife.'],
+  ['give','receive','A gave B a book ⇔ B received a book from A.'],
+  ['lend','borrow','A lent B money ⇔ B borrowed money from A.'],
+  ['employer','employee','A is B’s employer ⇔ B is A’s employee.'],
+  ['before','after','A happened before B ⇔ B happened after A.'],
+  ['in front of','behind','A is in front of B ⇔ B is behind A.'],
+  ['landlord','tenant','A is B’s landlord ⇔ B is A’s tenant.'],
+  ['predecessor','successor','A is B’s predecessor ⇔ B is A’s successor.'],
+  ['grandparent','grandchild','A is B’s grandparent ⇔ B is A’s grandchild.'],
+  ['own','belong to','A owns B ⇔ B belongs to A.'],
+  ['host','guest','A is B’s host ⇔ B is A’s guest.']
+];
+var REV = [
+  ['tie','untie'],['enter','leave'],['rise','fall'],['advance','retreat'],['dress','undress'],['appear','disappear'],
+  ['lock','unlock'],['fill','empty'],['inflate','deflate'],['ascend','descend'],['mount','dismount'],['load','unload'],
+  ['pack','unpack'],['wrap','unwrap'],['arrive','depart'],['button','unbutton'],['connect','disconnect'],['zip','unzip']
+];
+// hyponym, hypernym, note
+var HYP = [
+  ['tulip','flower',''],['apple','fruit',''],['oak','tree',''],['hammer','tool',''],['chair','furniture','A chair is a kind of furniture (a piece of furniture).'],
+  ['car','vehicle',''],['red','colour','Red is a kind of colour; red, blue and green are co-hyponyms.'],['salmon','fish',''],['sparrow','bird',''],
+  ['violin','musical instrument',''],['spoon','cutlery','A spoon is a kind of cutlery.'],['shirt','clothing','A shirt is a kind of clothing (a garment).'],
+  ['carrot','vegetable',''],['beer','drink','Beer is a kind of drink.'],['novel','book',''],['cottage','house',''],
+  ['murder','kill','To murder is a particular way of killing (deliberately and unlawfully). Verbs have hyponyms too.'],
+  ['stroll','walk','To stroll is a way of walking (slowly, for pleasure).'],
+  ['whisper','speak','To whisper is a way of speaking (very quietly).'],
+  ['dog','mammal','']
+];
+// part, whole
+var MER = [
+  ['finger','hand'],['chapter','book'],['branch','tree'],['wheel','bicycle'],['roof','house'],['petal','flower'],['blade','knife'],
+  ['toe','foot'],['sleeve','shirt'],['engine','car'],['lid','box'],['screen','laptop'],['pedal','piano'],['handle','door'],
+  ['cockpit','aeroplane'],['kitchen','house'],['nose','face'],['crust','loaf']
+];
+var HOM = [
+  ['bat (a flying mammal)','bat (for cricket or baseball)'],
+  ['bark (of a dog)','bark (of a tree)'],
+  ['mole (a burrowing animal)','mole (a dark spot on the skin)'],
+  ['match (for lighting a fire)','match (a game)'],
+  ['light (not heavy)','light (brightness)'],
+  ['fair (just)','fair (a market or funfair)'],
+  ['ball (a round object)','ball (a formal dance)'],
+  ['date (the fruit)','date (a day of the calendar)'],
+  ['seal (the sea animal)','seal (an official stamp)'],
+  ['pen (for writing)','pen (an enclosure for animals)'],
+  ['temple (a place of worship)','temple (the side of the head)'],
+  ['page (of a book)','page (a young servant)'],
+  ['lie (say something untrue)','lie (be lying down)'],
+  ['left (opposite of right)','left (past tense of leave)'],
+  ['squash (the vegetable)','squash (to crush)'],
+  ['rose (the flower)','rose (past tense of rise)'],
+  ['bear (the animal)','bear (to carry, endure)'],
+  ['sole (of the foot)','sole (only, single)'],
+  ['can (a tin)','can (be able to)'],
+  ['row (a line of seats)','row (move a boat with oars)'],
+  ['yard (a garden or courtyard)','yard (a unit of length)']
+];
+var POL = [
+  ['mouth (of a person)','mouth (of a river)','The river sense extends the body sense: the opening where something comes out.'],
+  ['head (of a person)','head (of a company)','The top, controlling part.'],
+  ['foot (of a person)','foot (of a mountain)','The bottom part.'],
+  ['leg (of a person)','leg (of a table)','A supporting limb.'],
+  ['eye (of a person)','eye (of a needle)','A small opening shaped like an eye.'],
+  ['neck (of a person)','neck (of a bottle)','The narrow part below the top.'],
+  ['face (of a person)','face (of a clock)','The front surface you look at.'],
+  ['arm (of a person)','arm (of a chair)','The part shaped like a limb that you rest your arm on.'],
+  ['run (run a race)','run (run a company)','One verb; the second sense extends the idea of keeping something moving.'],
+  ['bright (a bright light)','bright (a bright student)','Metaphor: intelligence as light.'],
+  ['sharp (a sharp knife)','sharp (a sharp mind)','Metaphor: from a cutting edge to quick thinking.'],
+  ['paper (the material)','paper (a newspaper)','Metonymy: the material for the thing made of it.'],
+  ['hot (high temperature)','hot (spicy)','The burning sensation links the senses.'],
+  ['branch (of a tree)','branch (of a bank)','Metaphor: an offshoot of a main body.'],
+  ['heart (the organ)','heart (of the city)','The centre, the most vital part.'],
+  ['tongue (in the mouth)','tongue (a language, as in mother tongue)','Metonymy: the organ of speech for the language.'],
+  ['wing (of a bird)','wing (of a building)','A part that sticks out from the side of the main body.'],
+  ['grasp (hold firmly)','grasp (understand)','Metaphor: understanding an idea as holding it.'],
+  ['root (of a plant)','root (of a problem)','The hidden source from which something grows.'],
+  ['sweet (tasting of sugar)','sweet (kind, charming)','Pleasant taste extended to pleasant people.'],
+  ['cold (low temperature)','cold (unfriendly)','Metaphor: affection as warmth, its absence as cold.']
+];
+var REL_ITEMS = [];
+SYN.forEach(function(x){ REL_ITEMS.push({a:x[0], b:x[1], t:'SYN', why:'Synonymy: near-synonyms with the same core meaning. ' + x[2] + ' Absolute synonyms hardly exist.'}); });
+GRAD.forEach(function(x){ REL_ITEMS.push({a:x[0], b:x[1], t:'GRAD', why:'Gradable antonymy: opposite ends of a scale. “very ' + x[0] + '” and comparatives work, and “neither ' + x[0] + ' nor ' + x[1] + '” is possible. ' + x[2]}); });
+COMP.forEach(function(x){ REL_ITEMS.push({a:x[0], b:x[1], t:'COMP', ctx:x[3], why:'Complementary antonymy: not ' + x[0] + ' means ' + x[1] + ' and vice versa; there is no middle ground. ' + x[2]}); });
+CONV.forEach(function(x){ REL_ITEMS.push({a:x[0], b:x[1], t:'CONV', why:'Converseness: one relation from the two sides. ' + x[2] + ' They are not complementary: nothing is split into two halves.'}); });
+HYP.forEach(function(x){ REL_ITEMS.push({a:x[0], b:x[1], t:'HYP', why:'Hyponymy: ' + (x[2] || cap(art(x[0])) + ' is a kind of ' + x[1] + '.') + ' “' + x[0] + '” is the hyponym, “' + x[1] + '” the hypernym (superordinate). Not meronymy: it isn’t a part.'}); });
+MER.forEach(function(x){ REL_ITEMS.push({a:x[0], b:x[1], t:'MER', why:'Meronymy: ' + cap(art(x[0])) + ' is part of ' + art(x[1]) + ' (meronym ' + x[0] + ', holonym ' + x[1] + '). Not hyponymy: ' + art(x[0]) + ' is not a kind of ' + x[1] + '.'}); });
+HOM.forEach(function(x){ REL_ITEMS.push({a:x[0], b:x[1], t:'HOM', why:'Homonymy: two historically different words that happen to share a form; the meanings are unrelated, and dictionaries give them separate entries.'}); });
+POL.forEach(function(x){ REL_ITEMS.push({a:x[0], b:x[1], t:'POL', why:'Polysemy: one word with related senses. ' + x[2] + ' Dictionaries list both under one entry.'}); });
+
+// antonym types
+var ANT_LAB = {GRAD:'Gradable', COMP:'Complementary', CONV:'Converse', REV:'Reversive'};
+var ANT_ITEMS = [];
+GRAD.forEach(function(x){ ANT_ITEMS.push({a:x[0], b:x[1], t:'GRAD', why:'Gradable: a scale with a middle. Test: very ' + x[0] + ' works, and neither ' + x[0] + ' nor ' + x[1] + ' is possible. ' + x[2]}); });
+COMP.forEach(function(x){ ANT_ITEMS.push({a:x[0], b:x[1], t:'COMP', ctx:x[3], why:'Complementary: not ' + x[0] + ' = ' + x[1] + '; no middle ground, so “very” and “neither... nor” are odd. ' + x[2]}); });
+CONV.forEach(function(x){ ANT_ITEMS.push({a:x[0], b:x[1], t:'CONV', why:'Converse: the same relation from the other side. ' + x[2]}); });
+REV.forEach(function(x){ ANT_ITEMS.push({a:x[0], b:x[1], t:'REV', why:'Reversive: movement or change in opposite directions; ' + x[1] + ' undoes or reverses ' + x[0] + '. (Cruse calls these directional opposites; Saeed calls them reverses; not every book counts them as antonyms.)'}); });
+
+// ---------- DATA: entailment ----------
+var ENT_LAB = {E:'Entailment: A guarantees B, but not-A does not', P:'Presupposition: both A and not-A guarantee B', N:'Neither: A leaves B open', C:'Contradiction: A guarantees that B is false'};
+var ENT = [
+  ['The anarchist assassinated the president.','The president died.','E','To assassinate is to kill, so A guarantees B. The anarchist didn’t assassinate the president tells you nothing about whether the president died.'],
+  ['Lucy owns a dog.','Lucy owns an animal.','E','Hyponymy gives one-way entailment: dog → animal. Lucy doesn’t own a dog leaves open whether she owns an animal.'],
+  ['Tom broke the vase.','The vase broke.','E','Causative break entails the change of state. Tom didn’t break the vase leaves open whether it broke.'],
+  ['Sam ate the whole cake.','Sam ate some cake.','E','All entails some. That some usually suggests “not all” is an implicature, not part of the entailment.'],
+  ['Rita drove to work.','Rita went to work.','E','Drive is a hyponym of go, so A entails B; Rita didn’t drive to work leaves open whether she went.'],
+  ['He murdered the guard.','He killed the guard.','E','Murder is a kind of killing. He didn’t murder the guard leaves open whether he killed him (accidentally, say).'],
+  ['Anna sprinted to the bus.','Anna ran to the bus.','E','Sprinting is fast running; not-A (she didn’t sprint) leaves open whether she ran.'],
+  ['Sue managed to open the door.','Sue opened the door.','E','Manage is implicative: it entails that the action happened. Sue didn’t manage to open the door guarantees the opposite, so not-A doesn’t guarantee B.'],
+  ['Liz forgot to lock the door.','Liz did not lock the door.','E','Forget to entails that the action didn’t happen. Not-A (Liz didn’t forget to lock it) means she did lock it, so B doesn’t survive negation.'],
+  ['All the students passed.','Some of the students passed.','E','All entails some (given there are students, which the definite the students presupposes). Not all the students passed leaves B open.'],
+  ['John sold his car to Mary.','Mary bought John’s car.','E','Mutual entailment via the converses sell/buy: the two sentences are paraphrases. Not-A doesn’t guarantee B.'],
+  ['The soup is boiling.','The soup is hot.','E','Boiling soup is necessarily hot; soup that isn’t boiling may or may not be hot.'],
+  ['Max is a bachelor.','Max is unmarried.','E','Bachelor includes unmarried. Max isn’t a bachelor leaves it open (he could be married, or a child).'],
+  ['I saw a tulip.','I saw a flower.','E','Tulip → flower (hyponymy). I didn’t see a tulip leaves open whether I saw a flower.'],
+  ['Anna is taller than Ben.','Ben is shorter than Anna.','E','Mutual entailment: taller than and shorter than are converses, so the sentences are paraphrases.'],
+  ['John stopped smoking.','John used to smoke.','P','Change-of-state verb stop. John didn’t stop smoking still takes for granted that he used to smoke.'],
+  ['Ann regrets selling her car.','Ann sold her car.','P','Factive verb regret. Ann doesn’t regret selling her car still means she sold it.'],
+  ['Mary’s brother is a pilot.','Mary has a brother.','P','Possessive. Mary’s brother isn’t a pilot still assumes she has a brother.'],
+  ['The king of France is bald.','There is a king of France.','P','Definite description (Russell and Strawson’s famous example). The king of France isn’t bald still assumes there is one.'],
+  ['It was Tom who broke the vase.','Someone broke the vase.','P','Cleft sentence. It wasn’t Tom who broke the vase still assumes someone did.'],
+  ['Sue managed to open the door.','Sue tried to open the door.','P','Manage presupposes an attempt (and some difficulty): Sue didn’t manage to open the door also says she tried.'],
+  ['Ben has started jogging again.','Ben used to jog at some earlier time.','P','Iterative again. Ben hasn’t started jogging again still assumes he jogged before.'],
+  ['Ann realised that the door was locked.','The door was locked.','P','Factive realise. Ann didn’t realise that the door was locked still means it was locked.'],
+  ['Jill knows that Tom lied.','Tom lied.','P','Factive know. Jill doesn’t know that Tom lied still commits the speaker to Tom having lied.'],
+  ['Peter’s car is red.','Peter has a car.','P','Possessive. Peter’s car isn’t red still assumes he has one.'],
+  ['The dog that bit me ran away.','A dog bit me.','P','The restrictive relative clause inside a definite description. The dog that bit me didn’t run away still assumes a dog bit me.'],
+  ['Tim was surprised that he won.','Tim won.','P','Factive surprised that. Tim wasn’t surprised that he won still means he won.'],
+  ['Kate is no longer married.','Kate was married.','P','No longer presupposes an earlier state. Kate is still married (the denial) also means she was married.'],
+  ['Some of the students passed.','Not all of the students passed.','N','Only a scalar implicature: Some of the students passed, in fact all of them did is not a contradiction, so A doesn’t guarantee B.'],
+  ['Paul tried to open the window.','Paul opened the window.','N','Try is not implicative: trying can succeed or fail.'],
+  ['Mia believes that it is raining.','It is raining.','N','Believe is not factive; beliefs can be false. Compare know.'],
+  ['Jo said that Bill left.','Bill left.','N','Say doesn’t commit the speaker to the truth of the reported clause.'],
+  ['Lucy owns an animal.','Lucy owns a dog.','N','Wrong direction: the hypernym doesn’t entail the hyponym. The animal may be a cat.'],
+  ['The vase broke.','Someone broke the vase.','N','Intransitive break doesn’t entail an agent: the vase may have fallen by itself.'],
+  ['Sam went to the party.','Sam enjoyed the party.','N','Going doesn’t guarantee enjoying, and doesn’t exclude it.'],
+  ['Anna ran to the bus.','Anna sprinted to the bus.','N','Wrong direction: running doesn’t entail sprinting.'],
+  ['Kim is rich.','Kim is happy.','N','No meaning relation: B is left open.'],
+  ['Ben is not married.','Ben is a bachelor.','N','Not married doesn’t guarantee bachelor: Ben could be a six-year-old.'],
+  ['Tom wants to visit Rome.','Tom has visited Rome.','N','Want says nothing about past visits.'],
+  ['Lucy is alive.','Lucy is dead.','C','Complementary antonyms: the truth of one guarantees the falsity of the other.'],
+  ['Sam is married.','Sam is a bachelor.','C','Bachelor includes unmarried, so A guarantees that B is false.'],
+  ['The light is on.','The light is off.','C','Complementaries: the light can’t be both.'],
+  ['Everyone passed the exam.','Nobody passed the exam.','C','Given that someone took the exam, both can’t be true.'],
+  ['Tom is taller than Ben.','Ben is taller than Tom.','C','Taller than is asymmetric: if A holds, B is false.'],
+  ['The soup is hot.','The soup is cold.','C','Gradable antonyms can’t both be true of the same soup at the same time (they can both be false: lukewarm). Saeed counts this as contradiction.'],
+  ['John sold the car to Mary.','Mary did not buy the car from John.','C','Sell and buy are converses, so A guarantees that Mary bought the car from John: B is false.'],
+  ['Today is Tuesday.','Today is Friday.','C','Said at the same time, the truth of one rules out the other.']
+];
+
+// ---------- DATA: thematic roles ----------
+var ROLES = ['Agent','Patient','Theme','Experiencer','Stimulus','Instrument','Goal','Source','Location','Recipient','Beneficiary'];
+// never offered together with the right answer, because some textbooks would accept them
+var ROLE_EXCL = {Patient:['Theme'], Theme:['Patient','Stimulus'], Stimulus:['Theme'], Experiencer:['Patient','Theme'], Goal:['Recipient','Location'], Recipient:['Goal','Beneficiary'], Beneficiary:['Recipient','Goal'], Location:['Goal'], Agent:[], Instrument:[], Source:[]};
+var THR = [
+  ['[The chef] chopped the onions.','Agent','The chef acts deliberately: agent.'],
+  ['[Sally] kicked the ball over the fence.','Agent','Sally acts on purpose: agent.'],
+  ['The window was broken by [the boys].','Agent','In the passive the agent appears in the by-phrase. Roles don’t follow grammatical functions.'],
+  ['[The children] built a snowman.','Agent','The children deliberately do the building.'],
+  ['[Tom] ignored the call on purpose.','Agent','A deliberate, controlled act: agent.'],
+  ['The letter was written by [my grandmother].','Agent','Passive by-phrase: still the agent.'],
+  ['The chef chopped [the onions].','Patient','The onions undergo a change of state.'],
+  ['Sally broke [the vase].','Patient','The vase changes state (whole → broken).'],
+  ['[The vase] broke.','Patient','Subject, but not an agent: the vase undergoes the change.'],
+  ['[The ice] melted.','Patient','The ice changes state; nobody acts. Subject ≠ agent.'],
+  ['The storm destroyed [the barn].','Patient','The barn is affected and changed.'],
+  ['[The window] was smashed by vandals.','Patient','Passive subject; it is still the affected entity.'],
+  ['Ann cooked [the potatoes].','Patient','The potatoes change state.'],
+  ['They demolished [the old stadium].','Patient','The stadium is affected and destroyed.'],
+  ['Sally kicked [the ball] over the fence.','Theme','The ball is moved, not changed in itself: theme. (Books that merge theme and patient call it patient.)'],
+  ['She put [the book] on the shelf.','Theme','The book changes location but not state.'],
+  ['[The book] is on the table.','Theme','The entity whose location is described.'],
+  ['Tom passed [the salt] to Ann.','Theme','The salt is what moves from one person to another.'],
+  ['[The ball] rolled down the hill.','Theme','The moving entity; no change of state.'],
+  ['John gave Mary [a present].','Theme','The thing transferred is the theme; Mary is the recipient.'],
+  ['[Kim] heard a strange noise.','Experiencer','Hearing is a perception Kim doesn’t control: experiencer, not agent.'],
+  ['[My brother] fears spiders.','Experiencer','The one who feels the emotion.'],
+  ['Spiders frighten [my brother].','Experiencer','Still the experiencer, now as object: roles don’t follow grammatical functions.'],
+  ['[Sam] felt a sharp pain.','Experiencer','The one who has the sensation.'],
+  ['The news surprised [everyone].','Experiencer','The ones who feel the surprise, as object.'],
+  ['[The audience] loved the concert.','Experiencer','The ones who feel the emotion.'],
+  ['My brother fears [spiders].','Stimulus','What causes the emotion.'],
+  ['[Spiders] frighten my brother.','Stimulus','The cause of the fear, as subject.'],
+  ['[The news] surprised everyone.','Stimulus','The cause of the surprise.'],
+  ['The audience loved [the concert].','Stimulus','What the emotion is directed at.'],
+  ['Ann was annoyed by [the noise].','Stimulus','The cause of the feeling, in a by-phrase.'],
+  ['Tom cut the bread with [a knife].','Instrument','The means by which the action is done.'],
+  ['[The key] opened the door.','Instrument','A subject that isn’t an agent: the key has no will; it is the means. The textbook case for roles ≠ functions.'],
+  ['She opened the door with [a key].','Instrument','The means of the action, in a with-phrase.'],
+  ['He wrote the letter with [a fountain pen].','Instrument','The means of writing.'],
+  ['We drove to [Vienna].','Goal','The endpoint of the movement.'],
+  ['The ball rolled into [the net].','Goal','Where the movement ends.'],
+  ['She walked towards [the exit].','Goal','The direction of the movement.'],
+  ['They climbed to [the summit].','Goal','The endpoint of the climb.'],
+  ['We drove from [Graz].','Source','The starting point of the movement.'],
+  ['She took the money out of [the drawer].','Source','Where the money comes from.'],
+  ['The letter came from [Australia].','Source','The starting point.'],
+  ['The cat jumped off [the roof].','Source','Where the movement starts.'],
+  ['Tom borrowed a pen from [Ann].','Source','The person the pen moves away from.'],
+  ['The keys are in [the drawer].','Location','Where the keys are; no movement.'],
+  ['We had lunch in [the park].','Location','Where the event happens.'],
+  ['The children played on [the beach].','Location','Where the activity takes place.'],
+  ['She lives in [Salzburg].','Location','Where she is; no movement.'],
+  ['John gave [Mary] a present.','Recipient','Mary receives something in a change of possession. (Recipient is a kind of goal.)'],
+  ['Tom passed the salt to [Ann].','Recipient','Ann ends up with the salt.'],
+  ['The company sent [the customers] a refund.','Recipient','The customers come to possess the refund.'],
+  ['She handed the keys to [the landlord].','Recipient','The landlord receives the keys.'],
+  ['She baked a cake for [her son].','Beneficiary','The cake is made for his benefit.'],
+  ['He bought flowers for [his mother].','Beneficiary','The action is done for her benefit.'],
+  ['She baked [her son] a cake.','Beneficiary','Double-object form of the for-version: still the one who benefits.'],
+  ['I opened the door for [the old man].','Beneficiary','The action is done for his benefit.']
+];
+
+// ---------- DATA: ambiguity ----------
+var AMB_LAB = {L:'Lexical ambiguity', S:'Structural ambiguity', V:'Vague, not ambiguous'};
+var AMB = [
+  ['She went to the bank.','L','bank: financial institution or river edge. One structure, two word meanings.'],
+  ['She cannot bear children.','L','bear: give birth to, or tolerate. The structure is the same either way.'],
+  ['I saw a bat in the garden.','L','bat: the animal or the club.'],
+  ['Can you find the match?','L','match: for lighting a fire, or a sports game (on TV, say).'],
+  ['Look at that seal!','L','seal: the animal or the stamp.'],
+  ['He gave her a ring.','L','ring: a piece of jewellery, or a phone call (British informal).'],
+  ['They passed the port at midnight.','L','port: a harbour or the wine.'],
+  ['The coach was late.','L','coach: the bus or the trainer.'],
+  ['He was looking for a light.','L','light: a lamp, or a flame for a cigarette.'],
+  ['She is looking for a date.','L','date: the fruit, or a romantic meeting (or partner).'],
+  ['There is a mole in the office.','L','mole: the animal, or a spy.'],
+  ['The fans were very loud.','L','fans: supporters, or electric fans.'],
+  ['I couldn’t see her pupils.','L','pupils: her students, or the pupils of her eyes.'],
+  ['The plant is enormous.','L','plant: a factory or a growing plant.'],
+  ['He drew a gun.','L','drew: pulled out, or made a drawing of.'],
+  ['The bill is on the table.','L','bill: an invoice, a bird’s beak, or a draft law.'],
+  ['The chicken is ready to eat.','S','The chicken is the eater (ready to eat its food) or the thing eaten. Who is the understood subject of eat differs: structural.'],
+  ['Visiting relatives can be boring.','S','[visiting relatives] as an action (going to visit them) or as people (relatives who visit). Same words, two structures.'],
+  ['I saw the man with the telescope.','S','The PP attaches to the verb (I used the telescope) or to the noun (the man who had it).'],
+  ['Flying planes can be dangerous.','S','The act of flying planes, or planes that are flying.'],
+  ['We met old men and women.','S','old [men and women] or [old men] and women.'],
+  ['She loves small dogs and cats.','S','small [dogs and cats] or [small dogs] and cats.'],
+  ['The professor said on Monday he would give an exam.','S','on Monday modifies said or give.'],
+  ['He is a French history teacher.','S','[French history] teacher (teaches French history) or French [history teacher] (a history teacher who is French).'],
+  ['We need more qualified staff.','S','[more qualified] staff (better qualified) or more [qualified staff] (a greater number).'],
+  ['The girl hit the boy with a book.','S','with a book attaches to hit (instrument) or to the boy (the boy holding a book).'],
+  ['The mother of the boy and the girl will arrive soon.','S','The mother of [the boy and the girl], or [the mother of the boy] and the girl.'],
+  ['They are hunting dogs.','S','[are hunting] dogs (they hunt dogs) or are [hunting dogs] (dogs used for hunting).'],
+  ['The shooting of the hunters was terrible.','S','The hunters shot (badly), or the hunters were shot: different underlying relations between the words.'],
+  ['I know a man with a dog who has fleas.','S','The relative clause attaches to a dog or to a man with a dog.'],
+  ['She looked at the dog with one eye.','S','with one eye attaches to looked (she had one eye shut) or to the dog (a one-eyed dog).'],
+  ['Ann’s cousin arrived.','V','cousin doesn’t specify sex, but it has one sense: vague. Ann’s cousin arrived and so did Ben’s works with a male and a female cousin.'],
+  ['Tom is tall.','V','tall has no fixed threshold, but one meaning: vague.'],
+  ['There were many people at the party.','V','How many is many? Vague, not two meanings.'],
+  ['My neighbour is coming over for dinner.','V','neighbour is unspecified for sex and age: vague.'],
+  ['He’ll be back soon.','V','soon has fuzzy limits but one meaning.'],
+  ['The room was warm.','V','How warm is warm? One meaning, fuzzy edges.'],
+  ['Mary kicked the ball.','V','With which foot? kick is unspecified, not ambiguous.'],
+  ['The house is old.','V','How old is old? Vague.'],
+  ['She drank some water.','V','some is unspecific about the amount: vague.'],
+  ['I spoke to a teenager.','V','teenager is unspecified for sex and exact age: vague.'],
+  ['The parcel is heavy.','V','No fixed weight: vague, one meaning.'],
+  ['A friend of mine is getting married.','V','friend is unspecified for sex: vague. A friend of mine is getting married and so is one of yours allows any mix.'],
+  ['They live near the river.','V','How near is near? Vague.']
+];
+
+// ---------- DATA: sense, reference & co. ----------
+var FR_LAB = {RD:'Same referent, different sense', SD:'Same sense, different referent', SS:'Same sense, same referent', DD:'Different sense, different referent'};
+var FREGE = [
+  ['the Morning Star','the Evening Star','RD','Both refer to Venus but present it differently: Frege’s own example.'],
+  ['the capital of Austria','the largest city in Austria','RD','Both pick out Vienna, by different descriptions.'],
+  ['the author of Hamlet','the author of Macbeth','RD','Both pick out Shakespeare; the senses differ.'],
+  ['the closest star to the Earth','the star at the centre of our solar system','RD','Both refer to the Sun.'],
+  ['the largest planet in the solar system','the fifth planet from the Sun','RD','Both refer to Jupiter.'],
+  ['the smallest odd prime number','the number of sides of a triangle','RD','Both refer to the number 3.'],
+  ['the first man on the Moon','the commander of Apollo 11','RD','Both refer to Neil Armstrong.'],
+  ['the author of Faust','the author of The Sorrows of Young Werther','RD','Both refer to Goethe.'],
+  ['the composer of The Magic Flute','the composer of Don Giovanni','RD','Both refer to Mozart.'],
+  ['the capital of Germany','the largest city in Germany','RD','Both refer to Berlin.'],
+  ['the only even prime number','the smallest prime number','RD','Both refer to the number 2.'],
+  ['Mozart’s birthplace','the city of the Salzburg Festival','RD','Both refer to Salzburg.'],
+  ['“the President of the USA” said in 2010','“the President of the USA” said in 2018','SD','Same expression, same sense; it picks out different people at different times.'],
+  ['“I” said by Anna','“I” said by Ben','SD','The sense of I (the speaker) is constant; the referent changes with the speaker.'],
+  ['“my mother” said by you','“my mother” said by someone who isn’t your sibling','SD','Same sense, different referents.'],
+  ['“today” said on a Monday','“today” said on a Friday','SD','Deictic: fixed sense, shifting reference.'],
+  ['“the Pope” said in 2010','“the Pope” said in 2020','SD','Same sense; different popes.'],
+  ['“the tallest girl in the class” said about class 4A','“the tallest girl in the class” said about class 4B','SD','Same sense, different girls.'],
+  ['“here” said in Vienna','“here” said in Graz','SD','Same sense, different places.'],
+  ['“the winner of the World Cup” said in 2011','“the winner of the World Cup” said in 2015','SD','Same sense; Spain then, Germany later.'],
+  ['“the British prime minister” said in 2015','“the British prime minister” said in 2020','SD','Same sense, different people.'],
+  ['“the bike in the hall” (pointing at one bike)','“the bicycle in the hall” (the same bike)','SS','bike is a clipping of bicycle: same sense (only the register differs) and here the same referent.'],
+  ['“the fridge in the kitchen”','“the refrigerator in the kitchen” (the same appliance)','SS','fridge is a clipping: same sense, same referent.'],
+  ['“my maths exam”','“my mathematics exam” (the same student, the same exam)','SS','Same sense, same referent; only formality differs.'],
+  ['“the photo on the wall”','“the photograph on the wall” (the same picture)','SS','Same sense, same referent.'],
+  ['“the phone on my desk”','“the telephone on my desk” (the same phone)','SS','Same sense, same referent.'],
+  ['the capital of France','the capital of Italy','DD','Different senses, and different referents (Paris, Rome).'],
+  ['the author of Hamlet','the author of Faust','DD','Different senses and different referents (Shakespeare, Goethe).'],
+  ['the Morning Star','the North Star','DD','Venus vs Polaris: different senses, different referents.'],
+  ['the largest planet','the smallest planet','DD','Jupiter vs Mercury.'],
+  ['the winner of the 2014 World Cup final','the loser of the 2014 World Cup final','DD','Germany vs Argentina.']
+];
+var CONNO = [
+  ['slim','skinny','C','Same denotation (thin); slim is approving, skinny mildly disapproving.'],
+  ['slender','scrawny','C','Same denotation; slender is admiring, scrawny unflattering.'],
+  ['thrifty','stingy','C','Both mean careful with money; thrifty praises, stingy criticises.'],
+  ['childlike','childish','C','Both mean like a child; childlike is positive (innocent), childish negative (immature).'],
+  ['inexpensive','cheap','C','Same price range; cheap can suggest poor quality.'],
+  ['die','pass away','C','Same event; pass away is a gentler euphemism.'],
+  ['plump','fat','C','Same denotation; plump is softer and often affectionate.'],
+  ['assertive','pushy','C','Both describe insisting on your view; pushy is disapproving.'],
+  ['police officer','cop','C','Same people; cop is informal and can sound disrespectful (Leech would add social meaning).'],
+  ['old person','senior citizen','C','Same people; senior citizen is a polite euphemism.'],
+  ['cheap','free','D','Different denotation: free costs nothing at all.'],
+  ['borrow','steal','D','Different denotation: borrowing includes permission and giving back.'],
+  ['chair','stool','D','Different denotation: a stool has no back.'],
+  ['river','stream','D','Different denotation: a stream is smaller.'],
+  ['warm','hot','D','Different points on the temperature scale: different denotation.'],
+  ['cup','mug','D','Different denotation: a mug is larger, straight-sided, used without a saucer.'],
+  ['walk','run','D','Different denotation: different kinds of movement.']
+];
+var DEF_POOL = ['Sense','Reference','Referent','Denotation','Connotation','Intension','Extension'];
+var DEF_EXCL = {Sense:['Intension'], Intension:['Sense'], Extension:['Denotation'], Denotation:['Extension'], Reference:['Denotation'], Referent:['Extension'], Connotation:[]};
+var DEFS = [
+  ['The act or relation by which a speaker uses an expression to pick out a particular thing on a particular occasion.','Reference','Reference is utterance-bound: in The dog is ill, the speaker refers to one dog.'],
+  ['The thing in the world itself that an expression picks out, for example the planet Venus.','Referent','The referent is the entity; reference is the relation or act of picking it out.'],
+  ['An expression’s place in the language system: the meaning relations it has with other expressions.','Sense','Lyons’s definition of sense: synonymy, antonymy, hyponymy are sense relations.'],
+  ['The way an expression presents what it refers to, which is why the Morning Star and the Evening Star differ in meaning.','Sense','Frege’s Sinn: the mode of presentation.'],
+  ['The whole set of things in the world that an expression correctly applies to.','Extension','The extension of dog is the set of all dogs.'],
+  ['The set of properties something must have for an expression to apply to it.','Intension','The intension of dog is the defining properties of dogs.'],
+  ['The emotional or evaluative associations a word carries on top of its core meaning.','Connotation','skinny vs slim: same core, different connotation.'],
+  ['The stable relation between a lexeme and the class of things it applies to, independent of any particular utterance.','Denotation','Lyons separates denotation (lexeme–class, utterance-independent) from reference (in an utterance).']
+];
+
+// ---------- DATA: figurative language ----------
+var FIG_LAB = {MET:'Metaphor', SIM:'Simile', MTN:'Metonymy (incl. synecdoche)', LIT:'Literal'};
+var FIG = [
+  ['He shot down every argument I made.','MET','ARGUMENT IS WAR: arguments as targets. Similarity across domains (war → debate).'],
+  ['Your claims are indefensible.','MET','ARGUMENT IS WAR: a position that can’t be defended.'],
+  ['You’re wasting my time.','MET','TIME IS MONEY: time as a resource you can waste.'],
+  ['I’ve invested a lot of time in this project.','MET','TIME IS MONEY: invest maps from money to time.'],
+  ['Our relationship isn’t going anywhere.','MET','LOVE IS A JOURNEY: progress as movement along a path.'],
+  ['We’re at a crossroads in our marriage.','MET','LOVE IS A JOURNEY: a decision point as a crossroads.'],
+  ['I’m feeling down today.','MET','HAPPY IS UP / SAD IS DOWN: an orientational metaphor (Lakoff & Johnson).'],
+  ['Prices are soaring.','MET','MORE IS UP: quantity mapped onto height.'],
+  ['Juliet is the sun.','MET','Romeo maps properties of the sun (warmth, light, centre) onto Juliet: similarity, no like or as.'],
+  ['That’s food for thought.','MET','IDEAS ARE FOOD: ideas as something to digest.'],
+  ['He’s drowning in paperwork.','MET','Paperwork as deep water: similarity across domains.'],
+  ['The classroom was a zoo.','MET','A noisy class understood as a zoo: similarity.'],
+  ['Her words cut deep.','MET','Words as sharp objects: similarity.'],
+  ['My lawyer is a shark.','MET','The lawyer resembles a shark (aggressive, predatory): metaphor, not metonymy.'],
+  ['I see what you mean.','MET','UNDERSTANDING IS SEEING: a conventional conceptual metaphor, so familiar it feels literal.'],
+  ['She buried her feelings.','MET','Feelings as objects that can be hidden underground.'],
+  ['He fights like a lion.','SIM','The comparison is explicit with like: simile.'],
+  ['She’s as busy as a bee.','SIM','Explicit comparison with as... as: simile.'],
+  ['Her eyes shone like stars.','SIM','Explicit comparison with like.'],
+  ['He ran like the wind.','SIM','Explicit comparison with like.'],
+  ['The lake was as smooth as glass.','SIM','Explicit comparison with as... as.'],
+  ['My love is like a red, red rose.','SIM','Burns’s line: an explicit comparison with like.'],
+  ['The baby slept like a log.','SIM','Explicit comparison with like.'],
+  ['He was as cold as ice to her.','SIM','Explicit comparison with as... as (built on a metaphor, but the form is a simile).'],
+  ['The kettle is boiling.','MTN','The kettle stands for the water in it: container for contents. Same domain, contiguity.'],
+  ['Downing Street said the plan would go ahead.','MTN','The street stands for the British government: place for institution.'],
+  ['The ham sandwich wants the bill.','MTN','The order stands for the customer who ordered it: association, not similarity.'],
+  ['I’m reading Shakespeare.','MTN','The author stands for his works: producer for product.'],
+  ['The White House announced new sanctions.','MTN','The building stands for the US administration.'],
+  ['We need some new faces on the team.','MTN','Faces for people: part for whole, i.e. synecdoche, which this page counts as metonymy.'],
+  ['All hands on deck!','MTN','Hands for sailors: part for whole (synecdoche).'],
+  ['The buses are on strike.','MTN','The buses stand for their drivers: object used for user.'],
+  ['He drank the whole bottle.','MTN','The bottle stands for its contents.'],
+  ['The pen is mightier than the sword.','MTN','The pen stands for writing and the sword for military force: the instrument for the activity.'],
+  ['The Crown owns this land.','MTN','The crown stands for the monarch or the state: an object associated with its holder.'],
+  ['Hollywood loves sequels.','MTN','The place stands for the US film industry.'],
+  ['She’s got a nice new set of wheels.','MTN','Wheels for the whole car: part for whole (synecdoche).'],
+  ['The first violin has the flu today.','MTN','The instrument stands for the player: object used for user.'],
+  ['Wall Street panicked.','MTN','The street stands for the financial markets and the people in them.'],
+  ['The water in the kettle is boiling.','LIT','No figure: the water really is boiling. Compare The kettle is boiling (metonymy).'],
+  ['The cat is sleeping on the sofa.','LIT','No figure: every word has its ordinary literal sense.'],
+  ['The president signed the new law.','LIT','No figure: the person did the signing.'],
+  ['He read a play by Shakespeare.','LIT','Literal: compare I’m reading Shakespeare, where the author stands for the works.'],
+  ['The ministers met in Downing Street.','LIT','Literal: Downing Street is just the place. Compare Downing Street said..., where it stands for the government.'],
+  ['She poured the milk into a jug.','LIT','No figure.'],
+  ['The lion chased the zebra.','LIT','No figure: a real lion.'],
+  ['The captain injured her hand.','LIT','Literal: hand means her hand, not workers as in all hands on deck.']
+];
+var MTY_LAB = {PW:'Part for whole (synecdoche)', CC:'Container for contents', PI:'Place for institution', PP:'Producer for product', OU:'Object used for user', CON:'Controller for controlled', PE:'Place for event'};
+var MTY = [
+  ['All hands on deck!','hands','PW','Hands (a part) stand for the sailors (the whole people).'],
+  ['The farm has fifty head of cattle.','head','PW','Head (a part) stands for whole animals.'],
+  ['We need some new faces around here.','faces','PW','Faces stand for whole people.'],
+  ['Nice wheels!','wheels','PW','Wheels stand for the whole car.'],
+  ['The army has no boots on the ground there.','boots','PW','Boots stand for soldiers.'],
+  ['She has five mouths to feed.','mouths','PW','Mouths stand for people (dependants).'],
+  ['The kettle is boiling.','the kettle','CC','The kettle stands for the water in it.'],
+  ['He drank the whole bottle.','the whole bottle','CC','The bottle stands for what was in it.'],
+  ['She finished the whole plate.','the whole plate','CC','The plate stands for the food on it.'],
+  ['The pot is boiling over.','the pot','CC','The pot stands for the soup or water in it.'],
+  ['Downing Street refused to comment.','Downing Street','PI','The street stands for the British government.'],
+  ['The White House is not saying anything.','The White House','PI','The building stands for the US administration (Lakoff & Johnson’s example).'],
+  ['The Kremlin denied the report.','The Kremlin','PI','The fortress stands for the Russian government.'],
+  ['Wall Street is nervous.','Wall Street','PI','The street stands for the financial institutions there.'],
+  ['Brussels wants stricter rules.','Brussels','PI','The city stands for the EU institutions based there.'],
+  ['I’m reading Shakespeare.','Shakespeare','PP','The author stands for his works.'],
+  ['She bought a Picasso.','a Picasso','PP','The painter stands for one of his paintings.'],
+  ['He drives a Ford.','a Ford','PP','The maker stands for the car.'],
+  ['Put on some Mozart.','Mozart','PP','The composer stands for his music.'],
+  ['The buses are on strike.','The buses','OU','The buses stand for the people who drive them.'],
+  ['The first violin has the flu today.','The first violin','OU','The instrument stands for the musician who plays it.'],
+  ['The drums are late again.','The drums','OU','The instrument stands for the drummer.'],
+  ['Nixon bombed Hanoi.','Nixon','CON','The leader stands for the forces he controlled (Lakoff & Johnson’s example).'],
+  ['Napoleon lost at Waterloo.','Napoleon','CON','The commander stands for his army.'],
+  ['The general bombed the city.','The general','CON','The commander stands for the forces under his control.'],
+  ['Watergate changed American politics.','Watergate','PE','The building stands for the scandal that happened there.'],
+  ['Chernobyl changed attitudes to nuclear power.','Chernobyl','PE','The place stands for the 1986 disaster.'],
+  ['Pearl Harbor still shapes US foreign policy.','Pearl Harbor','PE','The place stands for the 1941 attack (Lakoff & Johnson’s example).']
+];
+
+// ---------- DATA: Peirce ----------
+var PEIRCE = [
+  ['a portrait painting of a person','Icon','It resembles the person it stands for.'],
+  ['a map of Vienna','Icon','Its layout resembles the city’s layout: iconic (Peirce’s diagrams are icons of relations).'],
+  ['a road sign showing a leaping deer','Icon','The picture resembles a deer.'],
+  ['a small picture of a printer on a computer’s Print button','Icon','It looks like a printer.'],
+  ['a smiley face drawn as a circle with two dots and a curved line','Icon','It resembles a smiling face.'],
+  ['a statue of Mozart','Icon','It resembles Mozart.'],
+  ['a scale model of a ship','Icon','It reproduces the ship’s shape in miniature.'],
+  ['a mime pretending to drink from a glass','Icon','The gesture imitates drinking.'],
+  ['the word cuckoo, imitating the bird’s call','Icon','Onomatopoeia imitates the sound, so it is (partly) iconic; the exact form is still shaped by English conventions.'],
+  ['the sound of thunder in a radio play','Icon','The sound effect resembles real thunder.'],
+  ['a caricature of a politician','Icon','It resembles the politician, exaggerated.'],
+  ['a child’s drawing of a house','Icon','It resembles a house.'],
+  ['a floor plan of a flat','Icon','Its structure mirrors the flat’s structure.'],
+  ['smoke as a sign of fire','Index','Smoke is caused by fire: a causal connection.'],
+  ['footprints in the snow','Index','They were physically caused by someone walking there.'],
+  ['a high fever as a sign of infection','Index','A symptom is caused by what it signals.'],
+  ['a knock at the door','Index','The sound is caused by someone at the door.'],
+  ['a weathervane showing the wind direction','Index','The wind physically turns it (Peirce’s own example).'],
+  ['a pointing finger','Index','It directs attention by physical contiguity.'],
+  ['dark clouds as a sign of rain','Index','A natural, causal connection.'],
+  ['skid marks on the road','Index','Caused by a car braking hard.'],
+  ['a wet street in the morning','Index','Caused by rain (or a street cleaner).'],
+  ['the rings in a tree trunk showing its age','Index','Physically produced by the tree’s yearly growth.'],
+  ['fingerprints at a crime scene','Index','Left by contact with someone’s fingers.'],
+  ['the smell of burning toast','Index','Caused by the toast burning.'],
+  ['a person’s regional accent','Index','It points to where the person grew up, by a real connection, not resemblance or arbitrary rule.'],
+  ['a limp as a sign of an injured leg','Index','Caused by the injury.'],
+  ['a mercury thermometer showing a high temperature','Index','The column is physically pushed up by the heat.'],
+  ['a red traffic light meaning “stop”','Symbol','Red has no natural link to stopping; it is a convention.'],
+  ['the English word tree','Symbol','Arbitrary and conventional: nothing about the sounds resembles or is caused by a tree.'],
+  ['the German word Baum','Symbol','Arbitrary and conventional, like most words.'],
+  ['a wedding ring meaning “married”','Symbol','The meaning is set by social convention.'],
+  ['a white dove standing for peace','Symbol','A dove picture is iconic of a dove, but the link between dove and peace is cultural convention.'],
+  ['black clothes for mourning in Western cultures','Symbol','Convention: other cultures mourn in white.'],
+  ['a national flag','Symbol','Its link to the country is purely conventional.'],
+  ['the + sign for addition','Symbol','A learned convention.'],
+  ['a thumbs-up gesture meaning “good”','Symbol','A convention, and an offensive one in some cultures.'],
+  ['the numeral 7','Symbol','The shape doesn’t resemble seven of anything.'],
+  ['the letter A','Symbol','Arbitrary, conventional.'],
+  ['a green cross outside a pharmacy','Symbol','A convention (in other countries pharmacies use other signs).'],
+  ['Morse code','Symbol','Dots and dashes are linked to letters by convention.'],
+  ['a white flag meaning surrender','Symbol','A conventional sign.'],
+  ['nodding the head to mean yes','Symbol','A convention: in Bulgaria a nod can mean no.'],
+  ['the € sign','Symbol','Conventional.'],
+  ['the Olympic rings','Symbol','Their link to the Games is conventional.']
+];
+
+// ---------- DATA: Vendler ----------
+var VEN_LAB = {ST:'State', AC:'Activity', ACC:'Accomplishment', ACH:'Achievement'};
+var VEN = [
+  ['Ann [knows the answer].','ST','No change, no phases: *Ann is knowing the answer is odd. A state.'],
+  ['Tom [loves Mary].','ST','A state of feeling; it holds rather than happens.'],
+  ['The box [contains old books].','ST','A static relation: *The box is containing books.'],
+  ['She [owns a house].','ST','Possession is a state.'],
+  ['He [resembles his father].','ST','A state: *He is resembling his father (in the static sense).'],
+  ['They [believe in miracles].','ST','A mental state.'],
+  ['The bag [weighs five kilos].','ST','A static property; compare the activity He weighed the bag.'],
+  ['I [hate spinach].','ST','A state of feeling.'],
+  ['Paul [has blue eyes].','ST','A permanent property.'],
+  ['She [understands Japanese].','ST','A state of knowledge.'],
+  ['The house [belongs to my aunt].','ST','A static relation.'],
+  ['Ben [is tall].','ST','A property that holds without anything happening.'],
+  ['Ann [ran in the park].','AC','Dynamic and durative with no endpoint: ran for an hour, *ran in the park in an hour.'],
+  ['He [pushed a cart].','AC','Vendler’s own example: no natural endpoint.'],
+  ['They [swam].','AC','for an hour works; was swimming entails swam.'],
+  ['She [drove around town].','AC','Around town gives no endpoint: an activity.'],
+  ['The baby [cried].','AC','Durative, no endpoint.'],
+  ['It [rained].','AC','A process with no built-in end: rained for hours.'],
+  ['We [chatted].','AC','Open-ended activity.'],
+  ['The children [played in the garden].','AC','in the garden is location, not an endpoint.'],
+  ['He [walked along the beach].','AC','along gives a path but no endpoint; compare walked to the station.'],
+  ['She [sang].','AC','No object, no endpoint; compare sang a song.'],
+  ['They [danced].','AC','Open-ended activity.'],
+  ['He [ate popcorn].','AC','A mass object gives no endpoint: ate popcorn for an hour. Compare ate an apple.'],
+  ['She [read poetry].','AC','Mass/bare object, no endpoint: read poetry for hours.'],
+  ['Tom [ran a mile].','ACC','Vendler’s example: durative with an endpoint, ran a mile in six minutes.'],
+  ['She [drew a circle].','ACC','Vendler’s example: was drawing a circle doesn’t entail drew a circle (it could stay unfinished).'],
+  ['They [built a house].','ACC','Takes time and has an endpoint: built a house in a year.'],
+  ['He [wrote a letter].','ACC','Durative and telic: in an hour works.'],
+  ['She [ate an apple].','ACC','A countable object gives an endpoint: ate an apple in a minute.'],
+  ['I [read a novel].','ACC','Ends when the novel is finished: read it in a week.'],
+  ['We [walked to the station].','ACC','to the station supplies an endpoint; compare walked along the beach.'],
+  ['He [painted a portrait].','ACC','Durative and telic.'],
+  ['She [baked a cake].','ACC','Takes time; finished when the cake is done.'],
+  ['They [crossed the street].','ACC','A short process with an endpoint (other side): crossed it in ten seconds.'],
+  ['She [knitted a scarf].','ACC','Durative and telic.'],
+  ['He [drank a glass of wine].','ACC','A quantified object gives an endpoint; compare drank wine (activity).'],
+  ['She [sang a song].','ACC','The song supplies the endpoint; compare She sang (activity).'],
+  ['She [recognised her old teacher].','ACH','Instantaneous change: *recognised her for ten minutes.'],
+  ['He [spotted the plane].','ACH','Punctual: spotting happens at a moment.'],
+  ['They [reached the summit].','ACH','Vendler’s example: in an hour gives the time until the moment of arrival; are reaching describes the run-up.'],
+  ['She [won the race].','ACH','The winning is the instant of crossing the line; the race itself is a separate process.'],
+  ['He [found his keys].','ACH','Finding is a moment; the looking before it is an activity.'],
+  ['The old man [died].','ACH','Punctual change of state: He was dying describes the run-up and doesn’t entail he died.'],
+  ['The train [arrived].','ACH','A moment of change: arrival.'],
+  ['I [noticed the mistake].','ACH','Punctual.'],
+  ['She [realised the truth].','ACH','A sudden change of mental state.'],
+  ['He [lost his wallet].','ACH','A moment of change.'],
+  ['The guest [fell asleep].','ACH','The moment of falling asleep; the sleeping after is a state.'],
+  ['The runner [crossed the finish line].','ACH','Crossing a line is instantaneous; compare crossed the street (accomplishment).'],
+  ['The bomb [exploded].','ACH','An instantaneous change.']
+];
+
+// ---------- DATA: glossary ----------
+var GLOSS = [
+  ['Semantics','The study of meaning in language: of words, phrases and sentences, as far as it is encoded in the language itself.','Why do bachelor and unmarried man mean (nearly) the same?'],
+  ['Semiotics','The general study of signs of all kinds, linguistic and non-linguistic. Saussure called it semiology.','traffic lights, gestures, smoke, words'],
+  ['Pragmatics','The study of meaning in context: what speakers mean by what they say, beyond the conventional meaning.','Can you pass the salt? as a request'],
+  ['Sense','The meaning of an expression as part of the language system: its relations to other expressions, or (Frege) the way it presents its referent.','the Morning Star and the Evening Star differ in sense'],
+  ['Reference','The relation by which a speaker uses an expression to pick out something in the world on a particular occasion.','In My dog is ill the speaker refers to one dog.'],
+  ['Referent','The entity in the world that an expression picks out.','Venus is the referent of the Morning Star.'],
+  ['Referring expression','An expression used to pick out a particular entity: names, definite descriptions, pronouns.','Mozart, the man in the corner, she'],
+  ['Denotation','The stable relation between a lexeme and the class of things it applies to, independent of any utterance (Lyons). Also used for core meaning as opposed to connotation.','dog denotes the class of dogs'],
+  ['Connotation','The emotional, evaluative or cultural associations of a word beyond its core meaning.','slim (approving) vs skinny (disapproving)'],
+  ['Extension','The set of all entities an expression applies to.','the extension of planet: Mercury, Venus, Earth...'],
+  ['Intension','The properties an entity must have to fall under an expression; close to sense.','creature with a heart and creature with kidneys: same extension, different intension'],
+  ['Conceptual meaning','Leech: the logical, denotative core of meaning.','woman: +HUMAN +ADULT −MALE'],
+  ['Associative meaning','Leech’s cover term for connotative, social, affective, reflected and collocative meaning.','the extra baggage of a word'],
+  ['Social meaning','Leech: what a word reveals about the social situation (dialect, register, formality).','domicile vs home vs digs'],
+  ['Affective meaning','Leech: what a word or utterance shows about the speaker’s feelings or attitude.','Would you mind...? vs Shut up!'],
+  ['Reflected meaning','Leech: one sense of a word influencing the response to another, often a taboo sense.','intercourse, erection'],
+  ['Collocative meaning','Leech: associations a word picks up from the words it usually occurs with.','pretty woman vs handsome woman'],
+  ['Thematic meaning','Leech: what is communicated by the order and emphasis of a message.','Mary wrote it vs It was written by Mary'],
+  ['Lexeme','An abstract dictionary word, covering all its inflected forms.','sing, sang, sung, sings: one lexeme SING'],
+  ['Sense relations','Meaning relations between words (strictly, between senses): synonymy, antonymy, hyponymy, meronymy...','big / large; hot / cold; tulip / flower'],
+  ['Synonymy','Sameness or near-sameness of meaning. Absolute synonyms are very rare; most differ in dialect, register, connotation or collocation.','buy / purchase, autumn / fall'],
+  ['Antonymy','Oppositeness of meaning; in a narrow sense only gradable opposites.','hot / cold'],
+  ['Gradable antonyms','Opposites on a scale with a middle ground; not X ≠ Y.','hot / cold (warm, lukewarm in between)'],
+  ['Complementary antonyms','Opposites that split a domain in two; not X = Y. Also called binary antonyms.','dead / alive, true / false'],
+  ['Converses','Pairs describing one relation from the two sides: X R Y ⇔ Y R′ X. Also called relational opposites.','buy / sell, above / below, parent / child'],
+  ['Reversives','Pairs denoting movement or change in opposite directions. Also directional opposites or reverses.','tie / untie, enter / leave'],
+  ['Markedness','In a gradable pair, the unmarked term is neutral in questions and measurements.','How old is the baby? (old unmarked)'],
+  ['Hyponymy','Inclusion of meaning: the hyponym denotes a kind of what the hypernym denotes. Transitive.','tulip is a hyponym of flower'],
+  ['Hypernym','The more general term in a hyponymy relation. Also called superordinate.','flower is the hypernym of tulip, rose, daisy'],
+  ['Co-hyponyms','Words at the same level under one hypernym; they are incompatible with each other.','tulip, rose, daisy'],
+  ['Incompatibility','The relation between co-hyponyms: one thing can’t be both.','It’s a tulip excludes It’s a rose.'],
+  ['Taxonomy','A hierarchy of hyponymy levels.','animal > bird > robin'],
+  ['Meronymy','Part–whole relation. The meronym is the part, the holonym the whole. Not always transitive.','finger / hand, petal / flower'],
+  ['Homonymy','Unrelated words that share a form (sound and/or spelling).','bat (animal) / bat (club)'],
+  ['Homophones','Words that sound the same but are spelled differently.','flower / flour, right / write'],
+  ['Homographs','Words spelled the same but pronounced differently.','lead /liːd/ (guide) vs lead /led/ (metal)'],
+  ['Polysemy','One word with several related senses.','mouth of a person / mouth of a river'],
+  ['Componential analysis','Describing word meanings as bundles of binary semantic features.','boy = +HUMAN −ADULT +MALE'],
+  ['Semantic feature','A minimal component of meaning used in componential analysis; written in capitals with + or −. Also called a semantic component.','±ADULT, ±MALE'],
+  ['Redundancy rule','A rule stating that one feature implies another.','+HUMAN → +ANIMATE'],
+  ['Prototype','The best, most typical member of a category (Rosch).','robin for bird, chair for furniture'],
+  ['Family resemblance','Wittgenstein: category members share overlapping similarities rather than one common property.','the category game'],
+  ['Fuzzy boundary','A category edge that is gradual rather than sharp.','cup vs bowl in Labov’s experiment'],
+  ['Basic level','The level of a taxonomy that is psychologically most salient, learned first and used by default.','dog (not animal, not terrier)'],
+  ['Semantic field','A set of words covering one area of meaning and dividing it between them.','colour terms, kinship terms'],
+  ['Lexical gap','A slot in a semantic field with no single word.','no everyday English word for aunt or uncle'],
+  ['Conceptual metaphor','Understanding one domain (target) in terms of another (source) through a systematic mapping (Lakoff & Johnson).','ARGUMENT IS WAR: attack a claim'],
+  ['Source domain','The usually concrete domain a metaphor draws on.','war in ARGUMENT IS WAR'],
+  ['Target domain','The usually abstract domain that is understood through the metaphor.','argument in ARGUMENT IS WAR'],
+  ['Metaphor','Expressing one thing in terms of another on the basis of similarity across domains.','Juliet is the sun.'],
+  ['Simile','An explicit comparison with like or as.','He fights like a lion.'],
+  ['Metonymy','Using one entity to stand for another associated with it in the same domain (contiguity).','The kettle is boiling. Downing Street said...'],
+  ['Synecdoche','Part for whole (or whole for part); treated as a kind of metonymy by Lakoff & Johnson.','all hands on deck'],
+  ['False friend','A word that looks like a word in another language but means something different.','eventually ≠ eventuell'],
+  ['Collocation','The habitual co-occurrence of words.','strong tea, but powerful engine'],
+  ['Selectional restriction','The semantic requirement a word places on the words it combines with.','drink needs a liquid object'],
+  ['Anomaly','Semantic oddness from clashing meanings in a grammatical sentence.','Colourless green ideas sleep furiously.'],
+  ['Truth conditions','The conditions under which a declarative sentence would be true.','Snow is white is true iff snow is white.'],
+  ['Proposition','The abstract meaning of a declarative sentence that can be true or false; active and passive versions share it.','Ann loves Tom / Tom is loved by Ann'],
+  ['Compositionality','Frege’s principle: the meaning of a whole is determined by the meanings of its parts and how they are combined.','the dog bit the man vs the man bit the dog'],
+  ['Idiom','A fixed expression whose meaning isn’t compositional.','kick the bucket, spill the beans'],
+  ['Entailment','A entails B if whenever A is true, B must be true. Lost under negation.','He murdered the guard → He killed the guard'],
+  ['Paraphrase','Mutual entailment: two sentences that entail each other.','John sold the car to Mary ⇔ Mary bought the car from John'],
+  ['Presupposition','Background information a sentence takes for granted; it survives negation and questioning.','John stopped smoking >> John used to smoke'],
+  ['Presupposition trigger','A word or construction that creates a presupposition.','stop, regret, know, again, the, It was X who...'],
+  ['Factive verb','A verb that presupposes the truth of its complement clause.','know, regret, realise (but not believe, think)'],
+  ['Implicative verb','A verb whose use entails whether the complement happened or not.','manage to (it happened), forget to (it didn’t)'],
+  ['Contradiction','A sentence false by meaning alone, or two sentences that can’t both be true.','My brother is an only child.'],
+  ['Tautology','A sentence true by its form alone.','Either it’s raining or it isn’t.'],
+  ['Analytic','True by virtue of meaning alone.','Bachelors are unmarried.'],
+  ['Synthetic','True or false depending on the facts of the world.','My neighbour is unmarried.'],
+  ['Lexical ambiguity','Ambiguity caused by one word having two meanings.','She went to the bank.'],
+  ['Structural ambiguity','Ambiguity caused by two possible groupings or structures of the same words.','old men and women'],
+  ['Scope ambiguity','Ambiguity in which of two operators (quantifiers, negation) takes wider scope.','Every student read a book.'],
+  ['Vagueness','Lack of specificity in a single meaning; unlike ambiguity, it passes the identity test.','cousin (male or female), tall'],
+  ['Identity test','So did / do so test: an ambiguous word must be read the same way in both conjuncts, a vague one need not.','Ann went to the bank and so did Ben.'],
+  ['Thematic role','The semantic part a participant plays in a situation. Also called semantic role, participant role or theta role.','agent, patient, instrument'],
+  ['Agent','The deliberate instigator of an action.','[Ann] opened the door.'],
+  ['Patient','The entity affected by an action, typically changing state.','Ann broke [the vase].'],
+  ['Theme','The entity moved, or whose location is described; in some books also covers patient.','Ann passed [the salt].'],
+  ['Experiencer','The one who perceives or feels something without controlling it.','[Ann] heard music. / Spiders scare [Ann].'],
+  ['Stimulus','What causes a feeling or perception.','Ann fears [spiders].'],
+  ['Instrument','The means by which an action is performed.','Ann cut it with [a knife]. / [The key] opened the door.'],
+  ['Goal','The place or entity towards which something moves.','Ann drove to [Linz].'],
+  ['Recipient','A kind of goal: the receiver in a change of possession.','Ann gave [Ben] a book.'],
+  ['Source','The place or entity from which something moves.','Ann came from [Linz].'],
+  ['Location','Where something is or happens.','Ann waited in [the hall].'],
+  ['Beneficiary','The one for whose benefit an action is done.','Ann baked a cake for [Ben].'],
+  ['Situation type','The inherent temporal character of a predicate (Aktionsart, lexical aspect): state, activity, accomplishment, achievement.','know vs run vs run a mile vs reach'],
+  ['State','Static, durative, atelic: holds without anything happening.','know the answer, own a house'],
+  ['Activity','Dynamic, durative, atelic: happens over time with no endpoint.','run, push a cart'],
+  ['Accomplishment','Dynamic, durative, telic: takes time and has a built-in endpoint.','run a mile, build a house'],
+  ['Achievement','Dynamic, punctual, telic: an instantaneous change.','recognise, reach the top, die'],
+  ['Semelfactive','Smith’s fifth class: instantaneous and atelic; repetition in the progressive.','knock, cough, blink'],
+  ['Telic','Having a natural endpoint. Test: in an hour works.','eat an apple (telic) vs eat apples (atelic)'],
+  ['Imperfective paradox','The progressive of an accomplishment doesn’t entail its completion, while an activity’s does.','was drawing a circle ↛ drew a circle'],
+  ['Deixis','Expressions whose reference depends on the speech situation (person, place, time). Treated in pragmatics.','I, here, now, yesterday'],
+  ['Sign','Saussure: a two-sided psychological unit joining a signifier and a signified. Peirce: anything that stands for something to someone.','the word tree'],
+  ['Signifier','Saussure: the form side of the sign, a sound-image.','/triː/'],
+  ['Signified','Saussure: the concept side of the sign (not the thing in the world).','the concept TREE'],
+  ['Arbitrariness','There is no natural link between a sign’s form and its meaning; it rests on convention.','tree / Baum / arbre'],
+  ['Motivation','A non-arbitrary link between form and meaning (iconicity, or relative motivation of complex words).','nineteen, cuckoo'],
+  ['Linearity','Saussure: the spoken signifier unfolds in time, one element after another.','sounds in a chain'],
+  ['Langue','Saussure: the shared language system of a community.','the system of English'],
+  ['Parole','Saussure: concrete individual acts of speaking.','what you said this morning'],
+  ['Synchronic','Studying a language at one point in time.','English today'],
+  ['Diachronic','Studying a language through time, its change.','from Old English to Modern English'],
+  ['Value','Saussure’s valeur: a sign’s meaning as defined by its contrasts with the other signs in the system.','sheep / mutton vs French mouton'],
+  ['Syntagmatic relation','The relation between units combined in a chain (combination).','the + cat + sat'],
+  ['Paradigmatic relation','The relation between units that can replace each other in one slot (choice). Saussure: associative relation.','cat / dog / parrot'],
+  ['Semiotic triangle','Ogden & Richards’ model: symbol, thought or reference, referent; no direct link between symbol and referent.','the word dog → concept DOG → a dog'],
+  ['Icon','Peirce: a sign linked to its object by resemblance.','a portrait, a map'],
+  ['Index','Peirce: a sign linked to its object by a physical or causal connection.','smoke for fire, footprints'],
+  ['Symbol','Peirce: a sign linked to its object by convention.','a red traffic light, the word tree'],
+  ['Interpretant','Peirce: the understanding or effect a sign produces in the interpreter.','thinking “fire!” when you see smoke'],
+  ['Onomatopoeia','Words that imitate sounds; partly iconic, partly conventional.','cuckoo, woof vs German wau wau'],
+  ['Phonaestheme','A sound sequence associated with a meaning without being a morpheme (sound symbolism).','gl- in glow, gleam, glitter'],
+  ['Design features','Hockett’s list of properties of human language used to compare it with animal communication.','displacement, productivity, duality'],
+  ['Displacement','The ability to talk about things not present in time or space.','I was in Rome last year.'],
+  ['Productivity','The ability to produce and understand new messages without limit. Also called openness.','a sentence nobody has said before'],
+  ['Duality of patterning','Meaningless units (sounds) combine into meaningful units (words), which combine into larger ones.','/k/ /æ/ /t/ → cat, act, tack'],
+  ['Discreteness','Messages are built from distinct, separable units rather than a continuum.','/p/ vs /b/: pin vs bin'],
+  ['Cultural transmission','Language is learned from the community, not inherited genetically.','a child raised in Graz learns German'],
+  ['Prevarication','Hockett’s later feature: language can be used to lie or talk about the false and fictional.','The moon is made of cheese.'],
+  ['Reflexiveness','Hockett’s later feature: language can talk about language.','What does semantics mean?']
+];
+
+// ---------- tabs ----------
+var VIEWS = ['drill','words','sentences','signs','glossary'];
+function show(v){
+  if (VIEWS.indexOf(v) < 0) v = 'drill';
+  VIEWS.forEach(function(x){
+    document.getElementById('view-'+x).hidden = x !== v;
+    document.getElementById('tab-'+x).setAttribute('aria-selected', x === v ? 'true' : 'false');
+  });
+}
+document.querySelectorAll('.tab').forEach(function(bt){
+  bt.addEventListener('click', function(){ var v = bt.getAttribute('data-view'); try{ history.replaceState(null, '', '#'+v); }catch(e){ location.hash = v; } show(v); });
+});
+window.addEventListener('hashchange', function(){ show(location.hash.slice(1)); });
+
+// ---------- glossary tab ----------
+function buildGloss(){
+  var list = document.getElementById('glist'), q = document.getElementById('gq');
+  var sorted = GLOSS.slice().sort(function(x, y){ return x[0].toLowerCase() < y[0].toLowerCase() ? -1 : 1; });
+  var rows = sorted.map(function(g){
+    var r = el('div', {class:'gl'}, [el('div', {class:'term', text:g[0]}), el('div', {class:'gdef', text:g[1]}), el('div', {class:'gex', text:'e.g. ' + g[2]})]);
+    r._k = (g[0] + ' ' + g[1] + ' ' + g[2]).toLowerCase();
+    list.appendChild(r); return r;
+  });
+  function filt(){
+    var t = q.value.trim().toLowerCase(), n = 0;
+    rows.forEach(function(r){ var on = !t || r._k.indexOf(t) >= 0; r.hidden = !on; if (on) n++; });
+    document.getElementById('gcount').textContent = n + ' of ' + rows.length + ' terms';
+  }
+  q.addEventListener('input', filt); filt();
+}
+
+// ---------- quiz generators ----------
+function pair(x){ var sw = Math.random() < .5; var p = sw ? [x.b, x.a] : [x.a, x.b]; return p; }
+var CATS = [
+  {id:'rel', name:'Lexical relations', gen:function(){
+    var x = pick(REL_ITEMS), p = (x.t === 'HOM' || x.t === 'POL') ? [x.a, x.b] : pair(x), ok = REL_LAB[x.t];
+    var near = REL_NEAR[x.t].map(function(k){ return REL_LAB[k]; });
+    var rest = Object.keys(REL_LAB).filter(function(k){ return k !== x.t; }).map(function(k){ return REL_LAB[k]; });
+    var opts = fill([ok].concat(near), rest, 4);
+    var pr = ['What is the relation between ', b(p[0]), ' and ', b(p[1]), x.ctx ? ' ' + x.ctx : '', '?'];
+    return {id:'rel:'+x.a+'|'+x.b, cat:'Lexical relations', prompt:pr, ok:ok, opts:opts, why:x.why};
+  }},
+  {id:'ant', name:'Antonym types', gen:function(){
+    var x = pick(ANT_ITEMS), p = pair(x), ok = ANT_LAB[x.t];
+    return {id:'ant:'+x.a+'|'+x.b, cat:'Antonym types', prompt:['What kind of opposites are ', b(p[0]), ' and ', b(p[1]), x.ctx ? ' ' + x.ctx : '', '?'], ok:ok, opts:[ANT_LAB.GRAD, ANT_LAB.COMP, ANT_LAB.CONV, ANT_LAB.REV], fixed:true, why:x.why};
+  }},
+  {id:'ent', name:'Entailment & presupposition', gen:function(){
+    var x = pick(ENT);
+    return {id:'ent:'+x[0]+'|'+x[1], cat:'Entailment and presupposition', prompt:['How is B related to A?', el('span', {class:'sl'}, [b('A: '), x[0]]), el('span', {class:'sl'}, [b('B: '), x[1]])], ok:ENT_LAB[x[2]], opts:[ENT_LAB.E, ENT_LAB.P, ENT_LAB.N, ENT_LAB.C], fixed:true, why:x[3]};
+  }},
+  {id:'role', name:'Thematic roles', gen:function(){
+    var x = pick(THR), ok = x[1], ex = ROLE_EXCL[ok] || [];
+    var pool = ROLES.filter(function(r){ return r !== ok && ex.indexOf(r) < 0; });
+    return {id:'role:'+x[0], cat:'Thematic roles', prompt:['What is the thematic role of the bracketed phrase?', bracket(x[0])], ok:ok, opts:fill([ok], pool, 4), why:x[2]};
+  }},
+  {id:'amb', name:'Ambiguity or vagueness', gen:function(){
+    var x = pick(AMB);
+    return {id:'amb:'+x[0], cat:'Ambiguity or vagueness', prompt:['Is this sentence lexically ambiguous, structurally ambiguous, or just vague?', el('span', {class:'sl', text:x[0]})], ok:AMB_LAB[x[1]], opts:[AMB_LAB.L, AMB_LAB.S, AMB_LAB.V], fixed:true, why:x[2]};
+  }},
+  {id:'sref', name:'Sense, reference & co.', gen:function(){
+    var r = Math.random();
+    if (r < .52){
+      var x = pick(FREGE);
+      return {id:'fr:'+x[0]+'|'+x[1], cat:'Sense and reference', prompt:['Compare the sense and reference of these two expressions.', el('span', {class:'sl', text:x[0]}), el('span', {class:'sl', text:x[1]})], ok:FR_LAB[x[2]], opts:[FR_LAB.RD, FR_LAB.SD, FR_LAB.SS, FR_LAB.DD], fixed:true, why:x[3]};
+    }
+    if (r < .8){
+      var c = pick(CONNO), okc = c[2] === 'C' ? 'Same denotation, different connotation' : 'Different denotation';
+      return {id:'con:'+c[0]+'|'+c[1], cat:'Denotation and connotation', prompt:['What is the main difference between ', b(c[0]), ' and ', b(c[1]), '?'], ok:okc, opts:['Same denotation, different connotation','Different denotation'], fixed:true, why:c[3]};
+    }
+    var d = pick(DEFS), okd = d[1], exd = DEF_EXCL[okd] || [];
+    var pool = DEF_POOL.filter(function(t){ return t !== okd && exd.indexOf(t) < 0; });
+    return {id:'def:'+d[0].slice(0, 40), cat:'Which term?', prompt:['Which term is defined here?', el('span', {class:'def', text:d[0]})], ok:okd, opts:fill([okd], pool, 4), why:d[2]};
+  }},
+  {id:'fig', name:'Metaphor & metonymy', gen:function(){
+    if (Math.random() < .62){
+      var x = pick(FIG);
+      return {id:'fig:'+x[0], cat:'Figurative language', prompt:['Which figure (if any) is used here?', el('span', {class:'sl', text:x[0]})], ok:FIG_LAB[x[1]], opts:[FIG_LAB.MET, FIG_LAB.SIM, FIG_LAB.MTN, FIG_LAB.LIT], fixed:true, why:x[2]};
+    }
+    var m = pick(MTY), okm = MTY_LAB[m[2]];
+    var rest = Object.keys(MTY_LAB).filter(function(k){ return k !== m[2]; }).map(function(k){ return MTY_LAB[k]; });
+    var s = m[0], i = s.indexOf(m[1]);
+    var shown = i < 0 ? el('span', {class:'sl', text:s}) : el('span', {class:'sl'}, [s.slice(0, i), b(m[1]), s.slice(i + m[1].length)]);
+    return {id:'mty:'+m[0], cat:'Kinds of metonymy', prompt:['Which kind of metonymy is the bold expression?', shown], ok:okm, opts:fill([okm], rest, 4), why:m[3]};
+  }},
+  {id:'peirce', name:'Icon, index, symbol', gen:function(){
+    var x = pick(PEIRCE);
+    return {id:'pc:'+x[0], cat:'Peirce: icon, index, symbol', prompt:['In Peirce’s terms, what kind of sign is ', b(x[0]), '?'], ok:x[1], opts:['Icon','Index','Symbol'], fixed:true, why:x[2]};
+  }},
+  {id:'vendler', name:'Situation types', gen:function(){
+    var x = pick(VEN);
+    return {id:'ven:'+x[0], cat:'Situation types (Vendler)', prompt:['Which situation type is the bracketed predicate?', bracket(x[0])], ok:VEN_LAB[x[1]], opts:[VEN_LAB.ST, VEN_LAB.AC, VEN_LAB.ACC, VEN_LAB.ACH], fixed:true, why:x[2]};
+  }}
+];
+
+// ---------- drill engine ----------
+var SKEY = 'bedeutungskammer.v1';
+var stats = store.get(SKEY, {}); // id -> [seen, wrong]
+var prefs = store.get(SKEY+'.prefs', {cats:CATS.map(function(c){ return c.id; }), len:20});
+var known = CATS.map(function(c){ return c.id; });
+var enabled = (prefs.cats || []).filter(function(id){ return known.indexOf(id) >= 0; });
+if (!enabled.length) enabled = known.slice();
+var round = null;
+
+function weightOf(id){ var s = stats[id]; if (!s) return 1.4; var miss = s[1] / Math.max(1, s[0]); return .5 + miss*3 + (s[0] < 2 ? .4 : 0); }
+function nextQ(onlyMisses){
+  var best = null, bestScore = -1;
+  for (var tries = 0; tries < 14; tries++){
+    var cat = CATS.filter(function(c){ return enabled.indexOf(c.id) >= 0; });
+    if (!cat.length) cat = CATS;
+    var q = pick(cat).gen();
+    if (round && round.used[q.id] && tries < 13) continue;
+    var w = weightOf(q.id);
+    if (onlyMisses && !(stats[q.id] && stats[q.id][1] > 0) && tries < 13) continue;
+    var sc = w * (0.6 + Math.random());
+    if (sc > bestScore){ best = q; bestScore = sc; }
+    if (tries > 4 && best) break;
+  }
+  return best;
+}
+function startRound(onlyMisses){
+  var len = parseInt(document.getElementById('len').value, 10) || 20;
+  if (onlyMisses){ var any = Object.keys(stats).some(function(k){ return stats[k][1] > 0; }); if (!any) onlyMisses = false; }
+  round = {len:len, pos:0, right:0, done:0, used:{}, missed:[], onlyMisses:!!onlyMisses};
+  document.getElementById('sc-len').textContent = len;
+  ask();
+}
+function updScore(){
+  document.getElementById('sc-right').textContent = round.right;
+  document.getElementById('sc-done').textContent = round.done;
+  document.getElementById('sc-pos').textContent = Math.min(round.pos+1, round.len);
+  document.getElementById('sc-bar').style.width = (100*round.done/round.len)+'%';
+}
+var cur = null, answered = false;
+function ask(){
+  updScore();
+  var host = document.getElementById('qhost'); host.textContent = '';
+  if (round.pos >= round.len){ return summary(); }
+  cur = nextQ(round.onlyMisses); round.used[cur.id] = 1; answered = false;
+  var card = el('div', {class:'qcard'});
+  card.appendChild(el('div', {class:'qcat', text:cur.cat}));
+  card.appendChild(el('div', {class:'qprompt'}, cur.prompt.slice()));
+  var opts = uniq(cur.opts).slice(0, 4); if (opts.indexOf(cur.ok) < 0) opts[opts.length-1] = cur.ok;
+  if (!cur.fixed) opts = shuffle(opts);
+  var grid = el('div', {class:'opts', role:'group', 'aria-label':'Answers'});
+  opts.forEach(function(o, i){
+    grid.appendChild(el('button', {class:'opt', type:'button', 'data-v':o, onclick:function(){ answer(o); }}, [el('span', {class:'k', text:String(i+1)}), el('span', {class:'t', text:o})]));
+  });
+  card.appendChild(grid);
+  card.appendChild(el('div', {id:'whyhost'}));
+  host.appendChild(card);
+}
+function promptText(q){ return q.prompt.map(function(p){ return typeof p === 'string' ? p : (p.textContent || ''); }).join(' ').replace(/\s+/g, ' ').trim(); }
+function answer(o){
+  if (answered) return; answered = true;
+  var good = o === cur.ok;
+  document.querySelectorAll('#qhost .opt').forEach(function(bt){
+    bt.disabled = true; var v = bt.getAttribute('data-v');
+    if (v === cur.ok) bt.classList.add('right'); else if (v === o) bt.classList.add('wrong');
+  });
+  var s = stats[cur.id] || [0,0]; s[0]++; if (!good) s[1]++; else if (s[1] > 0 && s[0] > 3) s[1] = Math.max(0, s[1]-1);
+  stats[cur.id] = s; store.set(SKEY, stats);
+  round.done++; if (good) round.right++; else round.missed.push(cur);
+  var why = el('div', {class:'why'}, [
+    el('div', {class:'verdict '+(good ? 'ok' : 'no'), text: good ? 'Right.' : 'Not quite. Answer: '+cur.ok}),
+    el('div', {text:cur.why})
+  ]);
+  var row = el('div', {class:'row', style:'margin-top:10px'}, [el('button', {class:'btn', type:'button', id:'next', onclick:function(){ round.pos++; ask(); }, text: round.pos+1 >= round.len ? 'See results' : 'Next'})]);
+  why.appendChild(row);
+  document.getElementById('whyhost').appendChild(why);
+  updScore();
+  try{ document.getElementById('next').focus({preventScroll:true}); }catch(e){}
+}
+function summary(){
+  var host = document.getElementById('qhost');
+  var pct = Math.round(100*round.right/Math.max(1, round.done));
+  host.appendChild(el('div', {class:'stack'}, [
+    el('h3', {text: round.right+' of '+round.done+' right ('+pct+'%)'}),
+    el('p', {class:'muted', text: round.missed.length ? 'These come back more often in the next rounds:' : 'Clean round. Try 40 questions or a harder section.'}),
+    round.missed.length ? el('ul', {class:'summary-list'}, round.missed.map(function(q){ return el('li', null, [el('b', {text:q.cat+': '}), el('span', {text:promptText(q)+' → '+q.ok}), el('div', {class:'small muted', text:q.why})]); })) : null,
+    el('div', {class:'row'}, [el('button', {class:'btn', type:'button', onclick:function(){ startRound(false); }, text:'New round'}), round.missed.length ? el('button', {class:'btn quiet', type:'button', onclick:function(){ startRound(true); }, text:'Drill my misses'}) : null])
+  ]));
+}
+function buildCats(){
+  var h = document.getElementById('cats');
+  CATS.forEach(function(c){
+    var bt = el('button', {class:'chip', type:'button', 'aria-pressed': enabled.indexOf(c.id) >= 0 ? 'true' : 'false', text:c.name});
+    bt.addEventListener('click', function(){
+      var i = enabled.indexOf(c.id);
+      if (i >= 0){ if (enabled.length > 1) enabled.splice(i, 1); } else enabled.push(c.id);
+      document.querySelectorAll('#cats .chip').forEach(function(x, k){ x.setAttribute('aria-pressed', enabled.indexOf(CATS[k].id) >= 0 ? 'true' : 'false'); });
+      savePrefs();
+    });
+    h.appendChild(bt);
+  });
+}
+function savePrefs(){ store.set(SKEY+'.prefs', {cats:enabled, len:parseInt(document.getElementById('len').value, 10) || 20}); }
+document.getElementById('len').value = String(prefs.len || 20);
+document.getElementById('len').addEventListener('change', savePrefs);
+document.getElementById('restart').addEventListener('click', function(){ startRound(false); });
+document.getElementById('misses').addEventListener('click', function(){ startRound(true); });
+document.addEventListener('keydown', function(e){
+  if (document.getElementById('view-drill').hidden || e.ctrlKey || e.metaKey || e.altKey) return;
+  var t = e.target; if (t && (t.tagName === 'SELECT' || t.tagName === 'INPUT')) return;
+  if (!answered && /^[1-4]$/.test(e.key)){ var bt = document.querySelectorAll('#qhost .opt')[+e.key-1]; if (bt){ e.preventDefault(); bt.click(); } }
+  else if (answered && e.key === 'Enter'){ var n = document.getElementById('next'); if (n && document.activeElement !== n){ e.preventDefault(); n.click(); } }
+});
+
+// ---------- boot ----------
+buildGloss(); buildCats();
+startRound(false);
+show(location.hash.slice(1) || 'drill');
+})();
+</script>
+</body>
+</html>

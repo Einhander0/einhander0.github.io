@@ -1,0 +1,1506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Zwischen den Zeilen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..800&family=Young+Serif&family=Noto+Serif:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 44C8.5 35.5 3.5 26 4.6 17.8 5.6 11 11 8.6 20 8.6S34.4 11 35.4 17.8C36.5 26 31.5 35.5 20 44Z' fill='%23e0285a'/%3E%3Cpath d='M20 10.5c-2.6-3.6-7.6-5-11.6-3.2 3.6.8 5.8 2.4 6.8 4.4-3.7.1-6.6 1.9-7.9 4.8 4-1.2 8.1-1.8 12.7-1.8s8.7.6 12.7 1.8c-1.3-2.9-4.2-4.7-7.9-4.8 1-2 3.2-3.6 6.8-4.4-4-1.8-9 .4-11.6 3.2Z' fill='%233e9a4b'/%3E%3C/svg%3E">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style id="chest-style">
+/* Layout: one column notebook. Header, study-set nav, a tab strip (Drill / Implicature / Speech acts / Deixis & presupposition / Politeness & conversation / Glossary), then one panel at a time. */
+:root{
+  --bg:#fbf0f3; --bg-glow:#f8d9e3; --surface:#fffafc; --chip:#fde7ee;
+  --ink:#2b1320; --muted:#7c5767; --line:#efd2dc;
+  --berry:#d4235c; --berry-ink:#ad1747; --on-berry:#ffffff; --ring:rgba(212,35,92,.22);
+  --brass:#c9982e; --brass-text:#86600f;
+  --rp:#1f6f8b; --rp-chip:#e2f1f6; --ga:#a2461c; --ga-chip:#fbe9df;
+  --good:#2e7d4f; --good-chip:#e3f4e9; --bad:#b3261e; --bad-chip:#fbe4e2;
+  --font-word:"Young Serif",Georgia,"Times New Roman",serif;
+  --font-body:"Nunito Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-ipa:"Gentium Plus","Charis SIL","Doulos SIL","Noto Serif","Lucida Sans Unicode","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+    --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+    --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+    --brass:#e0b04a; --brass-text:#e9c36a;
+    --rp:#7cc6df; --rp-chip:#14303b; --ga:#f2a27a; --ga-chip:#3b2016;
+    --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+  --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+  --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+  --brass:#e0b04a; --brass-text:#e9c36a;
+  --rp:#7cc6df; --rp-chip:#14303b; --ga:#f2a27a; --ga-chip:#3b2016;
+  --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:radial-gradient(1100px 460px at 50% -8%, var(--bg-glow), transparent 62%), var(--bg);
+  background-color:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.5;
+}
+.wrap{max-width:820px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:26px 48px}
+.eyebrow{font:800 .72rem/1 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--berry-ink); margin:0}
+h1{font:400 clamp(2.1rem, 8.5vw, 3.4rem)/1.05 var(--font-word); margin:.2em 0 .15em; text-wrap:balance}
+h1 .slash{font-family:var(--font-ipa); color:var(--berry); font-weight:400; font-size:.62em; white-space:nowrap}
+h2{font:400 1.45rem/1.2 var(--font-word); margin:0; text-wrap:balance}
+h3{font:800 1rem/1.3 var(--font-body); margin:0}
+p{margin:0}
+.lede{max-width:60ch; color:var(--muted)}
+.lede b{color:var(--ink)}
+.stack{display:grid; gap:14px}
+.stack > *{min-width:0}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+
+/* study-set nav */
+.sets{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0}
+.sets a{font:700 .78rem/1 var(--font-body); color:var(--muted); text-decoration:none; padding:7px 10px; border:1px solid var(--line); border-radius:999px; background:var(--surface)}
+.sets a:hover{color:var(--ink); border-color:var(--berry)}
+.sets a[aria-current="page"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+
+/* tabs */
+.tabs{display:flex; flex-wrap:wrap; gap:6px; margin:20px 0 18px; padding:5px; background:var(--chip); border:1px solid var(--line); border-radius:10px}
+.tab{appearance:none; border:0; background:none; font:700 .9rem/1.15 var(--font-body); color:var(--muted); padding:10px 12px; border-radius:7px; cursor:pointer; flex:1 1 auto; text-align:center}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--surface); color:var(--berry-ink); box-shadow:0 1px 3px var(--ring)}
+.tab:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible{outline:3px solid var(--berry); outline-offset:2px}
+
+.panel{display:grid; gap:18px}
+.panel > *{min-width:0}
+.sheet{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px}
+.note{border-left:3px solid var(--brass); padding:2px 0 2px 12px; color:var(--muted); font-size:.92rem}
+.note b{color:var(--ink)}
+.list{margin:0; padding-left:20px; display:grid; gap:7px}
+.list li{min-width:0}
+.ex{color:var(--muted); font-size:.92rem}
+.ex i{color:var(--ink)}
+.traps{border:1px solid var(--brass); background:var(--surface)}
+.traps h3{color:var(--brass-text)}
+.tree, .tree ul{list-style:none; margin:0; padding:0}
+.tree ul{margin-left:8px; padding-left:14px; border-left:2px solid var(--line)}
+.tree li{padding:4px 0; min-width:0}
+.tree .k{font-weight:800}
+
+/* chips & buttons */
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{appearance:none; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:700 .8rem/1 var(--font-body); padding:8px 11px; border-radius:999px; cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+.btn{appearance:none; border:0; background:var(--berry); color:var(--on-berry); font:800 .92rem/1 var(--font-body); padding:12px 16px; border-radius:8px; cursor:pointer}
+.btn.quiet{background:transparent; color:var(--berry-ink); border:1px solid var(--line)}
+.btn:disabled{opacity:.45; cursor:default}
+.row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.search{width:100%; font:600 1rem/1.2 var(--font-body); color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:9px; padding:11px 13px}
+.search::placeholder{color:var(--muted)}
+
+/* drill */
+.score{display:flex; flex-wrap:wrap; gap:16px; align-items:baseline; font-variant-numeric:tabular-nums}
+.score b{font:400 1.5rem/1 var(--font-word); color:var(--ink)}
+.bar{height:6px; border-radius:3px; background:var(--chip); overflow:hidden}
+.bar > i{display:block; height:100%; width:0; background:var(--berry); transition:width .25s}
+.qcard{display:grid; gap:14px}
+.qcard > *{min-width:0}
+.qcat{font:800 .68rem/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.qprompt{font-size:1.08rem; line-height:1.45; min-width:0}
+.qctx{display:block; margin-top:8px; color:var(--muted); font-size:.94rem; font-style:italic}
+.qdef{display:block; margin-top:10px; padding:11px 14px; border-left:3px solid var(--brass); background:var(--chip); border-radius:0 8px 8px 0; font-size:1rem}
+.qex{display:block; margin-top:10px; padding:11px 14px; border-left:3px solid var(--berry); background:var(--chip); border-radius:0 8px 8px 0; font:400 1.08rem/1.45 var(--font-word); overflow-wrap:anywhere}
+.qex .ln{display:block}
+.qex .ln + .ln{margin-top:4px}
+.qex b{color:var(--berry-ink); font-weight:400; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:3px}
+.opts{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+@media (max-width:520px){ .opts{grid-template-columns:1fr} }
+.opt{appearance:none; text-align:left; display:flex; gap:10px; align-items:center; border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:12px; border-radius:9px; cursor:pointer; font:600 .96rem/1.3 var(--font-body); min-width:0}
+.opt .k{flex:none; display:grid; place-items:center; width:22px; height:22px; border-radius:5px; background:var(--chip); color:var(--muted); font:800 .72rem/1 var(--font-body)}
+.opt .t{min-width:0; overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--berry)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--good-chip); border-color:var(--good)}
+.opt.right .k{background:var(--good); color:var(--surface)}
+.opt.wrong{background:var(--bad-chip); border-color:var(--bad)}
+.opt.wrong .k{background:var(--bad); color:var(--surface)}
+.why{border-radius:9px; padding:12px 14px; background:var(--chip); font-size:.94rem}
+.why .verdict{font-weight:800; margin-bottom:4px}
+.why .verdict.ok{color:var(--good)} .why .verdict.no{color:var(--bad)}
+.summary-list{display:grid; gap:6px; padding:0; margin:0; list-style:none}
+.summary-list li{padding:8px 10px; border:1px solid var(--line); border-radius:8px; font-size:.92rem}
+
+/* tables */
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+table{border-collapse:collapse; font-size:.88rem}
+.tbl{width:100%}
+.tbl.wide{min-width:600px}
+.tbl th, .tbl td{border-bottom:1px solid var(--line); padding:7px 8px; text-align:left; vertical-align:top}
+.tbl thead th{font:800 .68rem/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.tbl td.kw{font-weight:800}
+.tbl td.nw{white-space:nowrap}
+.tbl i{color:var(--ink)}
+.tag{display:inline-block; font:800 .66rem/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase; padding:4px 6px; border-radius:4px; background:var(--chip); color:var(--muted); vertical-align:middle}
+.yes{color:var(--good); font-weight:800}
+.no{color:var(--bad); font-weight:800}
+
+/* politeness tree */
+.bl{width:100%; min-width:560px; max-width:680px; height:auto; display:block; margin:0 auto}
+.bl .edge{stroke:var(--muted); stroke-width:1.5; fill:none}
+.bl .box{fill:var(--chip); stroke:var(--line); stroke-width:1.5}
+.bl .box.on{fill:var(--surface); stroke:var(--berry)}
+.bl .lab{fill:var(--ink); font:700 13px var(--font-body)}
+.bl .side{fill:var(--muted); font:600 12px var(--font-body)}
+.bl .arr{stroke:var(--brass); stroke-width:2; fill:none}
+.bl .ahead{fill:var(--brass)}
+
+/* glossary */
+.gl{display:grid; gap:0}
+.gli{padding:12px 0; border-bottom:1px solid var(--line); display:grid; gap:4px; min-width:0}
+.gli:last-child{border-bottom:0}
+.gli h3{color:var(--berry-ink)}
+footer{margin-top:30px; font-size:.8rem; color:var(--muted)}
+@media (prefers-reduced-motion: reduce){ .bar > i{transition:none} }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Pragmatics · meaning in use</p>
+    <h1><span lang="de">Zwischen den Zeilen</span> <span class="slash">/ˈtsvɪʃn̩ deːn ˈtsaɪ̯lən/</span></h1>
+    <p class="lede">Implicature, speech acts, deixis, presupposition, politeness and the machinery of conversation: how speakers mean more than they say, and how hearers work it out. <b>Drill</b> quizzes you and brings back the ones you miss.</p>
+  </header>
+
+  <nav class="sets" aria-label="Study set">
+    <a href="../lautlabor/">Phonetics</a>
+    <a href="../morphologie/">Morphology</a>
+    <a href="../syntax/">Syntax</a>
+    <a href="../sprachgemeinschaft/">Language in society</a>
+    <a href="../semantik/">Semantics</a>
+    <a href="../pragmatik/" aria-current="page">Pragmatics</a>
+    <a href="../grammatik/">Advanced grammar</a>
+  </nav>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-drill" data-view="drill">Drill</button>
+    <button class="tab" role="tab" id="tab-impl" data-view="impl">Implicature</button>
+    <button class="tab" role="tab" id="tab-acts" data-view="acts">Speech acts</button>
+    <button class="tab" role="tab" id="tab-deixis" data-view="deixis">Deixis &amp; presupposition</button>
+    <button class="tab" role="tab" id="tab-polite" data-view="polite">Politeness &amp; conversation</button>
+    <button class="tab" role="tab" id="tab-glossary" data-view="glossary">Glossary</button>
+  </nav>
+
+  <main>
+    <!-- DRILL -->
+    <section class="panel" id="view-drill" role="tabpanel" aria-labelledby="tab-drill">
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between">
+          <h2>Drill</h2>
+          <div class="score"><span>Score <b id="sc-right">0</b>/<span id="sc-done">0</span></span><span class="muted small">Question <span id="sc-pos">1</span> of <span id="sc-len">20</span></span></div>
+        </div>
+        <div class="bar" aria-hidden="true"><i id="sc-bar"></i></div>
+        <div id="qhost"></div>
+      </div>
+      <div class="sheet stack">
+        <h3>What to practise</h3>
+        <div class="chips" id="cats"></div>
+        <div class="row">
+          <label class="small muted" for="len">Questions per round</label>
+          <select id="len" class="chip" style="padding:7px 10px">
+            <option value="10">10</option><option value="20" selected>20</option><option value="40">40</option>
+          </select>
+          <button class="btn" id="restart">New round</button>
+          <button class="btn quiet" id="misses">Only my misses</button>
+        </div>
+        <p class="small muted" id="memo">Questions you get wrong come back more often. Keys 1 to 4 answer, Enter goes on. Notation: <b>+&gt;</b> means “implicates”, <b>&gt;&gt;</b> means “presupposes”.</p>
+      </div>
+    </section>
+
+    <!-- IMPLICATURE -->
+    <section class="panel" id="view-impl" role="tabpanel" aria-labelledby="tab-impl" hidden>
+      <div class="sheet stack">
+        <h2>Semantics vs pragmatics</h2>
+        <p><b>Semantics</b> studies <b>sentence meaning</b>: what words and sentences mean in the language system, independent of who utters them, largely in terms of truth conditions. <b>Pragmatics</b> studies <b>speaker meaning</b> (utterance meaning): what a speaker means by uttering a sentence in a particular context, and how the hearer works that out.</p>
+        <p class="ex"><i>It’s ten o’clock.</i> Sentence meaning: the time is ten. Said by a parent to a teenager still on the sofa on a school night: “go to bed”. Said by a host to a guest who wants to catch the last train: “you should hurry”. Same sentence, different speaker meaning.</p>
+        <p>Grice split the total meaning of an utterance into <b>what is said</b> (sentence meaning with reference fixed and ambiguity resolved, so it can be true or false) and <b>what is implicated</b> (meant but not said). An <b>implicature</b> is that extra meaning; the symbol <b>+&gt;</b> reads “implicates”.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>The Cooperative Principle and the maxims</h2>
+        <p>Grice (lectures 1967, published 1975): conversation works because participants assume each other to be cooperative. The <b>Cooperative Principle</b>, in paraphrase: <i>make your contribution what is required, at the point where it occurs, by the accepted purpose of the conversation.</i> It is spelled out in four maxims. They are not rules of good behaviour; they are assumptions the hearer uses to interpret what is said.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Maxim</th><th>What it asks</th><th>Flouted: example and implicature</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Quantity</td><td>(1) Make your contribution as informative as is required for the current purpose. (2) Don’t make it more informative than is required.</td><td>A reference for a philosophy job that only praises the candidate’s handwriting and punctuality. +&gt; he is no good at philosophy.</td></tr>
+            <tr><td class="kw">Quality</td><td>Supermaxim: try to make your contribution one that is true. (1) Don’t say what you believe to be false. (2) Don’t say that for which you lack adequate evidence.</td><td>In a downpour: <i>Lovely weather for a picnic.</i> (irony) +&gt; the weather is awful. Metaphor and hyperbole flout Quality too.</td></tr>
+            <tr><td class="kw">Relation</td><td>Be relevant.</td><td>A: <i>Mrs X is an old bag.</i> B: <i>The weather has been delightful this summer, hasn’t it?</i> +&gt; careful, change the subject.</td></tr>
+            <tr><td class="kw">Manner</td><td>Supermaxim: be perspicuous. (1) Avoid obscurity of expression. (2) Avoid ambiguity. (3) Be brief (avoid unnecessary prolixity). (4) Be orderly.</td><td>Parents in front of their children: <i>I veto I-C-E C-R-E-A-M.</i> +&gt; we mustn’t let the children understand.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Maxim hedges</b> show that speakers are aware of the maxims: <i>as far as I know</i>, <i>I may be wrong, but</i> (Quality); <i>to cut a long story short</i>, <i>as you probably know</i> (Quantity); <i>by the way</i>, <i>anyway</i> (Relation); <i>I’m not sure if this is clear, but</i> (Manner).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Observing and not observing the maxims</h2>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Term</th><th>What happens</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Observing</td><td>The speaker follows the maxims. Implicatures still arise: the hearer assumes the reply is relevant and fills the gap.</td><td>A: <i>I’m out of petrol.</i> B: <i>There’s a garage round the corner.</i> +&gt; it’s open and sells petrol.</td></tr>
+            <tr><td class="kw">Flouting</td><td>A <b>blatant, overt</b> failure: the speaker wants the hearer to notice it, and the hearer infers an implicature that restores cooperation.</td><td>Irony, metaphor, tautology (<i>War is war</i>), the faint-praise reference letter.</td></tr>
+            <tr><td class="kw">Violating</td><td>A <b>quiet, covert</b> failure: the hearer is not meant to notice, so the speaker is liable to mislead. No implicature is intended; deception is.</td><td>A lie; a true but misleading answer (<i>Some jobs were cut</i>, when all were).</td></tr>
+            <tr><td class="kw">Opting out</td><td>The speaker openly signals unwillingness to cooperate in the way the maxim requires.</td><td><i>No comment.</i> <i>I’m afraid I can’t discuss my patients.</i></td></tr>
+            <tr><td class="kw">Clash</td><td>The speaker can’t fulfil one maxim without breaking another, usually Quantity vs Quality.</td><td>A: <i>Where does C live?</i> B: <i>Somewhere in the south of France.</i> +&gt; B doesn’t know more.</td></tr>
+            <tr><td class="kw">Infringing</td><td>(Thomas 1995) Non-observance through imperfect linguistic performance, with no intention to implicate or deceive: learners, small children, nervousness, drunkenness.</td><td>A beginner asked how long she is staying answers <i>Two</i>, meaning two weeks.</td></tr>
+            <tr><td class="kw">Suspending</td><td>(Thomas 1995) In some events or cultures a maxim isn’t expected to be observed, so its non-observance creates no implicature.</td><td>Withholding information as a cultural norm (Keenan’s study of Malagasy speakers); fiction and jokes for Quality.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Grice himself named four ways of not fulfilling a maxim: violating, opting out, being faced with a clash, and flouting. Infringing and suspending were added by Jenny Thomas.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Kinds of implicature</h2>
+        <ul class="tree">
+          <li><span class="k">What is communicated</span>
+            <ul>
+              <li><span class="k">What is said</span> (truth-conditional content)</li>
+              <li><span class="k">What is implicated</span>
+                <ul>
+                  <li><span class="k">Conventionally</span>: attached to particular words (<i>but, even, therefore, yet</i>); no maxims involved</li>
+                  <li><span class="k">Conversationally</span>: derived from the Cooperative Principle and the maxims
+                    <ul>
+                      <li><span class="k">Generalized</span>: arises in almost any context, unless blocked. <b>Scalar</b> implicatures are the best-known subtype.</li>
+                      <li><span class="k">Particularized</span>: needs a specific context</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Type</th><th>Utterance</th><th>Implicature</th><th>Why that type</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Generalized</td><td><i>Sam is meeting a woman tonight.</i></td><td>+&gt; not his wife, mother or sister</td><td>The indefinite does this in nearly any context.</td></tr>
+            <tr><td class="kw">Generalized</td><td><i>She took the pill and fell asleep.</i></td><td>+&gt; in that order</td><td><i>and</i> is read as <i>and then</i> by default.</td></tr>
+            <tr><td class="kw">Scalar</td><td><i>Some of the students passed.</i></td><td>+&gt; not all passed</td><td>Weaker term on the scale ⟨all, most, many, some⟩.</td></tr>
+            <tr><td class="kw">Particularized</td><td>A: <i>Are you coming tonight?</i> B: <i>I’ve got an exam at eight tomorrow.</i></td><td>+&gt; B isn’t coming</td><td>Only this question makes the inference arise.</td></tr>
+            <tr><td class="kw">Conventional</td><td><i>She is poor but honest.</i></td><td>+&gt; a contrast between poverty and honesty</td><td>Comes with the word <i>but</i>; not cancellable, not part of the truth conditions.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Scalar implicatures and Horn scales</h2>
+        <p>A <b>Horn scale</b> lists alternative expressions ordered by informativeness, ⟨strong, …, weak⟩, where the stronger one entails the weaker ones. If a speaker chooses a weaker term, the hearer reasons: had the stronger one been true, a cooperative speaker would have said so (Quantity 1). So asserting the weaker term implicates that the stronger one does not hold.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Scale</th><th>Utterance</th><th>Implicature</th></tr></thead>
+          <tbody>
+            <tr><td class="nw">⟨all, most, many, some⟩</td><td><i>Some of my friends are vegan.</i></td><td>+&gt; not all of them</td></tr>
+            <tr><td class="nw">⟨and, or⟩</td><td><i>Mia or Tom will drive.</i></td><td>+&gt; not both (also +&gt; the speaker doesn’t know which)</td></tr>
+            <tr><td class="nw">⟨must, should, may⟩</td><td><i>You may leave early.</i></td><td>+&gt; you don’t have to</td></tr>
+            <tr><td class="nw">⟨hot, warm⟩</td><td><i>It’s warm today.</i></td><td>+&gt; not hot</td></tr>
+            <tr><td class="nw">⟨always, often, sometimes⟩</td><td><i>I sometimes cook.</i></td><td>+&gt; not often, not always</td></tr>
+            <tr><td class="nw">⟨excellent, good⟩</td><td><i>The film was good.</i></td><td>+&gt; not excellent</td></tr>
+            <tr><td class="nw">⟨certain, likely, possible⟩</td><td><i>It’s possible she’ll come.</i></td><td>+&gt; not certain, not likely</td></tr>
+            <tr><td class="nw">⟨know, believe⟩</td><td><i>I believe he’s in.</i></td><td>+&gt; I don’t know for sure</td></tr>
+            <tr><td class="nw">⟨love, like⟩</td><td><i>I like him.</i></td><td>+&gt; I don’t love him</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>The “not all” reading.</b> Semantically, <i>some</i> means “at least one, possibly all”, and <i>or</i> is inclusive. The upper bound (“not all”, “not both”) is an implicature, which is why it can be cancelled: <i>Some of the students passed; in fact, all of them did</i> is fine. Under negation the scale reverses: <i>Not all of them passed</i> +&gt; some did. Numbers are often treated as a scale too (<i>three</i> +&gt; not four), but whether numerals are lower-bounded or exact in their semantics is debated.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Properties of conversational implicature</h2>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Property</th><th>Meaning</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Cancellability (defeasibility)</td><td>An implicature can be explicitly cancelled or suspended without contradiction, or simply fail to arise in a context that doesn’t support it. This is the key test that separates it from entailment.</td><td><i>Some, in fact all, passed.</i> <i>Some, if not all, passed.</i></td></tr>
+            <tr><td class="kw">Non-detachability</td><td>It attaches to what is said, not to the particular words, so a paraphrase keeps it. Exception: Manner implicatures, which depend on the form.</td><td>Ironic <i>He’s a genius</i> or <i>He’s a mighty intellect</i>: same irony.</td></tr>
+            <tr><td class="kw">Calculability</td><td>The hearer can work it out step by step from what is said, the Cooperative Principle, the maxims and the context.</td><td>“She said <i>some</i>; if <i>all</i> were true she’d have said it; so not all.”</td></tr>
+            <tr><td class="kw">Non-conventionality</td><td>It is not part of the conventional meaning of the words; it depends on what is said plus the maxims.</td><td>The same words can implicate different things in different contexts.</td></tr>
+            <tr><td class="kw">Reinforceability</td><td>It can be stated outright without sounding redundant (Sadock).</td><td><i>Some, but not all, of the students passed.</i></td></tr>
+          </tbody>
+        </table></div>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th></th><th>Conversational implicature</th><th>Conventional implicature</th><th>Entailment</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Cancellable?</td><td class="yes">Yes</td><td class="no">No</td><td class="no">No</td></tr>
+            <tr><td class="kw">Tied to particular words?</td><td>No (non-detachable)</td><td>Yes (detachable: replace <i>but</i> with <i>and</i> and it’s gone)</td><td>No: follows from the meaning, survives paraphrase</td></tr>
+            <tr><td class="kw">Worked out via the maxims?</td><td class="yes">Yes</td><td class="no">No</td><td class="no">No</td></tr>
+            <tr><td class="kw">Part of the truth conditions?</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>After Grice: neo-Gricean pragmatics and relevance theory</h2>
+        <p><b>Horn (1984)</b> reduced the maxims (apart from Quality) to two opposing principles. <b>Q-principle</b> (hearer-based): make your contribution sufficient; say as much as you can, given R. It produces upper-bounding implicatures like <i>some</i> +&gt; not all. <b>R-principle</b> (speaker-based): make your contribution necessary; say no more than you must, given Q. It produces enrichment: <i>Can you pass the salt?</i> +&gt; a request; <i>I broke a finger</i> +&gt; my own.</p>
+        <p><b>Levinson (2000)</b> has three heuristics for generalized implicatures. <b>Q</b>: don’t say less than is required (scalar and clausal implicatures). <b>I</b> (informativeness): say as little as necessary, and the hearer enriches to the most specific, stereotypical reading (<i>and</i> → <i>and then</i>, <i>and therefore</i>; <i>if</i> → <i>if and only if</i>). <b>M</b> (manner): a marked expression signals a marked situation (<i>Bill caused the car to stop</i> +&gt; not in the normal way).</p>
+        <p><b>Relevance theory</b> (Sperber &amp; Wilson 1986/1995) replaces the maxims with one notion. Relevance is a trade-off: the more <b>positive cognitive effects</b> an input yields, the more relevant it is; the more <b>processing effort</b> it costs, the less relevant. By the communicative principle of relevance, every utterance comes with a presumption of its own optimal relevance, so the hearer follows the path of least effort and stops when the expected relevance is reached. Relevance theory separates the <b>explicature</b> (the explicitly communicated content, developed from the decoded logical form by disambiguation, reference assignment and enrichment: <i>I haven’t eaten</i> → I haven’t eaten <i>today</i>) from <b>implicatures</b> (implicated premises and conclusions: so I’m hungry). Much of what Gricean theory calls generalized implicature, such as <i>and</i> → <i>and then</i>, is explicature in relevance theory.</p>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul class="list">
+          <li><b>Flouting vs violating.</b> Both break a maxim. Flouting is <b>overt</b> and meant to be noticed, so it creates an implicature (irony). Violating is <b>covert</b> and meant to go unnoticed, so it misleads (a lie, a true but misleading answer). A lie is never a flout.</li>
+          <li><b>Entailment vs implicature: one test.</b> Add “but not P” or “in fact, not P”. Contradiction → entailment (<i>#Lisa ate all the biscuits, but she didn’t eat any of them</i>). No contradiction → implicature (<i>Some passed; in fact, all did</i>).</li>
+          <li><b><i>Some</i> doesn’t mean “not all”.</b> Its meaning is “at least one”; “not all” is a scalar implicature. Likewise <i>or</i> is inclusive in its semantics.</li>
+          <li><b>Scalar implicatures are generalized.</b> Yule lists “scalar” next to “generalized”, but scalar implicatures are a subtype of generalized conversational implicature. On an exam, say both.</li>
+          <li><b>Conventional implicature isn’t conversational.</b> It has nothing to do with the maxims and can’t be cancelled, but it also isn’t part of the truth conditions: <i>She’s poor but honest</i> is true if she is poor and honest, whether or not there is any contrast.</li>
+          <li><b>Not every relevance implicature is a flout.</b> <i>There’s a garage round the corner</i> observes Relation. A flout of Relation is an obvious change of topic.</li>
+          <li><b>Tautologies</b> (<i>Boys will be boys</i>, <i>War is war</i>) flout Quantity: they are uninformative by definition.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SPEECH ACTS -->
+    <section class="panel" id="view-acts" role="tabpanel" aria-labelledby="tab-acts" hidden>
+      <div class="sheet stack">
+        <h2>Austin: doing things with words</h2>
+        <p>Austin (lectures 1955, published 1962 as <i>How to Do Things with Words</i>) started from a contrast. <b>Constatives</b> describe or state something and are true or false: <i>The kettle is boiling.</i> <b>Performatives</b> do something in being uttered and are not true or false but <b>felicitous</b> or <b>infelicitous</b> (happy or unhappy): <i>I name this ship the Queen Elizabeth. I bet you ten euros. I apologise.</i></p>
+        <p>An <b>explicit performative</b> contains a performative verb, usually in the first person, simple present, indicative, active: <i>I promise to come.</i> A <b>primary</b> (implicit) performative does the same act without naming it: <i>I’ll come.</i> The <b>hereby test</b>: only performative verbs accept <i>hereby</i>: <i>I hereby promise…</i> works, <i>#I hereby walk to work</i> doesn’t. Formal notices allow passives and other persons: <i>Passengers are hereby warned…</i></p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Austin’s felicity conditions</th><th>If broken</th></tr></thead>
+          <tbody>
+            <tr><td><b>A1</b> There is an accepted conventional procedure with a conventional effect. <b>A2</b> The persons and circumstances are appropriate for it.</td><td rowspan="2"><b>Misfire</b>: the act is not achieved at all, it is void. Breaking A = misinvocation (a guest “marrying” a couple); breaking B = misexecution (a vital part of the ceremony left out).</td></tr>
+            <tr><td><b>B1</b> The procedure is executed correctly and <b>B2</b> completely.</td></tr>
+            <tr><td><b>Γ1</b> The participants have the required thoughts, feelings and intentions. <b>Γ2</b> They actually behave accordingly afterwards.</td><td><b>Abuse</b>: the act is performed, but it is insincere or hollow (promising with no intention of keeping the promise).</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>The distinction collapses.</b> Austin himself showed that constatives can be unhappy too (<i>The present king of France is bald</i> fails much as a misfire does; <i>The cat is on the mat, but I don’t believe it</i> is like an abuse), that performatives can be judged against the facts (a warning can be unfounded, a verdict wrong), and that no grammatical test separates them, since primary performatives lack the verb and any statement can be made explicit (<i>I state that…</i>). Conclusion: every utterance performs an act. He replaced the dichotomy with a general theory of three simultaneous acts.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Act</th><th>What it is</th><th><i>The bull is about to charge.</i></th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Locutionary</td><td>The act <b>of</b> saying something: producing a meaningful utterance with sense and reference (Austin’s phonetic, phatic and rhetic acts).</td><td>Saying that the bull (that one) is about to charge.</td></tr>
+            <tr><td class="kw">Illocutionary</td><td>The act performed <b>in</b> saying it: its force (stating, warning, promising, requesting). Conventional and intended; it needs uptake, the hearer’s recognition of the force.</td><td>Warning the hearer.</td></tr>
+            <tr><td class="kw">Perlocutionary</td><td>The act performed <b>by</b> saying it: the effects on the hearer’s feelings, thoughts or actions (alarming, persuading, deterring). Not under the speaker’s full control.</td><td>Frightening the hearer; getting her out of the field.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>IFIDs</b> (illocutionary force indicating devices) signal the force: performative verbs, mood and word order, intonation, stress, particles such as <i>please</i>.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Searle’s felicity conditions</h2>
+        <p>Searle (1969) recast the conditions as constitutive rules of each illocution, in four types. Worked for a promise and a request (S = speaker, H = hearer, A = the future act):</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Condition</th><th>Promise</th><th>Request</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Propositional content</td><td>A future act A of S.</td><td>A future act A of H.</td></tr>
+            <tr><td class="kw">Preparatory</td><td>H would prefer S to do A rather than not, and S believes so. It isn’t obvious that S would do A anyway.</td><td>H is able to do A, and S believes so. It isn’t obvious that H would do A anyway.</td></tr>
+            <tr><td class="kw">Sincerity</td><td>S intends to do A.</td><td>S wants H to do A.</td></tr>
+            <tr><td class="kw">Essential</td><td>The utterance counts as S undertaking an obligation to do A.</td><td>The utterance counts as an attempt to get H to do A.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="ex">A “promise” to do something H doesn’t want (<i>I promise I’ll tell your parents</i>) fails the preparatory condition, which is why it is heard as a threat.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Searle’s five classes</h2>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Class</th><th>Point</th><th>Direction of fit</th><th>Expressed state</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Representatives (assertives)</td><td>Commit S to the truth of a proposition.</td><td>Words-to-world</td><td>Belief</td><td>stating, asserting, describing, concluding, predicting, boasting</td></tr>
+            <tr><td class="kw">Directives</td><td>Attempt to get H to do something.</td><td>World-to-words</td><td>Want</td><td>requesting, ordering, asking questions, inviting, advising, suggesting, begging</td></tr>
+            <tr><td class="kw">Commissives</td><td>Commit S to a future course of action.</td><td>World-to-words</td><td>Intention</td><td>promising, vowing, threatening, refusing, pledging, guaranteeing</td></tr>
+            <tr><td class="kw">Expressives</td><td>Express S’s feelings about a state of affairs.</td><td>None (its truth is presupposed)</td><td>Various: gratitude, regret, pleasure</td><td>thanking, apologising, congratulating, condoling, welcoming, deploring</td></tr>
+            <tr><td class="kw">Declarations</td><td>Change the world by being uttered, given the right speaker and institution.</td><td>Both (words-to-world and world-to-words)</td><td>None (no sincerity condition)</td><td>naming, marrying, firing, resigning, sentencing, appointing</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Direction of fit.</b> With words-to-world fit the words must match the world (a statement is right if the world is as described). With world-to-words fit the world is to be changed to match the words (a request is fulfilled when H acts). A short version: in a declaration S causes X; in a representative S believes X; in an expressive S feels X; in a directive S wants X; in a commissive S intends X. Searle also notes <b>assertive declarations</b> (an umpire’s <i>Out!</i>, a jury’s <i>Guilty</i>), which must match the facts and also make them official.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Direct and indirect speech acts</h2>
+        <p>The three sentence types have a basic function. When form and function match, the speech act is <b>direct</b>; when they don’t, it is <b>indirect</b>.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Form</th><th>Basic function</th><th>Direct</th><th>Indirect</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Declarative</td><td>Statement</td><td><i>The museum opens at ten.</i></td><td><i>It’s cold in here.</i> (request to close the window)</td></tr>
+            <tr><td class="kw">Interrogative</td><td>Question</td><td><i>Where’s the station?</i></td><td><i>Can you pass the salt?</i> (request)</td></tr>
+            <tr><td class="kw">Imperative</td><td>Command / request</td><td><i>Pass the salt, please.</i></td><td>Less common. <i>Go on, have another biscuit</i> is usually analysed as an offer rather than a command.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Searle (1975): in an indirect speech act the speaker performs a <b>primary</b> illocution (the request) by way of a <b>secondary</b>, literal one (the question). The hearer infers the primary force because the literal act refers to a felicity condition of the intended one. Typical routes to requests: asking about H’s <b>ability</b> (<i>Can you…? Could you…?</i>, preparatory condition), H’s <b>willingness</b> (<i>Would you mind…?</i>), stating S’s <b>want</b> (<i>I’d like you to…</i>, sincerity condition), or stating or asking about <b>reasons</b> (<i>Why don’t you…? You ought to…</i>). Such forms are <b>conventionally indirect</b>; hints like <i>It’s cold in here</i> are non-conventional.</p>
+        <p class="note">Answering only the literal act (<i>Yes, I can</i>, and not passing the salt) is a joke or a snub. That shows hearers process the indirect force, not just the literal one.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Requests in English and German</h2>
+        <p>Cross-cultural studies of requests (House &amp; Kasper 1981; the CCSARP project, Blum-Kulka, House &amp; Kasper 1989) found that, on average, German speakers chose more direct request forms and fewer softeners than British English speakers in comparable situations. Neither system is more polite in absolute terms: each is polite by its own norms. The problem is transfer.</p>
+        <ul class="list">
+          <li><i>Geben Sie mir bitte einen Kaffee</i> is a normal, polite order in Austria. Its word-for-word English version, <i>Give me a coffee, please</i>, sounds brusque. The unmarked English form is conventionally indirect: <i>Could I have a coffee, please?</i> or <i>Can I get a coffee?</i></li>
+          <li><i>Please</i> on its own doesn’t turn an English imperative into a polite request to a stranger or a superior the way <i>bitte</i> can in German.</li>
+          <li><i>Sie müssen hier links abbiegen</i> is neutral information; <i>You must turn left here</i> sounds like an order. English prefers <i>you need to</i>, <i>you’ll want to</i>, <i>you have to</i>.</li>
+          <li><i>I want…</i> (from <i>ich will</i>) sounds demanding; <i>I’d like…</i> is the neutral form.</li>
+          <li>The other direction: English indirectness can strike German speakers as vague or roundabout. That is a difference in convention, not in sincerity.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul class="list">
+          <li><b>Illocution vs perlocution.</b> Illocution = what you do <b>in</b> saying (warn, promise, argue). Perlocution = the effect <b>by</b> saying (frighten, persuade, convince, annoy). Test: “In saying X, I warned him” vs “By saying X, I convinced him.”</li>
+          <li><b>Questions are directives</b> in Searle’s system (attempts to get H to give information). They are not a sixth class.</li>
+          <li><b>Threats are commissives</b>: S commits to a future act, even though the aim is to influence H. <b>Predictions are representatives</b>, not commissives: S commits to a truth, not to doing anything.</li>
+          <li><b>Misfire vs abuse.</b> A person without authority “sentencing” someone = misfire (no sentence happens). An insincere promise = abuse (a promise was made, just a hollow one).</li>
+          <li><b>Declarations have no sincerity condition</b> but need an institution and a speaker in the right role.</li>
+          <li><b>Direct/indirect is about form and function, not politeness.</b> <i>Close the door, please</i> is direct, however polite. <i>Could you close the door?</i> is indirect.</li>
+          <li><b>Tense matters.</b> <i>I promised to come</i> is a report (a representative), not a promise.</li>
+          <li><b>German speakers:</b> translated directness (<i>Give me…</i>, <i>You must…</i>, <i>I want…</i>) is a very common pragmatic error, and it tends to be heard as rudeness rather than as a language mistake.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DEIXIS & PRESUPPOSITION -->
+    <section class="panel" id="view-deixis" role="tabpanel" aria-labelledby="tab-deixis" hidden>
+      <div class="sheet stack">
+        <h2>Deixis</h2>
+        <p><b>Deixis</b> (Greek “pointing”) covers expressions that can only be interpreted relative to the context of utterance: who is speaking, to whom, where and when. <i>I’ll meet you here tomorrow</i> means nothing definite until you know the speaker, the addressee, the place and the day. The default <b>deictic centre</b> (Bühler’s <b>origo</b>) is the speaker, here, now. <b>Proximal</b> forms point near the centre (<i>this, here, now</i>), <b>distal</b> forms away from it (<i>that, there, then</i>).</p>
+        <p>Fillmore distinguishes the <b>gestural</b> use, which needs the situation to be monitored (<i>Not <b>this</b> finger, <b>this</b> finger</i>), from the <b>symbolic</b> use, where knowing the setting is enough (<i>This town is lovely</i>). Deictic words also have <b>non-deictic</b> uses: generic <i>you</i> (<i>You never know</i>), <i>here and there</i>.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Type</th><th>Anchored to</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Person</td><td>Participant roles: speaker (1st person), addressee (2nd), others (3rd)</td><td><i>I, you, we, she, my, your</i>; verb agreement</td></tr>
+            <tr><td class="kw">Spatial (place)</td><td>Location of the participants</td><td><i>here, there, this, that, come, go, bring, take</i>; German <i>hin</i> (away from the speaker) and <i>her</i> (toward the speaker)</td></tr>
+            <tr><td class="kw">Temporal (time)</td><td>Time of the utterance</td><td><i>now, then, today, yesterday, tomorrow, ago, next week, last year</i>; tense</td></tr>
+            <tr><td class="kw">Social</td><td>Social relationship between participants, or to a referent</td><td>T/V pronouns (<i>du/Sie, tu/vous</i>), honorifics, address forms (<i>Sir, Your Honour, mate</i>)</td></tr>
+            <tr><td class="kw">Discourse (text)</td><td>A part of the ongoing discourse itself</td><td><i>the following, this chapter, in the previous section, as mentioned above</i>; <i>that</i> pointing back to an utterance, <i>this</i> pointing forward</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Person deixis</h3>
+        <p>First person picks out the speaker, second the addressee; third person refers to non-participants. Plural <i>we</i> can be <b>inclusive</b> (speaker + addressee: <i>Shall we dance?</i>) or <b>exclusive</b> (speaker + others, not the addressee: a shop assistant’s <i>We close at six</i>). English doesn’t mark the difference; Tok Pisin does (<i>yumi</i> inclusive, <i>mipela</i> exclusive). Shifted uses exist: a nurse’s <i>How are we feeling today?</i> means “you”.</p>
+        <h3>Spatial deixis</h3>
+        <p>Demonstratives and adverbs contrast proximal and distal. Motion verbs are deictic: <i>come</i> and <i>bring</i> mean movement toward the deictic centre, <i>go</i> and <i>take</i> movement away. The centre can be the addressee: <i>I’m coming!</i> (said to someone calling you) moves toward the addressee’s position. That shift is <b>deictic projection</b>.</p>
+        <h3>Temporal deixis</h3>
+        <p>Deictic time words (<i>today, last week</i>) are calculated from the time of speaking; calendrical terms (<i>Monday, 2026</i>) are not deictic on their own. Tense is grammaticalised temporal deixis. <b>Coding time</b> (when the message is produced) and <b>receiving time</b> (when it is received) coincide face to face but split in letters, recordings and signs: <i>I’m not here now</i> on an answering machine uses receiving time; a note saying <i>Back in ten minutes</i> is useless because you don’t know its coding time.</p>
+        <h3>Social deixis</h3>
+        <p><b>Relational</b> social deixis encodes the relationship between speaker and addressee or referent: T/V pronouns, honorifics, terms of address. Brown &amp; Gilman (1960) analysed T/V in terms of <b>power</b> (non-reciprocal use: the superior says T, receives V) and <b>solidarity</b> (reciprocal T among intimates, reciprocal V among distant equals). <b>Absolute</b> social deixis uses forms reserved for certain speakers or addressees: <i>Your Honour</i>, <i>Mr President</i>.</p>
+        <h3>Discourse deixis vs anaphora</h3>
+        <p><b>Discourse deixis</b> points to a stretch of the discourse itself: <i>That was the funniest joke I’ve ever heard</i> (the joke just told), <i>Listen to this:</i> (the story about to come), <i>this chapter</i>. <i>The former</i> and <i>the latter</i> pick out referents by their position in the text, so they combine discourse deixis with anaphora. <b>Anaphora</b> is different: an anaphoric expression picks up a referent already introduced by an antecedent (<i>A woman came in. <b>She</b> sat down.</i>), whereas a deictic expression finds its referent in the situation (<i>Who is <b>she</b>?</i>, pointing). The same word can do either.</p>
+        <h3>Deictic projection</h3>
+        <p>Speakers can shift the deictic centre to the addressee or to someone else: <i>Can I come in?</i> (from outside the door, the addressee’s space as centre), <i>I’ll come to your party</i>, and in narrative (<i>Now she was finally alone</i>, past tense with a character’s “now”).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Presupposition</h2>
+        <p>A <b>presupposition</b> is something taken for granted by an utterance: background information the speaker treats as already shared, as opposed to what is asserted. The symbol <b>&gt;&gt;</b> reads “presupposes”. <i>Kim stopped smoking</i> asserts that Kim doesn’t smoke now and presupposes that Kim used to smoke.</p>
+        <p><b>Constancy under negation</b> is the standard test: a presupposition survives when the sentence is negated, an entailment doesn’t. <i>Kim didn’t stop smoking</i> still &gt;&gt; Kim used to smoke; but the entailment “Kim doesn’t smoke now” is gone. Presuppositions also survive in questions (<i>Did Kim stop smoking?</i>), with modals (<i>Kim may have stopped smoking</i>) and in the if-clause of a conditional: the “family of sentences” test.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Trigger</th><th>Example</th><th>Presupposition</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Definite description</td><td><i>The king of France is bald.</i></td><td>&gt;&gt; there is a king of France</td></tr>
+            <tr><td class="kw">Factive verb</td><td><i>Nina regrets / realises / knows that she sold the car.</i></td><td>&gt;&gt; Nina sold the car</td></tr>
+            <tr><td class="kw">Change-of-state verb</td><td><i>Kim stopped / started / continued smoking.</i></td><td>&gt;&gt; Kim had (stop, continue) or hadn’t (start) been smoking</td></tr>
+            <tr><td class="kw">Iterative</td><td><i>Eva won again. Carter returned to power.</i></td><td>&gt;&gt; Eva had won before; Carter had held power</td></tr>
+            <tr><td class="kw">Implicative verb</td><td><i>Mia managed to fix it. Jonas forgot to lock it.</i></td><td>&gt;&gt; Mia tried; Jonas intended (or ought) to lock it</td></tr>
+            <tr><td class="kw">Cleft sentence</td><td><i>It was Henry who kissed Rosie. What John lost was his wallet.</i></td><td>&gt;&gt; someone kissed Rosie; John lost something</td></tr>
+            <tr><td class="kw">Temporal clause</td><td><i>Before Strawson was born, Frege noticed presuppositions.</i></td><td>&gt;&gt; Strawson was born</td></tr>
+            <tr><td class="kw">Comparison</td><td><i>Carol is a better linguist than Barbara.</i></td><td>&gt;&gt; Barbara is a linguist</td></tr>
+            <tr><td class="kw">Counterfactual conditional</td><td><i>If you had listened, we wouldn’t be lost.</i></td><td>&gt;&gt; you didn’t listen</td></tr>
+            <tr><td class="kw">Wh-question</td><td><i>Who ate the last biscuit?</i></td><td>&gt;&gt; someone ate it</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Factive vs non-factive.</b> <i>Know, regret, realise, be aware, be glad that</i> presuppose their complement is true. <i>Believe, think, claim</i> presuppose nothing about it. <i>Pretend, dream, imagine</i> (Yule’s “non-factive presupposition”) suggest the complement is false: <i>He pretends to be ill</i> &gt;&gt; he isn’t ill. Yule also groups triggers into existential, factive, lexical, structural and counterfactual presuppositions.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Projection and cancellation</h3>
+        <p>The <b>projection problem</b> asks how the presuppositions of parts behave in a complex sentence. Karttunen (1973) sorted the environments. <b>Holes</b> let them through (negation, questions, modals: <i>It’s possible that Kim stopped smoking</i> &gt;&gt; Kim used to smoke). <b>Plugs</b> block them (verbs of saying: <i>Mia said that the king of France is bald</i> doesn’t commit the speaker to a king). <b>Filters</b> let them through only sometimes: <i>If Kim used to smoke, she has stopped</i> doesn’t presuppose that Kim smoked, because the if-clause supplies it.</p>
+        <p>Presuppositions are <b>defeasible</b>: context or an explicit denial can cancel them, especially under negation. <i>The king of France isn’t bald: there is no king of France.</i> <i>Kim didn’t stop smoking; she never smoked in her life.</i> <i>Sue died before she finished her thesis</i> doesn’t presuppose that she finished it. Entailments can never be cancelled. And if a presupposition is new but uncontroversial, hearers simply add it to the common ground: <b>accommodation</b> (Lewis 1979). <i>Sorry I’m late, my car broke down</i> works even if you didn’t know the speaker had a car.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Russell vs Strawson: <i>The present king of France is bald</i></h3>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th></th><th>Russell (1905, “On denoting”)</th><th>Strawson (1950, “On referring”)</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Analysis</td><td>The sentence asserts three things: there is a king of France; there is only one; he is bald.</td><td>“The present king of France” is a referring expression; using it presupposes that the king exists.</td></tr>
+            <tr><td class="kw">No king exists</td><td>The sentence is simply <b>false</b> (the existence part fails).</td><td>The statement is <b>neither true nor false</b>: a truth-value gap. The question of its truth doesn’t arise.</td></tr>
+            <tr><td class="kw"><i>…is not bald</i></td><td>Ambiguous in scope. Narrow negation: there is a king who isn’t bald (false). Wide negation: it’s not the case that there is one king who is bald (true).</td><td>Same presupposition, so again no truth value.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Frege (1892) had already treated existence as presupposed. Later pragmatic accounts (Stalnaker) treat presupposition as the speaker’s assumption about the common ground, not as a property of sentences.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Presupposition, entailment, implicature compared</h3>
+        <p class="ex">One sentence, three kinds of inference: <i>Some of Kim’s students stopped smoking.</i></p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th></th><th>Presupposition</th><th>Entailment</th><th>Conversational implicature</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Example</td><td>&gt;&gt; Kim has students; those students used to smoke</td><td>At least one of Kim’s students doesn’t smoke now</td><td>+&gt; not all of Kim’s students stopped</td></tr>
+            <tr><td class="kw">Survives negation?</td><td class="yes">Yes</td><td class="no">No</td><td class="no">No</td></tr>
+            <tr><td class="kw">Cancellable?</td><td>Yes, in some contexts (especially under negation)</td><td class="no">Never</td><td class="yes">Yes, freely</td></tr>
+            <tr><td class="kw">Source</td><td>Lexical and structural triggers</td><td>Truth-conditional meaning</td><td>What is said + maxims + context</td></tr>
+            <tr><td class="kw">Status</td><td>Taken for granted, backgrounded</td><td>Part of what is asserted</td><td>Not said; inferred</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Conventional implicatures (<i>but, even</i>) share some features with presupposition: tied to words, not cancellable. Some authors treat them as presuppositions.</p>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul class="list">
+          <li><b>Presupposition ≠ entailment.</b> Negate the sentence. What survives is presupposed; what disappears was only entailed. (In the positive sentence the presupposition is usually entailed as well.)</li>
+          <li><b><i>Stop</i> presupposes the old state and asserts the change.</b> <i>Kim stopped smoking</i> &gt;&gt; Kim used to smoke; “Kim doesn’t smoke now” is asserted.</li>
+          <li><b><i>Manage</i> presupposes trying and entails success.</b> <i>Forget to</i> presupposes intention or obligation and entails not doing it.</li>
+          <li><b>Russell: false. Strawson: neither true nor false.</b> Don’t swap them.</li>
+          <li><b>Anaphora is not deixis.</b> <i>She</i> with an antecedent is anaphoric; <i>she</i> with a pointing finger is deictic.</li>
+          <li><b><i>Come</i> isn’t always “toward the speaker”.</b> It is toward the deictic centre, which can be projected onto the addressee.</li>
+          <li><b><i>The previous section, the next chapter</i></b> look temporal but point to parts of the text: discourse deixis.</li>
+          <li><b>German speakers:</b> <i>du/Sie</i> is social deixis built into the pronoun. English <i>you</i> encodes no social distance, so English marks distance with other means (address terms, modal verbs, indirectness). English isn’t less polite for lacking a V pronoun.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- POLITENESS & CONVERSATION -->
+    <section class="panel" id="view-polite" role="tabpanel" aria-labelledby="tab-polite" hidden>
+      <div class="sheet stack">
+        <h2>Face and face-threatening acts</h2>
+        <p>Brown &amp; Levinson (1978, 1987) build on Goffman’s notion of <b>face</b>, a person’s public self-image. Every competent adult (their “Model Person”) has two face wants. <b>Positive face</b>: the want to be liked, approved of and appreciated, to have one’s wants shared. <b>Negative face</b>: the want to be unimpeded, free to act and free from imposition. Many acts intrinsically threaten face: these are <b>face-threatening acts (FTAs)</b>.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Threatens</th><th>Hearer’s face</th><th>Speaker’s face</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Negative face</td><td>Orders, requests, suggestions, advice, warnings, threats; offers and promises (they put H under pressure or in debt)</td><td>Accepting thanks or an offer, making excuses, promising unwillingly</td></tr>
+            <tr><td class="kw">Positive face</td><td>Criticism, complaints, insults, disagreement, raising taboo topics, interrupting</td><td>Apologies, accepting a compliment, confessions, admitting guilt</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h2>The super-strategies</h2>
+        <div class="scroll">
+          <svg class="bl" viewBox="0 0 640 290" role="img" aria-label="Brown and Levinson's strategies for doing face-threatening acts: do the FTA on record without redress (1, bald), on record with positive politeness (2) or negative politeness (3), off record (4), or don't do the FTA (5). The greater the risk of face loss, the higher the number.">
+            <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahead"/></marker></defs>
+            <path class="edge" d="M230,45 L130,90 M230,45 L360,90 M130,120 L85,165 M130,120 L290,165 M290,195 L200,240 M290,195 L400,240"/>
+            <rect class="box" x="165" y="15" width="130" height="30" rx="6"/><text class="lab" x="230" y="35" text-anchor="middle">Do the FTA</text>
+            <rect class="box" x="440" y="15" width="170" height="30" rx="6"/><text class="lab" x="525" y="35" text-anchor="middle">5. Don’t do the FTA</text>
+            <rect class="box" x="70" y="90" width="120" height="30" rx="6"/><text class="lab" x="130" y="110" text-anchor="middle">On record</text>
+            <rect class="box on" x="295" y="90" width="130" height="30" rx="6"/><text class="lab" x="360" y="110" text-anchor="middle">4. Off record</text>
+            <rect class="box on" x="12" y="165" width="146" height="30" rx="6"/><text class="lab" x="85" y="185" text-anchor="middle">1. Bald on record</text>
+            <rect class="box" x="200" y="165" width="180" height="30" rx="6"/><text class="lab" x="290" y="185" text-anchor="middle">With redressive action</text>
+            <rect class="box on" x="112" y="240" width="176" height="30" rx="6"/><text class="lab" x="200" y="260" text-anchor="middle">2. Positive politeness</text>
+            <rect class="box on" x="312" y="240" width="176" height="30" rx="6"/><text class="lab" x="400" y="260" text-anchor="middle">3. Negative politeness</text>
+            <path class="arr" d="M615,70 L615,268" marker-end="url(#ah)"/>
+            <text class="side" x="603" y="140" text-anchor="end">the greater the</text>
+            <text class="side" x="603" y="156" text-anchor="end">risk of face loss,</text>
+            <text class="side" x="603" y="172" text-anchor="end">the higher the</text>
+            <text class="side" x="603" y="188" text-anchor="end">number chosen</text>
+          </svg>
+        </div>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Strategy</th><th>How</th><th>You need a pen</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">1. Bald on record</td><td>No redress, maximally clear and efficient. Used in emergencies, task-focused talk, when S has much more power, when the imposition is tiny, or when the act is in H’s interest (<i>Come in! Have a biscuit!</i>).</td><td><i>Give me a pen.</i></td></tr>
+            <tr><td class="kw">2. Positive politeness</td><td>Redress to H’s positive face: notice and attend to H, exaggerate interest and approval, in-group markers (<i>mate, love, honey</i>), seek agreement, joke, assume common ground, include S and H in the activity (<i>let’s</i>), give reasons, offer or promise something in return.</td><td><i>Hey mate, lend us a pen? You’re a star.</i></td></tr>
+            <tr><td class="kw">3. Negative politeness</td><td>Redress to H’s negative face: be conventionally indirect (<i>Could you…?</i>), hedge (<i>I wonder if…, perhaps</i>), be pessimistic (<i>I don’t suppose…</i>), minimise the imposition (<i>just for a second</i>), give deference (<i>sir</i>), apologise, impersonalise (passives, <i>it is requested</i>), state the act as a general rule, go on record as incurring a debt.</td><td><i>I’m so sorry to bother you, but could I possibly borrow a pen for a second?</i></td></tr>
+            <tr><td class="kw">4. Off record</td><td>Do it so that the intent is deniable: hints, understatement, overstatement, irony, metaphor, rhetorical questions, vagueness.</td><td><i>Oh no, I’ve forgotten my pen.</i></td></tr>
+            <tr><td class="kw">5. Don’t do the FTA</td><td>The risk is too great; say nothing.</td><td>Rummage in your bag and hope someone notices.</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Weightiness</b> of an FTA x: <b>W<sub>x</sub> = D(S,H) + P(H,S) + R<sub>x</sub></b>. D is the social <b>distance</b> between S and H (symmetric); P is the <b>power</b> of H over S; R is the culture-specific <b>ranking of the imposition</b>. The heavier the act, the higher-numbered the strategy: you can say <i>Pass the salt</i> to your sister, but you ask your professor for an extension with every negative-politeness device available.</p>
+        <p class="note"><b>Criticism.</b> The claim to universality has been challenged: Matsumoto (1988) and Ide (1989) argued that Japanese politeness is more about <b>discernment</b> (<i>wakimae</i>), using the forms one’s social position requires, than about protecting individual negative face. Blum-Kulka (1987) found that hints are not always rated the most polite: conventional indirectness was, because hints lack clarity.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Leech and Lakoff</h2>
+        <p><b>Leech (1983)</b>: a Politeness Principle alongside the Cooperative Principle: minimise the expression of impolite beliefs, maximise polite ones. It has six maxims.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Maxim</th><th>Minimise / maximise</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Tact</td><td>Minimise cost to other; maximise benefit to other</td><td><i>Could I just borrow a tiny bit of paper?</i></td></tr>
+            <tr><td class="kw">Generosity</td><td>Minimise benefit to self; maximise cost to self</td><td><i>You must come and have dinner with us.</i></td></tr>
+            <tr><td class="kw">Approbation</td><td>Minimise dispraise of other; maximise praise of other</td><td><i>What a wonderful meal!</i></td></tr>
+            <tr><td class="kw">Modesty</td><td>Minimise praise of self; maximise dispraise of self</td><td><i>Oh, it was nothing, really.</i></td></tr>
+            <tr><td class="kw">Agreement</td><td>Minimise disagreement between self and other; maximise agreement</td><td><i>Yes, true, but…</i></td></tr>
+            <tr><td class="kw">Sympathy</td><td>Minimise antipathy; maximise sympathy</td><td><i>I was so sorry to hear about your cat.</i></td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Lakoff (1973)</b>: two rules of pragmatic competence, <i>Be clear</i> (essentially Grice’s maxims) and <i>Be polite</i>, which has three sub-rules: (1) <b>Don’t impose</b> (distance, formality); (2) <b>Give options</b> (deference, hesitancy); (3) <b>Make the hearer feel good, be friendly</b> (camaraderie). When clarity and politeness conflict, politeness usually wins.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Conversation analysis</h2>
+        <p>Conversation analysis (CA), developed by Sacks, Schegloff and Jefferson from the late 1960s, studies recordings of naturally occurring talk to find the orderly structures participants themselves orient to.</p>
+        <h3>Turn-taking</h3>
+        <p>Turns are built from <b>turn-constructional units</b> (TCUs: a sentence, clause, phrase or single word). The point where a TCU could be complete is a <b>transition-relevance place</b> (TRP), where speaker change may happen. Allocation rules at a TRP (Sacks, Schegloff &amp; Jefferson 1974): (a) if the current speaker selects the next speaker (by name, gaze or an addressed question), that person must speak; (b) if not, anyone may self-select, and the first starter gets the turn; (c) if nobody does, the current speaker may continue. The result is mostly one speaker at a time with minimal gap and overlap.</p>
+        <p><b>Overlap</b> is simultaneous talk, usually brief and close to a TRP, because listeners project where a turn will end; an <b>interruption</b> starts well away from a TRP. <b>Backchannels</b> (<i>mhm, yeah, right</i>, nods) show that you are listening and that you are <i>not</i> claiming the floor; they aren’t turns.</p>
+        <h3>Adjacency pairs</h3>
+        <p>Two utterances that are adjacent, produced by different speakers, ordered as a <b>first pair part</b> (FPP) and a <b>second pair part</b> (SPP), and typed: a particular FPP makes a particular SPP relevant. Examples: question–answer, greeting–greeting, offer–acceptance/refusal, request–acceptance/refusal, complaint–apology (or denial), assessment–agreement/disagreement, farewell–farewell. After an FPP the SPP is <b>conditionally relevant</b>, so its absence is noticed.</p>
+        <h3>Preference organisation</h3>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>First pair part</th><th>Preferred second</th><th>Dispreferred second</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Request</td><td>Acceptance</td><td>Refusal</td></tr>
+            <tr><td class="kw">Offer / invitation</td><td>Acceptance</td><td>Refusal</td></tr>
+            <tr><td class="kw">Assessment</td><td>Agreement</td><td>Disagreement</td></tr>
+            <tr><td class="kw">Question</td><td>Expected answer</td><td>Unexpected answer or non-answer</td></tr>
+            <tr><td class="kw">Blame / accusation</td><td>Denial</td><td>Admission</td></tr>
+            <tr><td class="kw">Self-deprecation</td><td>Disagreement</td><td>Agreement</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Preferred</b> seconds are unmarked: immediate, short, simple. <b>Dispreferred</b> seconds are marked by <b>delay</b> (pause, <i>uh, um</i>), a <b>preface</b> (<i>well, oh</i>), <b>token agreement or appreciation</b> (<i>That’s very kind, but…</i>), an <b>apology</b>, <b>hedges and qualifications</b> (<i>I’m not sure…</i>), an <b>account</b> (the reason), and a softened, often indirect declining component. Preference is a <b>structural</b> notion about the shape of turns, not about what people personally want.</p>
+        <p class="ex">A: <i>Want to come to the cinema tonight?</i> B: <i>Oh, um, well, I’d love to, but I’ve got this report due tomorrow, so… maybe another time?</i> (delay, preface, appreciation, account, softened refusal)</p>
+        <h3>Pre-sequences and insertion sequences</h3>
+        <p><b>Pre-sequences</b> prepare the ground for an FPP: pre-invitation (<i>Are you doing anything tonight?</i>), pre-request (<i>Have you got a minute?</i>), pre-announcement (<i>Guess what!</i>), pre-closing (<i>Okay… right then…</i>). A negative reply to a pre-invitation spares both sides an outright refusal. An <b>insertion sequence</b> is a pair embedded between an FPP and its SPP: A: <i>Could I get a large coffee?</i> B: <i>Oat milk or regular?</i> A: <i>Regular.</i> B: <i>Sure, that’s 3.40.</i> (Q1 Q2 A2 A1).</p>
+        <h3>Repair</h3>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th></th><th>Repaired by self</th><th>Repaired by other</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Initiated by self</td><td><b>Self-initiated self-repair</b>: <i>I saw her on Tues… on Wednesday.</i></td><td><b>Self-initiated other-repair</b> (word search): A: <i>the thing for opening wine, the…</i> B: <i>corkscrew</i></td></tr>
+            <tr><td class="kw">Initiated by other</td><td><b>Other-initiated self-repair</b>: A: <i>She lives in Linz.</i> B: <i>Linz?</i> A: <i>Sorry, Graz.</i></td><td><b>Other-initiated other-repair</b> (correction): A: <i>She lives in Linz.</i> B: <i>No, in Graz.</i></td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">There is a <b>preference for self-repair</b> (Schegloff, Jefferson &amp; Sacks 1977): the speaker of the trouble source gets the first chance, and outright correction by others is comparatively rare and usually softened.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h2>Across cultures: notes for a German-speaking student</h2>
+        <ul class="list">
+          <li><b><i>How are you?</i></b> is usually a <b>phatic</b> routine (Malinowski’s <i>phatic communion</i>: talk whose function is social contact, not information). It opens an encounter, even with a shop assistant, and the expected answer is short and positive: <i>Fine, thanks, you?</i> An honest health report misreads it. German <i>Wie geht’s?</i> between acquaintances is more often meant literally, which is why the English routine can strike German speakers as superficial, and why a German-style answer can sound like oversharing in English. Different conventions, not different sincerity.</li>
+          <li><b>Small talk</b> (weather, the weekend, the journey) is a positive-politeness ritual in English-speaking settings: it builds rapport before business. Going straight to the point can read as cold; on the other side, long small talk can feel like time-wasting to someone used to getting down to business.</li>
+          <li><b>Directness.</b> Comparative work (House and others) describes German discourse norms as tending toward more directness and focus on content, English norms toward more indirectness and attention to the relationship. Disagreement in English is usually marked as dispreferred (<i>I see what you mean, but…</i>; <i>I’m not sure that’s quite right</i>). A bare <i>No, that’s wrong</i> lands harder in English than its German equivalent may feel. These are tendencies, not rules: register, region and personality all vary.</li>
+          <li><b>British understatement</b> runs on implicature: <i>not bad</i> can be high praise, <i>quite good</i> is lukewarm in British English (in American English <i>quite</i> means “very”), <i>with respect</i> introduces disagreement, <i>I’ll bear it in mind</i> often means “probably not”.</li>
+          <li><b><i>Sorry</i></b> is used very widely in British English as a negative-politeness softener (<i>Sorry, could I just squeeze past?</i>), including in situations where a German speaker might not apologise at all.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul class="list">
+          <li><b>Positive politeness ≠ being nice; negative politeness ≠ being rude.</b> Positive politeness appeals to the want to be liked and included; negative politeness respects the want not to be imposed on.</li>
+          <li><b><i>Could you open the window?</i> is negative politeness</b> (conventional indirectness), not off record. Off record means the intent is deniable, as in a hint.</li>
+          <li><b>P is the hearer’s power over the speaker</b>, P(H,S), not the other way round.</li>
+          <li><b>Preferred ≠ what the speaker wants.</b> After self-deprecation, disagreement is preferred; after an accusation, denial is preferred.</li>
+          <li><b>Backchannels aren’t turns, and overlap isn’t automatically interruption.</b></li>
+          <li><b>Adjacency pairs need not be strictly adjacent</b>: insertion sequences can come between the two parts.</li>
+          <li><b>More indirect isn’t always more polite</b> (Blum-Kulka): hints can be rated less polite than <i>Could you…?</i></li>
+          <li><b>Leech’s maxims come in pairs of perspective</b>: Tact and Generosity are the same idea from the other’s and the self’s side; so are Approbation and Modesty.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="panel" id="view-glossary" role="tabpanel" aria-labelledby="tab-glossary" hidden>
+      <div class="sheet stack">
+        <h2>Glossary</h2>
+        <input class="search" id="gl-q" type="search" placeholder="Search terms and definitions..." aria-label="Search the glossary" autocomplete="off">
+        <p class="small muted" id="gl-count"></p>
+        <div class="gl" id="gl-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Content follows the standard textbooks: Levinson, Pragmatics; Yule, Pragmatics; Huang, Pragmatics; Birner, Introduction to Pragmatics; Brown &amp; Levinson, Politeness: Some Universals in Language Usage.</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+// ---------- helpers ----------
+function el(tag, attrs, kids){
+  var n = document.createElement(tag);
+  if (attrs) for (var k in attrs){
+    var v = attrs[k]; if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else if (k.slice(0,2) === 'on') n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  (kids || []).forEach(function(c){ if (c == null) return; n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+  return n;
+}
+function rnd(n){ return Math.floor(Math.random()*n); }
+function shuffle(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=rnd(i+1), t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function pick(a){ return a[rnd(a.length)]; }
+function uniq(a){ var s={}, o=[]; a.forEach(function(x){ if(!s[x]){ s[x]=1; o.push(x);} }); return o; }
+function fill(opts, pool, k){ var o = uniq(opts); var p = shuffle(pool); for (var i=0;i<p.length && o.length<k;i++) if (o.indexOf(p[i]) < 0) o.push(p[i]); return o; }
+var store = {
+  get:function(k, d){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set:function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+
+// ---------- DATA: which maxim is flouted [id, code, context, lines, implicature] ----------
+var MXL = {QN:'Quantity', QL:'Quality', R:'Relation', M:'Manner'};
+var MXD = {
+  QN:"Quantity: be as informative as required, and no more.",
+  QL:"Quality: don’t say what you believe false or lack evidence for. Irony, metaphor and hyperbole flout it.",
+  R:"Relation: be relevant. An obvious change of topic flouts it.",
+  M:"Manner: avoid obscurity and ambiguity, be brief and orderly."
+};
+var MAXIMS = [
+  ['qn1','QN',"A reference letter for a candidate applying for a lectureship in philosophy.",["“Dear Sir or Madam, Mr X’s command of English is excellent, and his attendance at tutorials has been regular. Yours faithfully.”"],"The writer obviously could say more about the candidate’s philosophy and pointedly doesn’t: +> he is no good at philosophy (Grice’s own example)."],
+  ['qn2','QN',"A teenager on the way to the front door.",["Parent: Where are you going?","Teenager: Out."],"The answer gives far less than the question asks for, and both know it: +> I’m not telling you."],
+  ['qn3','QN',"",["A: What do you think of my new boyfriend?","B: He’s… tall."],"Of everything B could say, B offers one trivial fact: +> B doesn’t think much of him."],
+  ['qn4','QN',"",["A: Why does Max leave his football gear all over the hall?","B: Boys will be boys."],"A tautology is true by definition and so tells A nothing, an obvious breach of Quantity: +> that’s just how boys are, don’t bother complaining."],
+  ['qn5','QN',"",["A: You promised me the car this weekend, but now you need it yourself?","B: Well, a promise is a promise. I’ll take the bus."],"Tautology: uninformative on the surface, so A looks for the point: +> promises must be kept, so you get the car."],
+  ['qn6','QN',"",["A: We drove two hours and the match was called off because of the rain!","B: It is what it is."],"A tautology adds no information: +> nothing can be done about it, so accept it."],
+  ['qn7','QN',"A teacher’s comment on a school report.",["“Lukas always brings a pen to class.”"],"A report should assess his work; saying only this +> there is nothing good to say about his work."],
+  ['qn8','QN',"",["A: How was the concert?","B: Well, the band turned up and played."],"B says only what is true of every concert: +> it was disappointing."],
+  ['qn9','QN',"",["A: Did you like the dinner I cooked?","B: Well, it was food."],"An answer that is almost empty of information: +> it wasn’t good."],
+  ['qn10','QN',"",["A: So, how was your blind date?","B: She was punctual."],"Punctuality is the least one could say: +> there was nothing better to say about the evening."],
+  ['qn11','QN',"",["A: How could the soldiers have done such terrible things?","B: War is war."],"Another tautology (a classic example): +> terrible things are what happens in war."],
+  ['ql1','QL',"It is pouring with rain and the picnic has just been ruined.",["A: Well, lovely day for a picnic!"],"A says something both know to be false, which is irony: +> the weather is awful."],
+  ['ql2','QL',"",["A: Teheran’s in Turkey, isn’t it, teacher?","B: And London’s in Armenia, I suppose."],"B says something obviously false: +> what you said is just as absurd (Teheran is in Iran)."],
+  ['ql3','QL',"",["A (to her partner): You are the cream in my coffee."],"A metaphor is literally false, so the hearer looks for a related meaning: +> you make my life better."],
+  ['ql4','QL',"A father to his son, who has left the fridge open again.",["“I’ve told you a million times to shut the fridge!”"],"Hyperbole, obviously not literally true: +> I’ve told you very often and I’m annoyed."],
+  ['ql5','QL',"Ben has just spilled coffee all over his friend’s laptop.",["Friend: Oh, brilliant. Thanks so much, Ben."],"Sarcasm: the literal thanks is plainly not meant: +> you’ve done something terrible."],
+  ['ql6','QL',"Tom told everyone Sara’s secret. Sara, to a friend who knows this:",["“Tom is a fine friend.”"],"Both know the opposite is true, so it’s irony: +> Tom is a terrible friend."],
+  ['ql7','QL',"After a fourteen-hour hike, Lena drops onto the sofa.",["“I’m so hungry I could eat a horse.”"],"Hyperbole: +> I’m extremely hungry."],
+  ['ql8','QL',"",["A: How’s your new boss?","B: Oh, she’s a real dragon."],"A metaphor, literally false: +> she is fierce and frightening."],
+  ['ql10','QL',"Looking at an enormous queue at the post office.",["“Great. This will only take a year.”"],"Hyperbole plus irony; obviously untrue as stated: +> this will take very long and I’m annoyed."],
+  ['ql11','QL',"",["A: Is your new flat big?","B: It’s a shoebox."],"Metaphor: +> it’s tiny."],
+  ['ql12','QL',"A student who has failed every test this year, after failing another:",["“Well, I’m clearly a genius.”"],"Irony: the literal claim is obviously false: +> I’m doing badly."],
+  ['r1','R',"At a tea party, within earshot of Mrs X.",["A: Mrs X is an old bag.","B: The weather has been quite delightful this summer, hasn’t it?"],"B’s reply is blatantly unconnected to A’s remark (Grice’s example): +> stop, you’ve made a social blunder."],
+  ['r2','R',"",["A: So, did you and Tom break up?","B: Lovely weather today, isn’t it?"],"An obvious change of topic: +> I don’t want to talk about it."],
+  ['r3','R',"",["A: What did you get me for my birthday?","B: Hmm, I wonder if it’ll rain later."],"B ignores the question in an obvious way: +> it’s a surprise, I’m not telling."],
+  ['r4','R',"",["A: I heard you failed your driving test.","B: Would you like some more cake?"],"A blatant change of topic: +> I don’t want to talk about that."],
+  ['r5','R',"",["A: How much did your new car cost?","B: Have you seen my holiday photos?"],"Deliberately off topic: +> that’s none of your business."],
+  ['r6','R',"The new manager is standing right behind A.",["A: What do you think of the new manager?","B: Did anyone watch the football last night?"],"B jumps to an unrelated topic: +> careful, she can hear you."],
+  ['r7','R',"",["A: Is it true you’re dating your boss?","B: So, how was your holiday in Greece?"],"An obvious switch of topic: +> I’m not discussing that."],
+  ['r8','R',"",["A: Your presentation was a disaster, wasn’t it?","B: Is that a new jacket? It really suits you."],"B pointedly talks about something else: +> let’s not go there."],
+  ['r9','R',"Professor Huber has just walked into the room.",["A: I’m sure Huber failed me because he doesn’t like me.","B: Gosh, it’s warm in here today."],"A sudden irrelevant remark: +> be quiet, he’s here."],
+  ['r10','R',"",["A: Did you book the restaurant for our anniversary?","B: Oh, look at the time! I’d better feed the cat."],"B obviously avoids the question: +> no, I forgot."],
+  ['m1','M',"Two parents, in front of their young children.",["A: Let’s get the kids something.","B: Okay, but I veto I-C-E C-R-E-A-M-S."],"Spelling the word out is deliberately obscure (Grice’s example): +> I don’t want the children to understand."],
+  ['m2','M',"A music critic’s review.",["“Miss X produced a series of sounds that corresponded closely with the score of ‘Home Sweet Home’.”"],"A long-winded description instead of the brief “Miss X sang” (Grice’s example): +> her singing hardly deserved the name."],
+  ['m3','M',"Parents talking at breakfast while their four-year-old listens.",["A: Shall we go to the Z-O-O on Saturday?"],"Spelling it out is deliberately obscure: +> don’t let her understand yet."],
+  ['m4','M',"A professor writes in a reference.",["“I cannot recommend this candidate too highly.”"],"Deliberately ambiguous: “no praise would be too much” or “any high recommendation would be too much”. +> the reader is meant to suspect the unflattering reading."],
+  ['m5','M',"Another line from a reference.",["“You will be lucky to get this person to work for you.”"],"Deliberately ambiguous: lucky to hire them, or lucky if they ever do any work. +> the writer has doubts."],
+  ['m6','M',"Asked where Dad is, his daughter answers in a pompous voice:",["“He has gone to procure a quantity of liquid refreshment of an alcoholic nature at the licensed establishment on the corner.”"],"Far wordier than “He’s at the pub”: +> he’s at the pub, and she finds that funny or disapproves."],
+  ['m7','M',"Two parents, with their son in the room, a week before his birthday.",["A: Did you get the, er, you-know-what for you-know-who?","B: Yes, it’s in the, um, place."],"Deliberately obscure: +> he mustn’t find out about his present."],
+  ['m8','M',"Asked by a friend why her team’s project failed, she answers in a mock corporate voice:",["“Owing to a non-optimal alignment of resource-allocation parameters, deliverables experienced negative timeline slippage.”"],"Obscure and wordy on purpose: +> we ran out of money and missed the deadline, and the official jargon is absurd."],
+  ['m9','M',"Two colleagues, with their boss sitting at the next desk.",["A: Fancy a, um, liquid lunch at the establishment with the green door?"],"Deliberately obscure: +> let’s go to the pub, but the boss mustn’t understand."]
+];
+
+// ---------- DATA: ways of not observing [id, code, scenario, why] ----------
+var NOL = {F:'Flouting', V:'Violating', O:'Opting out', C:'Clash', I:'Infringing'};
+var NONOBS = [
+  ['f1','F',"Looking out at a thunderstorm, Ana grins at her friend and says, “Perfect beach weather.”","Both know it’s false and Ana wants that noticed: an overt breach of Quality, so it creates an implicature (the weather is terrible). That is flouting."],
+  ['f2','F',"A lecturer writes a reference saying only “She was always punctual,” knowing the reader will notice everything that is missing.","The breach of Quantity is meant to be noticed, so the reader infers the implicature: flouting."],
+  ['f3','F',"At dinner, Jan’s aunt asks about his failed exam. Jan says loudly, “Wow, is that a new tablecloth?” and everyone gets the message.","An open change of topic (Relation), intended to be noticed: flouting. +> I don’t want to talk about it."],
+  ['f4','F',"Two parents spell out “C-H-O-C-O-L-A-T-E” so that their toddler won’t understand, while making sure each other notices.","Deliberate obscurity (Manner) that the addressee is meant to recognise: flouting."],
+  ['f5','F',"Fed up, Mia sighs: “I’ve told you a thousand times: it’s in the drawer.”","Hyperbole: obviously untrue, meant to be recognised as such. Flouting Quality."],
+  ['f6','F',"Asked why his flatmate never cleans, Paul shrugs: “Students are students.”","A tautology that openly says nothing, so the hearer looks for a meaning: flouting Quantity."],
+  ['v1','V',"A second-hand car dealer says, “This car has never given me a moment’s trouble.” He doesn’t mention that he only took it in yesterday.","Literally true but designed to create a false belief, and the buyer isn’t meant to notice: a covert breach (of Quantity), that is, violating."],
+  ['v2','V',"Kim’s parents ask whether she studied at the library all day. She says, “I was at the library this morning,” hoping they’ll assume she stayed. She spent the afternoon at the lake.","Deliberately less informative than required, with the intention to mislead hidden: violating Quantity."],
+  ['v3','V',"A politician, asked how many hospital jobs were cut, says “Some posts have been affected,” knowing all of them were cut and hoping the public will infer “not all”.","The speaker exploits a scalar implicature to mislead without being noticed: violating."],
+  ['v4','V',"Asked by his friend whether he has seen her missing book, Ben says “No idea where it is,” though he borrowed it and lost it on the train.","Ben wants her to believe he has nothing to do with it and hides that aim: covert, so violating."],
+  ['v5','V',"A child with chocolate round her mouth is asked whether she took a biscuit and says “No,” hoping to be believed.","A lie, meant to be believed: a covert breach of Quality, which is violating, not flouting."],
+  ['v6','V',"A witness says, “I was at home on Friday evening,” which is true, and keeps quiet about going to the bar at midnight, so that the police will think he was home all night.","True but misleading, and the misleading is meant to go unnoticed: violating Quantity."],
+  ['v7','V',"An advert says “Nine out of ten users would recommend it,” leaving out that only ten people were asked, all of them staff.","Designed to mislead the reader without the reader noticing: violating."],
+  ['o1','O',"A police spokesperson tells journalists, “I’m afraid I can’t comment on an ongoing investigation.”","The speaker openly declines to give the information required: opting out."],
+  ['o2','O',"A doctor at a party is asked about a famous patient and replies, “Sorry, you know I can’t talk about my patients.”","An explicit refusal to cooperate in the way Quantity requires: opting out."],
+  ['o3','O',"Asked about Anna’s new job, Jonas says, “I promised Anna I wouldn’t tell anyone, so don’t ask me.”","He makes clear he won’t give the information: opting out."],
+  ['o4','O',"A celebrity leaving court answers every question with “No comment.”","The classic signal of opting out."],
+  ['o5','O',"Asked about her breakup, Lisa says, “I’d rather not talk about it, if that’s okay.”","Openly unwilling to say more: opting out (no implicature is being created)."],
+  ['o6','O',"A minister says, “That information is classified, so I’m not in a position to answer.”","An explicit statement that the speaker won’t cooperate on this point: opting out."],
+  ['c1','C',"A: “Where does C live?” B: “Somewhere in the south of France.” B would like to help but doesn’t know the exact town.","To be more informative (Quantity) B would have to say something without adequate evidence (Quality): a clash (Grice’s example). +> B doesn’t know more."],
+  ['c2','C',"A: “When does the last bus leave?” B: “Some time after midnight, I think.” B doesn’t know the exact time.","Being precise enough would mean guessing: Quantity clashes with Quality."],
+  ['c3','C',"A: “How many people came to the meeting?” B: “Quite a lot. I didn’t count.”","B can’t give the exact number without lacking evidence: a clash between Quantity and Quality."],
+  ['c4','C',"A tourist asks which platform the Vienna train leaves from. A local says, “One of the ones on the left, I’m not sure which.”","Under-informative because more would be a guess: a clash."],
+  ['c5','C',"A: “Who wrote this note?” B: “Someone in accounting, I think. I don’t know who exactly.”","B gives as much as the evidence allows: Quantity has to give way to Quality, a clash."],
+  ['c6','C',"A: “What’s the population of Graz?” B: “Around 300,000, but don’t quote me.” B can’t be more exact without guessing.","A clash: the required precision (Quantity) would cost evidence (Quality)."],
+  ['i1','I',"A beginner in English, asked how long she is staying, answers “Two,” meaning two weeks. She doesn’t yet know how to say more.","Less informative than required, but not on purpose: imperfect linguistic performance, so infringing (Thomas). No implicature and no deception are intended."],
+  ['i2','I',"Asked where Daddy is, a three-year-old says, “Daddy goed in the thing with the wheels.”","An unclear answer caused by limited linguistic competence, not by any intention: infringing."],
+  ['i3','I',"A very drunk wedding guest is asked where the toilets are and gives a long, rambling, incoherent answer.","Impaired performance (drunkenness) without any intention to mislead or implicate: infringing."],
+  ['i4','I',"A very nervous candidate in an oral exam blurts out an answer so muddled that the examiner can’t follow it, although she knows the material.","Nervousness disrupts her performance; she isn’t trying to mislead or implicate anything: infringing."],
+  ['i5','I',"A learner of English, trying to say she was bored at the party, says “I was very boring at the party.”","She unintentionally says something she doesn’t mean, through imperfect command of the language: infringing."]
+];
+
+// ---------- DATA: kinds of implicature [id, code, utterance, implicature, note] ----------
+var IML = {S:'Scalar implicature', G:'Generalized (non-scalar)', P:'Particularized', C:'Conventional'};
+var IMPL = [
+  ['s1','S',"Some of the students passed the exam.","Not all of the students passed.","⟨all, most, many, some⟩"],
+  ['s2','S',"Most of the guests had left by midnight.","Not all of the guests had left.","⟨all, most, many, some⟩"],
+  ['s3','S',"It’s warm today.","It isn’t hot.","⟨hot, warm⟩"],
+  ['s4','S',"You may hand in the essay by email.","You don’t have to.","⟨must, should, may⟩"],
+  ['s5','S',"Mia or Tom will pick you up.","Not both of them will.","⟨and, or⟩"],
+  ['s6','S',"The film was good.","It wasn’t excellent.","⟨excellent, good⟩"],
+  ['s7','S',"I sometimes cycle to work.","I don’t always (or often) cycle.","⟨always, often, sometimes⟩"],
+  ['s8','S',"It’s possible that the train is late.","It isn’t certain (or even likely).","⟨certain, likely, possible⟩"],
+  ['s9','S',"Many people enjoyed the talk.","Not most (and not all) of them did.","⟨all, most, many, some⟩"],
+  ['s10','S',"I believe the shop is open.","I don’t know for sure.","⟨know, believe⟩"],
+  ['s11','S',"I like your brother.","I don’t love him.","⟨love, like⟩"],
+  ['s12','S',"It’s cool outside.","It isn’t cold.","⟨cold, cool⟩"],
+  ['s13','S',"She tried to open the jar.","She didn’t succeed.","⟨succeed, try⟩"],
+  ['g1','G',"I walked into a house yesterday and saw a huge spider.","The house wasn’t my own.","The indefinite “a house” carries this inference by default."],
+  ['g2','G',"Sam is meeting a woman this evening.","The woman isn’t his wife, mother or sister.","Grice’s example: the indefinite “a woman” implicates someone not closely related to him."],
+  ['g3','G',"Karin took the pill and fell asleep.","She took the pill first, then fell asleep.","“and” is read as “and then” by default (Levinson’s I-principle)."],
+  ['g4','G',"Lea turned the key and the engine started.","Turning the key made the engine start.","“and” is enriched to “and as a result” by default (I-principle)."],
+  ['g5','G',"I broke a finger yesterday.","It was my own finger.","Here the default goes the other way from “a house”: a broken finger is stereotypically your own (enrichment to the stereotype, I-principle)."],
+  ['g6','G',"Bill caused the car to stop.","He stopped it in an unusual way, not just with the brake.","A marked, wordy expression instead of “Bill stopped the car” signals a marked situation (Levinson’s M-principle)."],
+  ['g8','G',"A child looked over the fence while I was sitting in a garden.","Neither the child nor the garden was mine.","Yule’s example type: indefinite noun phrases implicate “not mine” in nearly any context."],
+  ['p1','P',["A: Are you coming to the party tonight?","B: I’ve got an exam at eight tomorrow."],"B isn’t coming.","Said in answer to a different question, B’s words wouldn’t mean this."],
+  ['p2','P',["A: Where’s the rest of the cake?","B: The dog looks very pleased with himself."],"The dog ate it.","Out of this context, B’s words implicate nothing about cake."],
+  ['p3','P',["A: Is Tom a good cook?","B: Let’s just say we ordered pizza afterwards."],"No, he isn’t.","The inference depends entirely on A’s question."],
+  ['p4','P',["A: Can you lend me fifty euros?","B: It’s the end of the month."],"No, B is short of money.","Only A’s request makes the date relevant."],
+  ['p5','P',["A: I’m out of petrol.","B: There’s a garage round the corner."],"The garage is open and sells petrol.","Grice’s example: B observes Relation, and the context supplies the rest."],
+  ['p6','P',["A: Has Lukas got a girlfriend?","B: He’s been driving to Graz every weekend."],"He probably has one, in Graz.","The link exists only because of A’s question."],
+  ['p7','P',["A: What time is it?","B: The post has just come."],"It’s about the time the post usually comes.","Only the question about time makes the post relevant."],
+  ['p8','P',["A: Shall we eat out tonight?","B: I’ve just been paid."],"Yes, we can afford it.","The inference depends on A’s suggestion."],
+  ['p9','P',["A: Did you enjoy the lecture?","B: I had a really good nap."],"The lecture was boring.","Only A’s question makes the nap informative about the lecture."],
+  ['p10','P',["A: Is the boss in a good mood?","B: He just threw a stapler at the wall."],"No, he isn’t.","The inference depends on A’s question."],
+  ['c1','C',"She is poor but honest.","There is a contrast between being poor and being honest.","Carried by “but” itself. The sentence is true if she is poor and honest, whether or not there is any contrast."],
+  ['c2','C',"Even Mia passed the exam.","Mia was among the least likely to pass, and others passed too.","Carried by “even”."],
+  ['c3','C',"He is an Englishman; he is, therefore, brave.","His bravery follows from his being English.","Grice’s example: carried by “therefore”."],
+  ['c4','C',"Tom hasn’t arrived yet.","Tom is expected to arrive.","Carried by “yet”."],
+  ['c5','C',"She was exhausted, yet she finished the race.","Finishing was unexpected, given how exhausted she was.","Carried by “yet” (contrast)."],
+  ['c6','C',"Even the teacher laughed.","The teacher was the least likely person to laugh.","Carried by “even”."],
+  ['c7','C',"Lena is a professor, but she’s very approachable.","Professors aren’t generally expected to be approachable.","Carried by “but”."],
+  ['c8','C',"Even my grandmother uses a smartphone.","My grandmother was among the least likely to use one.","Carried by “even”."]
+];
+
+// ---------- DATA: entailment or implicature [id, code, utterance, inference, cancellation test, note] ----------
+var CAL = {E:'Entailment (can’t be cancelled)', I:'Implicature (can be cancelled)'};
+var CANCEL = [
+  ['e1','E',"Lisa ate all the biscuits.","Lisa ate some of the biscuits.","Lisa ate all the biscuits, but she didn’t eat any of them.",""],
+  ['e2','E',"Tom killed the spider.","The spider died.","Tom killed the spider, but it didn’t die.",""],
+  ['e3','E',"Max bought a red car.","Max bought a car.","Max bought a red car, but he didn’t buy a car.",""],
+  ['e4','E',"Sam is a bachelor.","Sam is unmarried.","Sam is a bachelor, but he’s married.",""],
+  ['e5','E',"Mia passed the exam with distinction.","Mia passed the exam.","Mia passed the exam with distinction, but she didn’t pass it.",""],
+  ['e6','E',"Ben is taller than Jonas.","Jonas is shorter than Ben.","Ben is taller than Jonas, but Jonas isn’t shorter than Ben.",""],
+  ['e7','E',"Lena managed to finish the marathon.","Lena finished the marathon.","Lena managed to finish the marathon, but she didn’t finish it.","“Manage” also presupposes that it took effort; the success itself is entailed."],
+  ['e8','E',"Noah has a sister.","Noah has a sibling.","Noah has a sister, but he has no siblings.",""],
+  ['e9','E',"The soup is boiling.","The soup is hot.","The soup is boiling, but it isn’t hot.",""],
+  ['e10','E',"Some of the students passed.","At least one student passed.","Some of the students passed, but none of them did.","The lower bound of “some” is entailed; only the upper bound (“not all”) is an implicature."],
+  ['e11','E',"Most of the guests left early.","Some of the guests left early.","Most of the guests left early, but none of them did.","On a Horn scale the stronger term entails the weaker one."],
+  ['e12','E',"It’s raining and it’s cold.","It’s raining.","It’s raining and it’s cold, but it isn’t raining.",""],
+  ['e13','E',"Hannah drove to Linz.","Hannah went to Linz.","Hannah drove to Linz, but she didn’t go to Linz.",""],
+  ['e14','E',"The window was smashed.","The window was broken.","The window was smashed, but it wasn’t broken.",""],
+  ['e15','E',"Leo is a widower.","Leo was once married.","Leo is a widower, but he was never married.",""],
+  ['i1','I',"Some of the students passed.","Not all of the students passed.","Some of the students passed; in fact, all of them did.","A scalar implicature, not part of the meaning of “some”."],
+  ['i2','I',"Most of the guests left early.","Not all of the guests left early.","Most of the guests left early; actually, all of them did.",""],
+  ['i3','I',"Mia or Tom will drive.","They won’t both drive.","Mia or Tom will drive, or maybe both of them.","“Or” is inclusive in its semantics; “not both” is a scalar implicature."],
+  ['i4','I',"Kate got married and had a baby.","She got married before she had the baby.","Kate got married and had a baby, but not in that order.",""],
+  ['i5','I',"The film was good.","The film wasn’t excellent.","The film was good; in fact, it was excellent.",""],
+  ['i6','I',"Ted turned the key and the engine started.","Turning the key made the engine start.","Ted turned the key and the engine started, though not because of the key: Eva had already hot-wired it.",""],
+  ['i7','I',["A: Are you coming to the party?","B: I have to work."],"B isn’t coming to the party.","I have to work, but I’ll come along afterwards.","A particularized implicature."],
+  ['i8','I',"Sam is meeting a woman tonight.","The woman isn’t his wife.","Sam is meeting a woman tonight: his wife, as it happens.",""],
+  ['i9','I',"It’s warm outside.","It isn’t hot outside.","It’s warm outside; in fact, it’s hot.",""],
+  ['i10','I',"I believe the shop is open.","The speaker doesn’t know for sure.","I believe the shop is open; in fact, I know it is, I work there.",""],
+  ['i11','I',"If you finish your vegetables, you can have dessert.","If you don’t finish them, you can’t have dessert.","If you finish your vegetables, you can have dessert, and actually you can have it anyway.",""],
+  ['i12','I',"I sometimes cycle to work.","I don’t always cycle to work.","I sometimes cycle to work; actually, I always do.",""],
+  ['i13','I',"Lea walked into a house.","It wasn’t her own house.","Lea walked into a house: her own, as it happens.",""],
+  ['i14','I',["A: Did you like the meal?","B: The dessert was nice."],"B didn’t like the rest of the meal much.","The dessert was nice, and so was everything else.",""],
+  ['i15','I',"Many of my friends speak French.","Not all of my friends speak French.","Many of my friends speak French; in fact, all of them do.",""]
+];
+
+// ---------- DATA: Searle's classes [id, code, context, utterance, note] ----------
+var SRL = {A:'Representative (assertive)', D:'Directive', C:'Commissive', E:'Expressive', X:'Declaration'};
+var SRD = {
+  A:"Representative: commits the speaker to the truth of a proposition; words-to-world fit; expresses belief.",
+  D:"Directive: an attempt to get the hearer to do something; world-to-words fit; expresses a want.",
+  C:"Commissive: commits the speaker to a future course of action; world-to-words fit; expresses an intention.",
+  E:"Expressive: expresses the speaker’s feelings about a state of affairs; no direction of fit.",
+  X:"Declaration: changes the world simply by being said, given the right speaker and institution; both directions of fit."
+};
+var SEARLE = [
+  ['a1','A',"","“The train to Salzburg leaves at 9:15.”",""],
+  ['a2','A',"","“I think the shop closes at six.”","Hedged with “I think”, but it still commits the speaker (weakly) to a proposition being true."],
+  ['a3','A',"","“Water boils at 100 degrees Celsius at sea level.”",""],
+  ['a4','A',"A detective, after examining the evidence:","“I conclude that the gardener did it.”","Concluding is an assertive act, even with an explicit verb."],
+  ['a5','A',"","“Vienna is the capital of Austria.”",""],
+  ['a6','A',"A weather forecaster:","“It will snow in Tyrol tomorrow.”","A prediction commits the speaker to the truth of a proposition about the future. It isn’t commissive: the speaker doesn’t commit to doing anything."],
+  ['a7','A',"After the tournament:","“I won every single game, you know.”","Boasting is an assertive act."],
+  ['a8','A',"A witness in court:","“I saw the defendant leave at ten.”",""],
+  ['a9','A',"","“My sister lives in Innsbruck.”",""],
+  ['a10','A',"A student describing a picture:","“There are three people sitting on a bench.”",""],
+  ['d1','D',"","“Please close the door.”",""],
+  ['d2','D',"To a classmate:","“Could you lend me your notes?”","An indirect request, but its point is still to get the hearer to act."],
+  ['d3','D',"To a child near the stove:","“Don’t touch that!”",""],
+  ['d4','D',"To a stranger:","“What time is it?”","For Searle, questions are directives: attempts to get the hearer to provide information."],
+  ['d5','D',"A doctor to a patient:","“I advise you to cut down on salt.”","Advising is a directive."],
+  ['d6','D',"To friends:","“Come over for dinner on Friday!”","Inviting is a directive."],
+  ['d7','D',"","“Sit down, please.”",""],
+  ['d8','D',"An officer to soldiers:","“I order you to hold your position.”",""],
+  ['d9','D',"To a neighbour:","“Would you mind turning the music down?”",""],
+  ['d10','D',"","“Where did you park the car?”","A question, so a directive in Searle’s system."],
+  ['d11','D',"To a friend:","“I beg you, don’t tell my parents.”","Begging is a directive."],
+  ['d12','D',"","“I suggest you take the earlier train.”","Suggesting is a (weak) directive."],
+  ['c1','C',"","“I promise I’ll pay you back on Monday.”",""],
+  ['c2','C',"","“I’ll be there at eight, you have my word.”",""],
+  ['c3','C',"A boss to an employee:","“If you’re late again, I’ll fire you.”","Threats are commissives: the speaker commits to a future action, one the hearer won’t like. (The firing itself would be a declaration, but this utterance doesn’t fire anyone.)"],
+  ['c4','C',"An online shop:","“We guarantee delivery within 48 hours.”",""],
+  ['c5','C',"A bride, during the wedding vows:","“I vow to love and cherish you.”","The vow commits her to future conduct. The registrar’s “I now pronounce you…” is the declaration."],
+  ['c6','C',"On New Year’s Eve, to a friend:","“From tomorrow, I’m not smoking any more. That’s a promise.”",""],
+  ['c7','C',"Asked to sign a petition:","“I refuse to sign this.”","Refusals commit the speaker to (not) doing something: commissives."],
+  ['c8','C',"To a friend who is moving house:","“I’ll help you carry the boxes on Saturday.”",""],
+  ['c9','C',"At a meeting:","“I volunteer to take the minutes.”",""],
+  ['c10','C',"A tenant to a landlord:","“I undertake to repair any damage.”",""],
+  ['e1','E',"","“Thank you so much for the flowers.”",""],
+  ['e2','E',"","“I’m so sorry I forgot your birthday.”","An apology expresses regret about something already done."],
+  ['e3','E',"","“Congratulations on your new job!”",""],
+  ['e4','E',"At the airport, to arriving guests:","“Welcome to Vienna!”",""],
+  ['e5','E',"To a friend whose grandmother has died:","“I’m so sorry about your grandmother.”","Condolences are expressives."],
+  ['e6','E',"","“Happy birthday!”",""],
+  ['e7','E',"After a colleague’s presentation:","“Well done!”","Praising is expressive."],
+  ['e8','E',"A train announcement:","“We apologise for the delay.”",""],
+  ['e9','E',"A statement from a journalists’ union:","“We deplore the attack on our colleagues.”","Deploring is one of Searle’s paradigm expressives."],
+  ['x1','X',"A registrar, at the end of the ceremony:","“I now pronounce you husband and wife.”",""],
+  ['x2','X',"A manager to an employee:","“You’re fired.”",""],
+  ['x3','X',"At a ship launch:","“I name this ship the Queen Elizabeth.”",""],
+  ['x4','X',"The chair, opening a session:","“I declare the meeting open.”",""],
+  ['x5','X',"A judge, to the defendant:","“I sentence you to five years in prison.”",""],
+  ['x6','X',"A minister, in her letter to the prime minister:","“I hereby resign.”",""],
+  ['x7','X',"A priest, at a christening:","“I baptise you Anna Maria.”",""],
+  ['x8','X',"The chair, at the end of a meeting:","“The meeting is adjourned.”",""],
+  ['x9','X',"The chief executive, to the board:","“I hereby appoint Ms Weber head of research.”",""],
+  ['x10','X',"In a will:","“I bequeath my watch to my nephew.”",""],
+  ['x11','X',"A police officer, to a suspect:","“You’re under arrest.”",""]
+];
+
+// ---------- DATA: direct or indirect [id, context, utterance, answer, wrong codes, why] ----------
+var INL = {
+  DQ:'Direct · question', DS:'Direct · statement', DR:'Direct · command/request',
+  IR:'Indirect · command/request', IQ:'Indirect · question', IS:'Indirect · statement',
+  IO:'Indirect · offer', ISu:'Indirect · suggestion', IW:'Indirect · warning', IRf:'Indirect · refusal', IInv:'Indirect · invitation'
+};
+var INDIRECT = [
+  ['d1',"A student to her flatmate:","“Close the window, please.”",'DR',['IR','DS','ISu'],"Imperative form used for its basic function, a request: direct. “Please” makes it polite, not indirect."],
+  ['d2',"A traveller at the ticket desk:","“When does the next train to Linz leave?”",'DQ',['DR','IS','IO'],"Interrogative form used to ask a question: form and function match, so it’s direct."],
+  ['d3',"A weather forecaster on the radio:","“Heavy rain is expected in Tyrol tomorrow.”",'DS',['IR','DQ','IO'],"Declarative form used to inform: a direct statement."],
+  ['d4',"A teacher to the class:","“Open your books at page 20.”",'DR',['IR','DS','IQ'],"Imperative used as a command: direct."],
+  ['d5',"A student to a friend:","“Did you finish the essay?”",'DQ',['DR','DS','IO'],"Interrogative used as a question: direct."],
+  ['d6',"Asked “Where are you from?”, Eva answers:","“I’m from Graz.”",'DS',['IS','DQ','IR'],"Declarative used to make a statement: direct."],
+  ['d7',"At the dinner table, to his brother:","“Pass me the salt.”",'DR',['IR','DQ','DS'],"Imperative used as a request: direct (and, between brothers, bald on record)."],
+  ['d8',"A tourist to a passer-by:","“Where is the cathedral?”",'DQ',['DR','IS','IO'],"Interrogative used as a question: direct."],
+  ['i1',"At dinner, to the person next to her:","“Can you pass the salt?”",'IR',['DQ','DR','IO'],"Interrogative form, but the point is a request: indirect. Asking about the hearer’s ability (a preparatory condition) is a conventional way of requesting."],
+  ['i2',"A guest, glancing at the open window beside her host:","“It’s freezing in here.”",'IR',['DS','DQ','IO'],"Declarative form used to get the host to close the window: an indirect request (a hint)."],
+  ['i3',"To a colleague:","“Would you mind closing the door?”",'IR',['DQ','DR','IO'],"Interrogative about the hearer’s willingness, used to request: indirect."],
+  ['i4',"An email to a colleague:","“I’d be grateful if you could send me the file.”",'IR',['DS','DR','IO'],"Declarative form used to request: indirect."],
+  ['i5',"To friends, on a Friday:","“Why don’t we go to the cinema tonight?”",'ISu',['DQ','DS','IO'],"Interrogative form, but nobody expects a list of reasons: it’s a suggestion, made indirectly."],
+  ['i6',"A host to a guest who has just arrived:","“Would you like a cup of tea?”",'IO',['DQ','IR','DS'],"Interrogative form used to offer: indirect."],
+  ['i7',"Asked by his mother to tidy his room, a teenager says:","“I have to study for my exam.”",'IRf',['DS','IO','DQ'],"Declarative form whose point is to decline: an indirect refusal."],
+  ['i8',"A friend is worrying about a tiny typo in a birthday card. You say:","“Who cares?”",'IS',['DQ','IR','IO'],"A rhetorical question: no answer is expected. It conveys the statement “nobody cares” indirectly."],
+  ['i9',"A tourist to a passer-by:","“I wonder where the station is.”",'IQ',['DS','DQ','IO'],"Declarative form used to ask for information: an indirect question. (Some books call this an indirect request for information.)"],
+  ['i10',"A boss to an employee who arrived late:","“I’d like to know why you were late.”",'IQ',['DS','DQ','IO'],"Declarative form used to ask: an indirect question."],
+  ['i11',"A colleague, watching you about to close a document:","“You might want to save your work first.”",'ISu',['DS','IO','DQ'],"Declarative form used to advise: an indirect suggestion."],
+  ['i12',"A farmer to hikers about to climb into a field:","“There’s a bull in that field.”",'IW',['DS','DQ','IO'],"Declarative form whose point is to warn: indirect."],
+  ['i13',"An annoyed host, pointing, to a guest who won’t leave:","“The door is over there.”",'IR',['DS','IO','IQ'],"Declarative form used to tell the guest to leave: an indirect request (command)."],
+  ['i14',"A waiter, as guests arrive:","“Can I take your coat?”",'IO',['DQ','IR','DS'],"An interrogative asking permission, used to offer a service: indirect."],
+  ['i15',"To a classmate:","“Have you got a pen I could borrow?”",'IR',['DQ','DR','IO'],"Interrogative form used to request: indirect."],
+  ['i16',"A guest to her host, noticing the window is open:","“Shall I close the window?”",'IO',['DQ','IR','DS'],"Interrogative form used to offer: indirect."],
+  ['i17',"To the flatmate whose turn it is:","“The bins haven’t been taken out for a week.”",'IR',['DS','DQ','IO'],"Declarative form used to get the flatmate to act: an indirect request."],
+  ['i18',"To a new colleague:","“Would you like to come to my party on Saturday?”",'IInv',['DQ','DS','IW'],"Interrogative form used to invite: indirect."],
+  ['i19',"A boss to her assistant:","“I need you to sign this form.”",'IR',['DS','DR','IO'],"Declarative stating the speaker’s want (the sincerity condition), used to request: indirect."],
+  ['i20',"In a shared kitchen:","“It would be nice if someone did the dishes.”",'IR',['DS','IO','DQ'],"Declarative form used to request: indirect."],
+  ['i21',"A mother to her child at 10 p.m.:","“It’s way past your bedtime.”",'IR',['DS','DQ','IO'],"Declarative form used to tell the child to go to bed: indirect."],
+  ['i22',"At a party, to a friend who is chatting with someone you don’t know:","“Aren’t you going to introduce me?”",'IR',['DQ','DS','IO'],"Interrogative form used to request an introduction: indirect."],
+  ['i23',"A parent to a child about to walk through a puddle:","“You’ll get your feet wet.”",'IW',['DS','DQ','IO'],"Declarative form whose point is to warn: indirect."],
+  ['i24',"A shop assistant to a customer who looks lost:","“Can I help you?”",'IO',['DQ','IR','DS'],"A conventional interrogative used to offer help: indirect."]
+];
+
+// ---------- DATA: deixis [id, code, context, sentence with [bracket], note] ----------
+var DXL = {P:'Person deixis', S:'Spatial deixis', T:'Temporal deixis', SO:'Social deixis', D:'Discourse deixis'};
+var DXD = {
+  P:"Person deixis encodes participant roles: speaker, addressee, others.",
+  S:"Spatial deixis locates things relative to the participants’ position.",
+  T:"Temporal deixis locates events relative to the time of speaking (or receiving).",
+  SO:"Social deixis encodes social relationships or status.",
+  D:"Discourse deixis points to a part of the ongoing discourse itself."
+};
+var DEIXIS = [
+  ['p1','P',"","“[I]’ll call you later.”","First person: whoever is speaking."],
+  ['p2','P',"A lecturer to a large hall:","“Can [you] hear me at the back?”","Second person: the addressees."],
+  ['p3','P',"A husband to his wife at the front door:","“[We] should leave now or we’ll miss the bus.”","Inclusive we: speaker plus addressee."],
+  ['p4','P',"A shop assistant to a customer:","“[We] close at six. Please come back tomorrow.”","Exclusive we: the speaker and the staff, not the addressee."],
+  ['p5','P',"Pointing at a woman across the room:","“Give the parcel to [her].”","Third person, identified by pointing (gestural use), not by an antecedent."],
+  ['p6','P',"To the person next to you on the train:","“Is this seat [yours]?”","Second-person possessive: the addressee."],
+  ['s1','S',"","“Put the box [here].”","Proximal: near the speaker."],
+  ['s2','S',"In a library:","“Can you pass me [that] book on the top shelf?”","Distal demonstrative: away from the speaker."],
+  ['s3','S',"A boss on the phone to an employee:","“Could you [come] to my office?”","Come = movement toward the deictic centre, here the speaker’s location."],
+  ['s4','S',"Pointing at two chairs:","“[This] chair is broken; sit on that one.”","Proximal demonstrative, used gesturally."],
+  ['s5','S',"","“The bakery is [over there], next to the bank.”","Distal place adverb."],
+  ['s6','S',"Inviting a friend to stay:","“[Bring] your bike when you visit.”","Bring = movement toward the deictic centre (the speaker’s home)."],
+  ['s7','S',"On the phone:","“Wait for me [there]. I’m five minutes away.”","Distal: the addressee’s location, away from the speaker."],
+  ['s8','S',"To a stray dog in the garden:","“[Go] away!”","Go = movement away from the deictic centre."],
+  ['t1','T',"","“I’ll see you [tomorrow].”","Calculated from the day of speaking."],
+  ['t2','T',"","“She left the office two hours [ago].”","Counted back from the time of speaking."],
+  ['t3','T',"","“We met [last week].”","Relative to the week of speaking."],
+  ['t4','T',"A recorded phone message:","“I’m not at home [right now]. Please leave a message.”","Interpreted at receiving time, not coding time: “now” means when you are listening."],
+  ['t5','T',"A note on a shop door:","“Back [in ten minutes].”","Anchored to the coding time, which the reader doesn’t know: that’s why such notes are useless."],
+  ['t6','T',"A grandfather, remembering his youth:","“[Then] we didn’t have mobile phones.”","Distal time: a time away from now."],
+  ['t7','T',"","“The exam is [next Tuesday].”","Which Tuesday depends on when it is said."],
+  ['t8','T',"","“[Now] is the time to act.”","Proximal time: the time of speaking."],
+  ['t9','T',"","“Call me [tonight].”","The evening of the day of speaking."],
+  ['t10','T',"","“Emma [lived] in Vienna.”","Past tense places the situation before the time of speaking: tense is grammaticalised temporal deixis."],
+  ['so1','SO',"An Austrian student to an older stranger, choosing Sie rather than du:","“Entschuldigung, könnten [Sie] mir helfen?”","The T/V choice encodes the social relationship (distance, respect): relational social deixis."],
+  ['so2','SO',"In a French office, to the boss, choosing vous rather than tu:","“[Vous] avez raison.”","The V form encodes distance and respect: social deixis."],
+  ['so3','SO',"A barrister in court:","“Yes, [Your Honour].”","A form reserved for a particular addressee: absolute social deixis."],
+  ['so4','SO',"A hotel receptionist:","“Good evening, [sir]. How can I help?”","An address form expressing deference."],
+  ['so5','SO',"In Japanese, talking about a colleague:","“Tanaka-[san] is in a meeting.”","An honorific suffix marking respect toward the person referred to (a referent honorific)."],
+  ['so6','SO',"A stranger in a pub in England:","“Cheers, [mate]!”","An address term that signals solidarity and informality."],
+  ['so7','SO',"A journalist at a press conference:","“[Mr President], is the deal finished?”","A title reserved for the holder of an office."],
+  ['d1','D',"In a textbook:","“[The following] example illustrates the point.”","Points forward to a part of the text."],
+  ['d2','D',"In an essay:","“As I argued in [the previous section], …”","Looks temporal, but it points to a part of the text."],
+  ['d3','D',"In a book:","“[This chapter] deals with deixis.”","Points to the text the reader is in."],
+  ['d4','D',"After hearing a joke:","“[That] was the funniest joke I’ve ever heard.”","Points back to a stretch of discourse (the joke just told), not to an entity mentioned in it."],
+  ['d5','D',"Before telling a story:","“Listen to [this]: you’ll never believe what happened.”","Points forward to the coming discourse."],
+  ['d6','D',"In a lecture:","“[In the next part of the lecture], we turn to presupposition.”","Looks temporal, but it locates a part of the discourse."],
+  ['d7','D',"In a letter:","“[As mentioned above], the deadline is Friday.”","Points back to an earlier part of the text."]
+];
+
+// ---------- DATA: presupposition [id, trigger, sentence, presupposition, three non-presupposed, test] ----------
+var PTL = {DEF:'Definite description', FACT:'Factive verb', COS:'Change-of-state verb', ITER:'Iterative', IMPL:'Implicative verb', CLEFT:'Cleft sentence', TEMP:'Temporal clause', COMP:'Comparison', CF:'Counterfactual conditional', WH:'Wh-question'};
+var PTD = {
+  DEF:"A definite description presupposes that its referent exists.",
+  FACT:"A factive verb presupposes that its complement clause is true.",
+  COS:"A change-of-state verb presupposes the state before the change.",
+  ITER:"An iterative presupposes that the event or state happened before.",
+  IMPL:"An implicative verb presupposes an attempt, intention or expectation.",
+  CLEFT:"A cleft presupposes the clause it backgrounds (“someone did X”) and focuses the rest.",
+  TEMP:"A temporal clause (before, after, since, while) presupposes that its event happened.",
+  COMP:"A comparison presupposes that the property holds of the thing compared with.",
+  CF:"A counterfactual conditional presupposes that its if-clause is false.",
+  WH:"A wh-question presupposes the corresponding statement with “someone / something / somewhere”."
+};
+var PRESUP = [
+  ['pd1','DEF',"The king of France is bald.","There is a king of France.",["The king of France has no hair.","Someone is bald.","The king of France is old."],"Negate it: “The king of France isn’t bald.” It still >> there is a king of France."],
+  ['pd2','DEF',"The man who lives next door plays the drums.","A man lives next door.",["The man next door makes music.","The drums are very loud.","The man next door is a professional drummer."],"Negate it: “The man who lives next door doesn’t play the drums.” It still >> a man lives next door."],
+  ['pd3','DEF',"The new mayor of Graz opened the festival.","Graz has a new mayor.",["Someone opened the festival.","The mayor enjoys festivals.","The festival was a success."],"Negate it: “The new mayor of Graz didn’t open the festival.” It still >> Graz has a new mayor."],
+  ['pd4','DEF',"The thief who stole my bike has been caught.","Someone stole my bike.",["The thief is in custody.","The thief was a teenager.","The police were slow."],"Negate it: “The thief who stole my bike hasn’t been caught.” It still >> someone stole my bike."],
+  ['pf1','FACT',"Nina regrets selling her car.","Nina sold her car.",["Nina feels bad about the sale.","Nina will buy a new car.","Nina’s car was expensive."],"Negate it: “Nina doesn’t regret selling her car.” It still >> Nina sold her car."],
+  ['pf2','FACT',"Tom realised that he had missed the last train.","Tom had missed the last train.",["Tom became aware of a problem.","Tom was furious.","Tom took a taxi home."],"Negate it: “Tom didn’t realise that he had missed the last train.” It still >> he had missed it."],
+  ['pf3','FACT',"Everyone knows that smoking is harmful.","Smoking is harmful.",["Everyone is aware of the risks.","Most smokers want to quit.","Smoking is banned in restaurants."],"Negate it: “Not everyone knows that smoking is harmful.” It still >> smoking is harmful."],
+  ['pf4','FACT',"I’m glad that the exams are over.","The exams are over.",["The speaker is happy about something.","The exams were difficult.","The speaker passed the exams."],"Negate it: “I’m not glad that the exams are over.” It still >> the exams are over."],
+  ['pf5','FACT',"Lena was aware that the shop had closed.","The shop had closed.",["Lena was disappointed.","The shop had gone bankrupt.","Lena wanted to go shopping."],"Negate it: “Lena wasn’t aware that the shop had closed.” It still >> the shop had closed."],
+  ['pf6','FACT',"It’s odd that Mark hasn’t called.","Mark hasn’t called.",["The speaker finds something strange.","Mark is ill.","Mark will call later."],"Negate it: “It isn’t odd that Mark hasn’t called.” It still >> Mark hasn’t called."],
+  ['pc1','COS',"Kim stopped smoking.","Kim used to smoke.",["Kim doesn’t smoke now.","Kim wanted to stop.","Kim smoked twenty a day."],"Negate it: “Kim didn’t stop smoking.” It still >> Kim used to smoke; “Kim doesn’t smoke now” was only asserted."],
+  ['pc2','COS',"The baby started crying.","The baby hadn’t been crying just before.",["The baby cried.","The baby was hungry.","The baby cries a lot."],"Negate it: “The baby didn’t start crying.” It still >> the baby hadn’t been crying."],
+  ['pc3','COS',"Sara continued to work after the accident.","Sara had been working before the accident.",["Sara worked after the accident.","Sara was badly injured.","Sara likes her job."],"Negate it: “Sara didn’t continue to work after the accident.” It still >> she had been working."],
+  ['pc4','COS',"Ben has finished his thesis.","Ben had been working on his thesis.",["Ben’s thesis is complete.","The thesis is about pragmatics.","Ben will graduate this year."],"Negate it: “Ben hasn’t finished his thesis.” It still >> he had been working on it."],
+  ['pc5','COS',"The company has started selling online.","The company didn’t sell online before.",["The company sells online.","Online sales are profitable.","The company is based in Austria."],"Negate it: “The company hasn’t started selling online.” It still >> it didn’t sell online before."],
+  ['pi1','ITER',"Eva won the lottery again.","Eva had won the lottery before.",["Eva won the lottery this time.","Eva is very lucky.","Eva will buy a house."],"Negate it: “Eva didn’t win the lottery again.” It still >> she had won before."],
+  ['pi2','ITER',"Carter returned to power.","Carter had held power before.",["Carter holds power now.","Carter is popular.","Carter is old."],"Negate it: “Carter didn’t return to power.” It still >> he had held power before."],
+  ['pi3','ITER',"Lisa came back to Vienna.","Lisa had been in Vienna before.",["Lisa is in Vienna now.","Lisa missed Vienna.","Lisa was born in Vienna."],"Negate it: “Lisa didn’t come back to Vienna.” It still >> she had been there before."],
+  ['pi4','ITER',"Max failed his driving test for the second time.","Max had failed his driving test once before.",["Max failed his test this time.","Max is a bad driver.","Max will try once more."],"Negate it: “Max didn’t fail his driving test for the second time.” It still >> he had failed once before."],
+  ['pm1','IMPL',"Mia managed to fix the bike.","Mia tried to fix the bike, and it took some effort.",["Mia fixed the bike.","Mia is good with tools.","The bike was expensive."],"Negate it: “Mia didn’t manage to fix the bike.” It still >> she tried. (That she fixed it is entailed, not presupposed.)"],
+  ['pm2','IMPL',"Jonas forgot to lock the door.","Jonas intended (or was supposed) to lock the door.",["Jonas didn’t lock the door.","Burglars got in.","Jonas is always careless."],"Negate it: “Jonas didn’t forget to lock the door.” It still >> he was supposed to lock it."],
+  ['pm3','IMPL',"Paul avoided paying the fine.","Paul was expected (or obliged) to pay the fine.",["Paul didn’t pay the fine.","Paul is rich.","Paul was caught."],"Negate it: “Paul didn’t avoid paying the fine.” It still >> he was expected to pay it."],
+  ['pm4','IMPL',"Sophie remembered to send the invitation.","Sophie was supposed to send the invitation.",["Sophie sent the invitation.","The party was a success.","Sophie has a good memory."],"Negate it: “Sophie didn’t remember to send the invitation.” It still >> she was supposed to send it."],
+  ['pcl1','CLEFT',"It was Henry who kissed Rosie.","Someone kissed Rosie.",["Henry kissed Rosie.","Rosie likes Henry.","Henry kissed Rosie twice."],"Negate it: “It wasn’t Henry who kissed Rosie.” It still >> someone kissed Rosie."],
+  ['pcl2','CLEFT',"What John lost was his wallet.","John lost something.",["John lost his wallet.","John is careless.","The wallet was found later."],"Negate it: “What John lost wasn’t his wallet.” It still >> John lost something. (This is a pseudo-cleft.)"],
+  ['pcl3','CLEFT',"It was in Linz that we first met.","We met somewhere.",["We met in Linz.","We met in summer.","We live in Linz."],"Negate it: “It wasn’t in Linz that we first met.” It still >> we met somewhere."],
+  ['pcl4','CLEFT',"It wasn’t me who broke the vase.","Someone broke the vase.",["The speaker didn’t break the vase.","The vase was valuable.","The cat broke the vase."],"Make it positive: “It was me who broke the vase.” Both versions >> someone broke the vase."],
+  ['pt1','TEMP',"Before Strawson was even born, Frege noticed presuppositions.","Strawson was born.",["Frege noticed presuppositions.","Strawson admired Frege.","Frege and Strawson met."],"Negate it: “Frege didn’t notice presuppositions before Strawson was born.” It still >> Strawson was born."],
+  ['pt2','TEMP',"After she moved to London, Eva learned to drive.","Eva moved to London.",["Eva learned to drive.","Eva likes London.","Eva bought a car."],"Negate it: “After she moved to London, Eva didn’t learn to drive.” It still >> she moved to London."],
+  ['pt3','TEMP',"Since we bought the house, the roof has leaked twice.","We bought the house.",["The roof has leaked.","The house is old.","We regret buying it."],"Negate it: “Since we bought the house, the roof hasn’t leaked.” It still >> we bought the house."],
+  ['pt4','TEMP',"While you were out, your mother called.","You were out.",["Your mother called.","Your mother was worried.","You were at work."],"Negate it: “While you were out, your mother didn’t call.” It still >> you were out."],
+  ['pco1','COMP',"Carol is a better linguist than Barbara.","Barbara is a linguist.",["Carol outdoes Barbara as a linguist.","Barbara is jealous of Carol.","Carol is older than Barbara."],"Negate it: “Carol isn’t a better linguist than Barbara.” It still >> Barbara is a linguist."],
+  ['pco2','COMP',"Jimmy is as unreliable as Billy.","Billy is unreliable.",["Jimmy and Billy are equally unreliable.","Jimmy and Billy are brothers.","Billy is more reliable than Jimmy."],"Negate it: “Jimmy isn’t as unreliable as Billy.” It still >> Billy is unreliable."],
+  ['pco3','COMP',"Vienna is as expensive as Munich.","Munich is expensive.",["Vienna and Munich are equally expensive.","Vienna is a big city.","Vienna is cheaper than Munich."],"Negate it: “Vienna isn’t as expensive as Munich.” It still >> Munich is expensive."],
+  ['pcf1','CF',"If Hannibal had had twelve more elephants, the Romance languages wouldn’t exist.","Hannibal didn’t have twelve more elephants.",["Hannibal wanted more elephants.","Hannibal won the war.","Elephants decided the war."],"The conditional as a whole takes it for granted that its if-clause is false; that survives in the question “Would the Romance languages exist if Hannibal had had twelve more elephants?” too."],
+  ['pcf2','CF',"If you had listened to me, we wouldn’t be lost.","You didn’t listen to me.",["The speaker knows the way.","The speaker is angry.","You never listen to anyone."],"The counterfactual form (had + past participle, would) takes the falsity of the if-clause for granted."],
+  ['pcf3','CF',"If I were rich, I’d buy a boat.","I’m not rich.",["I will buy a boat.","Boats are expensive.","I have a lot of money."],"The counterfactual “were” takes the falsity of the if-clause for granted."],
+  ['pw1','WH',"Who ate the last biscuit?","Someone ate the last biscuit.",["The speaker ate it.","The speaker is hungry.","There are more biscuits in the cupboard."],"The question asks only who; that someone ate it is taken for granted."],
+  ['pw2','WH',"When did Ella leave the party?","Ella left the party.",["Ella left early.","Ella enjoyed the party.","Ella left with someone."],"The question asks only when; that she left is taken for granted."],
+  ['pw3','WH',"Where did you hide the keys?","You hid the keys somewhere.",["The keys are lost.","The speaker hid the keys.","You hid the keys in the kitchen."],"The question asks only where; that you hid them is taken for granted."],
+  ['pw4','WH',"Why did Tom resign?","Tom resigned.",["Tom was unhappy.","Tom was forced out.","Tom has found a new job."],"The question asks only why; that he resigned is taken for granted."]
+];
+
+// ---------- DATA: politeness [id, code, context, utterance, why] ----------
+var POL = {B:'Bald on record', P:'Positive politeness', N:'Negative politeness', O:'Off record'};
+var POLITE = [
+  ['b1','B',"A firefighter to a resident, as smoke fills the stairwell:","“Get out now!”","Bald on record: in an emergency, efficiency overrides face concerns and nobody expects redress."],
+  ['b2','B',"A surgeon to a nurse, mid-operation:","“Scalpel.”","Bald on record: task-focused talk where maximum efficiency is the norm."],
+  ['b3','B',"A parent to a toddler reaching for a hot stove:","“Don’t touch that!”","Bald on record: urgency, and the parent’s power makes redress unnecessary."],
+  ['b4','B',"A driving instructor, as a child runs into the road:","“Brake!”","Bald on record: urgency."],
+  ['b5','B',"Two flatmates carrying a sofa up the stairs:","“Lift your end higher.”","Bald on record: a small imposition inside a joint task between close people."],
+  ['b6','B',"A host opening the door to a guest:","“Come in, sit down!”","Bald on record, because the act is in the hearer’s own interest: welcomes and invitations like this barely threaten face."],
+  ['b7','B',"A teacher during a fire drill:","“Line up by the door. Quickly.”","Bald on record: urgency and power."],
+  ['b8','B',"A coach to a player during a match:","“Pass it! Pass it now!”","Bald on record: efficiency in a fast-moving task."],
+  ['p1','P',"To a friend who is good with computers:","“Hey, genius, you’re the only one who understands these things. Help me fix my laptop?”","Positive politeness: flattery and a friendly, in-group tone appeal to the hearer’s want to be liked and appreciated."],
+  ['p2','P',"A flatmate, the morning after a party:","“Come on, let’s get this kitchen cleaned up together.”","Positive politeness: inclusive “let’s” puts speaker and hearer in the same activity."],
+  ['p3','P',"To a neighbour:","“What a gorgeous garden, you must spend hours on it! Lend us your lawnmower this weekend, mate?”","Positive politeness: noticing and admiring the hearer, plus an in-group address term."],
+  ['p4','P',"To a colleague:","“We’re all in the same boat here, aren’t we? Give me a hand with these reports.”","Positive politeness: claiming common ground and solidarity."],
+  ['p5','P',"A student to a classmate:","“You and I both hate statistics, so how about we tackle this assignment together?”","Positive politeness: shared attitudes and common ground."],
+  ['p6','P',"To a friend at a café:","“Ooh, your famous chocolate cake! Go on, give us a slice, you know I love it.”","Positive politeness: enthusiasm, compliments and an assumption of friendship."],
+  ['p7','P',"A manager to the team:","“Great work this week, everyone, you’re brilliant. Now let’s get these last orders out.”","Positive politeness: praise and inclusive “let’s”."],
+  ['p8','P',"To a friend:","“Mate, you’re a lifesaver. Lend us a tenner till Friday and I’ll buy you a pint.”","Positive politeness: in-group address, praise, and a promise in return."],
+  ['n1','N',"To a stranger in the street:","“I’m terribly sorry to bother you, but could you possibly tell me the way to the station?”","Negative politeness: an apology for intruding, a hedged and conventionally indirect request."],
+  ['n2','N',"To a classmate you barely know:","“I don’t suppose you could lend me your notes?”","Negative politeness: pessimism about compliance gives the hearer an easy way out."],
+  ['n3','N',"An email to a lecturer:","“Would it be possible to extend the deadline by a day or two?”","Negative politeness: impersonal and conventionally indirect, minimising the imposition."],
+  ['n4','N',"To someone whose car is blocking yours:","“Excuse me, I’m sorry to interrupt, but would you mind moving your car?”","Negative politeness: apology plus a conventionally indirect request."],
+  ['n5','N',"An announcement on a plane:","“Passengers are kindly requested to remain seated.”","Negative politeness: impersonalising (a passive, no “you”)."],
+  ['n6','N',"To a colleague:","“Could you open the window?”","Negative politeness: conventional indirectness is Brown and Levinson’s first negative-politeness strategy. It isn’t off record, because the request is unmistakable."],
+  ['n7','N',"A student to a professor:","“I was just wondering whether you might have a moment to look at my essay.”","Negative politeness: hedging, past-tense distancing (“was wondering”) and minimising (“just”, “a moment”)."],
+  ['n8','N',"To a stranger on a train:","“If it’s not too much trouble, could I borrow your pen for a second?”","Negative politeness: minimising the imposition and giving the hearer an out."],
+  ['o1','O',"A guest in a stuffy room, glancing at the closed window:","“Phew, it’s really warm in here.”","Off record: a hint. The speaker can always deny having asked for anything."],
+  ['o2','O',"At the checkout, to her friend:","“Oh no, I’ve left my wallet at home.”","Off record: a hint that the friend should pay, with plausible deniability."],
+  ['o3','O',"A guest, eyeing a cake on the table that nobody has offered:","“That cake looks delicious.”","Off record: a hint; on the surface just a compliment."],
+  ['o4','O',"To a friend who has two concert tickets:","“I’d love to see that band, but tickets are so expensive these days…”","Off record: hinting at an invitation without asking."],
+  ['o5','O',"To the flatmate whose turn it is:","“Somebody forgot to take the bins out again.”","Off record: vague about who is meant and what is wanted."],
+  ['o6','O',"A host to lingering guests at 1 a.m., yawning:","“Gosh, it’s getting late…”","Off record: a hint that it’s time to leave."],
+  ['o7','O',"At dinner, holding up an empty glass:","“Hmm, my glass seems to be empty.”","Off record: a hint for a refill."],
+  ['o8','O',"To a colleague who drives past her street every morning:","“Ugh, my car’s in the garage all week.”","Off record: a hint for a lift, which the speaker can deny."]
+];
+
+// ---------- DATA: preferred / dispreferred seconds [id, code, lines, why] ----------
+var PREF = [
+  ['pr1','P',["A: Want to come to the cinema tonight?","B: Sure, I’d love to!"],"Accepting an invitation is preferred: immediate, short, no account needed."],
+  ['pr2','D',["A: Want to come to the cinema tonight?","B: Oh, um, well, I’d really like to, but I’ve got this report due tomorrow, so… maybe another time?"],"A refusal is dispreferred, and it is marked as such: delay (um), a preface (well), token appreciation, an account and a softened decline."],
+  ['pr3','P',["A: Could you help me move on Saturday?","B: Yeah, of course."],"Granting a request is preferred: immediate and unmarked."],
+  ['pr4','D',["A: Could you help me move on Saturday?","B: Hmm, Saturday… I’m not sure, I think my parents might be visiting."],"A refusal (here a hedged non-commitment) is dispreferred: delay, hedging and an account."],
+  ['pr5','P',["A: Isn’t it a lovely day?","B: Gorgeous!"],"Agreement with an assessment is preferred."],
+  ['pr6','D',["A: That lecture was great, wasn’t it?","B: Well… it was okay, I suppose. A bit long, maybe."],"Disagreement with an assessment is dispreferred: delayed, prefaced with “well”, weakened."],
+  ['pr7','P',["A: I’m so hopeless at maths.","B: No, you’re not, you did really well on the last test!"],"After a self-deprecation, disagreement is the preferred response (Pomerantz). Preference is about the sequence, not about agreeing in general."],
+  ['pr8','D',["A: I look awful in this photo.","B: Well, um… maybe a little tired?"],"Agreeing with a self-deprecation is dispreferred, hence the hesitation and hedging."],
+  ['pr9','P',["A: You took my charger, didn’t you?","B: No, I didn’t. It’s in your bag."],"After a blame or accusation, denial is the preferred response."],
+  ['pr10','D',["A: You took my charger, didn’t you?","B: Well, uh… yes. Sorry, I meant to ask."],"Admitting a blame is dispreferred: delay, “well”, an apology."],
+  ['pr11','P',["A: Have some more cake.","B: Thanks, I’d love some."],"Accepting an offer is preferred."],
+  ['pr12','D',["A: Have some more cake.","B: Oh, that’s very kind, but, um, I really couldn’t, I’m full."],"Refusing an offer is dispreferred: token appreciation, delay, an account."],
+  ['pr13','P',["A: What time is it?","B: Half past three."],"An answer that supplies what the question asks for is preferred."],
+  ['pr14','D',["A: What time is it?","B: Um, sorry, I don’t have a watch on me."],"A non-answer is dispreferred: delay, apology and an account."],
+  ['pr15','D',["A: Can I borrow your car tomorrow?","B: Well, the thing is, uh, I need it for work in the morning…"],"A refusal done entirely through an account, after delay and a “well” preface: dispreferred."],
+  ['pr16','P',["A: Can I borrow your car tomorrow?","B: Sure, the keys are on the hook."],"Granting a request is preferred."],
+  ['pr17','P',["A: Do you agree with the plan?","B: Absolutely."],"Agreement is preferred: immediate and unmarked."],
+  ['pr18','D',["A: Do you agree with the plan?","B: Yes, mostly, but I do have a couple of concerns about the budget."],"Token agreement followed by disagreement (“yes, but…”) is a classic dispreferred shape."],
+  ['pr19','P',["A: Shall we have dinner at eight?","B: Eight’s perfect."],"Accepting a proposal is preferred."],
+  ['pr20','D',["A: Shall we have dinner at eight?","B: Ah, eight’s a bit tricky for me, actually. Could we make it nine?"],"Declining the proposal is dispreferred: a preface (ah), hedging (a bit, actually) and a counter-proposal."]
+];
+
+// ---------- DATA: glossary [term, definition, example] ----------
+var GLOSS = [
+  ["pragmatics","The study of meaning in use: what speakers mean by their utterances in context, and how hearers infer it.","Working out that “It’s cold in here” is a request to close the window."],
+  ["semantics","The study of the conventional meaning of words and sentences, independent of particular contexts of use; largely truth-conditional.","“bachelor” means “unmarried adult man”."],
+  ["sentence meaning","The literal, context-independent meaning of a sentence, determined by its words and structure.","“It’s ten o’clock”: the time is ten."],
+  ["speaker meaning","What a speaker intends to communicate by uttering a sentence in a context (also utterance meaning).","“It’s ten o’clock” to a teenager: go to bed."],
+  ["what is said","Grice’s term for the truth-conditional content of an utterance, with reference fixed and ambiguities resolved.","“He’s here” = Tom is in the kitchen (at that time)."],
+  ["Cooperative Principle","Grice’s assumption that participants contribute what is required, when it is required, for the accepted purpose of the conversation.","Hearers assume even an odd reply is cooperative and look for its point."],
+  ["maxim of Quantity","Make your contribution as informative as required, and not more informative than required.","“Some students passed” +> not all."],
+  ["maxim of Quality","Try to make your contribution true: don’t say what you believe false or lack adequate evidence for.","Irony and metaphor flout it."],
+  ["maxim of Relation","Be relevant.","A: “I’m out of petrol.” B: “There’s a garage round the corner.”"],
+  ["maxim of Manner","Be perspicuous: avoid obscurity and ambiguity, be brief, be orderly.","Spelling out I-C-E C-R-E-A-M to hide it from children flouts it."],
+  ["maxim hedge","An expression showing the speaker’s awareness of a maxim.","“As far as I know” (Quality); “by the way” (Relation)."],
+  ["flouting","Blatantly, openly failing to observe a maxim so that the hearer notices and infers an implicature.","“Lovely weather!” in a downpour."],
+  ["violating","Quietly, covertly failing to observe a maxim, so that the hearer is likely to be misled.","A lie; a true but misleading answer."],
+  ["opting out","Openly signalling unwillingness to cooperate as the maxims require.","“No comment.”"],
+  ["clash","A situation where a speaker can’t fulfil one maxim without breaking another, typically Quantity vs Quality.","“Somewhere in the south of France.”"],
+  ["infringing","(Thomas) Non-observance caused by imperfect linguistic performance, with no intention to implicate or deceive.","A beginner answering “Two” for “two weeks”."],
+  ["suspending","(Thomas) Non-observance in events or cultures where a maxim isn’t expected to hold, so no implicature arises.","Withholding information as a cultural norm."],
+  ["implicature","Meaning that is communicated without being said; symbol +>.","A: “Is Tom a good cook?” B: “Let’s just say we ordered pizza afterwards.” +> no."],
+  ["conversational implicature","An implicature derived from what is said plus the Cooperative Principle, the maxims and context; cancellable and calculable.","“I’ve got an exam tomorrow” +> I’m not coming."],
+  ["generalized conversational implicature","A conversational implicature that arises in almost any context unless something blocks it.","“I walked into a house” +> not my own."],
+  ["particularized conversational implicature","A conversational implicature that arises only because of a specific context.","“The dog looks pleased with himself” +> the dog ate the cake."],
+  ["scalar implicature","A generalized implicature from choosing a weaker term on a Horn scale: the stronger term is implicated not to hold.","“It’s warm” +> not hot."],
+  ["Horn scale","A set of alternatives ordered by informativeness, ⟨strong, ..., weak⟩, where stronger terms entail weaker ones.","⟨all, most, many, some⟩; ⟨and, or⟩."],
+  ["conventional implicature","Non-truth-conditional meaning attached to particular words, independent of the maxims and not cancellable.","“poor but honest” +> contrast; “even”, “therefore”, “yet”."],
+  ["entailment","A proposition that must be true whenever the sentence is true; it cannot be cancelled.","“Tom killed the spider” entails “the spider died”."],
+  ["cancellability","The property that an implicature can be denied or suspended without contradiction (also defeasibility); the key test against entailment.","“Some, in fact all, of them passed.”"],
+  ["non-detachability","A conversational implicature attaches to the content, not the wording, so a paraphrase keeps it (Manner implicatures excepted).","Ironic “genius” or “mighty intellect”: same irony."],
+  ["calculability","The property that an implicature can be worked out step by step from what is said, the maxims and the context.","“If all had passed she’d have said all; so not all.”"],
+  ["reinforceability","An implicature can be stated explicitly without redundancy.","“Some, but not all, students passed.”"],
+  ["Q-principle","Neo-Gricean principle: don’t say less than is required (Horn: say as much as you can, given R). Source of scalar implicatures.","“possible” +> not certain."],
+  ["R-principle","Horn’s speaker-based principle: say no more than you must, given Q; the hearer enriches what is said.","“Can you pass the salt?” +> request."],
+  ["I-principle","Levinson’s informativeness heuristic: say as little as necessary; the hearer infers the most specific, stereotypical reading.","“and” +> “and then”; “if” +> “if and only if”."],
+  ["M-principle","Levinson’s manner heuristic: a marked expression signals a marked situation.","“Bill caused the car to stop” +> not in the usual way."],
+  ["relevance theory","Sperber and Wilson’s theory: utterances raise a presumption of optimal relevance; relevance = cognitive effects weighed against processing effort.","Hearers stop at the first interpretation that is relevant enough."],
+  ["explicature","In relevance theory, the explicitly communicated content, developed from the logical form by disambiguation, reference assignment and enrichment.","“I haven’t eaten” → I haven’t eaten today."],
+  ["speech act","An action performed by means of an utterance.","Promising, warning, thanking, naming a ship."],
+  ["performative","(Austin) An utterance that performs an act rather than describing something; felicitous or infelicitous, not true or false.","“I bet you ten euros.”"],
+  ["constative","(Austin) An utterance that states or describes and can be true or false.","“The kettle is boiling.”"],
+  ["explicit performative","A performative with a performative verb, typically first person, simple present, indicative, active.","“I promise to come.” (vs primary “I’ll come.”)"],
+  ["hereby test","Only performative verbs can take “hereby” in the first person present.","“I hereby resign” but not “I hereby walk”."],
+  ["felicity conditions","The conditions that must be met for a speech act to come off successfully.","A wedding needs an authorised officiant."],
+  ["misfire","(Austin) Breach of a conventional-procedure or execution condition: the act is not achieved at all.","A guest “marrying” a couple."],
+  ["abuse","(Austin) Breach of a sincerity condition: the act is performed but hollow.","Promising with no intention of keeping it."],
+  ["locutionary act","The act of saying something meaningful, with sense and reference.","Uttering “The bull is about to charge.”"],
+  ["illocutionary act","The act performed in saying something; its force.","Warning someone."],
+  ["perlocutionary act","The act performed by saying something: its effects on the hearer.","Frightening or persuading someone."],
+  ["illocutionary force","The kind of act an utterance counts as.","Same words, different forces: “I’ll be there” as promise or as threat."],
+  ["IFID","Illocutionary force indicating device: anything that signals the force.","Performative verbs, mood, intonation, “please”."],
+  ["propositional content condition","Searle: the condition on what the act can be about.","A promise must be about a future act of the speaker."],
+  ["preparatory condition","Searle: background conditions for the act to make sense.","For a request, the hearer must be able to do it."],
+  ["sincerity condition","Searle: the psychological state the speaker must have.","Promise: S intends to do A; request: S wants H to do A."],
+  ["essential condition","Searle: what the utterance counts as.","A promise counts as undertaking an obligation."],
+  ["representative","Searle’s class (also assertive) that commits the speaker to the truth of a proposition; words-to-world fit.","“Vienna is the capital of Austria.”"],
+  ["directive","Searle’s class of attempts to get the hearer to do something, including questions; world-to-words fit.","“Please close the door.”"],
+  ["commissive","Searle’s class that commits the speaker to a future action; world-to-words fit.","Promises, threats, refusals, vows."],
+  ["expressive","Searle’s class that expresses the speaker’s feelings about a state of affairs; no direction of fit.","Thanking, apologising, congratulating."],
+  ["declaration","Searle’s class that changes the world by being uttered, given an institution and the right speaker.","“You’re fired.” “I name this ship…”"],
+  ["direction of fit","Whether the words must fit the world (words-to-world) or the world is to be made to fit the words (world-to-words).","Statement: words-to-world; request: world-to-words."],
+  ["direct speech act","A speech act whose sentence type matches its function.","Interrogative used as a question: “Where’s the station?”"],
+  ["indirect speech act","A speech act whose sentence type doesn’t match its main function; one act is performed by way of another.","“Can you pass the salt?” (request)"],
+  ["conventional indirectness","Indirect forms so routinised that their force is unmistakable.","“Could you…?”, “Would you mind…?”"],
+  ["deixis","Expressions whose interpretation depends on the context of utterance (who, where, when).","I, here, now, this, tomorrow."],
+  ["deictic centre","The reference point for deixis, by default speaker, place and time of speaking (Bühler’s origo).","“here” = where the speaker is."],
+  ["deictic projection","Shifting the deictic centre to the addressee or another person.","“I’m coming!” (toward the addressee)."],
+  ["proximal","Deictic forms pointing near the deictic centre.","this, here, now."],
+  ["distal","Deictic forms pointing away from the deictic centre.","that, there, then."],
+  ["person deixis","Deixis encoding participant roles: speaker, addressee, others.","I, you, she."],
+  ["inclusive we","A first-person plural that includes the addressee.","“Shall we dance?” (Tok Pisin yumi)"],
+  ["exclusive we","A first-person plural that excludes the addressee.","Shop assistant: “We close at six.” (Tok Pisin mipela)"],
+  ["spatial deixis","Deixis locating things relative to the participants’ position.","here/there, this/that, come/go."],
+  ["temporal deixis","Deixis locating events relative to the time of speaking.","now, yesterday, next week, tense."],
+  ["coding time","The time at which a message is produced.","When the note “Back in ten minutes” was written."],
+  ["receiving time","The time at which a message is received.","“I’m not here now” on an answering machine."],
+  ["social deixis","Deixis encoding social relationships or status.","du/Sie, honorifics, “Your Honour”."],
+  ["T/V distinction","A choice between a familiar (T) and a polite (V) second-person pronoun, analysed by Brown and Gilman in terms of power and solidarity.","German du/Sie, French tu/vous."],
+  ["honorific","A grammatical or lexical form encoding respect toward the addressee or a referent.","Japanese -san."],
+  ["discourse deixis","Deixis pointing to a part of the ongoing discourse itself (also text deixis).","“the following”, “this chapter”, “That was a great story.”"],
+  ["anaphora","Reference back to something already introduced by an antecedent, rather than to the situation.","“A woman came in. She sat down.”"],
+  ["gestural vs symbolic use","(Fillmore) Deictic use that needs the situation to be monitored vs use that needs only general knowledge of the setting.","“Not this finger, this one” vs “This town is lovely.”"],
+  ["presupposition","Something taken for granted by an utterance, treated as background; symbol >>.","“Kim stopped smoking” >> Kim used to smoke."],
+  ["constancy under negation","The test for presupposition: it survives when the sentence is negated; entailments don’t.","“Kim didn’t stop smoking” still >> Kim used to smoke."],
+  ["presupposition trigger","A word or construction that gives rise to a presupposition.","Definite descriptions, factive verbs, clefts, “again”."],
+  ["factive verb","A verb that presupposes the truth of its complement clause.","“regret”, “realise”, “know”."],
+  ["implicative verb","A verb that presupposes an attempt, intention or expectation, and entails the outcome.","“managed to” >> tried; “forgot to” >> intended."],
+  ["change-of-state verb","A verb that presupposes the state before the change.","“stop”, “start”, “continue”, “finish”."],
+  ["cleft sentence","A construction (It was X who… / What X did was…) that presupposes the backgrounded clause.","“It was Henry who kissed Rosie” >> someone did."],
+  ["projection problem","The question of how the presuppositions of parts behave in complex sentences (Karttunen: holes, plugs, filters).","“If Kim used to smoke, she has stopped” doesn’t presuppose that Kim smoked."],
+  ["accommodation","(Lewis) Hearers quietly adding a new but uncontroversial presupposition to the common ground.","“Sorry I’m late, my car broke down.”"],
+  ["truth-value gap","Strawson’s view that a statement with a failed presupposition is neither true nor false.","“The present king of France is bald.”"],
+  ["face","A person’s public self-image (Goffman; Brown and Levinson).","Being criticised in public is a threat to face."],
+  ["positive face","The want to be liked, approved of and appreciated.","Compliments attend to it; criticism threatens it."],
+  ["negative face","The want to be unimpeded, free to act and free from imposition.","Requests threaten it; apologies for imposing attend to it."],
+  ["face-threatening act (FTA)","An act that intrinsically threatens the speaker’s or hearer’s face.","Requests, criticism, apologies, accepting thanks."],
+  ["bald on record","Doing an FTA in the most direct, clear and unmitigated way.","“Give me a pen.”"],
+  ["positive politeness","Redress aimed at the hearer’s positive face: solidarity, interest, approval, common ground.","“Hey mate, lend us a pen?”"],
+  ["negative politeness","Redress aimed at the hearer’s negative face: deference, hedging, indirectness, apology.","“Could I possibly borrow a pen?”"],
+  ["off record","Doing an FTA so that the intent is deniable: hints, irony, vagueness.","“Oh no, I forgot my pen.”"],
+  ["weightiness","Brown and Levinson’s measure of an FTA’s seriousness: W = D(S,H) + P(H,S) + R.","Asking a professor for an extension is a heavy FTA."],
+  ["Politeness Principle","Leech’s principle: minimise impolite beliefs, maximise polite ones; maxims of tact, generosity, approbation, modesty, agreement, sympathy.","“Oh, it was nothing” (modesty)."],
+  ["conversation analysis","The study of the sequential organisation of naturally occurring talk (Sacks, Schegloff, Jefferson).","Turn-taking, adjacency pairs, repair."],
+  ["turn-constructional unit (TCU)","The building block of a turn: a sentence, clause, phrase or single word.","“Coffee?”"],
+  ["transition-relevance place (TRP)","A point where a TCU could be complete and speaker change may happen.","The end of “Where are you going?”"],
+  ["adjacency pair","Two utterances by different speakers, adjacent and ordered, where the first makes a particular second relevant.","Question–answer; greeting–greeting; offer–acceptance."],
+  ["preferred response","The unmarked second pair part: immediate, short, simple.","Accepting an invitation."],
+  ["dispreferred response","The marked second pair part: delayed, prefaced, hedged, with an account.","“Well, um, I’d love to, but…”"],
+  ["pre-sequence","A sequence that prepares the ground for a following action.","“Are you doing anything tonight?” (pre-invitation)"],
+  ["insertion sequence","A sequence embedded between a first pair part and its second.","“Could I get a coffee?” “Oat milk?” “No.” “Sure.”"],
+  ["repair","Dealing with trouble in speaking, hearing or understanding; classified by who initiates and who repairs.","“I saw her on Tues… on Wednesday.”"],
+  ["backchannel","A listener signal that shows attention without claiming the turn.","“mhm”, “yeah”, nodding."],
+  ["overlap","Two people speaking at once, usually briefly and near a TRP.","Starting your reply just as the other person finishes."],
+  ["phatic communion","(Malinowski) Talk whose function is social contact rather than information.","“How are you?” “Fine, thanks.”"]
+];
+
+// ---------- tabs ----------
+var VIEWS = ['drill','impl','acts','deixis','polite','glossary'];
+function show(v){
+  if (VIEWS.indexOf(v) < 0) v = 'drill';
+  VIEWS.forEach(function(x){
+    document.getElementById('view-'+x).hidden = x !== v;
+    document.getElementById('tab-'+x).setAttribute('aria-selected', x === v ? 'true' : 'false');
+  });
+}
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click', function(){ var v = b.getAttribute('data-view'); try{ history.replaceState(null, '', '#'+v); }catch(e){ location.hash = v; } show(v); });
+});
+window.addEventListener('hashchange', function(){ show(location.hash.slice(1)); });
+
+// ---------- glossary tab ----------
+var GL = GLOSS.map(function(g){ return {t:g[0], d:g[1], e:g[2]}; });
+function renderGlossary(){
+  var q = (document.getElementById('gl-q').value || '').toLowerCase().trim();
+  var host = document.getElementById('gl-list'); host.textContent = '';
+  var list = GL.slice().sort(function(a, b){ return a.t.toLowerCase() < b.t.toLowerCase() ? -1 : 1; });
+  var shown = list.filter(function(g){ return !q || (g.t+' '+g.d+' '+g.e).toLowerCase().indexOf(q) >= 0; });
+  shown.forEach(function(g){
+    host.appendChild(el('div', {class:'gli'}, [el('h3', {text:g.t}), el('p', {text:g.d}), el('p', {class:'ex'}, [el('i', {text:'e.g. '}), g.e])]));
+  });
+  document.getElementById('gl-count').textContent = shown.length + ' of ' + GL.length + ' terms';
+}
+function buildGlossary(){
+  document.getElementById('gl-q').addEventListener('input', renderGlossary);
+  renderGlossary();
+}
+
+// ---------- quiz helpers ----------
+function lines(x){ return typeof x === 'string' ? [x] : x; }
+function qex(x){ return el('span', {class:'qex'}, lines(x).map(function(l){ return el('span', {class:'ln', text:l}); })); }
+function qdef(t){ return el('span', {class:'qdef', text:t}); }
+function qctx(t){ return t ? el('span', {class:'qctx', text:t}) : null; }
+function brk(s){
+  var out = [], re = /\[([^\]]+)\]/g, last = 0, m;
+  while ((m = re.exec(s))){ if (m.index > last) out.push(s.slice(last, m.index)); out.push(el('b', {text:'['+m[1]+']'})); last = re.lastIndex; }
+  if (last < s.length) out.push(s.slice(last));
+  return el('span', {class:'qex'}, [el('span', {class:'ln'}, out)]);
+}
+function P(){ return Array.prototype.slice.call(arguments).filter(function(x){ return x != null; }); }
+function flat(x){ return lines(x).join(' '); }
+
+var CATS = [
+  {id:'maxim', name:'Which maxim is flouted?', gen:function(){
+    var m = pick(MAXIMS);
+    return {id:'mx:'+m[0], cat:'Which maxim is flouted?', prompt:P('Which maxim is blatantly flouted to create an implicature?', qctx(m[2]), qex(m[3])), ok:MXL[m[1]], opts:['Quantity','Quality','Relation','Manner'], fixed:true, why:m[4]+' '+MXD[m[1]]};
+  }},
+  {id:'nonobs', name:'Flout, violate, opt out...', gen:function(){
+    var n = pick(NONOBS), ok = NOL[n[1]];
+    var others = Object.keys(NOL).filter(function(k){ return k !== n[1]; }).map(function(k){ return NOL[k]; });
+    return {id:'no:'+n[0], cat:'Not observing a maxim', prompt:P('How does the speaker fail to observe a maxim here?', qdef(n[2])), ok:ok, opts:fill([ok], others, 4), why:n[3]};
+  }},
+  {id:'impl', name:'Kind of implicature', gen:function(){
+    var x = pick(IMPL), why;
+    if (x[1] === 'S') why = 'Scalar: on the scale '+x[4]+', choosing the weaker term implicates that the stronger one does not hold (Quantity). No special context is needed, so it is a generalized implicature of the scalar kind.';
+    else if (x[1] === 'G') why = x[4]+' It arises in almost any context and no scale of words is involved: generalized, non-scalar.';
+    else if (x[1] === 'P') why = 'Only this particular context (A’s turn) makes the inference arise: particularized. '+x[4];
+    else why = x[4]+' It comes with the meaning of the word itself, not from the maxims, and it cannot be cancelled: conventional.';
+    return {id:'im:'+x[0], cat:'Kind of implicature', prompt:P('What kind of implicature is this?', qex(x[2]), qdef('+> '+x[3])), ok:IML[x[1]], opts:[IML.S, IML.G, IML.P, IML.C], fixed:true, why:why};
+  }},
+  {id:'cancel', name:'Entailment or implicature?', gen:function(){
+    var c = pick(CANCEL), isE = c[1] === 'E';
+    var why = 'Cancellation test: “'+c[4]+'” '+(isE ? 'is a contradiction, so the inference is an entailment.' : 'is perfectly coherent, so the inference is an implicature.')+(c[5] ? ' '+c[5] : '');
+    return {id:'ca:'+c[0], cat:'Entailment or implicature?', prompt:P('Does the utterance entail the inference, or only implicate it?', qex(c[2]), qdef('Inference: '+c[3])), ok:isE ? CAL.E : CAL.I, opts:[CAL.E, CAL.I], fixed:true, why:why};
+  }},
+  {id:'searle', name:'Searle’s classes', gen:function(){
+    var s = pick(SEARLE), ok = SRL[s[1]];
+    var others = Object.keys(SRL).filter(function(k){ return k !== s[1]; }).map(function(k){ return SRL[k]; });
+    return {id:'se:'+s[0], cat:'Searle’s five classes', prompt:P('Which of Searle’s five classes does this utterance belong to?', qctx(s[2]), qex(s[3])), ok:ok, opts:fill([ok], others, 4), why:(s[4] ? s[4]+' ' : '')+SRD[s[1]]};
+  }},
+  {id:'indirect', name:'Direct or indirect?', gen:function(){
+    var d = pick(INDIRECT);
+    return {id:'in:'+d[0], cat:'Direct or indirect speech act', prompt:P('What is the speaker mainly doing, and is that done directly or indirectly?', qctx(d[1]), qex(d[2])), ok:INL[d[3]], opts:[INL[d[3]]].concat(d[4].map(function(c){ return INL[c]; })), why:d[5]};
+  }},
+  {id:'deixis', name:'Kind of deixis', gen:function(){
+    var x = pick(DEIXIS), ok = DXL[x[1]];
+    var others = Object.keys(DXL).filter(function(k){ return k !== x[1]; }).map(function(k){ return DXL[k]; });
+    return {id:'dx:'+x[0], cat:'Kind of deixis', prompt:P('What kind of deixis is the bracketed expression?', qctx(x[2]), brk(x[3])), ok:ok, opts:fill([ok], others, 4), why:x[4]+' '+DXD[x[1]]};
+  }},
+  {id:'presup', name:'Presupposition triggers', gen:function(){
+    var p = pick(PRESUP);
+    var test = p[5];
+    if (Math.random() < .6){
+      var ok = PTL[p[1]];
+      var others = Object.keys(PTL).filter(function(k){ return k !== p[1]; }).map(function(k){ return PTL[k]; });
+      return {id:'pt:'+p[0], cat:'Presupposition trigger', prompt:P('What triggers this presupposition?', qex(p[2]), qdef('>> '+p[3])), ok:ok, opts:fill([ok], others, 4), why:PTD[p[1]]+' '+test};
+    }
+    return {id:'pp:'+p[0], cat:'What is presupposed?', prompt:P('Which of these does the sentence presuppose? (Hint: negate it.)', qex(p[2])), ok:p[3], opts:[p[3]].concat(p[4]), why:test+' The other options are asserted, entailed only, or not implied at all, so they don’t survive the test. Trigger: '+PTL[p[1]].toLowerCase()+'.'};
+  }},
+  {id:'polite', name:'Politeness & preference', gen:function(){
+    if (Math.random() < .64){
+      var x = pick(POLITE);
+      return {id:'po:'+x[0], cat:'Politeness strategy (Brown & Levinson)', prompt:P('Which super-strategy is the speaker using?', qctx(x[2]), qex(x[3])), ok:POL[x[1]], opts:[POL.B, POL.P, POL.N, POL.O], fixed:true, why:x[4]};
+    }
+    var r = pick(PREF);
+    return {id:'pr:'+r[0], cat:'Preferred or dispreferred?', prompt:P('Is B’s second pair part preferred or dispreferred?', qex(r[2])), ok:r[1] === 'P' ? 'Preferred second' : 'Dispreferred second', opts:['Preferred second','Dispreferred second'], fixed:true, why:r[3]};
+  }}
+];
+
+// ---------- drill engine ----------
+var SKEY = 'zwischendenzeilen.v1';
+var stats = store.get(SKEY, {}); // id -> [seen, wrong]
+var prefs = store.get(SKEY+'.prefs', {cats:CATS.map(function(c){ return c.id; }), len:20});
+var enabled = prefs.cats && prefs.cats.length ? prefs.cats.filter(function(id){ return CATS.some(function(c){ return c.id === id; }); }) : CATS.map(function(c){ return c.id; });
+if (!enabled.length) enabled = CATS.map(function(c){ return c.id; });
+var round = null;
+
+function weightOf(id){ var s = stats[id]; if (!s) return 1.4; var miss = s[1] / Math.max(1, s[0]); return .5 + miss*3 + (s[0] < 2 ? .4 : 0); }
+function nextQ(onlyMisses){
+  var best = null, bestScore = -1;
+  for (var tries = 0; tries < 14; tries++){
+    var cat = CATS.filter(function(c){ return enabled.indexOf(c.id) >= 0; });
+    if (!cat.length) cat = CATS;
+    var q = pick(cat).gen();
+    if (round && round.used[q.id] && tries < 13) continue;
+    var w = weightOf(q.id);
+    if (onlyMisses && !(stats[q.id] && stats[q.id][1] > 0) && tries < 13) continue;
+    var sc = w * (0.6 + Math.random());
+    if (sc > bestScore){ best = q; bestScore = sc; }
+    if (tries > 4 && best) break;
+  }
+  return best;
+}
+function startRound(onlyMisses){
+  var len = parseInt(document.getElementById('len').value, 10) || 20;
+  if (onlyMisses){ var any = Object.keys(stats).some(function(k){ return stats[k][1] > 0; }); if (!any) onlyMisses = false; }
+  round = {len:len, pos:0, right:0, done:0, used:{}, missed:[], onlyMisses:!!onlyMisses};
+  document.getElementById('sc-len').textContent = len;
+  ask();
+}
+function updScore(){
+  document.getElementById('sc-right').textContent = round.right;
+  document.getElementById('sc-done').textContent = round.done;
+  document.getElementById('sc-pos').textContent = Math.min(round.pos+1, round.len);
+  document.getElementById('sc-bar').style.width = (100*round.done/round.len)+'%';
+}
+var cur = null, answered = false;
+function ask(){
+  updScore();
+  var host = document.getElementById('qhost'); host.textContent = '';
+  if (round.pos >= round.len){ return summary(); }
+  cur = nextQ(round.onlyMisses); round.used[cur.id] = 1; answered = false;
+  var card = el('div', {class:'qcard'});
+  card.appendChild(el('div', {class:'qcat', text:cur.cat}));
+  card.appendChild(el('div', {class:'qprompt'}, cur.prompt.slice()));
+  var opts = uniq(cur.opts).slice(0, 4); if (opts.indexOf(cur.ok) < 0) opts[opts.length-1] = cur.ok;
+  if (!cur.fixed) opts = shuffle(opts);
+  var grid = el('div', {class:'opts', role:'group', 'aria-label':'Answers'});
+  opts.forEach(function(o, i){
+    grid.appendChild(el('button', {class:'opt', type:'button', 'data-v':o, onclick:function(){ answer(o); }}, [el('span', {class:'k', text:String(i+1)}), el('span', {class:'t', text:o})]));
+  });
+  card.appendChild(grid);
+  card.appendChild(el('div', {id:'whyhost'}));
+  host.appendChild(card);
+}
+function answer(o){
+  if (answered) return; answered = true;
+  var good = o === cur.ok;
+  document.querySelectorAll('#qhost .opt').forEach(function(b){
+    b.disabled = true; var v = b.getAttribute('data-v');
+    if (v === cur.ok) b.classList.add('right'); else if (v === o) b.classList.add('wrong');
+  });
+  var s = stats[cur.id] || [0,0]; s[0]++; if (!good) s[1]++; else if (s[1] > 0 && s[0] > 3) s[1] = Math.max(0, s[1]-1);
+  stats[cur.id] = s; store.set(SKEY, stats);
+  round.done++; if (good) round.right++; else round.missed.push(cur);
+  var why = el('div', {class:'why'}, [
+    el('div', {class:'verdict '+(good ? 'ok' : 'no'), text: good ? 'Right.' : 'Not quite. Answer: '+cur.ok}),
+    el('div', {text:cur.why})
+  ]);
+  var row = el('div', {class:'row', style:'margin-top:10px'}, [el('button', {class:'btn', type:'button', id:'next', onclick:function(){ round.pos++; ask(); }, text: round.pos+1 >= round.len ? 'See results' : 'Next'})]);
+  why.appendChild(row);
+  document.getElementById('whyhost').appendChild(why);
+  updScore();
+  try{ document.getElementById('next').focus({preventScroll:true}); }catch(e){}
+}
+function summary(){
+  var host = document.getElementById('qhost');
+  var pct = Math.round(100*round.right/Math.max(1, round.done));
+  host.appendChild(el('div', {class:'stack'}, [
+    el('h3', {text: round.right+' of '+round.done+' right ('+pct+'%)'}),
+    el('p', {class:'muted', text: round.missed.length ? 'These come back more often in the next rounds:' : 'Clean round. Try 40 questions or a harder section.'}),
+    round.missed.length ? el('ul', {class:'summary-list'}, round.missed.map(function(q){ return el('li', null, [el('b', {text:q.cat+': '}), el('span', {text:q.ok}), el('div', {class:'small muted', text:q.why})]); })) : null,
+    el('div', {class:'row'}, [el('button', {class:'btn', type:'button', onclick:function(){ startRound(false); }, text:'New round'}), round.missed.length ? el('button', {class:'btn quiet', type:'button', onclick:function(){ startRound(true); }, text:'Drill my misses'}) : null])
+  ]));
+}
+function buildCats(){
+  var h = document.getElementById('cats');
+  CATS.forEach(function(c){
+    var b = el('button', {class:'chip', type:'button', 'aria-pressed': enabled.indexOf(c.id) >= 0 ? 'true' : 'false', text:c.name});
+    b.addEventListener('click', function(){
+      var i = enabled.indexOf(c.id);
+      if (i >= 0){ if (enabled.length > 1) enabled.splice(i, 1); } else enabled.push(c.id);
+      document.querySelectorAll('#cats .chip').forEach(function(x, k){ x.setAttribute('aria-pressed', enabled.indexOf(CATS[k].id) >= 0 ? 'true' : 'false'); });
+      savePrefs();
+    });
+    h.appendChild(b);
+  });
+}
+function savePrefs(){ store.set(SKEY+'.prefs', {cats:enabled, len:parseInt(document.getElementById('len').value, 10) || 20}); }
+document.getElementById('len').value = String(prefs.len || 20);
+document.getElementById('len').addEventListener('change', savePrefs);
+document.getElementById('restart').addEventListener('click', function(){ startRound(false); });
+document.getElementById('misses').addEventListener('click', function(){ startRound(true); });
+document.addEventListener('keydown', function(e){
+  if (document.getElementById('view-drill').hidden || e.ctrlKey || e.metaKey || e.altKey) return;
+  var t = e.target; if (t && (t.tagName === 'SELECT' || t.tagName === 'INPUT')) return;
+  if (!answered && /^[1-4]$/.test(e.key)){ var b = document.querySelectorAll('#qhost .opt')[+e.key-1]; if (b){ e.preventDefault(); b.click(); } }
+  else if (answered && e.key === 'Enter'){ var n = document.getElementById('next'); if (n && document.activeElement !== n){ e.preventDefault(); n.click(); } }
+});
+
+// ---------- boot ----------
+buildGlossary(); buildCats();
+startRound(false);
+show(location.hash.slice(1) || 'drill');
+})();
+</script>
+</body>
+</html>

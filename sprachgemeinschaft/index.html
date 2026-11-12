@@ -1,0 +1,1469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Die Sprachgemeinschaft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..800&family=Young+Serif&family=Noto+Serif:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 44C8.5 35.5 3.5 26 4.6 17.8 5.6 11 11 8.6 20 8.6S34.4 11 35.4 17.8C36.5 26 31.5 35.5 20 44Z' fill='%23e0285a'/%3E%3Cpath d='M20 10.5c-2.6-3.6-7.6-5-11.6-3.2 3.6.8 5.8 2.4 6.8 4.4-3.7.1-6.6 1.9-7.9 4.8 4-1.2 8.1-1.8 12.7-1.8s8.7.6 12.7 1.8c-1.3-2.9-4.2-4.7-7.9-4.8 1-2 3.2-3.6 6.8-4.4-4-1.8-9 .4-11.6 3.2Z' fill='%233e9a4b'/%3E%3C/svg%3E">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style id="chest-style">
+/* Layout: one column field notebook. Header, study-set nav, a tab strip (Drill / Varieties / Classic studies / Multilingualism & contact / Glossary), then one panel at a time. */
+:root{
+  --bg:#fbf0f3; --bg-glow:#f8d9e3; --surface:#fffafc; --chip:#fde7ee;
+  --ink:#2b1320; --muted:#7c5767; --line:#efd2dc;
+  --berry:#d4235c; --berry-ink:#ad1747; --on-berry:#ffffff; --ring:rgba(212,35,92,.22);
+  --brass:#c9982e; --brass-text:#86600f;
+  --rp:#1f6f8b; --rp-chip:#e2f1f6; --ga:#a2461c; --ga-chip:#fbe9df;
+  --good:#2e7d4f; --good-chip:#e3f4e9; --bad:#b3261e; --bad-chip:#fbe4e2;
+  --font-word:"Young Serif",Georgia,"Times New Roman",serif;
+  --font-body:"Nunito Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-ipa:"Gentium Plus","Charis SIL","Doulos SIL","Noto Serif","Lucida Sans Unicode","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+    --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+    --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+    --brass:#e0b04a; --brass-text:#e9c36a;
+    --rp:#7cc6df; --rp-chip:#14303b; --ga:#f2a27a; --ga-chip:#3b2016;
+    --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+  --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+  --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+  --brass:#e0b04a; --brass-text:#e9c36a;
+  --rp:#7cc6df; --rp-chip:#14303b; --ga:#f2a27a; --ga-chip:#3b2016;
+  --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:radial-gradient(1100px 460px at 50% -8%, var(--bg-glow), transparent 62%), var(--bg);
+  background-color:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.5;
+}
+.wrap{max-width:820px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:26px 48px}
+.ipa{font-family:var(--font-ipa); font-feature-settings:"liga" 0}
+.eyebrow{font:800 .72rem/1 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--berry-ink); margin:0}
+h1{font:400 clamp(1.9rem, 7.4vw, 3.4rem)/1.05 var(--font-word); margin:.2em 0 .15em; text-wrap:balance; overflow-wrap:anywhere}
+h1 .slash{font-family:var(--font-ipa); color:var(--berry); font-weight:400; font-size:.62em; white-space:nowrap}
+h2{font:400 1.45rem/1.2 var(--font-word); margin:0; text-wrap:balance}
+h3{font:800 1rem/1.3 var(--font-body); margin:0}
+p{margin:0}
+.lede{max-width:60ch; color:var(--muted)}
+.lede b{color:var(--ink)}
+.stack{display:grid; gap:14px}
+.stack > *{min-width:0}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+
+/* study-set nav */
+.sets{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0}
+.sets a{font:700 .78rem/1 var(--font-body); color:var(--muted); text-decoration:none; padding:7px 10px; border:1px solid var(--line); border-radius:999px; background:var(--surface)}
+.sets a:hover{color:var(--ink); border-color:var(--berry)}
+.sets a[aria-current="page"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+
+/* tabs */
+.tabs{display:flex; flex-wrap:wrap; gap:6px; margin:20px 0 18px; padding:5px; background:var(--chip); border:1px solid var(--line); border-radius:10px}
+.tab{appearance:none; border:0; background:none; font:700 .9rem/1 var(--font-body); color:var(--muted); padding:10px 12px; border-radius:7px; cursor:pointer; flex:1 1 auto; text-align:center}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--surface); color:var(--berry-ink); box-shadow:0 1px 3px var(--ring)}
+.tab:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible{outline:3px solid var(--berry); outline-offset:2px}
+
+.panel{display:grid; gap:18px}
+.panel > *{min-width:0}
+.sheet{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px}
+.note{border-left:3px solid var(--brass); padding:2px 0 2px 12px; color:var(--muted); font-size:.92rem}
+.note b{color:var(--ink)}
+.list{margin:0; padding-left:20px; display:grid; gap:7px}
+.list li{min-width:0}
+.ex{color:var(--muted); font-size:.92rem}
+.ex i{color:var(--ink)}
+.traps{border:1px solid var(--brass); background:var(--surface)}
+.traps h3{color:var(--brass-text)}
+
+/* chips & buttons */
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{appearance:none; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:700 .8rem/1 var(--font-body); padding:8px 11px; border-radius:999px; cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+.btn{appearance:none; border:0; background:var(--berry); color:var(--on-berry); font:800 .92rem/1 var(--font-body); padding:12px 16px; border-radius:8px; cursor:pointer}
+.btn.quiet{background:transparent; color:var(--berry-ink); border:1px solid var(--line)}
+.btn:disabled{opacity:.45; cursor:default}
+.row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.search{width:100%; font:600 1rem/1.2 var(--font-body); color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:9px; padding:11px 13px}
+.search::placeholder{color:var(--muted)}
+
+/* drill */
+.score{display:flex; flex-wrap:wrap; gap:16px; align-items:baseline; font-variant-numeric:tabular-nums}
+.score b{font:400 1.5rem/1 var(--font-word); color:var(--ink)}
+.bar{height:6px; border-radius:3px; background:var(--chip); overflow:hidden}
+.bar > i{display:block; height:100%; width:0; background:var(--berry); transition:width .25s}
+.qcard{display:grid; gap:14px}
+.qcard > *{min-width:0}
+.qcat{font:800 .68rem/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.qprompt{font-size:1.08rem; line-height:1.45; min-width:0}
+.qprompt .ipa{font-size:1.1em}
+.qdef{display:block; margin-top:10px; padding:11px 14px; border-left:3px solid var(--berry); background:var(--chip); border-radius:0 8px 8px 0; font-size:1rem}
+.qex{display:block; margin-top:10px; padding:11px 14px; border-left:3px solid var(--berry); background:var(--chip); border-radius:0 8px 8px 0; font:400 1.18rem/1.4 var(--font-word)}
+.qbig{font:400 clamp(1.8rem, 8vw, 2.8rem)/1.15 var(--font-word); text-align:center; padding:6px 0; overflow-wrap:anywhere}
+.opts{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+@media (max-width:520px){ .opts{grid-template-columns:1fr} }
+.opt{appearance:none; text-align:left; display:flex; gap:10px; align-items:center; border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:12px; border-radius:9px; cursor:pointer; font:600 .96rem/1.3 var(--font-body); min-width:0}
+.opt .k{flex:none; display:grid; place-items:center; width:22px; height:22px; border-radius:5px; background:var(--chip); color:var(--muted); font:800 .72rem/1 var(--font-body)}
+.opt .t{min-width:0; overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--berry)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--good-chip); border-color:var(--good)}
+.opt.right .k{background:var(--good); color:var(--surface)}
+.opt.wrong{background:var(--bad-chip); border-color:var(--bad)}
+.opt.wrong .k{background:var(--bad); color:var(--surface)}
+.why{border-radius:9px; padding:12px 14px; background:var(--chip); font-size:.94rem}
+.why .verdict{font-weight:800; margin-bottom:4px}
+.why .verdict.ok{color:var(--good)} .why .verdict.no{color:var(--bad)}
+.summary-list{display:grid; gap:6px; padding:0; margin:0; list-style:none}
+.summary-list li{padding:8px 10px; border:1px solid var(--line); border-radius:8px; font-size:.92rem}
+
+/* tables */
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+table{border-collapse:collapse; font-size:.88rem}
+.tbl{width:100%}
+.tbl th, .tbl td{border-bottom:1px solid var(--line); padding:7px 8px; text-align:left; vertical-align:top}
+.tbl thead th{font:800 .68rem/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.tbl td.kw{font-weight:800; white-space:nowrap}
+.tbl td.h{color:var(--rp); font-weight:800; text-align:center}
+.tbl td.l{color:var(--ga); font-weight:800; text-align:center}
+.tbl td.ipa{white-space:nowrap}
+.tag{display:inline-block; font:800 .66rem/1 var(--font-body); letter-spacing:.08em; text-transform:uppercase; padding:4px 6px; border-radius:4px; background:var(--chip); color:var(--muted); vertical-align:middle}
+
+/* studies */
+.study{display:grid; gap:10px}
+.study .meta{display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; font-size:.84rem; color:var(--muted)}
+.kv{display:grid; grid-template-columns:minmax(0, 7.5em) minmax(0, 1fr); gap:6px 12px; margin:0; font-size:.93rem}
+.kv dt{font:800 .7rem/1.6 var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.kv dd{margin:0; min-width:0}
+@media (max-width:460px){ .kv{grid-template-columns:minmax(0, 1fr)} .kv dd{margin-bottom:6px} }
+
+/* glossary */
+.gl{display:grid; gap:0}
+.gli{padding:12px 0; border-bottom:1px solid var(--line); display:grid; gap:4px; min-width:0}
+.gli:last-child{border-bottom:0}
+.gli h3{color:var(--berry-ink)}
+
+/* Kachru circles */
+.circles{width:100%; max-width:440px; height:auto; display:block; margin:0 auto}
+.circles .c-exp{fill:var(--chip); stroke:var(--line); stroke-width:2}
+.circles .c-out{fill:var(--ga-chip); stroke:var(--ga); stroke-width:1.5}
+.circles .c-in{fill:var(--rp-chip); stroke:var(--rp); stroke-width:1.5}
+.circles .lab{fill:var(--ink); font:800 15px var(--font-body)}
+.circles .sub{fill:var(--muted); font:600 12px var(--font-body)}
+footer{margin-top:30px; font-size:.8rem; color:var(--muted)}
+@media (prefers-reduced-motion: reduce){ .bar > i{transition:none} }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Language in social context · sociolinguistics</p>
+    <h1><span lang="de">Die Sprachgemeinschaft</span> <span class="slash">/ˈʃpʁaːxɡəˌmaɪ̯nʃaft/</span></h1>
+    <p class="lede">Language varieties, the classic variationist and contact studies, multilingualism, pidgins and creoles, and the terminology examiners love. <b>Drill</b> quizzes you and brings back the ones you miss.</p>
+  </header>
+
+  <nav class="sets" aria-label="Study set">
+    <a href="../lautlabor/">Phonetics</a>
+    <a href="../morphologie/">Morphology</a>
+    <a href="../syntax/">Syntax</a>
+    <a href="../sprachgemeinschaft/" aria-current="page">Language in society</a>
+    <a href="../semantik/">Semantics</a>
+    <a href="../pragmatik/">Pragmatics</a>
+    <a href="../grammatik/">Advanced grammar</a>
+  </nav>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-drill" data-view="drill">Drill</button>
+    <button class="tab" role="tab" id="tab-varieties" data-view="varieties">Varieties</button>
+    <button class="tab" role="tab" id="tab-studies" data-view="studies">Classic studies</button>
+    <button class="tab" role="tab" id="tab-contact" data-view="contact">Multilingualism &amp; contact</button>
+    <button class="tab" role="tab" id="tab-glossary" data-view="glossary">Glossary</button>
+  </nav>
+
+  <main>
+    <!-- DRILL -->
+    <section class="panel" id="view-drill" role="tabpanel" aria-labelledby="tab-drill">
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between">
+          <h2>Drill</h2>
+          <div class="score"><span>Score <b id="sc-right">0</b>/<span id="sc-done">0</span></span><span class="muted small">Question <span id="sc-pos">1</span> of <span id="sc-len">20</span></span></div>
+        </div>
+        <div class="bar" aria-hidden="true"><i id="sc-bar"></i></div>
+        <div id="qhost"></div>
+      </div>
+      <div class="sheet stack">
+        <h3>What to practise</h3>
+        <div class="chips" id="cats"></div>
+        <div class="row">
+          <label class="small muted" for="len">Questions per round</label>
+          <select id="len" class="chip" style="padding:7px 10px">
+            <option value="10">10</option><option value="20" selected>20</option><option value="40">40</option>
+          </select>
+          <button class="btn" id="restart">New round</button>
+          <button class="btn quiet" id="misses">Only my misses</button>
+        </div>
+        <p class="small muted" id="memo">Questions you get wrong come back more often. Keys 1 to 4 answer, Enter goes on.</p>
+      </div>
+    </section>
+
+    <!-- VARIETIES -->
+    <section class="panel" id="view-varieties" role="tabpanel" aria-labelledby="tab-varieties" hidden>
+      <div class="sheet stack">
+        <h2>Varieties of a language</h2>
+        <p class="lede"><b>Variety</b> is the neutral cover term: a language, a dialect, an accent, a register and a style are all varieties. Sociolinguists use it precisely because "language" and "dialect" are loaded words.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Language or dialect?</h3>
+        <p>The everyday test is <b>mutual intelligibility</b>: if speakers understand each other, they speak dialects of one language. It fails in three ways.</p>
+        <ul class="list">
+          <li><b>Politics overrides it.</b> Norwegian, Swedish and Danish are largely mutually intelligible but count as three languages because there are three states and three standards. Mandarin and Cantonese are not mutually intelligible but are often called "dialects" of Chinese because they share a writing system, a state and a cultural identity.</li>
+          <li><b>It is a matter of degree, and often one-sided.</b> Intelligibility can be asymmetric: Portuguese speakers are often said to understand Spanish better than Spanish speakers understand Portuguese. Familiarity and attitudes matter as much as structure.</li>
+          <li><b>Dialect continua.</b> Neighbouring dialects are mutually intelligible all along a chain, but the ends are not (see below), so there is no non-arbitrary place to draw the line.</li>
+        </ul>
+        <p class="note"><b>"A language is a dialect with an army and a navy."</b> Popularised by the Yiddish linguist Max Weinreich (1945), who said he had heard it from someone in his audience. The point: what counts as a language is decided socially and politically, not linguistically.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Abstand, Ausbau and the roof (Kloss 1967)</h3>
+        <p>The German linguist Heinz Kloss gave English sociolinguistics two German loanwords.</p>
+        <ul class="list">
+          <li><b>Abstand language</b> ("distance"): a language because it is structurally so different from its neighbours that nobody could call it a dialect of them. Basque is the textbook case.</li>
+          <li><b>Ausbau language</b> ("building out", elaboration): a language because it has been deliberately developed into its own standard, with its own spelling, grammar books and functions, even though it is close to its neighbours. Swedish, Danish and Norwegian; Slovak and Czech; Serbian and Croatian.</li>
+          <li><b>Dachsprache</b> ("roof language"): a standard that serves as the written norm over related dialects that have no standard of their own. Standard German roofs the Swiss German dialects and Low German.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Accent vs dialect</h3>
+        <p>An <b>accent</b> is variation in pronunciation only. A <b>dialect</b> differs in grammar and vocabulary as well. So <b>RP is an accent</b>, and <b>Standard English is a dialect</b> that can be spoken in almost any accent: a Glaswegian who says <i>I haven't seen him</i> speaks Standard English with a Scottish accent; <i>I've no seen him</i> is Scots dialect grammar (Trudgill's distinction).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Standard languages and standardisation (Haugen 1966)</h3>
+        <p>A standard is not the "original" or most logical variety. It is a variety that went through a social process, which Einar Haugen modelled in four steps:</p>
+        <ol class="list">
+          <li><b>Selection</b> of a norm (often the variety of the political, economic or cultural centre: London and the East Midlands for English).</li>
+          <li><b>Codification</b>: fixing the form in dictionaries, grammars and spelling rules (Johnson's dictionary, 1755; the Duden; the Österreichisches Wörterbuch).</li>
+          <li><b>Elaboration of function</b>: extending it to all domains: law, science, administration, literature.</li>
+          <li><b>Acceptance</b> by the community as the national or "correct" variety.</li>
+        </ol>
+        <p class="small muted">Selection and codification concern the <i>form</i>; elaboration and acceptance concern the <i>function</i>. Sociolinguistics describes how the standard came about; it does not treat non-standard forms as errors (descriptive, not prescriptive).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Pluricentric languages: your own case</h3>
+        <p>A <b>pluricentric</b> language has several national centres, each with its own codified standard (a term associated especially with Michael Clyne). English has British, American, Australian and other standards. German has German, <b>Austrian</b> and Swiss Standard German. Austrian Standard German is a full standard variety, codified in the Österreichisches Wörterbuch, not a dialect: a news anchor on ORF saying <i>Jänner</i> is speaking standard German.</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Austrian standard</th><th>German (Germany)</th><th>English</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Jänner</td><td>Januar</td><td>January</td></tr>
+            <tr><td class="kw">Paradeiser</td><td>Tomate</td><td>tomato</td></tr>
+            <tr><td class="kw">Sackerl</td><td>Tüte</td><td>(carrier) bag</td></tr>
+            <tr><td class="kw">Erdäpfel</td><td>Kartoffeln</td><td>potatoes</td></tr>
+            <tr><td class="kw">Marille</td><td>Aprikose</td><td>apricot</td></tr>
+            <tr><td class="kw">Topfen</td><td>Quark</td><td>curd cheese</td></tr>
+            <tr><td class="kw">Karfiol</td><td>Blumenkohl</td><td>cauliflower</td></tr>
+            <tr><td class="kw">Kren</td><td>Meerrettich</td><td>horseradish</td></tr>
+            <tr><td class="kw">heuer</td><td>dieses Jahr</td><td>this year</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">Not every Austrian uses every form (Paradeiser is typical of eastern Austria, and Tomate is common too), and Austrian dialects such as the Bavarian ones are a separate layer below the standard. Pluricentric languages are usually <b>asymmetric</b>: one centre is dominant (Germany for German, Britain and the US for English), and speakers of the non-dominant variety often treat their own forms as less correct. When Austria joined the EU in 1995, a protocol to the accession treaty listed 23 Austrian food terms (Erdäpfel, Marillen, Topfen, Karfiol, Kren...) to be used with the same legal status as their German-German equivalents.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>The -lects</h3>
+        <ul class="list">
+          <li><b>Idiolect</b>: the language of one individual, with its own vocabulary, habits and quirks.</li>
+          <li><b>Sociolect</b>: a variety associated with a social class or group rather than a region.</li>
+          <li><b>Ethnolect</b>: a variety associated with an ethnic group, often with features traced to a heritage language (Chicano English; the Yiddish-influenced English of some New Yorkers).</li>
+          <li><b>Multiethnolect</b>: a variety that grows among young people of many ethnic backgrounds in the same urban neighbourhoods: Multicultural London English, <i>Kiezdeutsch</i> in Berlin.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Register, style, genre, jargon, slang</h3>
+        <ul class="list">
+          <li><b>Style</b>: variation along a formality scale within one speaker, depending on context, addressee and attention paid to speech (<i>going</i> vs <i>goin'</i>).</li>
+          <li><b>Register</b>: a variety defined by the situation or field it is used in, rather than by who uses it: legal English, sports commentary, medical case notes.</li>
+          <li><b>Genre</b>: a conventional type of text or speech event with a recognisable structure: a recipe, a sermon, a job interview.</li>
+          <li><b>Jargon</b>: specialised vocabulary of a profession or activity (<i>morpheme, allophone; stat, NPO</i> in a hospital), opaque to outsiders. In linguistics it is a neutral term.</li>
+          <li><b>Slang</b>: very informal, often short-lived vocabulary that signals in-group membership, especially among young people.</li>
+        </ul>
+        <p class="note"><b>Frameworks differ.</b> Holmes &amp; Wilson tie style to the addressee and formality and register to occupational or activity groups; Biber &amp; Conrad treat register as situational variation, genre as conventional text structure and style as aesthetic preference. Use your lecturer's definitions in the exam and say which framework you follow.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Dialect continua and isoglosses</h3>
+        <p>In a <b>dialect continuum</b> each place understands its neighbours, but intelligibility drops with distance. The West Germanic dialects form one from Flanders to Austria; the state border between the Netherlands and Germany decides which standard sits on top, not where the dialects change.</p>
+        <p>An <b>isogloss</b> is a line on a map marking the boundary of one feature. Isoglosses rarely coincide exactly; a <b>bundle</b> of them is what dialectologists treat as a dialect boundary. The <b>Benrath line</b> (<i>maken</i> vs <i>machen</i>) separates Low German from Central and Upper German, the area of the Second (High German) Consonant Shift. In England, isoglosses for the FOOT–STRUT split (northern speakers rhyme <i>put</i> and <i>putt</i>) and for BATH (<i>bath</i> with a short vowel in the north) run roughly across the Midlands.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Prestige</h3>
+        <ul class="list">
+          <li><b>Overt prestige</b>: the status a variety has in society at large, openly acknowledged, usually belonging to the standard and to educated speakers. It is what people mean by "correct" or "good" English.</li>
+          <li><b>Covert prestige</b>: the positive value that non-standard, local forms have within a group, for solidarity, local loyalty, toughness or masculinity, but which people rarely admit openly. Trudgill's Norwich men are the classic evidence.</li>
+        </ul>
+        <p class="note"><b>Prestige is local.</b> In New York City, pronouncing post-vocalic /r/ (<i>car, fourth</i>) carries overt prestige; in England, non-rhotic RP does. Same feature, opposite social value.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>The linguistic variable</h3>
+        <p>A <b>linguistic variable</b> is a unit with two or more realisations, its <b>variants</b>, that don't change the referential meaning but do carry social meaning. Variables go in round brackets, variants in square brackets (or slashes):</p>
+        <ul class="list">
+          <li><span class="ipa">(ing)</span>: <span class="ipa">[ɪŋ] ~ [ɪn]</span> as in <i>walking</i> vs <i>walkin'</i></li>
+          <li><span class="ipa">(r)</span>: <span class="ipa">[r] ~ Ø</span> after a vowel, as in <i>fourth floor</i></li>
+          <li><span class="ipa">(h)</span>: <span class="ipa">[h] ~ Ø</span>, h-dropping in <i>house</i></li>
+          <li><span class="ipa">(t)</span>: <span class="ipa">[t] ~ [ʔ]</span> between vowels, as in <i>butter</i></li>
+        </ul>
+        <p>The linguistic variable is the <b>dependent</b> variable; social factors (class, style, gender, age, ethnicity, network) are the <b>independent</b> variables. Labov's <b>principle of accountability</b>: count every context where a variant could have occurred, not just the striking tokens. Variation is <b>probabilistic</b>: nobody uses [ɪn] all the time; groups differ in how often.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Indicators, markers, stereotypes (Labov)</h3>
+        <div class="scroll"><table class="tbl" id="labovtypes"></table></div>
+        <p class="small muted">The test for a marker is style: speakers shift it with formality. The test for a stereotype is overt comment. A stereotype can drift away from real usage: <i>toidy-toid street</i> for "thirty-third street" is a New York joke far more than a New York pronunciation.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Hypercorrection</h3>
+        <p>Overshooting a prestige norm. Two senses:</p>
+        <ul class="list">
+          <li><b>Individual</b>: using a prestige form where it doesn't belong. <i>between you and I</i>; a northern English speaker who learns /ʌ/ for <i>cup</i> and then says <i>butcher</i> with /ʌ/ too; adding /h/ to <i>apple</i>.</li>
+          <li><b>Statistical (Labov)</b>: a group using more prestige variants than the group above it in the most formal styles. New York's lower middle class overtook the upper middle class for [r] in word lists and minimal pairs (the <b>crossover pattern</b>), which Labov linked to <b>linguistic insecurity</b>.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Language change in progress</h3>
+        <ul class="list">
+          <li><b>Change from above</b>: above the level of conscious awareness. Often introduces a prestige form, appears first in careful styles. Post-war r-pronunciation in New York.</li>
+          <li><b>Change from below</b>: below awareness, starting in the vernacular, usually led by groups in the middle of the class hierarchy (lower middle and upper working class). Martha's Vineyard centralisation; the Northern Cities Shift. <i>Above</i> and <i>below</i> refer to <b>awareness</b>, not social class.</li>
+          <li><b>Apparent time</b>: compare age groups at one moment and read the differences as change, assuming speech stays largely stable after adolescence. Cheap, but it can confuse change with <b>age grading</b>, where people change their usage as they age in every generation (teenagers use a form, adults drop it) and the community as a whole stays the same.</li>
+          <li><b>Real time</b>: compare data from two dates. A <b>panel study</b> re-records the same speakers; a <b>trend study</b> samples the same community again with new speakers (e.g. replications of the department store study decades later).</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Gender patterns, and the critique of them</h3>
+        <p>Labov's generalisations from many urban studies:</p>
+        <ul class="list">
+          <li>In <b>stable variation</b>, men use more non-standard variants than women (Norwich (ing)).</li>
+          <li>In <b>change from above</b>, women adopt the incoming prestige form faster than men.</li>
+          <li>In <b>change from below</b>, women are usually the innovators.</li>
+          <li>The <b>gender paradox</b>: women conform more closely than men to overtly prescribed norms, but less closely than men when the norms are not overtly prescribed.</li>
+        </ul>
+        <p class="note"><b>Critique.</b> The explanations offered (women are more status-conscious, are "guardians" of the standard, must signal status through speech) are speculative. Early studies often assigned women their husband's or father's class. Sex was treated as a fixed binary category rather than gender as social practice. Patterns reverse locally (Milroy's young women in the Clonard; Eckert's burnout girls), and network, job type and community of practice often explain more than sex. For gender and conversation: the <b>deficit</b> model (Lakoff's "women's language" as weaker), the <b>dominance</b> model (talk reflects men's power, e.g. interruptions) and the <b>difference</b> model (Tannen's two cultures), later followed by social-constructionist approaches that treat gender as something people do in talk.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>World Englishes: Kachru's three circles (1985)</h3>
+        <svg class="circles" viewBox="0 0 440 300" role="img" aria-label="Three concentric circles: Inner circle in the centre, Outer circle around it, Expanding circle outside">
+          <ellipse class="c-exp" cx="220" cy="150" rx="210" ry="140"/>
+          <ellipse class="c-out" cx="220" cy="160" rx="145" ry="98"/>
+          <ellipse class="c-in" cx="220" cy="172" rx="80" ry="54"/>
+          <text class="lab" x="220" y="34" text-anchor="middle">Expanding circle</text>
+          <text class="sub" x="220" y="52" text-anchor="middle">EFL · norm-dependent</text>
+          <text class="lab" x="220" y="88" text-anchor="middle">Outer circle</text>
+          <text class="sub" x="220" y="106" text-anchor="middle">ESL · norm-developing</text>
+          <text class="lab" x="220" y="168" text-anchor="middle">Inner circle</text>
+          <text class="sub" x="220" y="186" text-anchor="middle">ENL · norm-providing</text>
+        </svg>
+        <div class="scroll"><table class="tbl" id="kachrutable"></table></div>
+        <p class="note"><b>Critique.</b> The model classifies <i>countries</i> by history and status, not speakers by proficiency. It struggles with South Africa or Singapore, where many people now have English as a first language; a highly fluent Dutch or Swedish speaker is "Expanding circle" while some Outer circle speakers have little English; and it hides variation inside countries.</p>
+        <p><b>English as a lingua franca (ELF)</b>: English used between speakers who don't share a first language, most of them non-native speakers (who now far outnumber native speakers). ELF research judges success by intelligibility, not closeness to native norms: Jenkins's <i>Lingua Franca Core</i> lists the pronunciation features that matter for mutual intelligibility. A major ELF corpus, VOICE (Vienna-Oxford International Corpus of English), was compiled under Barbara Seidlhofer at the University of Vienna.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>African American English: rule-governed, not "broken"</h3>
+        <p>African American English (AAE; also AAVE, African American Language) is a systematic variety with its own grammar. Labov's work in the 1960s showed its rules are as regular as those of any variety, against the "verbal deprivation" (deficit) view.</p>
+        <div class="scroll"><table class="tbl" id="aaetable"></table></div>
+        <p class="small muted">Other features: negative inversion (<i>Can't nobody beat him</i>), completive <i>done</i> (<i>I done told you</i>), existential <i>it</i> (<i>It's a man at the door</i>). Its origin is debated between the <b>Anglicist</b> view (from British settler dialects) and the <b>creolist</b> view (from an earlier plantation creole). AAE became a public issue in the 1979 Ann Arbor "King" case and the 1996 Oakland "Ebonics" resolution, after which the Linguistic Society of America affirmed that AAE is systematic and rule-governed.</p>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul class="list">
+          <li><b>Accent ≠ dialect.</b> RP is an accent. Standard English is a dialect and can be spoken with any accent.</li>
+          <li><b>Everybody speaks a dialect</b>, including speakers of the standard. German <i>Dialekt</i> / <i>Mundart</i> in everyday use means rural, non-standard speech, so German speakers tend to use "dialect" too narrowly. Austrian Standard German is a standard, not a dialect.</li>
+          <li><b>"High German" is a false friend.</b> In dialectology, High German (<i>Hochdeutsch</i>) means the southern (Central and Upper) German dialects that went through the Second Consonant Shift, as opposed to Low German. It does not mean "the standard" or "posh German".</li>
+          <li><b>Above / below = awareness</b>, not upper or lower class.</li>
+          <li><b>Covert prestige</b> doesn't mean the form is hidden; it means its value is recognised within a group but not publicly acknowledged. In Trudgill's self-report test, women <b>over-reported</b> (claimed more standard forms than they used) and men <b>under-reported</b> (claimed more local forms). Don't swap them.</li>
+          <li><b>Prestige is local</b>: [r] is the prestige form in New York, r-lessness in RP.</li>
+          <li><b>Variable vs variant</b>: (ing) is the variable; [ɪn] is one variant. Round vs square brackets.</li>
+          <li><b>Marker vs indicator</b>: only markers shift with style. Stereotypes are what people comment on.</li>
+          <li><b>Apparent time is an inference</b>; age grading can fake it. Real-time data checks it.</li>
+          <li><b>Kachru's circles are about countries</b> and their history, not about how well individuals speak. Don't put South Africa or Singapore neatly into one circle without comment.</li>
+          <li><b>AAE copula absence</b> is not random dropping: it occurs only where Standard English can contract (<i>He's tall → He tall</i>), never with <i>am</i>, in the past, or clause-finally (*<i>That's what he</i>).</li>
+          <li><b>Lakoff's "women's language"</b> was a set of hypotheses from introspection. "Women use more tag questions" is not an established finding: some later counts found men using more, and many women's tags are facilitative.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STUDIES -->
+    <section class="panel" id="view-studies" role="tabpanel" aria-labelledby="tab-studies" hidden>
+      <div class="sheet stack">
+        <h2>Classic studies</h2>
+        <p class="small muted">Researcher, year, place, method, variables, finding and why it matters. Filter by theme or type a name, place or variable.</p>
+        <input class="search" id="st-q" type="search" placeholder="Filter: Labov, Norwich, (ing), diglossia..." aria-label="Filter studies" autocomplete="off">
+        <div class="chips" id="st-themes"></div>
+        <p class="small muted" id="st-count"></p>
+      </div>
+      <div class="stack" id="st-list"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="panel" id="view-contact" role="tabpanel" aria-labelledby="tab-contact" hidden>
+      <div class="sheet stack">
+        <h2>Multilingualism and contact</h2>
+        <p class="lede">Most of the world's speakers use more than one language. This tab covers how individuals and societies divide languages up, what happens when languages mix, how languages are lost and born, and how states try to steer all of it.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Kinds of bilingualism</h3>
+        <ul class="list">
+          <li><b>Individual vs societal</b>: a person who uses two languages vs a community or state where two languages are used. A bilingual state can have mostly monolingual citizens.</li>
+          <li><b>Simultaneous vs sequential</b>: both languages from birth vs a second language added later (often defined as after about age 3).</li>
+          <li><b>Additive vs subtractive</b> (Lambert): the second language is added without loss of the first (usually when the first has status), or it gradually replaces the first (typical of minority and immigrant languages).</li>
+          <li><b>Balanced vs dominant</b>: roughly equal ability in both vs one stronger language. Truly balanced bilinguals are rare; ability often differs by domain.</li>
+          <li><b>Receptive (passive) bilingualism</b>: understanding a language without speaking it, typical of the grandchildren in a shifting community.</li>
+          <li><b>Heritage speakers</b>: people who learned a minority language at home but became dominant in the majority language.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Diglossia (Ferguson 1959)</h3>
+        <p>A stable situation in which <b>two varieties of the same language</b> have complementary functions: a <b>High (H)</b> variety, learnt at school, used for formal and written purposes, and a <b>Low (L)</b> variety, learnt at home, used for everyday talk. <b>Nobody uses H for ordinary conversation.</b> Ferguson's four defining cases: Arabic (Classical/Standard vs colloquial), Swiss German (Standard German vs Schweizerdeutsch), Modern Greek (Katharevousa vs Dhimotiki) and Haitian (French vs Haitian Creole).</p>
+        <p class="small muted">Ferguson's features: function, prestige (H is "superior", even "more beautiful"), literary heritage (H), acquisition (L at home, H at school), standardisation (H codified), stability (centuries), grammar (L has simpler inflection), lexicon (paired words, H learned and L everyday), phonology.</p>
+        <div class="scroll"><table class="tbl" id="digtable"></table></div>
+        <h3>Fishman's extended diglossia (1967)</h3>
+        <p>Fishman widened diglossia to <b>any</b> functional split, including two unrelated languages (Spanish H and Guaraní L in Paraguay), and separated individual <b>bilingualism</b> from societal <b>diglossia</b>:</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th></th><th>+ diglossia</th><th>− diglossia</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">+ bilingualism</td><td>Both: most people use both, with a stable functional split. Paraguay.</td><td>Bilingualism without diglossia: both languages compete in the same functions; unstable, typical of language shift (immigrant communities).</td></tr>
+            <tr><td class="kw">− bilingualism</td><td>Diglossia without bilingualism: two groups, each mostly monolingual (e.g. a French-speaking elite and Russian-speaking peasants in pre-1914 Russia).</td><td>Neither: only very small, isolated, undifferentiated speech communities.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">Fishman also introduced <b>domains</b> (family, friendship, religion, education, employment): clusters of setting, participants and topic that call for one language: "who speaks what language to whom and when".</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Code-switching, code-mixing, borrowing</h3>
+        <p><b>Code-switching</b> is a bilingual's alternation between two languages or varieties within one conversation. Poplack's (1980) structural types:</p>
+        <ul class="list">
+          <li><b>Tag switching</b>: a tag or fixed phrase from the other language: <i>Ich hab das schon erledigt, you know?</i></li>
+          <li><b>Inter-sentential</b>: at a sentence boundary: <i>I'm so tired. Ich geh jetzt schlafen.</i></li>
+          <li><b>Intra-sentential</b>: inside a sentence or clause: <i>Kannst du mir the red one geben?</i> Needs the most proficiency in both grammars.</li>
+        </ul>
+        <p>Poplack's constraints: switches favour points where the word orders of both languages match (<b>equivalence constraint</b>) and avoid falling between a bound morpheme and its stem (<b>free morpheme constraint</b>). Myers-Scotton's <b>Matrix Language Frame</b> model says one language supplies the grammatical frame and the other contributes content morphemes; her <b>Markedness Model</b> explains choices as unmarked (expected) or marked (making a point).</p>
+        <p><b>Borrowing</b>: a word that has become part of the receiving language, adapted to its sounds and grammar and used by monolinguals (<i>das Meeting, die Meetings; shoppen</i>). The line between a single-word switch and a <b>nonce borrowing</b> is genuinely disputed. <b>Code-mixing</b> is used inconsistently: as a synonym for code-switching, for intra-sentential switching, or for word-level mixing. Say which sense you mean.</p>
+        <p><b>Functions</b> (Blom &amp; Gumperz 1972): <b>situational</b> switching follows a change in the situation (setting, participants, activity); <b>metaphorical</b> switching happens within one situation and borrows the associations of the other code (official vs local, distant vs warm). Gumperz later spoke of <b>conversational</b> code-switching (quotation, emphasis, addressee specification...).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Language shift, maintenance and death</h3>
+        <p><b>Language shift</b>: a community gradually gives up its language for another, typically over three generations (monolingual grandparents → bilingual parents → children who understand but answer in the majority language). <b>Language death</b> is the end point, when no speakers remain. <b>Maintenance</b>: the community keeps its language despite pressure.</p>
+        <ul class="list">
+          <li><b>Factors</b>: economic opportunity, social status, urbanisation, intermarriage, schooling and media in the majority language, attitudes. Giles, Bourhis &amp; Taylor's <b>ethnolinguistic vitality</b> sums them up as status, demography and institutional support.</li>
+          <li><b>Fishman's GIDS</b> (Graded Intergenerational Disruption Scale): 8 stages from stage 8 (only a few elderly speakers left) to stage 1 (used in higher education, media and government). Stage 6, transmission to children at home, is the critical one.</li>
+          <li><b>Gal (1979), Oberwart, Burgenland</b>: shift from Hungarian to German, led by young women who rejected peasant life; network type predicted language choice.</li>
+          <li><b>Dorian (1981), East Sutherland Gaelic</b>: <b>semi-speakers</b> who understand fully but speak a reduced form, typical of the last stage before death.</li>
+          <li><b>Revitalisation</b>: Hebrew (revived as an everyday spoken language and now native to millions), Welsh-medium schooling, Māori <i>Kōhanga Reo</i> "language nests".</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Pidgins and creoles</h3>
+        <ul class="list">
+          <li><b>Pidgin</b>: a reduced contact language with <b>no native speakers</b>, arising when groups without a common language need to communicate for limited purposes (trade, plantations). Small vocabulary, little or no inflection, restricted domains.</li>
+          <li><b>Creole</b>: a contact language that has become the <b>first language</b> of a community (<b>nativisation</b>), with a full grammar and vocabulary for all domains. Classic route: children of plantation workers acquire the pidgin as their mother tongue.</li>
+          <li><b>Lexifier</b> (often called the <b>superstrate</b>): the language that supplies most of the vocabulary, usually the colonial one. <b>Substrate</b>: the languages of the less powerful groups, which tend to shape grammar and sounds.</li>
+          <li><b>Creole continuum</b>: where the creole stays in contact with its standard lexifier, speakers command a range from the <b>basilect</b> (most creole, furthest from the standard) through the <b>mesolect</b> to the <b>acrolect</b> (closest to the standard). Guyanese "I told him": basilect <i>mi bin tel am</i>, mesolect <i>mi tel im</i>, acrolect <i>I told him</i>.</li>
+          <li><b>Decreolisation</b>: the creole moves towards the standard over generations through schooling and contact.</li>
+        </ul>
+        <div class="scroll"><table class="tbl" id="pctable"></table></div>
+        <p class="small muted">Theories of creole genesis: <b>monogenesis</b> (one Portuguese-based ancestor, relexified) vs <b>polygenesis</b>; <b>substratist</b> vs <b>universalist</b> accounts, including Bickerton's controversial <b>Language Bioprogram Hypothesis</b> (children fall back on an innate grammar).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Language planning</h3>
+        <ul class="list">
+          <li><b>Status planning</b>: which language or variety is used for which functions: official language, national language, language of courts and schools. Swahili as Tanzania's national language; Bokmål and Nynorsk both official in Norway.</li>
+          <li><b>Corpus planning</b>: changes to the language itself: codification, spelling and script reform, new vocabulary. The 1996 German spelling reform (Germany, Austria, Switzerland together); Turkey's switch to the Latin alphabet (1928); coining Hebrew words for modern life.</li>
+          <li><b>Acquisition planning</b>: increasing the number of speakers: Welsh-medium schools, Māori language nests, adult courses.</li>
+        </ul>
+        <p class="small muted">Haugen's four standardisation steps map onto these: selection and acceptance are status-related, codification and elaboration are corpus-related.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Linguistic relativity (Sapir-Whorf)</h3>
+        <p>The <b>strong</b> version, <b>linguistic determinism</b>, says language determines thought, so speakers cannot think concepts their language lacks. It is rejected (translation is possible, and Whorf's claims about Hopi time were later challenged by Malotki). The <b>weak</b> version, <b>linguistic relativity</b>, says language influences perception and memory; it has experimental support in some domains, e.g. Russian speakers' faster discrimination of light vs dark blue (two basic terms, <i>goluboy</i> and <i>siniy</i>) and absolute (north/south) spatial reasoning in Guugu Yimithirr speakers. Sapir and Whorf never wrote a joint "hypothesis"; the label came later.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Language attitudes</h3>
+        <p>People judge speakers by their variety. Standard accents are usually rated high on <b>status</b> (competence, intelligence, education); local and non-standard accents often score higher on <b>solidarity</b> (friendliness, trustworthiness, humour). Methods: the <b>matched guise</b> technique (one bilingual or bidialectal speaker records the same text in two guises; Lambert et al. 1960), the <b>verbal guise</b> technique (different genuine speakers), direct questionnaires, and <b>perceptual dialectology</b> (Preston: non-linguists draw and label dialect areas on a map).</p>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul class="list">
+          <li><b>Ferguson's diglossia</b> is about <b>two varieties of one language</b> with a stable functional split; H is never used for conversation. Two unrelated languages = Fishman's extended diglossia. Bilingualism by itself is not diglossia.</li>
+          <li><b>Personal letters</b> are H in Ferguson's table; <b>political cartoon captions</b> and <b>radio soap operas</b> are L.</li>
+          <li><b>Switzerland vs Austria</b>: German-speaking Switzerland is the textbook diglossia (dialect for conversation at every social level). Austria and southern Germany are usually described as a dialect–standard continuum, with colloquial forms in between, not classic diglossia.</li>
+          <li><b>Borrowing ≠ code-switching.</b> Monolinguals use borrowings; only bilinguals switch.</li>
+          <li><b>Situational vs metaphorical</b>: ask whether the situation (setting, participants, activity) changed. If not, it's metaphorical.</li>
+          <li><b>Pidgins have no native speakers.</b> Names mislead: Hawaiian "Pidgin" is a creole; Tok Pisin (from "talk pidgin") now has many native speakers.</li>
+          <li><b>The lexifier gives the words, not the grammar.</b> Haitian Creole is not "bad French".</li>
+          <li><b>Acrolect = top</b> (Greek <i>akros</i>, highest), closest to the standard; <b>basilect = base</b>, furthest from it.</li>
+          <li><b>Status planning</b> = function, <b>corpus planning</b> = form, <b>acquisition planning</b> = learners.</li>
+          <li><b>T/V</b>: mutual <i>Sie</i> is solidarity semantic (reciprocal, non-intimate), not power. Only non-reciprocal use is the power semantic. English lost its T form (<i>thou</i>).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="panel" id="view-glossary" role="tabpanel" aria-labelledby="tab-glossary" hidden>
+      <div class="sheet stack">
+        <h2>Glossary</h2>
+        <input class="search" id="gl-q" type="search" placeholder="Search terms and definitions..." aria-label="Search the glossary" autocomplete="off">
+        <p class="small muted" id="gl-count"></p>
+        <div class="gl" id="gl-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Content follows the standard textbooks: Wardhaugh &amp; Fuller, An Introduction to Sociolinguistics; Holmes &amp; Wilson, An Introduction to Sociolinguistics; Trudgill, Sociolinguistics; Meyerhoff, Introducing Sociolinguistics.</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+// ---------- helpers ----------
+function el(tag, attrs, kids){
+  var n = document.createElement(tag);
+  if (attrs) for (var k in attrs){
+    var v = attrs[k]; if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else if (k.slice(0,2) === 'on') n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  (kids || []).forEach(function(c){ if (c == null) return; n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+  return n;
+}
+function rnd(n){ return Math.floor(Math.random()*n); }
+function shuffle(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=rnd(i+1), t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function pick(a){ return a[rnd(a.length)]; }
+function uniq(a){ var s={}, o=[]; a.forEach(function(x){ if(!s[x]){ s[x]=1; o.push(x);} }); return o; }
+function fill(opts, pool, k){ var o = uniq(opts); var p = shuffle(pool); for (var i=0;i<p.length && o.length<k;i++) if (o.indexOf(p[i]) < 0) o.push(p[i]); return o; }
+var store = {
+  get:function(k, d){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set:function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+
+// ---------- DATA: glossary [term, definition, example, flags] (flag 'n' = not drilled) ----------
+var GLOSS = [
+  ["speech community","A group of people who share norms for using and evaluating language, not necessarily one identical way of speaking (Labov: shared evaluative norms).","New Yorkers differ in how often they pronounce /r/, but agree that pronouncing it sounds 'better'."],
+  ["community of practice","A group that comes together around a shared activity or enterprise and develops shared ways of doing things, including ways of talking (Eckert & McConnell-Ginet).","Jocks and burnouts at Belten High; a choir; a lab team."],
+  ["social network","The web of relationships an individual has, analysed by how far their contacts know each other and how many roles link them (Milroy).","Belfast speakers with close-knit networks used more vernacular forms."],
+  ["density","Network property: the extent to which a person's contacts also know one another.","In a dense network your friends are friends with each other."],
+  ["multiplexity","Network property: a tie that links two people in more than one capacity at once.","Your cousin is also your workmate and your neighbour."],
+  ["variety","Neutral cover term for any distinguishable form of speech: a language, dialect, accent, register or style.","Sociolinguists say 'variety' to avoid the loaded choice between 'language' and 'dialect'."],
+  ["dialect","A variety that differs from others in grammar and vocabulary as well as pronunciation, associated with a region or social group.","'I've no seen him' (Scots grammar) vs 'I haven't seen him'."],
+  ["accent","Variation in pronunciation only.","RP; a Scottish speaker of Standard English."],
+  ["mutual intelligibility","The degree to which speakers of two varieties understand each other without having learned the other one.","Norwegians and Swedes largely understand each other; it can be asymmetric."],
+  ["standard language","The variety that has been codified, is used in writing, education and the media, and carries overt prestige.","Standard English; Austrian Standard German."],
+  ["standardisation","The process by which a variety is selected, codified, elaborated in function and accepted as the norm (Haugen).","English: London/East Midlands norm, Johnson's dictionary, use in law and science."],
+  ["codification","Fixing a norm in dictionaries, grammars and spelling rules.","The Duden; the Österreichisches Wörterbuch."],
+  ["pluricentric language","A language with several national centres, each with its own codified standard variety.","German: German, Austrian and Swiss Standard German (Jänner vs Januar)."],
+  ["Abstand language","A variety counted as a separate language because it is structurally very distant from all its neighbours (Kloss).","Basque."],
+  ["Ausbau language","A variety counted as a separate language because it has been deliberately developed into its own standard, even though it is close to its neighbours (Kloss).","Slovak vs Czech; Norwegian, Swedish and Danish."],
+  ["Dachsprache","A standard that serves as the written norm over related dialects that have no standard of their own; Kloss's 'roof'.","Standard German over the Swiss German dialects and Low German."],
+  ["idiolect","The language of one individual, with its own vocabulary, habits and quirks.","Your personal favourite words and pronunciations."],
+  ["sociolect","A variety associated with a social class or group rather than a region.","Working-class Norwich speech."],
+  ["ethnolect","A variety associated with a particular ethnic group, often with features traced to a heritage language.","Chicano English."],
+  ["multiethnolect","A variety that develops among young people of many different ethnic backgrounds in the same urban neighbourhoods.","Multicultural London English; Kiezdeutsch in Berlin."],
+  ["register","A variety defined by the situation or field it is used in rather than by who uses it.","Legal English; sports commentary."],
+  ["style","Variation along a formality scale within one speaker, depending on context, addressee and attention paid to speech.","'going' in an exam, 'goin'' at a party."],
+  ["genre","A conventional type of text or speech event with a recognisable structure.","A recipe, a sermon, a job interview."],
+  ["jargon","Specialised vocabulary of a profession or activity, often opaque to outsiders.","Hospital 'stat' and 'NPO'; linguists' 'allophone'."],
+  ["slang","Very informal, often short-lived vocabulary used to signal in-group membership, especially among young people.","Words that sound dated within a few years."],
+  ["dialect continuum","A chain of varieties across a region in which neighbours understand each other but the far ends do not.","The West Germanic dialects from Flanders to Austria."],
+  ["isogloss","A line on a map marking the boundary of a single linguistic feature.","The Benrath line: maken vs machen."],
+  ["High German","In dialectology, the southern (Central and Upper) German dialects that went through the Second Consonant Shift, as opposed to Low German; not a synonym for 'the standard'.","machen, Pfund, Wasser vs Low German maken, Pund, Water.","n"],
+  ["overt prestige","Status a variety has in society at large and that people openly acknowledge, usually that of the standard and educated speakers.","People call the newsreader's accent the 'best' English."],
+  ["covert prestige","Positive value that non-standard, local forms have within a group (solidarity, toughness, local loyalty), rarely admitted openly.","Norwich men claimed more local forms than they used (Trudgill)."],
+  ["linguistic variable","An abstract unit with two or more realisations that differ socially but not in referential meaning, written in round brackets.","(ing), (r), (h)."],
+  ["variant","One of the alternative realisations of a linguistic variable, written in square brackets.","[ɪn] in walkin' is one realisation of (ing)."],
+  ["principle of accountability","The rule that an analyst must count every context in which a variable could occur, including those where the variant of interest does not appear.","Count all -ing words, not just the ones that were pronounced [ɪn]."],
+  ["indicator","A variable that differs between social groups but not across styles; speakers are unaware of it (Labov).","A vowel that differs by neighbourhood, used at the same rate in casual speech and word lists."],
+  ["marker","A variable that differs between social groups and also shifts with style, though mostly below conscious awareness (Labov).","(ing); (r) in New York City."],
+  ["stereotype","A variable that has become the subject of overt social comment, often stigmatised and imitated, and may no longer match actual usage (Labov).","'toidy-toid street' for 'thirty-third street' in New York."],
+  ["hypercorrection","Overshooting a prestige norm: using a prestige form where it doesn't belong, or (Labov) a group using more prestige variants in formal styles than the group above it.","'between you and I'; New York's lower middle class and [r] in word lists."],
+  ["linguistic insecurity","A gap between the forms speakers believe are correct and the forms they actually use, strongest in Labov's lower middle class.","Measured by Labov with an index comparing judgements and self-reports."],
+  ["change from above","Innovation that speakers are consciously aware of, often introducing a prestige form, appearing first in careful styles.","Post-war r-pronunciation in New York City."],
+  ["change from below","Innovation that spreads without speakers being consciously aware of it, starting in the vernacular; the label refers to awareness, not social class.","Martha's Vineyard centralisation; the Northern Cities Shift."],
+  ["apparent time","Studying change by comparing speakers of different ages at a single moment, assuming people's speech stays largely stable after adolescence.","Older vs younger islanders on Martha's Vineyard."],
+  ["real time","Studying change by comparing data from the same community at two or more dates, either with the same speakers (panel) or new ones (trend).","Re-running the department store survey decades later."],
+  ["age grading","A pattern in which people change their usage as they get older, in every generation, while the community as a whole does not change.","Teenagers use a vernacular form heavily and drop it when they start work."],
+  ["vernacular","The style used when speakers pay least attention to their speech, considered by Labov the most systematic.","Speech while telling an exciting story to friends."],
+  ["observer's paradox","The problem that linguists want to know how people speak when not observed, but can only find out by observing them.","Speakers become careful as soon as the recorder is switched on."],
+  ["sociolinguistic interview","A recorded conversation designed to elicit a range of styles, from casual talk and narratives to reading passages, word lists and minimal pairs.","Labov's Lower East Side interviews."],
+  ["rapid anonymous survey","Collecting a variable quickly from many strangers who don't know they are being studied.","Labov asking shop assistants where to find something on the 'fourth floor'."],
+  ["stylistic stratification","The pattern in which every social group uses more prestige variants as formality and attention to speech increase.","All classes use more [r] in word lists than in casual speech."],
+  ["matched guise technique","An attitude test in which one speaker records the same text in two languages or varieties and listeners rate the supposedly different speakers.","Lambert et al. in Montreal, 1960."],
+  ["verbal guise technique","An attitude test using different speakers, each a genuine user of the variety being evaluated.","Rating recordings of real Liverpool, Newcastle and RP speakers."],
+  ["language attitudes","People's evaluations of languages, varieties and their speakers, e.g. as educated, friendly or lazy.","Standard accents rated high on status, local ones on solidarity."],
+  ["perceptual dialectology","The study of what non-linguists believe about where and how dialects differ, e.g. by having them draw dialect areas on a map (Preston).","Asking people to mark where the 'worst' English is spoken."],
+  ["accommodation","Adjusting one's speech in response to an interlocutor, either towards or away from their way of speaking (Giles).","Communication Accommodation Theory."],
+  ["convergence","Adjusting one's speech to become more like the interlocutor's, usually to win approval or ease communication.","A travel agent matching each client's accent (Coupland)."],
+  ["divergence","Accentuating the differences between one's own speech and the interlocutor's, usually to stress group identity or distance.","Welsh speakers broadening their accents (Bourhis & Giles)."],
+  ["audience design","Bell's model: speakers shape their style mainly in response to the people listening (addressee, auditor, overhearer).","Newsreaders shifting /t/ between radio stations."],
+  ["T/V distinction","A grammatical choice between a familiar and a polite second-person pronoun.","du/Sie, tu/vous; English lost its T form thou."],
+  ["power semantic","Non-reciprocal pronoun use: the superior gives the familiar form and receives the polite one (Brown & Gilman).","A master says T to a servant and gets V back."],
+  ["solidarity semantic","Reciprocal pronoun use: equals exchange the familiar form if close and the polite form if distant (Brown & Gilman).","Students say du to each other; strangers say Sie to each other."],
+  ["World Englishes","The many local varieties of English around the world, treated as legitimate varieties in their own right.","Indian English, Nigerian English, Singapore English."],
+  ["Inner Circle","In Kachru's model: countries where English is the first language of most people and the norms originate (ENL, norm-providing).","UK, USA, Canada, Australia, New Zealand."],
+  ["Outer Circle","In Kachru's model: countries where English is an institutionalised second language from colonial history, with official functions (ESL, norm-developing).","India, Nigeria, Kenya, the Philippines."],
+  ["Expanding Circle","In Kachru's model: countries where English is a foreign language for international contact with no official internal role (EFL, norm-dependent).","Austria, Japan, China, Brazil."],
+  ["lingua franca","A language used for communication between people who don't share a first language.","Swahili in East Africa; Latin in medieval Europe."],
+  ["English as a lingua franca","English used among speakers of different first languages, most of them non-native, judged by intelligibility rather than native norms.","An Austrian and a Japanese engineer negotiating; the VOICE corpus."],
+  ["bilingualism","The ability to use two languages; as a social fact, the use of two languages in a community.","Simultaneous or sequential, balanced or dominant."],
+  ["additive bilingualism","A second language is learnt without loss of the first, usually when the first has high status.","An Austrian child adding English at school."],
+  ["subtractive bilingualism","A second language gradually replaces the first, usually a low-status minority language.","Immigrant children losing their parents' language."],
+  ["heritage language","A minority language learnt at home, typically by children of immigrants, while the majority language becomes dominant.","Turkish for many children growing up in Vienna."],
+  ["semi-speaker","Someone in a dying language community who understands the language but speaks only a reduced, imperfect version (Dorian).","Younger speakers of East Sutherland Gaelic."],
+  ["diglossia","A stable situation in which two varieties of one language have strictly separate functions: a formal High variety learnt at school and an everyday Low variety (Ferguson).","Classical vs colloquial Arabic; Standard German vs Swiss German."],
+  ["extended diglossia","Fishman's broader notion: any stable functional division between two varieties, including two unrelated languages.","Spanish (H) and Guaraní (L) in Paraguay."],
+  ["domain","A cluster of typical setting, participants and topic (family, religion, education, work) that tends to call for one language (Fishman).","Polish at church, English at work for Polish Americans."],
+  ["code-switching","Alternating between two languages or varieties within one conversation by bilingual speakers.","'I'm so tired. Ich geh jetzt schlafen.'"],
+  ["code-mixing","A term used inconsistently: as a synonym for code-switching, for switches inside a sentence, or for mixing at word level.","Check which sense your textbook uses.","n"],
+  ["borrowing","A word from another language that has become part of the receiving language, adapted to its sounds and grammar and used by monolinguals.","das Meeting, die Meetings; shoppen."],
+  ["tag switching","Inserting a tag or short fixed expression from another language into an utterance (Poplack).","'Ich hab das schon erledigt, you know?'"],
+  ["inter-sentential switching","Switching at a sentence boundary: one sentence in one language, the next in the other (Poplack).","'That was terrible. Je ne veux plus le revoir.'"],
+  ["intra-sentential switching","Switching inside a sentence or clause; it needs high proficiency in both grammars (Poplack).","'Kannst du mir the red one geben?'"],
+  ["situational switching","A change of language triggered by a change in the situation: setting, participants or activity (Blom & Gumperz).","English in the staff meeting, Welsh in the corridor afterwards."],
+  ["metaphorical switching","A change of language within the same situation, drawing on the associations of the other variety to change the tone (Blom & Gumperz).","One joke in dialect in an otherwise standard business meeting."],
+  ["language shift","A community gradually abandoning its language for another over generations.","Hungarian to German in Oberwart (Gal)."],
+  ["language maintenance","A community continuing to use its language across generations despite pressure from a dominant one.","Many Amish communities keeping Pennsylvania German."],
+  ["language death","The end point at which a language no longer has any speakers.","When the last speakers die and no children learned it."],
+  ["language revitalisation","Deliberate efforts to bring an endangered or dormant language back into use, especially among children.","Māori language nests; Welsh-medium schools; Hebrew."],
+  ["ethnolinguistic vitality","How likely a group is to survive as a distinct language community, judged by its status, demographic strength and institutional support (Giles, Bourhis & Taylor).","High for Catalan in Catalonia, low for many immigrant languages."],
+  ["pidgin","A reduced contact language with no native speakers, developed for limited purposes between groups without a common language.","Russenorsk; Chinese Pidgin English."],
+  ["creole","A contact language that has become the first language of a community, with a full grammar and vocabulary.","Jamaican Creole; Haitian Creole; Hawaiian Creole English."],
+  ["lexifier","The language that supplies most of a pidgin's or creole's vocabulary, usually the socially dominant one.","French for Haitian Creole; English for Tok Pisin."],
+  ["superstrate","The language of the socially dominant group in a contact situation; for creoles usually the same as the vocabulary source.","English on Jamaican plantations."],
+  ["substrate","The languages of the less powerful groups in a contact situation, which often shape a creole's grammar and sounds.","West African languages in Caribbean creoles."],
+  ["creole continuum","The range of varieties linking a creole with its standard lexifier where the two remain in contact.","Jamaica and Guyana: from deep creole to standard English."],
+  ["basilect","The variety at the most creole end of a continuum, furthest from the standard.","Guyanese 'mi bin tel am'."],
+  ["mesolect","The intermediate varieties in the middle of a creole continuum.","Guyanese 'mi tel im'."],
+  ["acrolect","The variety at the top of a creole continuum, closest to the standard language.","Guyanese 'I told him'."],
+  ["decreolisation","The process by which a creole moves towards its standard lexifier under the influence of schooling and contact.","The basilect losing ground in Jamaica."],
+  ["language planning","Deliberate efforts, usually by states or institutions, to influence the function, form or learning of languages.","Status, corpus and acquisition planning."],
+  ["status planning","Decisions about which language or variety is used for which functions: official, national, school or court language.","Swahili as Tanzania's national language."],
+  ["corpus planning","Changes to the form of a language itself: spelling, script, grammar, new vocabulary.","The 1996 German spelling reform."],
+  ["acquisition planning","Efforts to increase the number of speakers through schooling, courses and immersion.","Welsh-medium schools."],
+  ["linguistic relativity","The weak claim that the language you speak influences how you perceive, remember or think about the world.","Russian speakers' faster light/dark blue discrimination."],
+  ["linguistic determinism","The strong claim that language determines thought, so speakers cannot think concepts their language lacks.","Whorf's Hopi time claims; now rejected."],
+  ["African American English","A rule-governed variety associated with Black communities in the United States, with features such as habitual be, copula absence and stressed BIN.","Also called AAVE or African American Language."],
+  ["habitual be","AAE: invariant be marking an action or state that recurs regularly.","'She be working late on Fridays.'","n"],
+  ["copula absence","AAE: omission of is/are where Standard English could contract them.","'He tall.' 'They at the store.'","n"],
+  ["negative concord","Marking negation on the verb and on every indefinite in the clause, as in many languages and many English dialects.","'I don't want nothing'; Spanish 'No vi a nadie'.","n"],
+  ["remote BIN","AAE: stressed BIN placing the start of a state or action in the remote past; with a state it still holds.","'She BIN married' = for a long time, and still is.","n"],
+  ["deficit model","View that a group's way of speaking (women's, working-class children's) is a deficient version of the norm.","Lakoff's 'women's language' as weak and tentative."],
+  ["dominance model","View that gender differences in talk reflect and reproduce men's power over women.","Studies of men interrupting women."],
+  ["difference model","View that men and women grow up in different subcultures with different conversational styles.","Tannen's 'report talk' vs 'rapport talk'."],
+  ["dialect levelling","Reduction of differences between regional varieties as speakers in contact give up strongly local features.","New towns where children drop their parents' regional forms."]
+];
+var GL = GLOSS.map(function(g){ return {t:g[0], d:g[1], e:g[2], nod:g[3] === 'n'}; });
+var GL_DRILL = GL.filter(function(g){ return !g.nod; });
+// pairs of terms whose definitions are too close to appear together as options
+var CONFLICT_GROUPS = [
+  ['variety','dialect'],['variety','sociolect'],['variety','ethnolect'],['variety','multiethnolect'],['variety','African American English'],['variety','accent'],['variety','idiolect'],['variety','register'],['variety','style'],
+  ['variety','standard language'],['variety','vernacular'],['variety','genre'],['variety','slang'],['variety','jargon'],
+  ['dialect','sociolect','ethnolect','multiethnolect','African American English','High German'],
+  ['register','style','genre','jargon','slang'],['style','vernacular'],['style','stylistic stratification'],
+  ['lingua franca','English as a lingua franca','pidgin'],['English as a lingua franca','World Englishes'],
+  ['diglossia','extended diglossia','domain'],['situational switching','domain'],
+  ['accommodation','convergence'],['accommodation','divergence'],['accommodation','audience design'],['audience design','convergence'],['audience design','divergence'],['convergence','dialect levelling'],
+  ['language attitudes','matched guise technique'],['language attitudes','verbal guise technique'],['language attitudes','perceptual dialectology'],
+  ['superstrate','lexifier'],
+  ['linguistic relativity','linguistic determinism'],
+  ['code-switching','tag switching'],['code-switching','inter-sentential switching'],['code-switching','intra-sentential switching'],['code-switching','situational switching'],['code-switching','metaphorical switching'],
+  ['language shift','subtractive bilingualism'],['language shift','semi-speaker'],['language death','semi-speaker'],
+  ['language maintenance','ethnolinguistic vitality'],['language revitalisation','acquisition planning'],['language revitalisation','language planning'],
+  ['creole continuum','decreolisation'],['creole continuum','mesolect'],
+  ['standard language','standardisation','codification','corpus planning','Dachsprache','Ausbau language','overt prestige','pluricentric language'],
+  ['language planning','status planning'],['language planning','corpus planning'],['language planning','acquisition planning'],['standardisation','language planning'],['codification','language planning'],
+  ['T/V distinction','power semantic'],['T/V distinction','solidarity semantic'],
+  ['World Englishes','Inner Circle'],['World Englishes','Outer Circle'],['World Englishes','Expanding Circle'],
+  ['bilingualism','additive bilingualism'],['bilingualism','subtractive bilingualism'],['bilingualism','heritage language'],['heritage language','subtractive bilingualism'],
+  ['hypercorrection','linguistic insecurity'],
+  ['social network','density'],['social network','multiplexity'],
+  ['speech community','community of practice','social network'],
+  ['dialect continuum','mutual intelligibility'],
+  ['linguistic variable','indicator'],['linguistic variable','marker'],['linguistic variable','stereotype']
+];
+var CONFLICT = {};
+CONFLICT_GROUPS.forEach(function(g){ g.forEach(function(a){ g.forEach(function(b){ if (a !== b) CONFLICT[a+'|'+b] = 1; }); }); });
+function clash(a, b){ return !!CONFLICT[a+'|'+b]; }
+
+// ---------- DATA: classic studies ----------
+var THEMES = [['var','Variation & class'],['net','Networks & practice'],['sty','Style & accommodation'],['att','Attitudes & address'],['gen','Gender'],['con','Contact & multilingualism'],['std','Standards & Englishes']];
+var STUDIES = [
+  {id:'mv', th:'var', who:'William Labov', name:"Martha's Vineyard", year:'1963', place:"Martha's Vineyard, Massachusetts",
+   method:'Recorded interviews with islanders of different ages, occupations, ethnic groups and parts of the island, eliciting words with the diphthongs.',
+   vars:'Centralised onsets of /ay/ (right, wife) and /aw/ (out, house): [əɪ], [əʊ] rather than [aɪ], [aʊ].',
+   finding:'Centralisation was increasing, and it was strongest among people who identified with the island against the summer visitors: fishermen in rural up-island Chilmark and speakers aged about 31–45. Teenagers who planned to stay on the island centralised more than those who planned to leave.',
+   why:'The first demonstration that a sound change can be socially motivated: a variant becomes a badge of local identity. It also showed that change in progress can be observed in apparent time.',
+   facts:["Islanders who identified with the island against summer visitors, especially Chilmark fishermen and people aged about 31–45, used the most centralised /ay/ and /aw/.",
+          "Teenagers who planned to stay on the island centralised their diphthongs more than those who planned to leave for the mainland."]},
+  {id:'nyc', th:'var', who:'William Labov', name:'New York City department stores', year:'1966 (fieldwork 1962)', place:'Saks, Macy\'s and S. Klein, Manhattan',
+   method:'Rapid anonymous survey: the fieldworker asked shop assistants where to find something he knew was on the fourth floor, then pretended not to hear to get a careful, emphatic repetition.',
+   vars:'Post-vocalic (r): [r] vs Ø in "fourth" and "floor".',
+   finding:'r-pronunciation was most frequent at Saks (expensive), less at Macy\'s (middle), least at S. Klein (cheap): assistants reflected the status of their store\'s customers. The careful repetition produced more [r] everywhere.',
+   why:'Showed social stratification of one variable with a fast, cheap method, and that in New York r-pronunciation is the prestige form, the opposite of RP. Later replicated as a real-time trend study.',
+   facts:["Shop assistants pronounced the /r/ in 'fourth floor' most often in the most expensive store and least often in the cheapest.",
+          "Anonymous speakers were asked a question twice, by a fieldworker pretending not to hear, to compare casual and emphatic pronunciations of the same words."]},
+  {id:'les', th:'var', who:'William Labov', name:'Lower East Side, New York City', year:'1966', place:'Lower East Side, Manhattan',
+   method:'Sociolinguistic interviews with a random sample; each speaker produced casual speech, careful speech, a reading passage, word lists and minimal pairs. Self-report and evaluation tests.',
+   vars:'(r), (th), (dh), (eh), (oh).',
+   finding:'Every class used more prestige variants as formality increased (stylistic stratification). In the most formal styles the lower middle class overtook the upper middle class (the crossover pattern, hypercorrection), and it scored highest on an index of linguistic insecurity.',
+   why:'Established the sociolinguistic interview, the style continuum and the interaction of class and style; the classic account of hypercorrection and linguistic insecurity.',
+   facts:["In word lists and minimal pairs the lower middle class used more prestige [r] than the upper middle class did, though less in casual speech.",
+          "The lower middle class showed the largest gap between the forms they judged correct and the forms they reported using, measured on an index of linguistic insecurity."]},
+  {id:'int', th:'var', who:'William Labov', name:'Sociolinguistic Patterns (interview method)', year:'1972', place:'New York City and other urban fieldwork',
+   method:'Long recorded interviews organised in topic modules, moving from careful speech towards the vernacular; the "danger of death" question to elicit emotional narratives.',
+   vars:'Any; the method is about getting vernacular data.',
+   finding:'The vernacular is the most systematic style and the one linguists most want, but systematic observation makes speakers monitor their speech. Emotional narratives reduce attention to speech.',
+   why:'Named the central methodological problem of the field and offered practical ways round it (narratives, group sessions, anonymous observation).',
+   facts:["Asking people whether they had ever been in danger of being killed drew emotional stories in which careful speech gave way to the vernacular.",
+          "Linguists want to know how people talk when they are not being systematically observed, but can only find out by observing them."]},
+  {id:'nor', th:'var', who:'Peter Trudgill', name:'Norwich', year:'1974', place:'Norwich, England',
+   method:'Interviews with a stratified sample of Norwich speakers (five social classes, both sexes, several ages) in four styles: word list, reading passage, formal and casual speech; plus a self-evaluation test.',
+   vars:'(ing): [ɪŋ] ~ [ɪn], and other local variables.',
+   finding:'Non-standard [ɪn] increased down the class scale and from formal to casual styles, and men generally used it more than women. In self-evaluation, women tended to over-report (claim more standard forms than they used) and men to under-report (claim more local forms).',
+   why:'The classic evidence for covert prestige: working-class Norwich speech is valued by men for its associations with toughness and local loyalty.',
+   facts:["In a self-evaluation test men tended to claim more local, non-standard pronunciations than they actually used, while women claimed more standard ones.",
+          "Non-standard [ɪn] for (ing) rose down the class scale and from word-list style to casual speech, with men generally using it more than women."]},
+  {id:'mil', th:'net', who:'Lesley Milroy (with James Milroy)', name:'Belfast networks', year:'1980', place:'Ballymacarrett, the Clonard and the Hammer, Belfast',
+   method:'Participant observation in three working-class communities; the fieldworker was introduced as a "friend of a friend". Each speaker received a network strength score based on density and multiplexity.',
+   vars:'Several Belfast vernacular phonological variables.',
+   finding:'Speakers in dense, multiplex networks used more vernacular forms; network strength explained variation where class could not, since everyone was working class. Close-knit networks act as norm-enforcement mechanisms. Where unemployment had broken up the young men\'s networks in the Clonard, young women with close work-based networks led in some vernacular variants.',
+   why:'Introduced social network analysis to variationist sociolinguistics and explained why vernaculars survive against the pressure of the standard.',
+   facts:["Speakers whose friends were also their relatives, neighbours and workmates used the most vernacular forms, though everyone studied was working class.",
+          "Where unemployment had broken up men's networks, young women with close-knit, work-based networks led in some vernacular variants."]},
+  {id:'eck', th:'net', who:'Penelope Eckert', name:'Belten High: jocks and burnouts', year:'1989', place:'A high school in the Detroit suburbs',
+   method:'Long-term ethnographic participant observation in the school, with recorded interviews.',
+   vars:'Vowels of the Northern Cities Shift (e.g. backing of (ʌ), raising of the (ay) nucleus) and negative concord.',
+   finding:'Category membership, jocks (oriented to the school and its institutions) vs burnouts (oriented to urban Detroit), predicted variation better than parents\' class. Burnouts led in the newer urban sound changes, and the most extreme variants came from the girls most strongly opposed to school culture.',
+   why:'Moved the field from fixed demographic categories to communities of practice and to variation as active identity-making.',
+   facts:["Adolescents' orientation to school versus the city predicted their use of new vowel changes better than their parents' social class.",
+          "The newest urban vowel variants were most advanced among the girls most strongly opposed to school culture."]},
+  {id:'che', th:'net', who:'Jenny Cheshire', name:'Reading adolescents', year:'1982', place:'Adventure playgrounds in Reading, England',
+   method:'Long-term participant observation of adolescent peer groups; a "vernacular culture index" (e.g. fighting, carrying weapons, swearing, choice of job).',
+   vars:'Non-standard grammar, e.g. -s with non-third-person subjects ("we goes"), "ain\'t", "never" as past-tense negator.',
+   finding:'The more a speaker took part in vernacular culture, the more non-standard grammatical forms they used.',
+   why:'Showed that non-standard grammar, not just pronunciation, carries social meaning tied to group norms.',
+   facts:["Adolescents' use of non-standard forms such as 'we goes' rose with their score on an index of toughness-related, 'vernacular culture' activities."]},
+  {id:'lam', th:'att', who:'Wallace Lambert et al.', name:'Matched guise, Montreal', year:'1960', place:'Montreal, Canada',
+   method:'Matched guise: listeners heard bilingual speakers read the same passage once in English and once in French, believed they were different people, and rated them on traits such as intelligence, kindness and dependability.',
+   vars:'Language (English vs French), with voice held constant.',
+   finding:'English guises were rated more favourably on many traits, by English-Canadian listeners and also by French-Canadian listeners, who on several traits rated the French guises even lower than the English-Canadian listeners did.',
+   why:'Invented the matched guise technique and revealed that a subordinate group can share the dominant group\'s negative stereotypes of its own language.',
+   facts:["Bilingual speakers recorded the same passage in two languages; listeners, thinking they heard different people, rated the 'two speakers' differently on intelligence and dependability.",
+          "Listeners from the lower-status language group rated speakers of their own language, on several traits, even less favourably than the dominant group did."]},
+  {id:'gum', th:'con', who:'Jan-Petter Blom & John Gumperz', name:'Hemnesberget', year:'1972', place:'Hemnesberget, a small town in northern Norway',
+   method:'Ethnographic fieldwork and recorded group discussions in a community using Ranamål (the local dialect) and Bokmål (a standard).',
+   vars:'Choice between the local dialect and the standard.',
+   finding:'The dialect symbolised local identity, the standard official and supra-local status. Switching was either situational (the setting, participants or activity changed) or metaphorical (the situation stayed the same, but a switch evoked the associations of the other variety).',
+   why:'The source of the situational vs metaphorical distinction and of the idea that switching itself carries social meaning.',
+   facts:["Separated switches caused by a change of setting or participants from switches made within one situation to evoke the associations of the other variety.",
+          "In a small northern Norwegian town, the local dialect stood for local identity and the standard for official, supra-local status."]},
+  {id:'fer', th:'con', who:'Charles Ferguson', name:'Diglossia', year:'1959', place:'Arabic, Swiss German, Modern Greek, Haitian',
+   method:'Comparative description of four speech communities, defined by nine features (function, prestige, literary heritage, acquisition, standardisation, stability, grammar, lexicon, phonology).',
+   vars:'A High (H) and a Low (L) variety of the same language.',
+   finding:'In these communities two varieties of one language have stable, complementary functions. H is learnt at school and used for sermons, lectures, news and most writing; L is learnt at home and used for conversation and folk literature. No one uses H for ordinary conversation.',
+   why:'Defined diglossia; the starting point for all work on the social division of languages.',
+   facts:["Arabic, Swiss German, Modern Greek and Haitian were the four defining cases of a stable split between a High and a Low variety of one language.",
+          "The High variety is learnt at school and used for sermons, lectures and news, but nobody uses it for ordinary conversation."]},
+  {id:'fis', th:'con', who:'Joshua Fishman', name:'Bilingualism with and without diglossia', year:'1967', place:'Paraguay and other multilingual societies',
+   method:'Conceptual and comparative work; domain analysis of language choice.',
+   vars:'Language choice by domain (family, friendship, religion, education, employment).',
+   finding:'Diglossia can hold between unrelated languages (Spanish H, Guaraní L in Paraguay). Individual bilingualism and societal diglossia are independent, so a society can have both, either or neither.',
+   why:'Generalised diglossia to multilingual societies and gave the field the notion of domain.',
+   facts:["Extended the High/Low split to unrelated languages, e.g. Spanish (H) and Guaraní (L) in Paraguay.",
+          "Distinguished individual bilingualism from societal diglossia, so a community can have both, either or neither."]},
+  {id:'bro', th:'att', who:'Roger Brown & Albert Gilman', name:'The pronouns of power and solidarity', year:'1960', place:'European languages (French, German, Italian and others)',
+   method:'Historical analysis of literary texts plus questionnaires to speakers of several European languages.',
+   vars:'T/V pronouns: tu/vous, du/Sie, tu/Lei.',
+   finding:'Pronoun choice follows a power semantic (non-reciprocal: the superior gives T, receives V) and a solidarity semantic (reciprocal: mutual T for intimates, mutual V for non-intimates). Over time the solidarity semantic has gained ground.',
+   why:'The classic account of address forms and of how grammar encodes social relationships.',
+   facts:["Analysed pronoun pairs like tu/vous and du/Sie along two dimensions: non-reciprocal power and reciprocal solidarity.",
+          "Traced a historical move away from status-based, non-reciprocal pronoun use towards mutual forms based on closeness."]},
+  {id:'lak', th:'gen', who:'Robin Lakoff', name:'Language and Woman\'s Place', year:'1975', place:'American English',
+   method:'Introspection and informal observation, not recorded corpus data.',
+   vars:'Hedges, tag questions, "empty" adjectives, precise colour terms, intensifiers, rising intonation on statements, superpolite forms, avoidance of strong swear words.',
+   finding:'Proposed that "women\'s language" makes speakers sound tentative and powerless, reflecting women\'s subordinate position.',
+   why:'Started the field of language and gender. Later work tested her claims and found them too simple: men sometimes use more tag questions, and many women\'s tags are facilitative rather than uncertain.',
+   facts:["Claimed that women use more hedges, tag questions, 'empty' adjectives like 'divine' and fine colour terms like 'mauve', making their speech sound tentative.",
+          "Drew conclusions about women's speech largely from introspection and informal observation rather than recorded data."]},
+  {id:'tan', th:'gen', who:'Deborah Tannen', name:'You Just Don\'t Understand', year:'1990', place:'American English conversation',
+   method:'Analysis of conversational examples for a general readership, building on the "two cultures" approach (Maltz & Borker 1982).',
+   vars:'Conversational styles and goals.',
+   finding:'Men and women are socialised in different peer subcultures, so their talk differs: "report talk" (information, status, independence) vs "rapport talk" (connection, intimacy). Miscommunication is like cross-cultural misunderstanding.',
+   why:'Popularised the difference model. Criticised for downplaying power and for treating gender as two uniform groups.',
+   facts:["Described men's and women's conversation as two cultural styles, 'report talk' versus 'rapport talk', so miscommunication resembles cross-cultural misunderstanding.",
+          "Argued that girls' and boys' peer groups socialise them into seeking connection and intimacy versus status and independence."]},
+  {id:'laa', th:'var', who:'William Labov', name:'The logic of nonstandard English; the AAE copula', year:'1969', place:'Harlem, New York City',
+   method:'Recorded speech of African American adolescents in peer-group sessions; quantitative analysis of copula contraction and deletion.',
+   vars:'Copula (is/are) contraction and deletion.',
+   finding:'AAE deletes is/are only where Standard English allows contraction, a regular rule. Children judged "non-verbal" in test settings were highly verbal and logical in natural settings.',
+   why:'Undermined the "verbal deprivation" (deficit) view of Black children\'s speech and showed that AAE is rule-governed.',
+   facts:["Showed that African American English drops forms of 'is' and 'are' only where Standard English allows them to be contracted.",
+          "Argued against the claim that Black children's non-standard speech showed 'verbal deprivation' or illogical thinking."]},
+  {id:'ric', th:'sty', who:'John Rickford (with Faye McNair-Knox)', name:'BIN and addressee-influenced style shift', year:'1975 / 1994', place:'African American communities in the US (Foxy Boston, East Palo Alto)',
+   method:'Comprehension test of stressed BIN (1975); two interviews with the same teenager by a familiar African American interviewer and an unfamiliar white interviewer (1994).',
+   vars:'Remote BIN; copula absence, invariant habitual be, third-person -s absence.',
+   finding:'Most African American listeners understood "She BIN married" as "she has been married a long time and still is"; most white listeners thought she no longer was. The teenager used far more AAE features with the familiar African American interviewer.',
+   why:'Showed that AAE has meanings invisible to outsiders and gave strong support to audience design. Rickford was also a leading linguistic voice in the 1996–97 "Ebonics" debate.',
+   facts:["An African American teenager used far more AAE features with a familiar African American interviewer than with an unfamiliar white interviewer.",
+          "Asked whether 'She BIN married' meant she was still married, most African American listeners said yes and most white listeners said no."]},
+  {id:'gil', th:'sty', who:'Howard Giles (with Richard Bourhis)', name:'Accommodation theory', year:'1970s; Welsh study 1977', place:'Wales and elsewhere',
+   method:'Social-psychological experiments, e.g. Welsh learners interviewed by an English-accented speaker who challenged the value of Welsh.',
+   vars:'Accent strength, speech rate, language choice.',
+   finding:'Speakers converge towards an interlocutor to gain approval or smooth communication, and diverge to stress their own group identity. The Welsh participants broadened their accents, and some used Welsh, when the interviewer dismissed Welsh.',
+   why:'Speech (later Communication) Accommodation Theory: style shift explained by the speaker\'s relationship to the interlocutor.',
+   facts:["Welsh speakers broadened their accents and used Welsh words when an English-accented interviewer dismissed the Welsh language.",
+          "Speakers adjust their speech towards an interlocutor to win approval, or away from them to stress group distinctiveness."]},
+  {id:'cou', th:'sty', who:'Nikolas Coupland', name:'Cardiff travel agency', year:'1980 / 1984', place:'A travel agency in Cardiff, Wales',
+   method:'Recordings of one assistant at work with clients of different social classes.',
+   vars:'Cardiff variables, e.g. intervocalic (t) and (h).',
+   finding:'Her use of local, non-standard variants rose and fell with the social class of each client: convergence.',
+   why:'Clear real-world evidence of accommodation in everyday work talk.',
+   facts:["A travel-agency assistant's use of local Cardiff pronunciations rose and fell with the social class of each client she served."]},
+  {id:'bel', th:'sty', who:'Allan Bell', name:'Audience design', year:'1984', place:'New Zealand radio stations',
+   method:'Comparison of the same newsreaders reading news on two stations with different audiences.',
+   vars:'Intervocalic /t/ voicing (as in "better"), among others.',
+   finding:'The same newsreaders voiced /t/ more on the local community station than on the national station: they adapted to the audience. Style shifting responds mainly to the audience (addressee, auditor, overhearer), and style variation mirrors social variation.',
+   why:'Replaced "attention to speech" as the main explanation of style with the audience; integrated accommodation theory into variationist work.',
+   facts:["The same newsreaders voiced intervocalic /t/ more often on a local station than on the national station, because the audiences differed.",
+          "Style shifting responds mainly to the audience (addressees, auditors, overhearers), and style differences mirror social differences between groups."]},
+  {id:'gal', th:'con', who:'Susan Gal', name:'Language shift in Oberwart', year:'1979', place:'Oberwart / Felsőőr, Burgenland, Austria',
+   method:'Ethnography; charts of which language each speaker used with which interlocutor.',
+   vars:'Choice between Hungarian and German.',
+   finding:'The community was shifting from Hungarian to German. Hungarian stood for peasant life, German for wage work and mobility. Young women led the shift; speakers with peasant-based networks kept more Hungarian. Language choice could be predicted from age and network.',
+   why:'A classic case study of language shift showing that social meaning and networks, not just economics, drive it.',
+   facts:["In a bilingual town in Burgenland, young women led the shift from Hungarian to German, rejecting the peasant life Hungarian stood for.",
+          "Each speaker's language choice with each interlocutor could be predicted from the speaker's age and how peasant-based their social network was."]},
+  {id:'pop', th:'con', who:'Shana Poplack', name:'"Sometimes I\'ll start a sentence in Spanish y termino en español"', year:'1980', place:'Puerto Rican community, East Harlem, New York City',
+   method:'Quantitative analysis of recorded conversation by bilinguals of different proficiency.',
+   vars:'Type and position of switches.',
+   finding:'Fluent bilinguals produced the most intra-sentential switches; less fluent speakers favoured tag and inter-sentential switches. Switches occurred where the word orders of the two languages match (equivalence constraint) and not between a bound morpheme and its stem (free morpheme constraint).',
+   why:'Showed that intra-sentential switching is a sign of bilingual skill, not deficiency, and that it is rule-governed.',
+   facts:["Fluent bilinguals produced the most switches within sentences, while less fluent speakers favoured tags and switches between sentences.",
+          "Switches tend to occur at points where the word orders of the two languages match (the equivalence constraint)."]},
+  {id:'dor', th:'con', who:'Nancy Dorian', name:'East Sutherland Gaelic', year:'1981', place:'Fishing communities in East Sutherland, Scotland',
+   method:'Long-term fieldwork with speakers of different ages and fluency.',
+   vars:'Grammatical structures of the dying dialect.',
+   finding:'Described "semi-speakers" who understand the language fully but speak a reduced form, and the stages of language death.',
+   why:'A classic study of language death and of what happens to grammar in the last generations.',
+   facts:["Described 'semi-speakers' of a dying Scottish Gaelic dialect who understood it fully but spoke a reduced, imperfect version."]},
+  {id:'hau', th:'std', who:'Einar Haugen', name:'Dialect, language, nation', year:'1966', place:'Norway and general',
+   method:'Historical study of Norwegian language planning; theoretical model.',
+   vars:'Standardisation processes.',
+   finding:'Standardisation involves selection of a norm, codification, elaboration of function and acceptance.',
+   why:'The standard model of how a variety becomes a standard language; links to language planning.',
+   facts:["Modelled standardisation as four steps: selection of a norm, codification, elaboration of function and acceptance."]},
+  {id:'klo', th:'std', who:'Heinz Kloss', name:'Abstand and Ausbau languages', year:'1967', place:'Europe (Germanic and other languages)',
+   method:'Theoretical classification.',
+   vars:'Structural distance vs deliberate elaboration.',
+   finding:'Some varieties are languages by distance (Abstand: Basque); others by elaboration into their own standard (Ausbau: Slovak vs Czech). A Dachsprache is a standard that roofs related dialects.',
+   why:'Explains why closely related varieties can be separate languages while distant ones are called dialects.',
+   facts:["Distinguished languages that count as separate because of their structural distance from those that count as separate because they have been developed into their own standard."]},
+  {id:'kac', th:'std', who:'Braj Kachru', name:'The three circles of English', year:'1985', place:'The English-using world',
+   method:'Classification of countries by the history and functions of English.',
+   vars:'Status and function of English.',
+   finding:'Inner circle (ENL, norm-providing), Outer circle (ESL, norm-developing), Expanding circle (EFL, norm-dependent).',
+   why:'Foundational model of World Englishes, legitimising Outer circle varieties such as Indian English; criticised for being nation-based.',
+   facts:["Divided the English-using world into three concentric circles according to how English spread there and what functions it has."]}
+];
+var NEAR = {les:['int','nor','nyc'], int:['les','nyc'], nyc:['les','int'], nor:['les'], mil:['eck','che'], eck:['mil','che'], che:['mil','eck'], fer:['fis'], fis:['fer'], gum:['pop'], pop:['gum'], lak:['tan'], tan:['lak'], laa:['ric'], ric:['laa','bel','gil','cou'], gil:['cou','bel','ric'], cou:['gil','bel','ric'], bel:['gil','cou','ric'], gal:['dor'], dor:['gal'], hau:['klo'], klo:['hau']};
+function near(a, b){ return a === b || (NEAR[a] || []).indexOf(b) >= 0 || (NEAR[b] || []).indexOf(a) >= 0; }
+function shortWho(s){ var w = s.who.split(' (')[0]; return w.split(' & ').map(function(p){ var parts = p.replace(' et al.', '').split(' '); return parts[parts.length-1] + (p.indexOf('et al.') >= 0 ? ' et al.' : ''); }).join(' & '); }
+function sOpt(s){ return shortWho(s) + ': ' + s.name + ' (' + s.year.replace(' / ', '/').split(/[ ;]/)[0] + ')'; }
+var FACTS = [];
+STUDIES.forEach(function(s){ s.facts.forEach(function(f, i){ FACTS.push({s:s, f:f, i:i}); }); });
+
+// ---------- DATA: scenarios ----------
+var LBL = {
+  B:'Borrowing', SIT:'Situational code-switching', MET:'Metaphorical code-switching', DIG:'Diglossia', STY:'Style shifting', CON:'Convergence', DIV:'Divergence',
+  HYP:'Hypercorrection', SH:'Language shift', DTH:'Language death', COV:'Covert prestige', OVT:'Overt prestige', OBS:'Observer\'s paradox',
+  TAG:'Tag switching', INTER:'Inter-sentential switching', INTRA:'Intra-sentential switching',
+  STAT:'Status planning', CORP:'Corpus planning', ACQ:'Acquisition planning',
+  POW:'Power semantic', SOL:'Solidarity semantic'
+};
+var SETS = {
+  gen:{codes:['B','SIT','MET','DIG','STY','CON','DIV','HYP','SH','DTH','COV','OVT','OBS'], q:'Which term fits this best?'},
+  str:{codes:['TAG','INTER','INTRA','B'], q:'Which of Poplack\'s types is this (or is it borrowing)?', fixed:false},
+  plan:{codes:['STAT','CORP','ACQ'], q:'Which type of language planning is this?', fixed:true},
+  tv:{codes:['POW','SOL'], q:'Which of Brown & Gilman\'s two semantics governs this pronoun use?', fixed:true}
+};
+// [id, set, answer code, excluded distractor codes, scenario, why]
+var SCEN = [
+  ['b1','gen','B','',"German speakers who know no English say 'der Computer', 'die Software' and 'das Team' in ordinary German sentences, with German genders and plural endings.","These are established loans: integrated into German grammar and used by monolinguals. Code-switching needs bilinguals alternating between two systems."],
+  ['b2','gen','B','',"English speakers who have never learnt German talk about 'angst', 'kindergarten' and their 'rucksack'.","Monolinguals using words that are now part of English: borrowing, not switching."],
+  ['b3','gen','B','',"Japanese speakers say 'terebi' (from 'television') in everyday Japanese, fitted to Japanese syllable structure.","Adaptation to the receiving language's sound system is a hallmark of borrowing."],
+  ['b4','gen','B','',"Austrians who speak no English say 'Wir gehen shoppen' and 'Ich hab gechillt', with German verb endings.","The English stems carry German inflection (shopp-en, ge-chill-t) and are used by people who don't speak English: borrowing."],
+  ['sit1','gen','SIT','DIG CON DIV STY SH',"A Turkish–German teenager speaks Turkish with her grandmother at home and German with her classmates at school.","The language changes because the participants and setting change: situational switching."],
+  ['sit2','gen','SIT','DIG CON DIV STY',"Teachers at a Welsh school use English in a staff meeting while an English-only inspector is present, and Welsh again once the inspector has left.","A change of participants triggers the change of language: situational switching."],
+  ['sit3','gen','SIT','DIG CON DIV STY',"Colleagues in a Barcelona office chat in Catalan; when a Spanish-speaking client walks in, the whole conversation moves to Spanish.","A new participant changes the situation, and the language changes with it: situational switching."],
+  ['sit4','gen','SIT','DIG CON DIV STY SH',"A Nigerian civil servant uses English in formal meetings at the ministry and Yoruba at a family celebration.","Setting and participants decide the language: situational switching. (Seen at the level of the whole society, this pattern is what Fishman called extended diglossia.)"],
+  ['sit5','gen','SIT','DIG CON DIV STY SH',"Kenyan pupils use English in lessons, Swahili in the playground and their home language with their family.","Each setting comes with its own language: situational switching by individuals."],
+  ['met1','gen','MET','CON DIV STY DIG',"In a business meeting held entirely in standard Norwegian, a manager makes one joke in the local dialect to signal 'we're all locals here', then carries on in the standard.","Nothing about the situation changes; the switch borrows the dialect's associations of local solidarity: metaphorical switching."],
+  ['met2','gen','MET','CON DIV STY',"A mother talking to her son in Spanish switches to English for 'Come here right now!' to sound stricter, though nothing about the situation has changed.","Same people, same setting: the switch adds a new tone (authority), so it is metaphorical."],
+  ['met3','gen','MET','CON DIV STY DIG',"Chatting in Swiss German, a speaker reads out a line from an official letter in an exaggerated Standard German voice to mock its bureaucratic tone.","The situation stays the same; the switch exploits the associations of the other variety (officialdom): metaphorical."],
+  ['met4','gen','MET','CON DIV STY',"Two Hindi–English bilingual friends are chatting in Hindi; one switches to English to tell the other off in a mock-formal, 'professional' tone, then goes back to Hindi.","Same friends, same setting: the switch is used for its connotations, so it is metaphorical."],
+  ['dig1','gen','DIG','SIT MET STY',"In a society, everyone grows up speaking variety A; variety B, a related classical form of the same language, is learnt at school and used for sermons, lectures and newspapers, but never for chatting.","Two varieties of one language with complementary functions across a whole community, H never used for conversation: Ferguson's diglossia."],
+  ['dig2','gen','DIG','SIT MET STY',"In German-speaking Switzerland, people of all social classes speak dialect in everyday conversation, even with their bank manager, but write formal texts in Standard German.","A stable, community-wide functional split between two varieties of one language: diglossia. It isn't a matter of class or of style within one variety."],
+  ['dig3','gen','DIG','SIT MET STY',"For centuries, a prestigious variety has been reserved for writing, religion and formal speeches, while a closely related everyday variety is used for conversation, folk songs and jokes.","Stability over centuries and a strict functional division between two varieties of one language: diglossia."],
+  ['sty1','gen','STY','OBS HYP CON DIV OVT SIT MET',"A New Yorker pronounces more /r/ when reading a word list aloud than when telling a story to friends.","The same speaker uses more prestige forms as attention to speech increases: style shifting along Labov's style continuum."],
+  ['sty2','gen','STY','CON DIV OVT OBS SIT MET',"A student says 'goin'' and 'nothin'' at a party but 'going' and 'nothing' in her oral exam.","One speaker varying (ing) with formality: style shifting, not a switch between two languages."],
+  ['sty3','gen','STY','CON DIV OBS SIT MET OVT',"The same speaker uses [ɪn] for (ing) far more in casual conversation than when reading a passage aloud.","Variation within one speaker according to formality and attention to speech: style shifting."],
+  ['con1','gen','CON','STY SIT MET',"A Viennese woman who has moved to Hamburg starts using more northern German pronunciations when talking with her new colleagues.","Moving towards the interlocutors' way of speaking: convergence (accommodation theory)."],
+  ['con2','gen','CON','STY',"A travel agent uses more local, working-class pronunciations with working-class clients and more standard ones with middle-class clients.","Adjusting towards each client's speech: convergence (Coupland's Cardiff study)."],
+  ['con3','gen','CON','STY',"An English visitor to Texas finds herself saying 'y'all' and slowing down her speech to match her hosts.","Adapting towards the hosts' way of speaking: convergence."],
+  ['div1','gen','DIV','STY COV SIT MET',"When an English-accented interviewer dismisses the Welsh language, Welsh participants answer with noticeably broader Welsh accents and some Welsh words.","Moving away from the interlocutor's speech to stress group identity: divergence (Bourhis & Giles)."],
+  ['div2','gen','DIV','STY COV',"A Scottish student in London deliberately broadens her accent after a classmate imitates her mockingly.","Accentuating the difference from the interlocutor: divergence."],
+  ['div3','gen','DIV','STY COV SIT MET',"A tourist addresses a Montreal shopkeeper in English; the shopkeeper, who speaks fluent English, pointedly answers only in French.","Choosing the language that marks a different group identity from the interlocutor: divergence."],
+  ['hyp1','gen','HYP','OVT',"Trying to sound educated, a speaker says 'between you and I' and 'Whom shall I say is calling?'","Prestige forms (I, whom) used where the standard has me and who: hypercorrection."],
+  ['hyp2','gen','HYP','OVT STY',"A speaker from northern England learns to say 'cup' with /ʌ/, and then also says 'butcher' and 'cushion' with /ʌ/.","The new vowel is extended to FOOT words that never had it: hypercorrection."],
+  ['hyp3','gen','HYP','OVT STY',"In the most formal reading styles, lower-middle-class New Yorkers use more [r] than the upper middle class does.","Labov's crossover pattern: a group overshoots the prestige norm of the group above it."],
+  ['hyp4','gen','HYP','OVT',"A speaker who usually drops /h/ adds one to words like 'apple' and 'egg' when she tries to speak carefully.","An /h/ inserted where the standard has none: overshooting the prestige norm, i.e. hypercorrection."],
+  ['hyp5','gen','HYP','OVT',"Having been told that 'you and me' is often wrong, a speaker starts saying 'They invited you and I.'","'I' is the prestige form only in subject position; using it as an object overshoots the norm: hypercorrection."],
+  ['sh1','gen','SH','DTH SIT',"In a Welsh village, the grandparents speak Welsh, their children are bilingual, and the grandchildren understand Welsh but answer in English.","A community moving from one language to another across three generations: language shift."],
+  ['sh2','gen','SH','DTH',"In a bilingual Austrian town, Hungarian is used less with each generation as young people take German-speaking jobs.","Gal's Oberwart: a community gradually giving up Hungarian for German, i.e. language shift."],
+  ['sh3','gen','SH','DTH SIT',"In Italian immigrant families in Australia, the first generation speaks Italian at home; by the third generation English is used in nearly every domain.","A generational move to the majority language: language shift."],
+  ['dth1','gen','DTH','SH',"On a remote island, the last two elderly speakers of a language die; none of their grandchildren ever learnt it.","No speakers left: language death, the end point of a shift."],
+  ['dth2','gen','DTH','SH',"A language survives only in old recordings, a grammar and a dictionary; nobody alive speaks it.","No speech community remains: the language has died (it could still be revived from the records)."],
+  ['cov1','gen','COV','DIV OVT STY',"Working-class men in Norwich claim in a survey to use more local pronunciations than their recordings show.","They value the local forms beyond their actual use: covert prestige (Trudgill's under-reporting)."],
+  ['cov2','gen','COV','DIV STY CON',"Teenage boys use 'ain't' and double negatives among their friends because it sounds tough, even though their teachers call it wrong.","Non-standard forms carry in-group value (toughness, solidarity) that is not publicly acknowledged: covert prestige."],
+  ['cov3','gen','COV','DIV STY CON',"A middle-class man uses local working-class pronunciations with his football mates, because to them the standard sounds posh and soft.","The non-standard forms carry in-group value (masculinity, solidarity) that society at large doesn't grant them: covert prestige."],
+  ['ovt1','gen','OVT','HYP COV',"People name the national newsreaders' accent as the 'best' and 'most correct' English and wish they spoke like that.","Openly acknowledged status of the standard: overt prestige."],
+  ['ovt2','gen','OVT','HYP',"Parents pay for elocution lessons so their children will sound like the accent associated with good jobs.","The standard accent's openly recognised social value: overt prestige."],
+  ['ovt3','gen','OVT','HYP STY',"In New York City, people describe r-pronunciation as 'correct' and associate it with educated, high-status speakers.","An openly valued prestige form: overt prestige. (In England, r-lessness has that status: prestige is local.)"],
+  ['obs1','gen','OBS','STY',"A linguist notices that her informants speak in a stiff, careful way as soon as the microphone appears, so the recordings miss their everyday speech.","Observation changes the very speech you want to observe: the observer's paradox."],
+  ['obs2','gen','OBS','STY',"To get relaxed speech, a fieldworker asks 'Have you ever been in a situation where you thought you might be killed?' to draw attention away from the recording.","Labov's danger-of-death question is a technique for getting round the observer's paradox."],
+  ['obs3','gen','OBS','STY',"Students recording their families find that relatives switch to their 'best' speech whenever they notice the phone is recording.","The presence of observation alters speech: the observer's paradox."],
+  // Poplack's types
+  ['st1','str','TAG','',"Ich hab das schon erledigt, you know?","A fixed tag ('you know') from the other language attached to an utterance: tag switching."],
+  ['st2','str','TAG','',"Es ist echt kalt heute, isn't it?","An English question tag on a German sentence: tag switching."],
+  ['st3','str','TAG','',"You know, ich hab keine Ahnung, wo er ist.","A discourse marker from the other language at the edge of the sentence: tag switching."],
+  ['st4','str','TAG','',"It's a great idea, ¿no?","A Spanish tag on an English sentence: tag switching."],
+  ['st5','str','INTER','',"I'm so tired. Ich geh jetzt schlafen.","One whole sentence in each language, switching at the sentence boundary: inter-sentential."],
+  ['st6','str','INTER','',"Wir treffen uns morgen. We'll talk about it then.","The switch falls between two complete sentences: inter-sentential."],
+  ['st7','str','INTER','',"That was a terrible film. Je ne veux plus jamais le revoir.","Two complete sentences in two languages: inter-sentential."],
+  ['st8','str','INTER','',"Ya terminé el examen. Now I can finally relax.","Sentence-boundary switch: inter-sentential."],
+  ['st9','str','INTRA','',"Kannst du mir bitte the red one geben?","An English noun phrase inside a German clause: intra-sentential, the type that needs most proficiency."],
+  ['st10','str','INTRA','',"Ich hab gestern with my best friend telefoniert.","An English prepositional phrase inside a German clause: intra-sentential."],
+  ['st11','str','INTRA','',"They gave me un regalo muy bonito for my birthday.","A Spanish noun phrase inside an English clause: intra-sentential."],
+  ['st12','str','INTRA','',"Mein Bruder is really nervous wegen der Prüfung.","Several switches inside one clause: intra-sentential."],
+  ['st13','str','B','',"Wir haben das Meeting auf morgen verschoben.","'Meeting' is an established loan in German (neuter gender, German plural, used by monolinguals): borrowing, not a switch."],
+  ['st14','str','B','',"A singer, says an English critic, has a certain je ne sais quoi.","'Je ne sais quoi' is an established phrase in English dictionaries, used by people who speak no French: a borrowing."],
+  ['st15','str','B','',"Das Team hat das Projekt gestern gestartet.","'Team' and 'starten' are long-established German words with German grammar: borrowing."],
+  // language planning
+  ['pl1','plan','STAT','',"A newly independent East African state makes Swahili its national language.","Deciding which language serves which function: status planning."],
+  ['pl2','plan','CORP','',"A spelling reform replaces 'daß' with 'dass' in Germany, Austria and Switzerland.","Changing the form of the language (its spelling): corpus planning."],
+  ['pl3','plan','ACQ','',"The government funds more Welsh-medium schools so that more children grow up speaking Welsh.","Increasing the number of speakers: acquisition planning."],
+  ['pl4','plan','ACQ','',"'Language nests' immerse Māori preschool children in Māori, spoken by fluent elders.","Creating new speakers through immersion: acquisition planning."],
+  ['pl5','plan','CORP','',"A language academy coins native words for 'email' and 'software' to replace English loans.","Developing vocabulary changes the language itself: corpus planning."],
+  ['pl6','plan','CORP','',"Committees create Hebrew words for modern objects as the language is revived for everyday use.","Expanding the lexicon: corpus planning."],
+  ['pl7','plan','STAT','',"A law makes one language the only one allowed in courts and government offices.","Allocating a function to a language: status planning."],
+  ['pl8','plan','STAT','',"Norway gives its two written standards, Bokmål and Nynorsk, equal official status.","Official status is the definition of status planning."],
+  ['pl9','plan','CORP','',"Linguists publish the first official dictionary and grammar of a newly standardised language.","Codification is part of corpus planning."],
+  ['pl10','plan','ACQ','',"A regional government offers free evening classes and an app so that adults can learn the regional language.","Teaching new learners: acquisition planning."],
+  ['pl11','plan','CORP','',"Turkey replaces the Arabic script with a Latin alphabet in 1928.","Script reform changes the written form: corpus planning."],
+  ['pl12','plan','CORP','',"Mainland China introduces simplified characters.","A change to the writing system: corpus planning."],
+  ['pl13','plan','STAT','',"A constitution recognises several indigenous languages as official alongside the former colonial language.","Granting official functions: status planning."],
+  ['pl14','plan','ACQ','',"Primary teachers are retrained so that they can teach all subjects through Irish.","Building capacity to pass the language on to pupils: acquisition planning."],
+  ['pl15','plan','STAT','',"A constitution declares Irish the national language and first official language of the state.","Assigning official status: status planning."],
+  ['pl16','plan','ACQ','',"Schools in a region make the minority language a compulsory subject for every pupil.","Getting more people to learn the language: acquisition planning."],
+  // T/V
+  ['tv1','tv','POW','',"A 19th-century aristocrat says T to his servants and receives V from them.","Non-reciprocal: the superior gives T and receives V. That is the power semantic."],
+  ['tv2','tv','SOL','',"Two German students meeting at a party say du to each other straight away.","Reciprocal T between equals who treat each other as close: solidarity semantic."],
+  ['tv3','tv','SOL','',"Two business people meeting for the first time say Sie to each other.","Reciprocal V between non-intimate equals is governed by the solidarity semantic too. Only non-reciprocal use is power."],
+  ['tv4','tv','POW','',"A teacher says du to a ten-year-old pupil, who says Sie to the teacher.","Non-reciprocal use based on age and status: power semantic."],
+  ['tv5','tv','POW','',"An officer says T to a private and gets V back.","Non-reciprocal: power semantic."],
+  ['tv6','tv','SOL','',"Two colleagues who have worked side by side for years switch from mutual Sie to mutual du.","Reciprocal use that changes with closeness: solidarity semantic."],
+  ['tv7','tv','POW','',"A boss says du to her employees but expects Sie from them.","Non-reciprocal, status-based: power semantic."],
+  ['tv8','tv','SOL','',"A customer and a waiter, strangers to each other, both say Sie.","Mutual V between people who are not close: solidarity semantic (reciprocal)."],
+  ['tv9','tv','SOL','',"Brothers and sisters say T to each other.","Mutual T between intimates: solidarity semantic."]
+];
+
+// ---------- DATA: Kachru ----------
+var KACHRU = [
+  ['United States','Inner'],['United Kingdom','Inner'],['Ireland','Inner'],['Canada','Inner'],['Australia','Inner'],['New Zealand','Inner'],
+  ['India','Outer'],['Nigeria','Outer'],['the Philippines','Outer'],['Kenya','Outer'],['Ghana','Outer'],['Pakistan','Outer'],['Bangladesh','Outer'],['Sri Lanka','Outer'],['Tanzania','Outer'],['Zambia','Outer'],
+  ['China','Expanding'],['Japan','Expanding'],['Germany','Expanding'],['Austria','Expanding'],['France','Expanding'],['Italy','Expanding'],['Spain','Expanding'],['Russia','Expanding'],['Brazil','Expanding'],['South Korea','Expanding'],['Indonesia','Expanding'],['Egypt','Expanding'],['Saudi Arabia','Expanding'],['Mexico','Expanding'],['Turkey','Expanding'],['Poland','Expanding']
+];
+var KCONCEPT = [
+  ['English is the native language (ENL) of most of the population.','Inner'],
+  ['English is an institutionalised second language (ESL) with official functions, a legacy of colonial rule.','Outer'],
+  ['English is a foreign language (EFL), learnt at school for international contact, with no official internal role.','Expanding'],
+  ['Kachru called this circle "norm-providing".','Inner'],
+  ['Kachru called this circle "norm-developing": local standards such as Indian English emerge.','Outer'],
+  ['Kachru called this circle "norm-dependent": learners look to British or American norms.','Expanding'],
+  ['This circle has the largest and fastest-growing number of English users.','Expanding'],
+  ['English spread here mainly through settlement by native speakers, displacing other languages.','Inner']
+];
+var KC = {Inner:'Inner circle', Outer:'Outer circle', Expanding:'Expanding circle'};
+var KWHY = {Inner:'Inner circle: English as a native language (ENL), the traditional base; norm-providing.', Outer:'Outer circle: English as an institutionalised second language (ESL) after colonial rule, used in administration, law and education; norm-developing.', Expanding:'Expanding circle: English as a foreign language (EFL) with no official internal role; norm-dependent.'};
+
+// ---------- DATA: Ferguson's diglossia (situation, H/L, in Ferguson's own table?) ----------
+var DIG = [
+  ['Sermon in church or mosque','H',1],['Instructions to servants, waiters, workmen, clerks','L',1],['Personal letter','H',1],['Speech in parliament, political speech','H',1],
+  ['University lecture','H',1],['Conversation with family, friends, colleagues','L',1],['News broadcast','H',1],['Radio soap opera','L',1],
+  ['Newspaper editorial, news story, caption on a picture','H',1],['Caption on a political cartoon','L',1],['Poetry','H',1],['Folk literature','L',1],
+  ['Joking with your brothers and sisters at dinner','L',0],['Haggling over prices at a market stall','L',0],['Ordering a coffee from a waiter','L',0],['Reading from scripture during a service','H',0],
+  ['Writing an academic textbook','H',0],['Telling a folk tale to children at bedtime','L',0],['The variety children acquire first, at home','L',0],['The variety learnt through formal schooling and grammar lessons','H',0],
+  ['The variety with a large body of admired, centuries-old literature','H',0],['The variety codified in grammars, dictionaries and style guides','H',0],['The variety that speakers often claim "has no grammar"','L',0],
+  ['The variety considered more beautiful and logical, even by people who cannot use it well','H',0],['A formal speech at a graduation ceremony','H',0],['Chatting with a taxi driver','L',0],
+  ['A lullaby sung to a baby','L',0],['A government decree','H',0],['Telling colleagues about your weekend over lunch','L',0],['The variety with simpler inflection (fewer case or verb forms)','L',0],
+  ['Giving directions to a workman repairing your roof','L',0]
+];
+
+var DIGWHY = {
+  'The variety children acquire first, at home':"Ferguson's acquisition feature: L is the mother tongue; H is learnt later, through formal education.",
+  'The variety learnt through formal schooling and grammar lessons':"Ferguson's acquisition feature: H is learnt at school, often with explicit grammar rules.",
+  'The variety with a large body of admired, centuries-old literature':"Ferguson's literary heritage feature: the admired written tradition is in H.",
+  'The variety codified in grammars, dictionaries and style guides':"Ferguson's standardisation feature: H is codified; L usually has little or no codification.",
+  'The variety that speakers often claim "has no grammar"':"Ferguson noted that speakers often regard L as having no grammar, or even deny that they use it.",
+  'The variety considered more beautiful and logical, even by people who cannot use it well':"Ferguson's prestige feature: H is felt to be superior, more beautiful and more logical.",
+  'The variety with simpler inflection (fewer case or verb forms)':"Ferguson's grammar feature: H has grammatical categories and inflections that L has reduced or lost."
+};
+
+// ---------- DATA: Labov types, change, time ----------
+var LAB = [
+  ['i1','type','Indicator',"A vowel variant differs between social classes, but every speaker uses it at the same rate in casual speech and when reading a word list."],
+  ['i2','type','Indicator',"Older and younger speakers differ in a feature, but nobody shifts it with formality and nobody comments on it."],
+  ['i3','type','Indicator',"Speakers show no awareness of a variable; it correlates with ethnic group but never with style."],
+  ['i4','type','Indicator',"A subtle vowel difference distinguishes neighbourhoods; even in word lists, speakers keep their usual rate."],
+  ['m1','type','Marker',"(ing): everyone uses more [ɪŋ] when reading aloud than in casual chat, and middle-class speakers use more [ɪŋ] overall."],
+  ['m2','type','Marker',"Post-vocalic (r) in New York City is stratified by class and increases in careful styles, though speakers rarely talk about it."],
+  ['m3','type','Marker',"A feature varies by class and speakers shift it in formal styles, but most can't describe it if asked."],
+  ['m4','type','Marker',"A consonant variant is more common in working-class speech, and every group uses less of it reading a passage than chatting; few people notice it."],
+  ['i5','type','Indicator',"Speakers from two parts of a city differ slightly in one vowel, but the difference is identical in casual talk, reading passages and word lists, and nobody has ever remarked on it."],
+  ['s1','type','Stereotype',"New Yorkers are mocked for saying 'toidy-toid street' for 'thirty-third street', a pronunciation now rare in real speech."],
+  ['s2','type','Stereotype',"A local pronunciation is widely imitated in comedy and printed on souvenir T-shirts, and many speakers deliberately avoid it."],
+  ['s3','type','Stereotype',"People can name and imitate a feature, comment on it and often stigmatise it, even though actual speakers use it much less than people think."],
+  ['s4','type','Stereotype',"Pittsburgh's 'yinz' appears on mugs and T-shirts as a symbol of local identity and is a frequent topic of local comment."],
+  ['c1','chg','Change from above',"After the Second World War, New Yorkers increasingly pronounced post-vocalic /r/, a change they were aware of and associated with prestige."],
+  ['c2','chg','Change from below',"On Martha's Vineyard, centralised diphthongs spread without speakers noticing them."],
+  ['c3','chg','Change from below',"Vowel shifts in cities around the Great Lakes spread over decades without most speakers noticing."],
+  ['c4','chg','Change from above',"A pronunciation from the national standard first appears in careful styles and is consciously adopted as 'better'."],
+  ['c5','chg','Change from below',"A new vowel variant appears first in the casual speech of lower-middle and upper-working-class speakers, and nobody comments on it."],
+  ['c6','chg','Change from above',"Speakers consciously replace a local form with the standard form in formal speech because teachers recommend it."],
+  ['c7','chg','Change from below',"Young people adopt a new sound in their vernacular without being aware of it; it is no more frequent in reading styles than in casual speech."],
+  ['c8','chg','Change from above',"Middle-class speakers consciously adopt a pronunciation they hear from national broadcasters and use it most when they read aloud."],
+  ['t1','time','Apparent-time study',"Recording 20-, 45- and 70-year-olds in the same year and treating their differences as a picture of change over time."],
+  ['t2','time','Real-time panel study',"Re-recording the same 40 speakers 25 years after the first interviews."],
+  ['t3','time','Real-time trend study',"Repeating a survey in the same town 30 years later with a new random sample of residents."],
+  ['t4','time','Age grading',"Every generation of teenagers uses a non-standard form heavily and drops it on entering the job market, so the community total never changes."],
+  ['t5','time','Apparent-time study',"Comparing younger and older islanders during a single fieldwork season to infer that a vowel change was increasing."],
+  ['t6','time','Real-time trend study',"Revisiting the same New York department stores decades later and surveying a new set of shop assistants."],
+  ['t7','time','Real-time panel study',"Following the same children from age 8 to 30 with repeated recordings."],
+  ['t8','time','Age grading',"In every generation, adolescents use the most vernacular forms and middle-aged speakers the fewest, and individuals move along this curve as they age."],
+  ['t9','time','Apparent-time study',"Assuming that people's speech stays largely fixed after adolescence, a researcher reads age differences in one sample as change in progress."],
+  ['t11','time','Real-time panel study',"Interviewing the same twelve women in 1990, 2005 and 2020."],
+  ['t10','time','Real-time trend study',"Comparing a 1970s corpus of a city's speech with a 2020 corpus of different speakers from the same city."]
+];
+var LABOPTS = {type:['Indicator','Marker','Stereotype'], chg:['Change from above','Change from below'], time:['Apparent-time study','Real-time panel study','Real-time trend study','Age grading']};
+var LABQ = {type:'Which of Labov\'s three types of variable is this?', chg:'Change from above or change from below?', time:'Which design or pattern is this?'};
+var LABWHY = {
+  Indicator:'Indicator: socially stratified but no style shifting, and below awareness.',
+  Marker:'Marker: stratified by social group and shifted with style, though mostly below conscious awareness.',
+  Stereotype:'Stereotype: overtly commented on, often stigmatised, and may no longer match real usage.',
+  'Change from above':'Change from above: above the level of conscious awareness, often a prestige form, strongest in careful styles. Above = awareness, not class.',
+  'Change from below':'Change from below: below conscious awareness, starting in the vernacular. Below = awareness, not class.',
+  'Apparent-time study':'Apparent time: different age groups at one moment, read as stages of change. It rests on the assumption that adults\' speech is stable.',
+  'Real-time panel study':'Panel study: the same speakers recorded at two or more dates.',
+  'Real-time trend study':'Trend study: the same community sampled again at a later date, with different speakers.',
+  'Age grading':'Age grading: individuals change as they age, but the community as a whole stays stable, so apparent-time differences don\'t mean change.'
+};
+
+// ---------- DATA: pidgins and creoles ----------
+var PCCON = ['Pidgin','Creole','Basilect','Mesolect','Acrolect','Decreolisation','Lexifier','Substrate'];
+var PC = [
+  ['pc1','con','Pidgin',"A reduced contact language with no native speakers, used for limited purposes such as trade."],
+  ['pc2','con','Pidgin',"It arises when speakers of several languages need to communicate but share none; small vocabulary, minimal grammar, nobody's first language."],
+  ['pc3','con','Creole',"A contact language acquired by children as their first language, with a full grammar used in all areas of life."],
+  ['pc4','con','Creole',"What a pidgin becomes once a community speaks it natively."],
+  ['pc5','con','Decreolisation',"Over generations, a creole moves closer to its standard lexifier through schooling and contact with the standard."],
+  ['pc6','con','Acrolect',"The variety at the top of a creole continuum, closest to the standard language."],
+  ['pc7','con','Basilect',"The variety furthest from the standard: the most distinctively creole end of the continuum."],
+  ['pc8','con','Mesolect',"The range of intermediate varieties between the two ends of a creole continuum."],
+  ['pc9','con','Lexifier',"The language that supplies most of a creole's vocabulary, usually the colonial language."],
+  ['pc10','con','Substrate',"The languages of the less powerful groups in the contact situation, which influence a creole's grammar and sounds more than its vocabulary."],
+  ['pc11','con','Basilect',"In Jamaica, the variety least intelligible to a speaker of standard British English."],
+  ['pc12','con','Acrolect',"In Jamaica, the end of the continuum that is essentially Jamaican Standard English."],
+  ['g1','cont','Acrolect',"I told him."],
+  ['g2','cont','Mesolect',"Mi tel im."],
+  ['g3','cont','Basilect',"Mi bin tel am."],
+  ['cl1','cls','Creole',"Jamaican Creole (Patwa), first language of most Jamaicans"],
+  ['cl2','cls','Creole',"Haitian Creole, first language of nearly all Haitians"],
+  ['cl3','cls','Creole',"Hawaiian Creole English, which locals call 'Pidgin'"],
+  ['cl4','cls','Creole',"Gullah, spoken natively on the coast of South Carolina and Georgia"],
+  ['cl5','cls','Creole',"Krio, first language of many people in Sierra Leone"],
+  ['cl6','cls','Creole',"Mauritian Creole, the home language of most Mauritians"],
+  ['cl7','cls','Creole',"Sranan Tongo, a native language of many people in Suriname"],
+  ['cl8','cls','Pidgin',"Russenorsk, used by Russian and Norwegian traders in the Arctic, now extinct"],
+  ['cl9','cls','Pidgin',"Chinese Pidgin English, the trade language of Canton in the 18th and 19th centuries"],
+  ['cl10','cls','Pidgin',"Fanakalo, used between workers of different language backgrounds in South African mines"],
+  ['cl11','cls','Pidgin',"Mobilian Jargon, a trade language around the Gulf of Mexico, now extinct"],
+  ['lx1','lex','French',"Haitian Creole"],['lx2','lex','English',"Jamaican Creole"],['lx3','lex','English',"Hawaiian Creole English"],['lx4','lex','English',"Krio (Sierra Leone)"],
+  ['lx5','lex','English',"Tok Pisin (Papua New Guinea)"],['lx6','lex','English',"Bislama (Vanuatu)"],['lx7','lex','English',"Gullah"],['lx8','lex','French',"Mauritian Creole"],
+  ['lx9','lex','French',"Seychellois Creole"],['lx10','lex','French',"Louisiana Creole"],['lx11','lex','Portuguese',"Cape Verdean Creole"],['lx12','lex','Portuguese',"Guinea-Bissau Kriol"],
+  ['lx13','lex','Spanish',"Palenquero (Colombia)"],['lx14','lex','Spanish',"Chavacano (the Philippines)"],['lx15','lex','Dutch',"Negerhollands (Virgin Islands, extinct)"],['lx16','lex','Dutch',"Berbice Dutch (Guyana, extinct)"],
+  ['tp','tp','An English-lexifier expanded pidgin that is now the first language of many, especially urban, speakers',"Tok Pisin"]
+];
+var TPWRONG = ['A French-lexifier creole spoken in the Caribbean','An extinct Arctic trade pidgin with no native speakers','A Portuguese-lexifier creole of West Africa'];
+
+// ---------- DATA: AAE ----------
+var AAEF = [
+  ['Habitual be','Invariant be marks an action or state that happens regularly. It contrasts with copula absence: He be working (usually, has a job) vs He working (right now).','She be working late on Fridays.'],
+  ['Copula absence','is/are can be left out, but only where Standard English could contract them: not with am, not in the past, not clause-finally (*That\'s what he).','He tall. / They at the store.'],
+  ['Negative concord','Negation is marked on the verb and on every indefinite in the clause, as in Spanish no ... nada and in many English dialects.','I don\'t want nothing.'],
+  ['Remote BIN','Stressed BIN (been) places the start of a state or action in the remote past; with a state, it still holds.','She BIN married. (= for a long time, and still is)'],
+  ['Third-person -s absence','Present-tense verbs with a third-person singular subject appear without -s.','She walk to work every day.']
+];
+var AAEFN = AAEF.map(function(a){ return a[0]; });
+var AAE = [
+  ['Habitual be','She be working late on Fridays.'],['Habitual be','He be at the gym every morning.'],['Habitual be','They be laughing at his jokes.'],['Habitual be','My brother be sleeping when I get home.'],
+  ['Habitual be','The dogs be barking every night.'],['Habitual be','We be at church on Sundays.'],['Habitual be','The kids be playing outside after school.'],['Habitual be','Her phone be dead by lunchtime.'],
+  ['Copula absence','She working right now.'],['Copula absence','He tall.'],['Copula absence','They at the store.'],['Copula absence','You crazy.'],
+  ['Copula absence','My sister in college.'],['Copula absence','We going to the game later.'],['Copula absence','The food ready.'],['Copula absence','Your brother outside.'],
+  ['Negative concord','I don\'t want nothing.'],['Negative concord','She didn\'t see nobody.'],['Negative concord','He can\'t go nowhere.'],['Negative concord','They didn\'t have no money.'],
+  ['Negative concord','I didn\'t tell nobody nothing.'],['Negative concord','He didn\'t eat none of it.'],['Negative concord','She won\'t never call back.'],
+  ['Remote BIN','She BIN married.'],['Remote BIN','I BIN knew that.'],['Remote BIN','He BIN had that car.'],['Remote BIN','They BIN paid the bill.'],
+  ['Remote BIN','We BIN living here.'],['Remote BIN','I BIN told you that.'],
+  ['Third-person -s absence','She walk to work every day.'],['Third-person -s absence','He like pizza.'],['Third-person -s absence','My mom work at the hospital.'],['Third-person -s absence','The store close at nine.'],
+  ['Third-person -s absence','She need a ride.'],['Third-person -s absence','He go to that school.'],['Third-person -s absence','My cousin want to come too.'],['Third-person -s absence','That dog bark at everybody.']
+];
+var AAECON = [
+  ['Copula absence','Where Standard English can contract is or are, AAE can leave them out entirely.'],
+  ['Habitual be','It distinguishes "he usually works / has a job" from "he is working right now".'],
+  ['Negative concord','Negation is marked on every indefinite in the clause, as in Spanish "No vi a nadie".'],
+  ['Remote BIN','It must be stressed, and places the beginning of a state far in the past.'],
+  ['Remote BIN','In Rickford\'s comprehension test, most African American listeners took a sentence with this feature to mean "she is still married".'],
+  ['Third-person -s absence','The agreement ending that Standard English has only on he/she/it verbs in the present tense is missing.']
+];
+
+// ---------- tabs ----------
+var VIEWS = ['drill','varieties','studies','contact','glossary'];
+function show(v){
+  if (VIEWS.indexOf(v) < 0) v = 'drill';
+  VIEWS.forEach(function(x){
+    document.getElementById('view-'+x).hidden = x !== v;
+    document.getElementById('tab-'+x).setAttribute('aria-selected', x === v ? 'true' : 'false');
+  });
+}
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click', function(){ var v = b.getAttribute('data-view'); try{ history.replaceState(null, '', '#'+v); }catch(e){ location.hash = v; } show(v); });
+});
+window.addEventListener('hashchange', function(){ show(location.hash.slice(1)); });
+
+// ---------- reference tables ----------
+function table(id, head, rows){
+  var t = document.getElementById(id); if (!t) return;
+  t.appendChild(el('thead', null, [el('tr', null, head.map(function(h){ return el('th', {scope:'col', text:h}); }))]));
+  var tb = el('tbody'); rows.forEach(function(r){ tb.appendChild(el('tr', null, r)); }); t.appendChild(tb);
+}
+function buildTables(){
+  table('labovtypes', ['Type','Social groups differ?','Shifts with style?','Speakers aware?','Example'], [
+    [el('td',{class:'kw',text:'Indicator'}), el('td',{text:'Yes'}), el('td',{text:'No'}), el('td',{text:'No'}), el('td',{text:'A vowel that differs by neighbourhood or age but is used at the same rate in every style.'})],
+    [el('td',{class:'kw',text:'Marker'}), el('td',{text:'Yes'}), el('td',{text:'Yes'}), el('td',{text:'Not consciously, but they react to it'}), el('td',{text:'(ing); (r) in New York City.'})],
+    [el('td',{class:'kw',text:'Stereotype'}), el('td',{text:'Yes (or once did)'}), el('td',{text:'Yes, often avoided'}), el('td',{text:'Yes: overt comment, imitation'}), el('td',{text:'"toidy-toid street"; Pittsburgh "yinz".'})]
+  ]);
+  var groups = {Inner:[], Outer:[], Expanding:[]};
+  KACHRU.forEach(function(k){ groups[k[1]].push(k[0]); });
+  table('kachrutable', ['Circle','Status of English','Examples'], [
+    [el('td',{class:'kw',text:'Inner'}), el('td',{text:'ENL, native language; norm-providing'}), el('td',{text:groups.Inner.join(', ')})],
+    [el('td',{class:'kw',text:'Outer'}), el('td',{text:'ESL, institutionalised second language after colonial rule; norm-developing'}), el('td',{text:groups.Outer.join(', ')})],
+    [el('td',{class:'kw',text:'Expanding'}), el('td',{text:'EFL, foreign language for international use; norm-dependent'}), el('td',{text:groups.Expanding.join(', ')+', and most of the world'})]
+  ]);
+  table('aaetable', ['Feature','Example','The rule'], AAEF.map(function(a){ return [el('td',{class:'kw',text:a[0]}), el('td',null,[el('i',{text:a[2]})]), el('td',{text:a[1]})]; }));
+  table('digtable', ['Situation (Ferguson 1959)','H','L'], DIG.filter(function(d){ return d[2]; }).map(function(d){ return [el('td',{text:d[0]}), el('td',{class:'h',text:d[1]==='H'?'✓':''}), el('td',{class:'l',text:d[1]==='L'?'✓':''})]; }));
+  table('pctable', ['Language','Where','Lexifier','Status'], [
+    ['Tok Pisin','Papua New Guinea','English','Expanded pidgin, one of the national languages; now the first language of many, especially urban, speakers'],
+    ['Jamaican Creole (Patwa)','Jamaica','English','Creole, with a continuum up to Jamaican Standard English'],
+    ['Hawaiian Creole English','Hawaiʻi','English','Creole, though locals call it "Pidgin"'],
+    ['Haitian Creole','Haiti','French','Creole; co-official with French; the L variety in Ferguson\'s diglossia'],
+    ['Krio','Sierra Leone','English','Creole and the country\'s main lingua franca'],
+    ['Russenorsk','Arctic Norway and Russia','Russian and Norwegian','Trade pidgin, extinct']
+  ].map(function(r){ return [el('td',{class:'kw',text:r[0]}), el('td',{text:r[1]}), el('td',{text:r[2]}), el('td',{text:r[3]})]; }));
+}
+
+// ---------- studies tab ----------
+var stTheme = 'all';
+function buildStudies(){
+  var chips = document.getElementById('st-themes');
+  [['all','All']].concat(THEMES).forEach(function(t){
+    chips.appendChild(el('button', {class:'chip', type:'button', 'data-th':t[0], 'aria-pressed': t[0] === stTheme ? 'true' : 'false', text:t[1], onclick:function(){ stTheme = t[0]; document.querySelectorAll('#st-themes .chip').forEach(function(c){ c.setAttribute('aria-pressed', c.getAttribute('data-th') === stTheme ? 'true' : 'false'); }); renderStudies(); }}));
+  });
+  document.getElementById('st-q').addEventListener('input', renderStudies);
+  renderStudies();
+}
+function renderStudies(){
+  var q = (document.getElementById('st-q').value || '').toLowerCase().trim();
+  var host = document.getElementById('st-list'); host.textContent = '';
+  var thName = {}; THEMES.forEach(function(t){ thName[t[0]] = t[1]; });
+  var shown = STUDIES.filter(function(s){
+    if (stTheme !== 'all' && s.th !== stTheme) return false;
+    if (!q) return true;
+    return [s.who, s.name, s.year, s.place, s.method, s.vars, s.finding, s.why].join(' ').toLowerCase().indexOf(q) >= 0;
+  });
+  shown.forEach(function(s){
+    host.appendChild(el('article', {class:'sheet study'}, [
+      el('h3', {text:s.who+': '+s.name}),
+      el('div', {class:'meta'}, [el('span', {text:s.year}), el('span', {text:'·'}), el('span', {text:s.place}), el('span', {class:'tag', text:thName[s.th]})]),
+      el('dl', {class:'kv'}, [
+        el('dt', {text:'Method'}), el('dd', {text:s.method}),
+        el('dt', {text:'Variables'}), el('dd', {text:s.vars}),
+        el('dt', {text:'Finding'}), el('dd', {text:s.finding}),
+        el('dt', {text:'Why it matters'}), el('dd', {text:s.why})
+      ])
+    ]));
+  });
+  document.getElementById('st-count').textContent = shown.length + ' of ' + STUDIES.length + ' studies';
+}
+
+// ---------- glossary tab ----------
+function buildGlossary(){
+  document.getElementById('gl-q').addEventListener('input', renderGlossary);
+  renderGlossary();
+}
+function renderGlossary(){
+  var q = (document.getElementById('gl-q').value || '').toLowerCase().trim();
+  var host = document.getElementById('gl-list'); host.textContent = '';
+  var list = GL.slice().sort(function(a, b){ return a.t.toLowerCase() < b.t.toLowerCase() ? -1 : 1; });
+  var shown = list.filter(function(g){ return !q || (g.t+' '+g.d+' '+g.e).toLowerCase().indexOf(q) >= 0; });
+  shown.forEach(function(g){
+    host.appendChild(el('div', {class:'gli'}, [el('h3', {text:g.t}), el('p', {text:g.d}), el('p', {class:'ex'}, [el('i', {text:'e.g. '}), g.e])]));
+  });
+  document.getElementById('gl-count').textContent = shown.length + ' of ' + GL.length + ' terms';
+}
+
+// ---------- quiz generators ----------
+function qdef(t){ return el('span', {class:'qdef', text:t}); }
+function qex(t){ return el('span', {class:'qex', text:t}); }
+var CATS = [
+  {id:'term', name:'Term from definition', gen:function(){
+    var gi = rnd(GL_DRILL.length), g = GL_DRILL[gi];
+    var ok = GL_DRILL.filter(function(x){ return x !== g && !clash(g.t, x.t); });
+    // prefer distractors from the same part of the glossary (same topic), then anything else
+    var close = ok.filter(function(x){ return Math.abs(GL_DRILL.indexOf(x) - gi) <= 12; }).map(function(x){ return x.t; });
+    var opts = fill([g.t], close, 4);
+    if (opts.length < 4) opts = fill(opts, ok.map(function(x){ return x.t; }), 4);
+    return {id:'term:'+g.t, cat:'Term from definition', prompt:['Which term matches this definition?', qdef(g.d)], ok:g.t, opts:opts, why:g.t+'. Example: '+g.e};
+  }},
+  {id:'study', name:'Studies and findings', gen:function(){
+    if (Math.random() < .55){
+      var f = pick(FACTS);
+      var pool = STUDIES.filter(function(s){ return !near(s.id, f.s.id); }).map(sOpt);
+      return {id:'fs:'+f.s.id+f.i, cat:'Which study?', prompt:['Which study does this describe?', qdef(f.f)], ok:sOpt(f.s), opts:fill([sOpt(f.s)], pool, 4), why:sOpt(f.s)+'. '+f.s.why};
+    }
+    var s = pick(STUDIES), i = rnd(s.facts.length), ok = s.facts[i];
+    var others = shuffle(STUDIES.filter(function(x){ return !near(x.id, s.id); })).slice(0, 3).map(function(x){ return pick(x.facts); });
+    return {id:'sf:'+s.id+i, cat:'Which finding?', prompt:['Which finding or claim belongs to ', el('b', {text:sOpt(s)}), '?'], ok:ok, opts:[ok].concat(others), why:s.finding};
+  }},
+  {id:'scen', name:'Name the phenomenon', gen:function(){
+    var r = Math.random();
+    var setName = r < .58 ? 'gen' : r < .74 ? 'str' : r < .88 ? 'plan' : 'tv';
+    var items = SCEN.filter(function(s){ return s[1] === setName; });
+    var s = pick(items), set = SETS[setName], ok = LBL[s[2]];
+    var excl = s[3] ? s[3].split(' ') : [];
+    var opts;
+    if (set.fixed) opts = set.codes.map(function(c){ return LBL[c]; });
+    else opts = fill([ok], set.codes.filter(function(c){ return c !== s[2] && excl.indexOf(c) < 0; }).map(function(c){ return LBL[c]; }), 4);
+    var prompt = setName === 'str' ? [set.q, qex(s[4])] : [set.q, qdef(s[4])];
+    return {id:'sc:'+s[0], cat:'Name the phenomenon', prompt:prompt, ok:ok, opts:opts, fixed:!!set.fixed, why:s[5]};
+  }},
+  {id:'kachru', name:'Kachru\'s circles', gen:function(){
+    var opts = ['Inner circle','Outer circle','Expanding circle'];
+    if (Math.random() < .78){
+      var k = pick(KACHRU);
+      return {id:'kc:'+k[0], cat:'Kachru\'s circles', prompt:['In Kachru\'s model, which circle does this country belong to?'], big:k[0], ok:KC[k[1]], opts:opts, fixed:true, why:k[0]+': '+KWHY[k[1]]};
+    }
+    var c = pick(KCONCEPT);
+    return {id:'kk:'+c[0].slice(0, 30), cat:'Kachru\'s circles', prompt:['Which circle?', qdef(c[0])], ok:KC[c[1]], opts:opts, fixed:true, why:KWHY[c[1]]};
+  }},
+  {id:'dig', name:'Diglossia: H or L?', gen:function(){
+    var d = pick(DIG);
+    var why = (d[1] === 'H' ? 'H: ' : 'L: ') + (d[2] ? 'this is in Ferguson\'s own table of situations. ' : '') + (d[1] === 'H' ? 'The High variety covers formal, written, religious, educational and official uses, and is learnt at school.' : 'The Low variety covers everyday talk, instructions, folk genres and popular entertainment, and is learnt at home.');
+    if (d[0] === 'Personal letter') why = 'H: surprising but true. Ferguson\'s table puts personal letters in H, because writing of any kind belongs to the High variety.';
+    if (d[0] === 'Caption on a political cartoon') why = 'L: Ferguson\'s table puts the cartoon caption in L, while the news caption on a picture is H. The cartoon imitates everyday speech.';
+    if (DIGWHY[d[0]]) why = d[1] + ': ' + DIGWHY[d[0]];
+    if (d[0] === 'Radio soap opera') why = 'L: popular entertainment that imitates everyday talk uses L in Ferguson\'s table.';
+    return {id:'dg:'+d[0], cat:'Diglossia (Ferguson)', prompt:['In a classic diglossia (Ferguson 1959), which variety is used here?', qdef(d[0])], ok:d[1] === 'H' ? 'H (High variety)' : 'L (Low variety)', opts:['H (High variety)','L (Low variety)'], fixed:true, why:why};
+  }},
+  {id:'labov', name:'Labov: variables & change', gen:function(){
+    var r = Math.random(), set = r < .42 ? 'type' : r < .68 ? 'chg' : 'time';
+    var l = pick(LAB.filter(function(x){ return x[1] === set; }));
+    return {id:'lb:'+l[0], cat:'Labov: variables and change', prompt:[LABQ[set], qdef(l[3])], ok:l[2], opts:LABOPTS[set].slice(), fixed:true, why:LABWHY[l[2]]};
+  }},
+  {id:'pc', name:'Pidgins & creoles', gen:function(){
+    var r = Math.random(), kind = r < .3 ? 'con' : r < .38 ? 'cont' : r < .62 ? 'cls' : r < .97 ? 'lex' : 'tp';
+    var p = pick(PC.filter(function(x){ return x[1] === kind; }));
+    if (kind === 'con') return {id:'pc:'+p[0], cat:'Pidgins and creoles', prompt:['Which term is this?', qdef(p[3])], ok:p[2], opts:fill([p[2]], PCCON.filter(function(x){ return x !== p[2]; }), 4), why:p[2]+'. '+({Pidgin:'No native speakers, reduced, restricted functions.',Creole:'Nativised: someone\'s first language, with a full grammar.',Basilect:'Bottom of the continuum, furthest from the standard.',Mesolect:'The middle of the continuum.',Acrolect:'Top of the continuum, closest to the standard (Greek akros, highest).',Decreolisation:'Movement of a creole towards its standard lexifier.',Lexifier:'Supplies the vocabulary, not the grammar. Often called the superstrate.',Substrate:'The less powerful groups\' languages, influencing grammar and sounds.'})[p[2]]};
+    if (kind === 'cont') return {id:'pc:'+p[0], cat:'Pidgins and creoles', prompt:['In the Guyanese creole continuum, which level is this way of saying "I told him"?'], big:p[3], ok:p[2], opts:['Basilect','Mesolect','Acrolect'], fixed:true, why:'Guyanese "I told him": basilect mi bin tel am, mesolect mi tel im, acrolect I told him.'};
+    if (kind === 'cls') return {id:'pc:'+p[0], cat:'Pidgins and creoles', prompt:['Pidgin or creole?', qdef(p[3])], ok:p[2], opts:['Pidgin','Creole'], fixed:true, why: p[2] === 'Creole' ? 'Creole: it has native speakers.' + (p[0] === 'cl3' ? ' The local name "Pidgin" is misleading: Hawaiian Creole English has been a first language for generations.' : '') : 'Pidgin: a contact language with no native speakers, used for restricted purposes.'};
+    if (kind === 'lex') return {id:'pc:'+p[0], cat:'Pidgins and creoles', prompt:['What is the lexifier (main vocabulary source) of this creole or pidgin?'], big:p[3], ok:p[2], opts:fill([p[2]], ['English','French','Portuguese','Spanish','Dutch'].filter(function(x){ return x !== p[2]; }), 4), why:p[3]+': '+p[2]+'-lexifier. The lexifier supplies most of the words; the grammar owes much to substrate languages and to the contact situation itself.'};
+    return {id:'pc:tp', cat:'Pidgins and creoles', prompt:['Which description of Tok Pisin is accurate?'], ok:p[2], opts:[p[2]].concat(TPWRONG), why:'Tok Pisin ("talk pidgin") began as an English-lexifier pidgin, expanded into a national language of Papua New Guinea, and is now the first language of many speakers, so it is creolising.'};
+  }},
+  {id:'aae', name:'AAE features', gen:function(){
+    if (Math.random() < .84){
+      var a = pick(AAE), f = AAEF.filter(function(x){ return x[0] === a[0]; })[0];
+      return {id:'ae:'+a[1], cat:'African American English', prompt:['Which rule-governed AAE feature does this sentence show?' + (a[0] === 'Remote BIN' ? ' (BIN = stressed been)' : ''), qex(a[1])], ok:a[0], opts:fill([a[0]], AAEFN.filter(function(x){ return x !== a[0]; }), 4), why:a[0]+': '+f[1]};
+    }
+    var c = pick(AAECON);
+    return {id:'ac:'+c[1].slice(0, 30), cat:'African American English', prompt:['Which AAE feature is this?', qdef(c[1])], ok:c[0], opts:fill([c[0]], AAEFN.filter(function(x){ return x !== c[0]; }), 4), why:c[0]+'. Example: '+AAEF.filter(function(x){ return x[0] === c[0]; })[0][2]};
+  }}
+];
+
+// ---------- drill engine ----------
+var SKEY = 'sprachgemeinschaft.v1';
+var stats = store.get(SKEY, {}); // id -> [seen, wrong]
+var prefs = store.get(SKEY+'.prefs', {cats:CATS.map(function(c){ return c.id; }), len:20});
+var enabled = prefs.cats && prefs.cats.length ? prefs.cats.filter(function(id){ return CATS.some(function(c){ return c.id === id; }); }) : [];
+if (!enabled.length) enabled = CATS.map(function(c){ return c.id; });
+var round = null;
+
+function weightOf(id){ var s = stats[id]; if (!s) return 1.4; var miss = s[1] / Math.max(1, s[0]); return .5 + miss*3 + (s[0] < 2 ? .4 : 0); }
+function nextQ(onlyMisses){
+  var best = null, bestScore = -1;
+  for (var tries = 0; tries < 14; tries++){
+    var cat = CATS.filter(function(c){ return enabled.indexOf(c.id) >= 0; });
+    if (!cat.length) cat = CATS;
+    var q = pick(cat).gen();
+    if (round && round.used[q.id] && tries < 13) continue;
+    var w = weightOf(q.id);
+    if (onlyMisses && !(stats[q.id] && stats[q.id][1] > 0) && tries < 13) continue;
+    var sc = w * (0.6 + Math.random());
+    if (sc > bestScore){ best = q; bestScore = sc; }
+    if (tries > 4 && best) break;
+  }
+  return best || pick(CATS).gen();
+}
+function startRound(onlyMisses){
+  var len = parseInt(document.getElementById('len').value, 10) || 20;
+  if (onlyMisses){ var any = Object.keys(stats).some(function(k){ return stats[k][1] > 0; }); if (!any) onlyMisses = false; }
+  round = {len:len, pos:0, right:0, done:0, used:{}, missed:[], onlyMisses:!!onlyMisses};
+  document.getElementById('sc-len').textContent = len;
+  ask();
+}
+function updScore(){
+  document.getElementById('sc-right').textContent = round.right;
+  document.getElementById('sc-done').textContent = round.done;
+  document.getElementById('sc-pos').textContent = Math.min(round.pos+1, round.len);
+  document.getElementById('sc-bar').style.width = (100*round.done/round.len)+'%';
+}
+var cur = null, answered = false;
+function ask(){
+  updScore();
+  var host = document.getElementById('qhost'); host.textContent = '';
+  if (round.pos >= round.len){ return summary(); }
+  cur = nextQ(round.onlyMisses); round.used[cur.id] = 1; answered = false;
+  var card = el('div', {class:'qcard'});
+  card.appendChild(el('div', {class:'qcat', text:cur.cat}));
+  card.appendChild(el('div', {class:'qprompt'}, cur.prompt.slice()));
+  if (cur.big) card.appendChild(el('div', {class:'qbig', text:cur.big}));
+  var opts = uniq(cur.opts).slice(0, 4); if (opts.indexOf(cur.ok) < 0) opts[opts.length-1] = cur.ok;
+  if (!cur.fixed) opts = shuffle(opts);
+  var grid = el('div', {class:'opts', role:'group', 'aria-label':'Answers'});
+  opts.forEach(function(o, i){
+    grid.appendChild(el('button', {class:'opt', type:'button', 'data-v':o, onclick:function(){ answer(o); }}, [el('span', {class:'k', text:String(i+1)}), el('span', {class:'t', text:o})]));
+  });
+  card.appendChild(grid);
+  card.appendChild(el('div', {id:'whyhost'}));
+  host.appendChild(card);
+}
+function answer(o){
+  if (answered) return; answered = true;
+  var good = o === cur.ok;
+  document.querySelectorAll('#qhost .opt').forEach(function(b){
+    b.disabled = true; var v = b.getAttribute('data-v');
+    if (v === cur.ok) b.classList.add('right'); else if (v === o) b.classList.add('wrong');
+  });
+  var s = stats[cur.id] || [0,0]; s[0]++; if (!good) s[1]++; else if (s[1] > 0 && s[0] > 3) s[1] = Math.max(0, s[1]-1);
+  stats[cur.id] = s; store.set(SKEY, stats);
+  round.done++; if (good) round.right++; else round.missed.push(cur);
+  var why = el('div', {class:'why'}, [
+    el('div', {class:'verdict '+(good ? 'ok' : 'no'), text: good ? 'Right.' : 'Not quite. Answer: '+cur.ok}),
+    el('div', {text:cur.why})
+  ]);
+  var row = el('div', {class:'row', style:'margin-top:10px'}, [el('button', {class:'btn', type:'button', id:'next', onclick:function(){ round.pos++; ask(); }, text: round.pos+1 >= round.len ? 'See results' : 'Next'})]);
+  why.appendChild(row);
+  document.getElementById('whyhost').appendChild(why);
+  updScore();
+  try{ document.getElementById('next').focus({preventScroll:true}); }catch(e){}
+}
+function summary(){
+  var host = document.getElementById('qhost');
+  var pct = Math.round(100*round.right/Math.max(1, round.done));
+  host.appendChild(el('div', {class:'stack'}, [
+    el('h3', {text: round.right+' of '+round.done+' right ('+pct+'%)'}),
+    el('p', {class:'muted', text: round.missed.length ? 'These come back more often in the next rounds:' : 'Clean round. Try 40 questions or a harder section.'}),
+    round.missed.length ? el('ul', {class:'summary-list'}, round.missed.map(function(q){ return el('li', null, [el('b', {text:q.cat+': '}), el('span', {text:(q.big ? q.big+' → ' : '')+q.ok}), el('div', {class:'small muted', text:q.why})]); })) : null,
+    el('div', {class:'row'}, [el('button', {class:'btn', type:'button', onclick:function(){ startRound(false); }, text:'New round'}), round.missed.length ? el('button', {class:'btn quiet', type:'button', onclick:function(){ startRound(true); }, text:'Drill my misses'}) : null])
+  ]));
+}
+function buildCats(){
+  var h = document.getElementById('cats');
+  CATS.forEach(function(c){
+    var b = el('button', {class:'chip', type:'button', 'aria-pressed': enabled.indexOf(c.id) >= 0 ? 'true' : 'false', text:c.name});
+    b.addEventListener('click', function(){
+      var i = enabled.indexOf(c.id);
+      if (i >= 0){ if (enabled.length > 1) enabled.splice(i, 1); } else enabled.push(c.id);
+      document.querySelectorAll('#cats .chip').forEach(function(x, k){ x.setAttribute('aria-pressed', enabled.indexOf(CATS[k].id) >= 0 ? 'true' : 'false'); });
+      savePrefs();
+    });
+    h.appendChild(b);
+  });
+}
+function savePrefs(){ store.set(SKEY+'.prefs', {cats:enabled, len:parseInt(document.getElementById('len').value, 10) || 20}); }
+document.getElementById('len').value = String(prefs.len || 20);
+document.getElementById('len').addEventListener('change', savePrefs);
+document.getElementById('restart').addEventListener('click', function(){ startRound(false); });
+document.getElementById('misses').addEventListener('click', function(){ startRound(true); });
+document.addEventListener('keydown', function(e){
+  if (document.getElementById('view-drill').hidden || e.ctrlKey || e.metaKey || e.altKey) return;
+  var t = e.target; if (t && (t.tagName === 'SELECT' || t.tagName === 'INPUT')) return;
+  if (!answered && /^[1-4]$/.test(e.key)){ var b = document.querySelectorAll('#qhost .opt')[+e.key-1]; if (b){ e.preventDefault(); b.click(); } }
+  else if (answered && e.key === 'Enter'){ var n = document.getElementById('next'); if (n && document.activeElement !== n){ e.preventDefault(); n.click(); } }
+});
+
+// ---------- boot ----------
+buildTables(); buildStudies(); buildGlossary(); buildCats();
+show(location.hash.slice(1));
+startRound(false);
+})();
+</script>
+</body>
+</html>

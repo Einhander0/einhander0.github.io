@@ -1,0 +1,1505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Das Baumhaus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..800&family=Young+Serif&family=Noto+Serif:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 46'%3E%3Cpath d='M20 44C8.5 35.5 3.5 26 4.6 17.8 5.6 11 11 8.6 20 8.6S34.4 11 35.4 17.8C36.5 26 31.5 35.5 20 44Z' fill='%23e0285a'/%3E%3Cpath d='M20 10.5c-2.6-3.6-7.6-5-11.6-3.2 3.6.8 5.8 2.4 6.8 4.4-3.7.1-6.6 1.9-7.9 4.8 4-1.2 8.1-1.8 12.7-1.8s8.7.6 12.7 1.8c-1.3-2.9-4.2-4.7-7.9-4.8 1-2 3.2-3.6 6.8-4.4-4-1.8-9 .4-11.6 3.2Z' fill='%233e9a4b'/%3E%3C/svg%3E">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style id="chest-style">
+/* Layout: one column notebook. Header, study-set nav, a tab strip (Drill / Constituents / Functions & clauses / Trees / Glossary), then one panel at a time. Trees are inline SVG drawn from labelled bracketing. */
+:root{
+  --bg:#fbf0f3; --bg-glow:#f8d9e3; --surface:#fffafc; --chip:#fde7ee;
+  --ink:#2b1320; --muted:#7c5767; --line:#efd2dc;
+  --berry:#d4235c; --berry-ink:#ad1747; --on-berry:#ffffff; --ring:rgba(212,35,92,.22);
+  --brass:#c9982e; --brass-text:#86600f;
+  --rp:#1f6f8b; --rp-chip:#e2f1f6; --ga:#a2461c; --ga-chip:#fbe9df;
+  --good:#2e7d4f; --good-chip:#e3f4e9; --bad:#b3261e; --bad-chip:#fbe4e2;
+  --font-word:"Young Serif",Georgia,"Times New Roman",serif;
+  --font-body:"Nunito Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-ipa:"Gentium Plus","Charis SIL","Doulos SIL","Noto Serif","Lucida Sans Unicode","Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+    --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+    --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+    --brass:#e0b04a; --brass-text:#e9c36a;
+    --rp:#7cc6df; --rp-chip:#14303b; --ga:#f2a27a; --ga-chip:#3b2016;
+    --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#170a11; --bg-glow:#3a1426; --surface:#22111a; --chip:#2e1622;
+  --ink:#f7e6ed; --muted:#c39fb0; --line:#3d2231;
+  --berry:#ff4d86; --berry-ink:#ff7ea6; --on-berry:#2a0614; --ring:rgba(255,77,134,.3);
+  --brass:#e0b04a; --brass-text:#e9c36a;
+  --rp:#7cc6df; --rp-chip:#14303b; --ga:#f2a27a; --ga-chip:#3b2016;
+  --good:#7fd6a0; --good-chip:#163222; --bad:#ff8c84; --bad-chip:#3d1715;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:radial-gradient(1100px 460px at 50% -8%, var(--bg-glow), transparent 62%), var(--bg);
+  background-color:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.5;
+}
+.wrap{max-width:820px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:26px 48px}
+.eyebrow{font:800 .72rem/1 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--berry-ink); margin:0}
+h1{font:400 clamp(2.3rem, 9vw, 3.6rem)/1 var(--font-word); margin:.2em 0 .15em; text-wrap:balance}
+h1 .slash{font-family:var(--font-ipa); color:var(--berry); font-weight:400}
+h2{font:400 1.45rem/1.2 var(--font-word); margin:0; text-wrap:balance}
+h3{font:800 1rem/1.3 var(--font-body); margin:0}
+p{margin:0}
+ul,ol{margin:0; padding-left:20px}
+li + li{margin-top:6px}
+.lede{max-width:60ch; color:var(--muted)}
+.lede b{color:var(--ink)}
+.stack{display:grid; gap:14px}
+.stack > *{min-width:0}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+
+/* study-set nav */
+.sets{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0}
+.sets a{font:700 .78rem/1 var(--font-body); color:var(--muted); text-decoration:none; padding:7px 10px; border:1px solid var(--line); border-radius:999px; background:var(--surface)}
+.sets a:hover{color:var(--ink); border-color:var(--berry)}
+.sets a[aria-current="page"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+
+/* tabs */
+.tabs{display:flex; flex-wrap:wrap; gap:6px; margin:20px 0 18px; padding:5px; background:var(--chip); border:1px solid var(--line); border-radius:10px}
+.tab{appearance:none; border:0; background:none; font:700 .9rem/1 var(--font-body); color:var(--muted); padding:10px 12px; border-radius:7px; cursor:pointer; flex:1 1 auto; text-align:center}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--surface); color:var(--berry-ink); box-shadow:0 1px 3px var(--ring)}
+.tab:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible{outline:3px solid var(--berry); outline-offset:2px}
+
+.panel{display:grid; gap:18px}
+.panel > *{min-width:0}
+.sheet{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; min-width:0}
+.note{border-left:3px solid var(--brass); padding:2px 0 2px 12px; color:var(--muted); font-size:.92rem}
+.note b{color:var(--ink)}
+.fw{display:inline-block; font:800 .66rem/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; padding:5px 8px; border-radius:5px; background:var(--rp-chip); color:var(--rp)}
+.traps{border:1px solid var(--bad); background:var(--bad-chip)}
+.traps h3{color:var(--bad)}
+.ex-i{font-style:italic}
+code, .mono{font-family:ui-monospace,"Cascadia Mono",Consolas,"Liberation Mono",monospace; font-size:.84em; overflow-wrap:anywhere}
+
+/* chips & buttons */
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{appearance:none; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:700 .8rem/1 var(--font-body); padding:8px 11px; border-radius:999px; cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--berry); border-color:var(--berry); color:var(--on-berry)}
+.btn{appearance:none; border:0; background:var(--berry); color:var(--on-berry); font:800 .92rem/1 var(--font-body); padding:12px 16px; border-radius:8px; cursor:pointer}
+.btn.quiet{background:transparent; color:var(--berry-ink); border:1px solid var(--line)}
+.btn:disabled{opacity:.45; cursor:default}
+.row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+
+/* drill */
+.score{display:flex; flex-wrap:wrap; gap:16px; align-items:baseline; font-variant-numeric:tabular-nums}
+.score b{font:400 1.5rem/1 var(--font-word); color:var(--ink)}
+.bar{height:6px; border-radius:3px; background:var(--chip); overflow:hidden}
+.bar > i{display:block; height:100%; width:0; background:var(--berry); transition:width .25s}
+.qcard{display:grid; gap:14px}
+.qcard > *{min-width:0}
+.qcat{font:800 .68rem/1 var(--font-body); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.qprompt{font-size:1.08rem; line-height:1.45; min-width:0; display:grid; gap:10px}
+.qs{font:400 1.12rem/1.55 var(--font-word); background:var(--bg); border:1px solid var(--line); border-radius:9px; padding:10px 12px; overflow-wrap:anywhere}
+.qs .br{color:var(--berry-ink); background:var(--chip); border-radius:4px; padding:0 2px}
+.qs .uw{color:var(--berry-ink); text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:3px; font-weight:400}
+.qs.mono{font-family:ui-monospace,"Cascadia Mono",Consolas,"Liberation Mono",monospace; font-size:.95rem}
+.opts{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+@media (max-width:520px){ .opts{grid-template-columns:1fr} }
+.opt{appearance:none; text-align:left; display:flex; gap:10px; align-items:center; border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:12px; border-radius:9px; cursor:pointer; font:600 .98rem/1.3 var(--font-body); min-width:0}
+.opt .k{flex:none; display:grid; place-items:center; width:22px; height:22px; border-radius:5px; background:var(--chip); color:var(--muted); font:800 .72rem/1 var(--font-body)}
+.opt .t{min-width:0; overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--berry)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--good-chip); border-color:var(--good)}
+.opt.right .k{background:var(--good); color:var(--surface)}
+.opt.wrong{background:var(--bad-chip); border-color:var(--bad)}
+.opt.wrong .k{background:var(--bad); color:var(--surface)}
+.why{border-radius:9px; padding:12px 14px; background:var(--chip); font-size:.94rem}
+.why .verdict{font-weight:800; margin-bottom:4px}
+.why .verdict.ok{color:var(--good)} .why .verdict.no{color:var(--bad)}
+.summary-list{display:grid; gap:6px; padding:0; margin:0; list-style:none}
+.summary-list li{padding:8px 10px; border:1px solid var(--line); border-radius:8px; font-size:.92rem; margin:0}
+
+/* tables */
+.scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%}
+table{border-collapse:collapse; font-size:.86rem}
+.tbl{width:100%}
+.tbl th, .tbl td{border-bottom:1px solid var(--line); padding:7px 8px; text-align:left; vertical-align:top}
+.tbl thead th{font:800 .68rem/1.2 var(--font-body); letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.tbl td.kw{font:800 .84rem/1.3 var(--font-body); color:var(--berry-ink); white-space:nowrap}
+.tbl.wide{min-width:600px}
+.cards{display:grid; gap:12px}
+.card{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--bg); display:grid; gap:6px; min-width:0}
+.card h3{color:var(--berry-ink)}
+.card .eg{font-size:.92rem}
+.card .lim{font-size:.86rem; color:var(--muted)}
+.rule-line{font-family:ui-monospace,"Cascadia Mono",Consolas,"Liberation Mono",monospace; font-size:.9rem; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px 12px; overflow-x:auto; white-space:pre}
+
+/* trees */
+.tree{display:block; margin:0 auto; height:auto}
+.tree .lbl{fill:var(--berry-ink); font:800 13px var(--font-body)}
+.tree .wd{fill:var(--ink); font:italic 400 15px var(--font-body)}
+.tree .edge{stroke:var(--muted); stroke-width:1.2; fill:none}
+.tree .tri{stroke:var(--muted); stroke-width:1.2; fill:var(--chip)}
+.tree .mv{stroke:var(--brass); stroke-width:1.6; fill:none; stroke-dasharray:5 4}
+.tree .mvh{fill:var(--brass)}
+.gallery{display:grid; gap:14px}
+.tcard{border:1px solid var(--line); border-radius:10px; padding:12px; background:var(--bg); display:grid; gap:8px; min-width:0}
+.tcard h3{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.tcard .src{font-size:.78rem; color:var(--muted)}
+.tcard .tnote{font-size:.9rem}
+textarea, input[type="search"]{width:100%; font:400 .95rem/1.4 var(--font-body); color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px 12px}
+textarea{font-family:ui-monospace,"Cascadia Mono",Consolas,"Liberation Mono",monospace; font-size:.88rem; min-height:84px; resize:vertical}
+.err{color:var(--bad); font-size:.9rem}
+
+/* glossary */
+.gl{display:grid; gap:8px; margin:0; padding:0; list-style:none}
+.gl li{border:1px solid var(--line); border-radius:9px; padding:10px 12px; background:var(--bg); margin:0}
+.gl .term{font:800 .98rem/1.3 var(--font-body); color:var(--berry-ink)}
+.gl .def{font-size:.93rem; margin-top:2px}
+.gl .eg{font-size:.88rem; color:var(--muted); margin-top:4px}
+footer{margin-top:30px; font-size:.8rem; color:var(--muted)}
+@media (prefers-reduced-motion: reduce){ .bar > i{transition:none} }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">English syntax · constituents, functions, trees</p>
+    <h1>Das Baumhaus <span class="slash">/ˈbaʊmˌhaʊs/</span></h1>
+    <p class="lede">Word classes and phrases, the constituency tests, Quirk's clause elements and seven clause patterns, and X-bar trees you can draw yourself. <b>Drill</b> quizzes you and brings back the ones you miss.</p>
+    <nav class="sets" aria-label="Study set">
+      <a href="../lautlabor/">Phonetics</a>
+      <a href="../morphologie/">Morphology</a>
+      <a href="../syntax/" aria-current="page">Syntax</a>
+      <a href="../sprachgemeinschaft/">Language in society</a>
+      <a href="../semantik/">Semantics</a>
+      <a href="../pragmatik/">Pragmatics</a>
+      <a href="../grammatik/">Advanced grammar</a>
+    </nav>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-drill" data-view="drill">Drill</button>
+    <button class="tab" role="tab" id="tab-constituents" data-view="constituents">Constituents</button>
+    <button class="tab" role="tab" id="tab-functions" data-view="functions">Functions &amp; clauses</button>
+    <button class="tab" role="tab" id="tab-trees" data-view="trees">Trees</button>
+    <button class="tab" role="tab" id="tab-glossary" data-view="glossary">Glossary</button>
+  </nav>
+
+  <main>
+    <!-- DRILL -->
+    <section class="panel" id="view-drill" role="tabpanel" aria-labelledby="tab-drill">
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between">
+          <h2>Drill</h2>
+          <div class="score"><span>Score <b id="sc-right">0</b>/<span id="sc-done">0</span></span><span class="muted small">Question <span id="sc-pos">1</span> of <span id="sc-len">20</span></span></div>
+        </div>
+        <div class="bar" aria-hidden="true"><i id="sc-bar"></i></div>
+        <div id="qhost"></div>
+      </div>
+      <div class="sheet stack">
+        <h3>What to practise</h3>
+        <div class="chips" id="cats"></div>
+        <div class="row">
+          <label class="small muted" for="len">Questions per round</label>
+          <select id="len" class="chip" style="padding:7px 10px">
+            <option value="10">10</option><option value="20" selected>20</option><option value="40">40</option>
+          </select>
+          <button class="btn" id="restart">New round</button>
+          <button class="btn quiet" id="misses">Only my misses</button>
+        </div>
+        <p class="small muted" id="memo">Questions you get wrong come back more often. Keys 1 to 4 answer, Enter goes on. Word classes and clause elements follow Quirk et al.; where Huddleston &amp; Pullum differ, the explanation says so.</p>
+      </div>
+    </section>
+
+    <!-- CONSTITUENTS -->
+    <section class="panel" id="view-constituents" role="tabpanel" aria-labelledby="tab-constituents" hidden>
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between"><h2>Word classes</h2><span class="fw">Framework: descriptive (Quirk), H&amp;P noted</span></div>
+        <p>A word class (part of speech, lexical category) is a set of words that behave alike grammatically. You assign a word to a class by its <b>form</b> and its <b>distribution</b> in a particular sentence, not by its meaning, and the same spelling can belong to several classes.</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Group</th><th>Classes</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Open</td><td>noun, lexical (full) verb, adjective, adverb</td><td>New members are coined all the time (<i>to google, a podcast, cringe</i> as an adjective). These are also the <b>lexical</b> (content) classes: they carry descriptive meaning.</td></tr>
+            <tr><td class="kw">Closed</td><td>determiner, pronoun, preposition, conjunction (coordinator, subordinator), auxiliary verb (primary <i>be, have, do</i>; modals <i>can, will, must</i>...)</td><td>Small, fixed sets. Mostly <b>functional</b> words: they signal grammatical information such as definiteness, tense or clause type.</td></tr>
+            <tr><td class="kw">Lesser</td><td>numerals, interjections</td><td>Quirk lists them apart from the main classes.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Open/closed vs lexical/functional.</b> The two splits mostly coincide, but they are different questions: open/closed is about membership, lexical/functional about meaning. Prepositions are the awkward case: a closed class, yet they head full phrases and many have clear spatial meaning (<i>under, behind</i>). Textbooks place P differently, so follow your lecturer.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Criteria for word classes</h3>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Criterion</th><th>What you check</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Morphological: inflection</td><td>Which grammatical endings the word takes</td><td>nouns: plural <i>-s</i>, genitive <i>'s</i>; verbs: <i>-s, -ed, -ing</i>; gradable adjectives: <i>-er, -est</i> (<i>happier</i>)</td></tr>
+            <tr><td class="kw">Morphological: derivation</td><td>Typical derivational suffixes</td><td><i>-ness, -ity, -tion</i> (N); <i>-ize, -ify</i> (V); <i>-ous, -ful, -able</i> (Adj); <i>-ly</i> (Adv). Unreliable alone: <i>friendly, lovely</i> are adjectives.</td></tr>
+            <tr><td class="kw">Distributional (syntactic)</td><td>Which slots the word fits and what it combines with</td><td>N: <i>the ___ is here</i>; V: <i>they will ___ it</i>; Adj: <i>a very ___ house</i>, <i>it seems ___</i>; Adv: <i>she did it ___</i></td></tr>
+            <tr><td class="kw">Semantic (notional)</td><td>What the word means</td><td>"A noun names a person, place or thing; a verb is an action." Useful as a rough hint, unusable as a definition (see below).</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Why semantic criteria fail.</b> <i>Destruction, arrival, explosion</i> are nouns that denote events (actions). <i>Red</i> and <i>redness</i> denote the same property but are an adjective and a noun. <i>Be, seem, own, resemble</i> are verbs that denote no action. And speakers classify words they have never seen: in <i>the slithy toves did gyre</i> (Lewis Carroll) everyone knows <i>toves</i> is a plural noun and <i>slithy</i> an adjective, purely from form and position. So the class comes first, and the meaning only tends to follow.</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Sentence</th><th><i>round</i> is a...</th><th>Because</th></tr></thead>
+          <tbody>
+            <tr><td>a <b>round</b> table</td><td class="kw">adjective</td><td>premodifies a noun; gradable: <i>rounder</i></td></tr>
+            <tr><td>the first <b>round</b></td><td class="kw">noun</td><td>after a determiner; plural <i>rounds</i></td></tr>
+            <tr><td>They <b>rounded</b> the cape.</td><td class="kw">verb</td><td>past tense <i>-ed</i>, takes an object</td></tr>
+            <tr><td>They walked <b>round</b> the lake.</td><td class="kw">preposition</td><td>takes an NP complement</td></tr>
+            <tr><td>Turn <b>round</b>!</td><td class="kw">adverb</td><td>no complement. Quirk: adverb (particle); H&amp;P: intransitive preposition</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between"><h2>Phrases</h2><span class="fw">Framework: neutral (Quirk and Carnie agree here)</span></div>
+        <p>Every phrase is built around a <b>head</b>. The head decides the category of the whole phrase and what else may appear in it; it is the one part you cannot leave out. The other parts are <b>dependents</b>: determiners, modifiers and complements.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Phrase</th><th>Head</th><th>Example (head in bold)</th><th>Typical make-up</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">NP</td><td>noun or pronoun</td><td>[the old <b>house</b> on the hill]</td><td>determiner + premodifiers + head + postmodifiers (PP, relative clause, non-finite clause)</td></tr>
+            <tr><td class="kw">VP</td><td>verb</td><td>[<b>sold</b> their house last year]</td><td>verb + complements (objects, predicatives, clauses) + adjuncts</td></tr>
+            <tr><td class="kw">AP (AdjP)</td><td>adjective</td><td>[very <b>proud</b> of her son]</td><td>degree modifier + head + complement (PP, clause)</td></tr>
+            <tr><td class="kw">AdvP</td><td>adverb</td><td>[remarkably <b>clearly</b>]</td><td>degree modifier + head</td></tr>
+            <tr><td class="kw">PP</td><td>preposition</td><td>[right <b>after</b> the concert]</td><td>(modifier) + head + complement, usually an NP</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Inside the NP (Quirk):</b> <i>all</i> (predeterminer) <i>the</i> (central determiner) <i>lovely old</i> (premodifiers) <b><i>houses</i></b> (head) <i>in the village that we saw</i> (postmodifiers). Nouns can premodify too: in <i>a stone wall</i>, <i>stone</i> is still a noun (*<i>a very stone wall</i>, *<i>stonier</i>).</p>
+        <p class="note"><b>Who heads "the dog"?</b> Descriptive grammars and the early chapters of Carnie treat <i>the dog</i> as an NP headed by the noun. Under the <b>DP hypothesis</b> (Radford, later Carnie) the determiner is the head: [<sub>DP</sub> the [<sub>NP</sub> dog]]. The drill uses NP with the noun as head.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Complements and adjuncts</h3>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th></th><th>Complement</th><th>Adjunct</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Selection</td><td>Chosen by the particular head: <i>put</i> needs a place, <i>rely</i> needs <i>on</i></td><td>Not chosen by the head; fits any head of that category</td></tr>
+            <tr><td class="kw">Optionality</td><td>Often obligatory: <i>She put the cake *(in the kitchen)</i>. Some are optional: <i>She ate (the cake)</i></td><td>Always optional</td></tr>
+            <tr><td class="kw">Number</td><td>Limited by the head (one object, one predicative...)</td><td>Stackable: <i>in the park, on Sunday, with a friend</i></td></tr>
+            <tr><td class="kw">Order</td><td>Closer to the head: <i>a student of physics with long hair</i></td><td>Further out: *<i>a student with long hair of physics</i></td></tr>
+            <tr><td class="kw">X-bar position</td><td>Sister of the head X</td><td>Sister of X′, daughter of X′</td></tr>
+            <tr><td class="kw">Replacement</td><td>Must go with the head under <i>one</i> / <i>do so</i>: *<i>the one of chemistry</i>; *<i>She put the cake on the table and he did so on the shelf</i></td><td>Can be left behind: <i>the one with short hair</i>; <i>She ate the cake in the kitchen and he did so in the garden</i></td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Two senses of "complement".</b> In X-bar theory (and H&amp;P), a complement is any dependent the head selects, including objects. In Quirk's clause analysis, "complement" means only the subject and object complements Cs and Co. Check which one an exam question means.</p>
+      </div>
+
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between"><h2>Constituency tests</h2><span class="fw">Framework: neutral (Carnie, Radford)</span></div>
+        <p>A <b>constituent</b> is a word or string of words that the grammar treats as a unit. In a tree, a constituent is everything one node dominates, and nothing else. The tests below all use the same sentence: <i>The student put the old books on the top shelf.</i></p>
+        <div class="cards">
+          <div class="card"><h3>1. Substitution (pro-form)</h3><p class="eg">Replace the string with one word: a pronoun for an NP, <i>there/then</i> for a PP, <i>do so</i> for a VP, <i>one</i> for an N′. <i>She put them there.</i> So [the student], [the old books] and [on the top shelf] are constituents.</p><p class="lim">Limits: pronouns replace whole NPs only (*<i>the them</i>), and some categories have no handy pro-form.</p></div>
+          <div class="card"><h3>2. Movement (topicalisation)</h3><p class="eg"><i>On the top shelf, the student put the old books.</i> vs *<i>Top shelf, the student put the old books on the.</i></p><p class="lim">Limits: fronting is stylistically marked and fails for independent reasons: single function words (<i>the</i>) cannot move, and a fronted VP needs an auxiliary left behind (<i>...and [put the books on the shelf] she did</i>).</p></div>
+          <div class="card"><h3>3. Clefting</h3><p class="eg"><i>It was the old books that the student put on the top shelf.</i> / <i>It was on the top shelf that...</i></p><p class="lim">Limits: VPs cannot be clefted (*<i>It was put the books on the shelf that she did</i>); APs only marginally.</p></div>
+          <div class="card"><h3>4. Pseudoclefting (wh-cleft)</h3><p class="eg"><i>What the student put on the top shelf was the old books.</i> / <i>What the student did was put the old books on the top shelf.</i> (works for the VP)</p><p class="lim">Limits: needs a fitting wh-word; PPs often sound odd.</p></div>
+          <div class="card"><h3>5. Coordination</h3><p class="eg"><i>The student put [the old books] and [the new magazines] on the top shelf.</i> Only like constituents coordinate.</p><p class="lim">Limits: the weakest test, it overgenerates. Non-constituents coordinate too: <i>She gave [Mary a book] and [Sue a pen]</i>; <i>[Anna likes] and [Ben hates] opera</i>.</p></div>
+          <div class="card"><h3>6. Fragment (stand-alone) answer</h3><p class="eg"><i>What did the student put on the top shelf? — The old books.</i> / <i>Where? — On the top shelf.</i> But not *<i>The old.</i></p><p class="lim">Limits: the question has to exist; VP answers need a <i>do</i>-question (<i>What did she do? — Put the books away.</i>).</p></div>
+          <div class="card"><h3>7. Ellipsis (deletion)</h3><p class="eg"><i>The student will put the books on the shelf, and the teacher will too.</i> The whole VP [put the books on the shelf] is deleted as one unit.</p><p class="lim">Limits: only some categories can be elided (VP after an auxiliary, the noun after a determiner, a clause after a wh-word: <i>Someone called, but I don't know who</i>).</p></div>
+        </div>
+        <p class="note"><b>The logic.</b> Passing a test is evidence that a string is a constituent. Failing one test proves little, because a test can fail for reasons that have nothing to do with constituency. Use several tests and trust them when they agree.</p>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul>
+          <li>Giving a <b>semantic</b> definition of a word class without saying why it fails. Always define by form and distribution.</li>
+          <li><b>"Adverbs end in -ly."</b> <i>Friendly, lovely, ugly</i> are adjectives; <i>fast, hard, well, soon</i> are adverbs without <i>-ly</i>.</li>
+          <li><b>Nouns as premodifiers</b> (<i>a stone wall, a London bus</i>) stay nouns: no grading, no <i>very</i>.</li>
+          <li><b>Particle or preposition?</b> <i>She looked up the word</i>: particle, it can move (<i>looked the word up</i>). <i>She looked up the chimney</i>: preposition (*<i>looked the chimney up</i>).</li>
+          <li><b>One test is not enough</b>, and coordination alone proves nothing.</li>
+          <li><b>German speakers:</b> German articles show case and gender (<i>der/den/dem</i>), so phrase boundaries are often visible in the endings. English <i>the</i> shows nothing, so you need position and the tests.</li>
+          <li><b>German speakers:</b> German adverbs and adjectives often look the same (<i>schnell</i>). English mostly distinguishes them (<i>quick/quickly</i>), so "it describes how" is not enough: check whether it modifies a noun (adjective) or a verb, adjective or clause (adverb).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FUNCTIONS & CLAUSES -->
+    <section class="panel" id="view-functions" role="tabpanel" aria-labelledby="tab-functions" hidden>
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between"><h2>Clause elements</h2><span class="fw">Framework: descriptive (Quirk), H&amp;P terms noted</span></div>
+        <p><b>Category</b> says what a constituent is (NP, PP, clause); <b>function</b> says what it does in the clause (subject, object...). The two are independent: an NP can be a subject, an object, a complement or an adverbial (<i>We met [last week]</i>).</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Element</th><th>Typical forms</th><th>How to spot it</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">S subject</td><td>NP, clause, dummy <i>it/there</i></td><td>before the verb in statements; agrees with the finite verb (<i>she walk<b>s</b></i>); inverts with the operator in questions; nominative pronoun; picked up in tag questions</td><td>[The tall woman] left.</td></tr>
+            <tr><td class="kw">V verb (H&amp;P: predicator)</td><td>Quirk's "verb phrase": auxiliaries + main verb</td><td>always present</td><td>She [has been reading].</td></tr>
+            <tr><td class="kw">Od direct object</td><td>NP, clause</td><td>after V; becomes S in the passive; answers <i>what?/who(m)?</i>; accusative pronoun</td><td>She wrote [a letter].</td></tr>
+            <tr><td class="kw">Oi indirect object</td><td>NP</td><td>before Od; recipient or beneficiary; can usually be paraphrased with <i>to/for</i> after Od</td><td>She gave [him] a book.</td></tr>
+            <tr><td class="kw">Cs subject complement</td><td>NP, AP, clause</td><td>after a copular verb (<i>be, become, seem, look, remain, get, turn</i>); characterises S; no passive</td><td>He became [a doctor].</td></tr>
+            <tr><td class="kw">Co object complement</td><td>NP, AP</td><td>after Od; says what Od is or becomes (Od + <i>be</i> + Co is true)</td><td>They made him [angry].</td></tr>
+            <tr><td class="kw">A adverbial</td><td>AdvP, PP, NP, clause</td><td>usually optional and movable; obligatory with some verbs (<i>be</i> + place, <i>put, live</i>)</td><td>She arrived [late].</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Obligatory or optional adverbial?</b> Delete it. If the clause becomes ungrammatical (<i>She put the vase *(on the table)</i>) or the verb changes meaning (<i>They live in Graz</i> → <i>They live</i> means "they are alive"), the adverbial is obligatory and counts in the clause pattern. If nothing changes (<i>The children laughed (loudly)</i>), it is optional and does not count.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>The seven clause patterns (Quirk et al.)</h3>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Pattern</th><th>Verb type</th><th>Example</th><th>H&amp;P name</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">SV</td><td>intransitive</td><td>The baby is sleeping.</td><td>intransitive</td></tr>
+            <tr><td class="kw">SVO</td><td>monotransitive</td><td>She wrote a letter.</td><td>monotransitive</td></tr>
+            <tr><td class="kw">SVC</td><td>copular</td><td>He became famous.</td><td>complex-intransitive</td></tr>
+            <tr><td class="kw">SVA</td><td>intransitive + obligatory A</td><td>The keys are under the mat.</td><td>no own label: the obligatory adverbial counts as a complement (locative/goal)</td></tr>
+            <tr><td class="kw">SVOO</td><td>ditransitive</td><td>She gave him a book.</td><td>ditransitive</td></tr>
+            <tr><td class="kw">SVOC</td><td>complex-transitive</td><td>They elected her president.</td><td>complex-transitive</td></tr>
+            <tr><td class="kw">SVOA</td><td>transitive + obligatory A</td><td>She put the vase on the table.</td><td>no own label: object + locative complement (<i>put</i>)</td></tr>
+          </tbody>
+        </table></div>
+        <p>The pattern belongs to a <b>verb in one sense</b>, so one verb can appear in several: <i>She got angry</i> (SVC), <i>She got a letter</i> (SVO), <i>She got him a coffee</i> (SVOO), <i>She got the children ready</i> (SVOC), <i>She got home late</i> (SVA: <i>home</i> obligatory, <i>late</i> optional). Optional adverbials never count, wherever they stand.</p>
+        <p class="note"><b>Prepositional verbs.</b> In <i>She relies on her sister</i> Quirk calls <i>rely on</i> a prepositional verb and <i>her sister</i> a prepositional object; such clauses behave like SVO (many can passivise: <i>Her sister can be relied on</i>). Some courses analyse the PP as an adverbial instead, so the drill avoids these. It also avoids <i>gave a book to Mary</i>: books disagree on the function of <i>to Mary</i>.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Finite, non-finite, verbless</h3>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Form</th><th>Marked by</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Finite</td><td>a tensed verb (present or past) or a modal; can stand alone; needs a subject (except imperatives)</td><td>She left. / [because she was tired]</td></tr>
+            <tr><td class="kw">to-infinitive</td><td><i>to</i> + base form</td><td>I want [to leave]. / [To be honest], ...</td></tr>
+            <tr><td class="kw">Bare infinitive</td><td>base form without <i>to</i></td><td>All he did was [complain]. / You must [go].</td></tr>
+            <tr><td class="kw">-ing participle</td><td>V-ing (H&amp;P: gerund-participle)</td><td>[Walking home], I met an old friend.</td></tr>
+            <tr><td class="kw">-ed participle</td><td>V-ed / V-en (H&amp;P: past participle)</td><td>[Written in haste], the note was hard to read.</td></tr>
+            <tr><td class="kw">Verbless</td><td>no verb at all, but understood as a clause (Quirk)</td><td>[Although tired], she kept working. / [With the exam over], we celebrated.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Non-finite clauses usually have no overt subject; it is understood from the main clause (<i>[Walking home], I...</i> = I was walking). They can have one: <i>[The weather being fine], we went out</i>; <i>I want [you to stay]</i>.</p>
+        <p>A <b>main</b> (independent) clause can stand alone. A <b>subordinate</b> clause is part of another clause, the <b>matrix</b> (superordinate) clause, where it works as S, O, C or A, or as a postmodifier inside a phrase.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Three jobs for a subordinate clause</h3>
+        <div class="cards">
+          <div class="card"><h3>Nominal (complement) clauses</h3><p class="eg">Do the work of an NP: S, Od, Cs, or complement of an adjective or noun. <i>[That he lied] is obvious. I know [that you're busy]. I wonder [whether she'll come]. I asked [who had called]. She wants [to leave]. [Swimming] is fun.</i> Quirk also counts nominal relative clauses: <i>[What she said] surprised me.</i></p></div>
+          <div class="card"><h3>Relative clauses</h3><p class="eg">Postmodify a noun and contain a gap linked to it: <i>the film [(that) I saw __]</i>. Relativizers: <i>who, whom, whose, which, where, when, that</i>, or zero.</p></div>
+          <div class="card"><h3>Adverbial clauses</h3><p class="eg">Function as A: time (<i>when, before, after, while</i>), condition (<i>if, unless</i>), reason (<i>because, since, as</i>), concession (<i>although, though</i>), purpose (<i>so that</i>, to-infinitive), result, manner.</p></div>
+        </div>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th></th><th>Restrictive (defining)</th><th>Non-restrictive (non-defining)</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Job</td><td>narrows down which one is meant</td><td>adds information about a referent that is already identified</td></tr>
+            <tr><td class="kw">Commas</td><td>none</td><td>commas (or a pause in speech)</td></tr>
+            <tr><td class="kw">Relativizer</td><td><i>who, which, that</i>, or zero if the gap is not the subject</td><td><i>who, which, whose</i>; never <i>that</i>, never zero</td></tr>
+            <tr><td class="kw">Example</td><td><i>My brother who lives in Graz is a doctor.</i> (I have more than one brother.)</td><td><i>My brother, who lives in Graz, is a doctor.</i> (I have one brother.)</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">A non-restrictive <i>which</i> can also refer to a whole clause: <i>She passed, which surprised everyone</i> (sentential relative clause).</p>
+      </div>
+
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between"><h3>Operations</h3><span class="fw">Descriptive names; generative analyses in Trees</span></div>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Operation</th><th>What happens</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Passive</td><td>Od becomes S; <i>be/get</i> + -ed participle; old S optional in a <i>by</i>-phrase. Only clauses with an object passivise, which makes it an object test.</td><td>The dog chased the cat. → The cat was chased (by the dog).</td></tr>
+            <tr><td class="kw">Subject-auxiliary inversion</td><td>The operator (first auxiliary) moves in front of S. Quirk: subject-operator inversion. Yes/no questions, after negative openers (<i>Never have I...</i>), <i>so/neither</i> tags.</td><td>She can swim. → Can she swim?</td></tr>
+            <tr><td class="kw">Do-support</td><td>With no auxiliary present, dummy <i>do</i> is inserted to carry tense for negation, inversion, code or emphasis.</td><td>She swims. → Does she swim? / She doesn't swim.</td></tr>
+            <tr><td class="kw">Wh-movement</td><td>A wh-phrase moves to the front of its clause and leaves a gap. Questions and relative clauses.</td><td>You saw who? → Who did you see __? / the man [who you met __]</td></tr>
+            <tr><td class="kw">Extraposition</td><td>A clausal subject (or object) goes to the end; dummy <i>it</i> fills its slot.</td><td>That he lied is obvious. → It is obvious that he lied.</td></tr>
+            <tr><td class="kw">There-insertion</td><td>An indefinite subject moves after <i>be</i>; <i>there</i> takes the subject slot (it inverts: <i>Is there...?</i>).</td><td>A man is at the door. → There is a man at the door.</td></tr>
+            <tr><td class="kw">Topicalisation</td><td>A constituent is fronted for contrast or topic; no inversion.</td><td>I don't like this film. → This film I don't like.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Extraposition or cleft?</b> Both begin with <i>It is/was</i>. Extraposition: the clause can go back to subject position (<i>It is obvious that he lied</i> → <i>That he lied is obvious</i>). Cleft: delete <i>it was</i> and <i>that</i> and a complete sentence is left (<i>It was Anna that called</i> → <i>Anna called</i>).</p>
+        <h3>NICE: what makes a verb an auxiliary</h3>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th>Property</th><th>Auxiliary</th><th>Lexical verb</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Negation with n't</td><td>She can't swim.</td><td>*She swimsn't. → She doesn't swim.</td></tr>
+            <tr><td class="kw">Inversion</td><td>Can she swim?</td><td>*Swims she? → Does she swim?</td></tr>
+            <tr><td class="kw">Code (stands for the VP)</td><td>Anna can swim, and so can Ben.</td><td>*...and so swims Ben. → so does Ben.</td></tr>
+            <tr><td class="kw">Emphasis</td><td>She CAN swim!</td><td>→ She DOES swim!</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">Main-verb <i>be</i> has all four (<i>Is she a nurse? She isn't.</i>), which is why H&amp;P count it as an auxiliary in every use. Older British English also inverts possessive <i>have</i> (<i>Have you any idea?</i>).</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Terminology map: Quirk vs Huddleston &amp; Pullum vs generative</h3>
+        <p class="small muted">Use the column your lecturer uses. Rows are the places where the books really do differ.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Concept</th><th>Quirk et al.</th><th>Huddleston &amp; Pullum</th><th>Generative (Carnie, Radford)</th></tr></thead>
+          <tbody>
+            <tr><td><i>yesterday, in the park</i> in a clause</td><td>adverbial (A), subdivided into adjuncts, subjuncts, disjuncts, conjuncts</td><td>adjunct (modifier); detached ones are supplements</td><td>adjunct</td></tr>
+            <tr><td>word class of <i>the, a, every, this</i></td><td>determiner</td><td>determinative (class); "determiner" is the function in the NP</td><td>D (head of DP)</td></tr>
+            <tr><td><i>a teacher</i> in <i>She is a teacher</i></td><td>subject complement (Cs)</td><td>predicative complement</td><td>complement of <i>be</i> (predicate)</td></tr>
+            <tr><td><i>president</i> in <i>They elected her president</i></td><td>object complement (Co)</td><td>(objective) predicative complement</td><td>predicate of a small clause</td></tr>
+            <tr><td>what "complement" covers</td><td>Cs and Co (plus complements of prepositions and adjectives)</td><td>every dependent licensed by the head, incl. objects; the subject is an "external complement"</td><td>sister of the head X</td></tr>
+            <tr><td>"verb phrase"</td><td>the verbal group only: <i>has been reading</i></td><td>verb + its complements and modifiers; each auxiliary heads its own VP</td><td>V + complements (+ adjuncts); auxiliaries in T or their own VPs</td></tr>
+            <tr><td>function of the verb</td><td>verb (V)</td><td>predicator (P)</td><td>head of VP / T</td></tr>
+            <tr><td><i>before</i> in <i>before she left</i></td><td>subordinating conjunction</td><td>preposition with a clause complement</td><td>P (or C, depending on the book)</td></tr>
+            <tr><td><i>that, whether, if</i> introducing a clause</td><td>subordinating conjunction</td><td>subordinator</td><td>complementizer (C)</td></tr>
+            <tr><td>relative <i>that</i> (<i>the book that I read</i>)</td><td>relative pronoun</td><td>subordinator, not a pronoun</td><td>C (with a silent operator)</td></tr>
+            <tr><td><i>up</i> in <i>turn the music up</i></td><td>adverb particle</td><td>intransitive preposition</td><td>particle (often P)</td></tr>
+            <tr><td>-ing form</td><td>-ing participle</td><td>gerund-participle</td><td>-ing</td></tr>
+            <tr><td>clause pattern labels</td><td>SV, SVO, SVC, SVA, SVOO, SVOC, SVOA</td><td>intransitive, monotransitive, ditransitive, complex-intransitive, complex-transitive</td><td>subcategorisation frames</td></tr>
+            <tr><td>tenses</td><td>two: present, past (<i>will</i> is a modal)</td><td>two: present, preterite</td><td>T [±past]</td></tr>
+            <tr><td><i>is</i> in <i>She is a nurse</i></td><td>main verb (copula)</td><td>auxiliary verb (it has NICE)</td><td>raises to T</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul>
+          <li><b>Od or Cs?</b> <i>He became a doctor</i>: Cs (it describes the subject, no passive: *<i>A doctor was become</i>).</li>
+          <li><b>NP adverbials:</b> <i>We met [last week]</i>, <i>She cried [all night]</i>: NPs, but A, not O (no passive, they answer when?/how long?).</li>
+          <li><b>Counting optional adverbials</b> in the clause pattern. <i>The children laughed loudly</i> is SV.</li>
+          <li><b>Quirk's "verb phrase"</b> is just the verb group; the generative VP includes objects. Don't mix them in one answer.</li>
+          <li><b>Existential <i>there</i> is the subject</b>, not an adverbial: <i>Is there a problem? There's a problem, isn't there?</i></li>
+          <li><b>German: V2.</b> German puts the finite verb second whatever comes first (<i>Gestern habe ich ihn gesehen</i>). English stays SVO after a fronted adverbial: <i>Yesterday I saw him</i>, not *<i>Yesterday saw I him</i>. English inverts only in questions, after negative or restrictive openers (<i>Never have I...</i>), with <i>so/neither</i>, and in a few fixed patterns (<i>Here comes the bus</i>).</li>
+          <li><b>German: verb-final subclauses.</b> <i>...weil ich müde bin</i>, but English keeps SVO: <i>because I am tired</i>, never *<i>because I tired am</i>.</li>
+          <li><b>German: case vs position.</b> German can front the object and stay clear (<i>Den Hund beißt der Mann</i>). English nouns have no case, so position <i>is</i> the function: <i>The dog bites the man</i> means the dog bites. Only pronouns show case (<i>he/him, who/whom</i>).</li>
+          <li><b>German: nothing between V and Od.</b> *<i>I read yesterday the book</i> → <i>I read the book yesterday</i>. English keeps verb and object adjacent.</li>
+          <li><b>German: questions and negation need do</b> with lexical verbs: <i>Do you know?</i> not *<i>Know you?</i>; <i>I don't know</i> not *<i>I know not</i>.</li>
+          <li><b>German: commas.</b> German puts commas round every relative clause. In English a comma makes the clause non-restrictive and changes the meaning, and <i>that</i> is impossible after the comma.</li>
+          <li><b>German: impersonal passive.</b> <i>Mir wurde geholfen</i> has no subject; English needs one: <i>I was helped</i>. English allows prepositional passives German lacks: <i>This bed has been slept in.</i></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TREES -->
+    <section class="panel" id="view-trees" role="tabpanel" aria-labelledby="tab-trees" hidden>
+      <div class="sheet stack">
+        <div class="row" style="justify-content:space-between"><h2>Trees</h2><span class="fw">Framework: generative phrase structure and X-bar (Carnie, Radford)</span></div>
+        <p>A tree and a <b>labelled bracketing</b> hold the same information: <span class="mono">[NP [D the] [N dog]]</span> is an NP node with two daughters, D and N. Every word gets a category, every phrase has a head of its own kind, and the lines never cross.</p>
+        <div class="scroll"><table class="tbl wide">
+          <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">node, root, terminal</td><td>Every labelled point is a node. The root is the top node; terminals are the words.</td></tr>
+            <tr><td class="kw">dominate</td><td>A dominates B if you can go from A down to B. <b>Immediately</b> dominate: A is B's <b>mother</b>, B is A's <b>daughter</b>.</td></tr>
+            <tr><td class="kw">sisters</td><td>Daughters of the same mother.</td></tr>
+            <tr><td class="kw">constituent</td><td>All and only the words one node dominates.</td></tr>
+            <tr><td class="kw">c-command</td><td>A node c-commands its sister and everything its sister dominates. (Binding: <i>herself</i> needs a c-commanding antecedent.)</td></tr>
+            <tr><td class="kw">triangle</td><td>Shorthand: the phrase is there, its inside is not drawn.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h3>From flat rules to X-bar</h3>
+        <p>Early phrase-structure grammar uses <b>flat rules</b>:</p>
+        <div class="rule-line">S  → NP (Aux) VP
+NP → (D) (AP+) N (PP+)
+VP → V (NP) (NP/PP/CP) (AdvP+) (PP+)
+PP → P NP</div>
+        <p>Flat rules cannot show that <i>student of physics</i> forms a unit inside <i>the student of physics with long hair</i> (<i>the one with short hair</i> replaces it, *<i>the one of chemistry</i> fails). X-bar theory adds an intermediate level X′ and gives every phrase the same shape:</p>
+        <div class="rule-line">Specifier rule:   XP → (YP) X′
+Adjunct rule:     X′ → X′ (ZP)   or   X′ → (ZP) X′
+Complement rule:  X′ → X (WP)</div>
+        <ul>
+          <li><b>Head</b> X: the word that projects the phrase (X → X′ → XP, the <b>maximal projection</b>).</li>
+          <li><b>Complement</b>: sister of X, daughter of X′. Selected by the head.</li>
+          <li><b>Adjunct</b>: sister of X′ and daughter of X′. The rule can apply again and again (stacking).</li>
+          <li><b>Specifier</b>: daughter of XP, sister of X′. In TP the subject; in CP a fronted wh-phrase.</li>
+          <li>Branching is <b>binary</b>; every phrase is <b>endocentric</b> (has a head of its own category).</li>
+          <li><b>T</b> (tense) heads the clause: it holds a modal, <i>to</i>, or a tense affix (<i>-ed</i>, <i>-s</i>, null present) that is lowered onto the verb (affix hopping). <b>C</b> heads CP and holds <i>that, if, whether, for</i>, a silent C, or an auxiliary moved up from T (subject-auxiliary inversion = T-to-C movement).</li>
+        </ul>
+        <p class="note"><b>Conventions differ.</b> Many courses leave out non-branching bar levels (they draw [NP [D the] [N dog]] instead of [NP [D the] [N′ [N dog]]]), which the gallery mostly does. Older books call TP "IP" or "S". The DP hypothesis would make every NP below a DP.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Gallery</h3>
+        <div class="gallery" id="gallery"></div>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Draw your own</h3>
+        <p class="small muted">Type a labelled bracketing. A label right after "[", then words or more brackets. <span class="mono">^NP</span> draws a triangle, <span class="mono">T'</span> shows as T′, <span class="mono">what_i</span> gives a subscript.</p>
+        <label class="small muted" for="tin">Bracketing</label>
+        <textarea id="tin" spellcheck="false">[TP [NP [D the] [N dog]] [T' [T will] [VP [V chase] [NP [D the] [N cat]]]]]</textarea>
+        <div class="row"><button class="btn" id="tdraw" type="button">Draw tree</button><span class="err" id="terr" role="status"></span></div>
+        <div class="scroll" id="tout"></div>
+      </div>
+
+      <div class="sheet stack">
+        <h3>How to draw a tree, step by step</h3>
+        <ol>
+          <li>Give every word a category (N, V, D, P, Adj, Adv, T, C, Conj).</li>
+          <li>Find the verb and its tense or modal; that gives you T and the VP.</li>
+          <li>Build the smallest phrases first: heads with their complements (X′), then adjuncts (another X′), then specifiers (XP).</li>
+          <li>Decide complement or adjunct with the tests (<i>one</i>, <i>do so</i>, order, stacking).</li>
+          <li>Attach modifiers where the <b>meaning</b> says they belong; ambiguous strings need two trees.</li>
+          <li>Check: each phrase has exactly one head of its own category, every node is binary in X-bar, no lines cross, every word is under a category label.</li>
+        </ol>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul>
+          <li><b>Complements and adjuncts at the same level.</b> The complement is the head's sister; each adjunct adds a new X′ above it.</li>
+          <li><b>PP attached to the wrong node.</b> "with the telescope as the instrument" = VP (V′) attachment; "the man who has the telescope" = NP (N′) attachment.</li>
+          <li><b>Forgetting T.</b> In an X-bar tree the tense (or the modal) sits in T even when it surfaces on the verb.</li>
+          <li><b>Mixing frameworks:</b> an S → NP VP tree in an X-bar exercise, or a ternary ditransitive where your course demands binary branching (VP shells).</li>
+          <li><b>Triangles</b> are a shortcut. Use them only for parts the task does not ask you to analyse.</li>
+          <li><b>Movement without traces.</b> Show where a moved element came from (t, coindexed) if your course uses traces.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="panel" id="view-glossary" role="tabpanel" aria-labelledby="tab-glossary" hidden>
+      <div class="sheet stack">
+        <h2>Glossary</h2>
+        <label class="small muted" for="gq">Search terms and definitions</label>
+        <input type="search" id="gq" placeholder="e.g. adjunct, c-command, extraposition" autocomplete="off">
+        <p class="small muted" id="gcount"></p>
+        <ul class="gl" id="glist"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>Content follows Carnie (Syntax: A Generative Introduction), Radford, Huddleston &amp; Pullum (The Cambridge Grammar of the English Language) and Quirk et al. (A Comprehensive Grammar of the English Language). Where they name things differently, both terms are given.</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+// ---------- helpers ----------
+function el(tag, attrs, kids){
+  var n = document.createElement(tag);
+  if (attrs) for (var k in attrs){
+    var v = attrs[k]; if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else if (k.slice(0,2) === 'on') n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  (kids || []).forEach(function(c){ if (c == null) return; n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+  return n;
+}
+function rnd(n){ return Math.floor(Math.random()*n); }
+function shuffle(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=rnd(i+1), t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function pick(a){ return a[rnd(a.length)]; }
+function uniq(a){ var s={}, o=[]; a.forEach(function(x){ if(!s[x]){ s[x]=1; o.push(x);} }); return o; }
+function fill(opts, pool, k){ var o = uniq(opts); var p = shuffle(pool); for (var i=0;i<p.length && o.length<k;i++) if (o.indexOf(p[i]) < 0) o.push(p[i]); return o; }
+var store = {
+  get:function(k, d){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set:function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+// sentence with [bracketed] parts and *underlined* words
+function mark(s){
+  var out = [], re = /\[([^\]]+)\]|\*([^*]+)\*/g, last = 0, m;
+  while ((m = re.exec(s))){
+    if (m.index > last) out.push(s.slice(last, m.index));
+    if (m[1] != null) out.push(el('span', {class:'br', text:'['+m[1]+']'}));
+    else out.push(el('span', {class:'uw', text:m[2]}));
+    last = re.lastIndex;
+  }
+  if (last < s.length) out.push(s.slice(last));
+  return el('div', {class:'qs'}, out);
+}
+function plain(s){ return s.replace(/\*/g, ''); }
+
+// ---------- DATA: word classes (Quirk's classes) ----------
+var N='noun', V='lexical verb', ADJ='adjective', ADV='adverb', P='preposition', D='determiner', PRO='pronoun', CO='coordinator', SUB='subordinator', AUX='auxiliary verb', INF='infinitive marker';
+var WCPOOL = [N, V, ADJ, ADV, P, D, PRO, CO, SUB, AUX];
+// sentence, answer, family key, excluded options (framework-dependent), why
+var WC = [
+  ["We sat at a *round* table.", ADJ, 'round', [], "It premodifies the noun table and is gradable (rounder)."],
+  ["She won the first *round*.", N, 'round', [], "It follows the determiner the first and can be plural (rounds)."],
+  ["They walked *round* the lake.", P, 'round', [], "It takes an NP complement (the lake): a preposition heading a PP."],
+  ["Turn *round* and look at me.", ADV, 'round', [P], "No complement follows: Quirk calls it an adverb (particle). H&P would call it an intransitive preposition, so that option is left out."],
+  ["The ship *rounded* the cape.", V, 'round', [], "Past tense -ed and a direct object (the cape): a lexical verb."],
+  ["Pass me *that* book.", D, 'that', [], "It comes before the noun book and specifies which one: a (demonstrative) determiner. H&P: determinative."],
+  ["I didn't say *that*.", PRO, 'that', [D], "It stands alone as the object: a demonstrative pronoun in Quirk. H&P treat it as a determinative heading the NP, so determiner is not offered."],
+  ["She knows *that* you're right.", SUB, 'that', [], "It introduces a finite complement clause: a subordinator (complementizer). It refers to nothing, so it is not a pronoun."],
+  ["The film wasn't *that* bad.", ADV, 'that', [D], "It modifies the adjective bad (= so bad): a degree adverb in Quirk. H&P class this that as a determinative used as a modifier, so determiner is left out."],
+  ["She owns a very *fast* car.", ADJ, 'fast', [], "It premodifies car and takes very: an adjective."],
+  ["She runs *fast*.", ADV, 'fast', [], "It modifies the verb runs: an adverb without -ly."],
+  ["They *fast* during Lent.", V, 'fast', [], "It is the finite verb of the clause (they fast, she fasts)."],
+  ["He broke his three-day *fast*.", N, 'fast', [], "After a determiner and a premodifier, and pluralisable (fasts): a noun."],
+  ["She climbed *up* the ladder.", P, 'up', [], "Up takes the NP the ladder and cannot move after it (*climbed the ladder up): a preposition."],
+  ["Life has its *ups* and downs.", N, 'up', [], "Plural -s after a determiner: a noun."],
+  ["The landlord *upped* the rent.", V, 'up', [], "Past tense -ed with an object: a verb."],
+  ["I *like* green tea.", V, 'like', [], "The finite verb with an object (likes, liked)."],
+  ["She sings *like* a professional.", P, 'like', [SUB], "Like + NP: a preposition. (Before a clause, like I said, some call it a conjunction.)"],
+  ["She *will* call you tomorrow.", AUX, 'will', [], "A modal auxiliary: no -s, followed by a bare infinitive, and it has NICE (won't, Will she call?)."],
+  ["He has a strong *will*.", N, 'will', [], "After a determiner and an adjective: a noun."],
+  ["She *willed* herself to keep going.", V, 'will', [], "Past tense -ed with an object: a lexical verb, not the modal."],
+  ["We *had* a party last night.", V, 'have', [], "Have a party is a lexical verb: it needs do-support (Did you have a party?, *Had you a party?)."],
+  ["We *have* finished the report.", AUX, 'have', [], "Perfect have + -ed participle: an auxiliary (Have you finished? We haven't)."],
+  ["*Do* you speak German?", AUX, 'do', [], "Dummy do in a question (do-support): an auxiliary. It adds no meaning."],
+  ["I *did* my homework.", V, 'do', [], "Here do is the main verb with an object (= perform); the question needs another do: Did you do it?"],
+  ["She *doesn't* eat meat.", AUX, 'do', [], "Do carries tense and n't because eat cannot (do-support): an auxiliary."],
+  ["You *needn't* worry.", AUX, 'need', [], "Modal need: n't attached directly, no -s, bare infinitive after it."],
+  ["*Need* I say more?", AUX, 'need', [], "Need inverts with the subject without do: modal auxiliary use."],
+  ["You *need* to sleep more.", V, 'need', [], "Lexical need: to-infinitive after it, and it takes do (You don't need to)."],
+  ["There's no *need* to shout.", N, 'need', [], "After the determiner no: a noun."],
+  ["She bought a *light* jacket.", ADJ, 'light', [], "Premodifies jacket and is gradable (lighter)."],
+  ["Turn off the *light*.", N, 'light', [], "After the determiner the, plural lights: a noun."],
+  ["*Light* the candles.", V, 'light', [], "An imperative verb with an object."],
+  ["He is *still* asleep.", ADV, 'still', [], "It modifies the predication in time (= even now): an adverb."],
+  ["The lake was perfectly *still*.", ADJ, 'still', [], "A subject complement after be, modified by perfectly: an adjective (= motionless)."],
+  ["They printed a *still* from the film.", N, 'still', [], "After the determiner a: a noun (a single photograph)."],
+  ["She was tired *but* happy.", CO, 'but', [], "It links two adjectives of equal status: a coordinator."],
+  ["Everyone *but* Anna came.", P, 'but', [SUB, CO], "But = except, taking the NP Anna: a preposition."],
+  ["Call me *before* lunch.", P, 'before', [], "It takes the NP lunch: a preposition."],
+  ["I've seen this film *before*.", ADV, 'before', [P], "No complement: an adverb in Quirk. H&P would say intransitive preposition, so that option is left out."],
+  ["We drove *to* Salzburg.", P, 'to', [], "It takes the NP Salzburg: a preposition."],
+  ["She wants *to* leave.", INF, 'to', [SUB, AUX], "To before a bare verb is the infinitive marker. (H&P call it a subordinator, generative grammar puts it in T, so those options are left out.)"],
+  ["I wonder *whether* it will rain.", SUB, '', [], "It introduces an interrogative complement clause: a subordinator (complementizer) in every framework."],
+  ["Ask her *if* she's coming.", SUB, '', [], "Interrogative if (= whether) introduces a complement clause: a subordinator."],
+  ["We need bread *and* butter.", CO, '', [], "Links two NPs of equal status: a coordinator."],
+  ["*The* cat sat on the mat.", D, '', [], "The definite article: a determiner (H&P: determinative)."],
+  ["It's a *very* old house.", ADV, '', [ADJ], "It modifies the adjective old: a degree adverb (intensifier)."],
+  ["They built a *stone* wall.", N, [ADJ, ADV, D], [], "A noun used as a premodifier: no comparison (*stonier), no very (*a very stone wall)."],
+  ["The *rich* get richer.", ADJ, [N, ADV, PRO], [], "An adjective heading an NP (the very rich is fine, *the riches with this meaning is not). It does not take plural -s, so it is not a noun."],
+  ["Everyone likes *her*.", PRO, [D, N, ADV], [], "Her alone as the object: a personal pronoun (accusative form)."],
+  ["He hurt *himself*.", PRO, [N, ADV, D], [], "A reflexive pronoun, coreferent with the subject he."],
+  ["Please *open* the window.", V, 'open', [], "An imperative verb with an object (opens, opened)."],
+  ["The window was *open*.", ADJ, 'open', [], "Subject complement after be, gradable (wide open): an adjective."],
+  ["The cat jumped *over* the fence.", P, [ADV, CO, SUB], [], "It takes the NP the fence: a preposition."],
+  ["*After* the concert we went home.", P, [SUB, ADV, CO], [], "After + NP: a preposition in both Quirk and H&P."],
+  ["That was a *hard* question.", ADJ, 'hard', [], "Premodifies question, gradable (harder): an adjective."],
+  ["She works *hard*.", ADV, 'hard', [], "Modifies the verb works: an adverb (hardly is a different word meaning 'almost not')."],
+  ["We caught the *early* train.", ADJ, 'early', [], "Premodifies train: an adjective."],
+  ["She arrived *early*.", ADV, 'early', [], "Modifies the verb arrived: an adverb."],
+  ["She reads a *daily* newspaper.", ADJ, 'daily', [], "Premodifies newspaper: an adjective."],
+  ["The paper is published *daily*.", ADV, 'daily', [], "Modifies the verb: an adverb of frequency."],
+  ["She writes for the local *daily*.", N, 'daily', [], "After determiner + adjective: a noun (= a daily newspaper; plural dailies)."],
+  ["I got a birthday *present*.", N, 'present', [], "After a determiner and noun premodifier: a noun."],
+  ["She will *present* the results.", V, 'present', [], "After the modal will, with an object: a verb (stress on the second syllable)."],
+  ["Everyone *present* agreed.", ADJ, 'present', [], "A postpositive adjective (= who was present), not a verb or noun."],
+  ["You *must* see this film.", AUX, 'must', [], "A modal: no -s, no -ed, bare infinitive after it, mustn't."],
+  ["This film is a *must*.", N, 'must', [], "After the determiner a: a noun (= something you must see)."]
+];
+var WCFAM = {};
+WC.forEach(function(w){ if (typeof w[2] === 'string' && w[2]){ (WCFAM[w[2]] = WCFAM[w[2]] || []).push(w[1]); } });
+
+// ---------- DATA: phrases ----------
+var PH = [
+  ["She was [very proud of her son].", "AP · head: proud", ["AdvP · head: very","PP · head: of","NP · head: son"], "Proud is the head: very modifies it and of her son is its complement. Remove both and 'She was proud' is still fine."],
+  ["[The old house on the hill] burned down.", "NP · head: house", ["PP · head: on","AP · head: old","NP · head: hill"], "The whole subject is an NP headed by house; on the hill is a PP postmodifier and old an AP premodifier."],
+  ["We left [right after the concert].", "PP · head: after", ["AdvP · head: right","NP · head: concert","AdvP · head: after"], "After takes the NP the concert as its complement; right only modifies the PP."],
+  ["She spoke [remarkably clearly].", "AdvP · head: clearly", ["AdvP · head: remarkably","AP · head: remarkably","AP · head: clearly"], "Clearly modifies spoke and is the head; remarkably is a degree modifier of it."],
+  ["Every morning she [reads the paper].", "VP · head: reads", ["NP · head: paper","VP · head: paper","NP · head: reads"], "Reads is the head and the paper its object complement."],
+  ["[Students of linguistics] love trees.", "NP · head: Students", ["PP · head: of","NP · head: linguistics","PP · head: linguistics"], "Students is the head (it agrees with love); of linguistics is a PP complement."],
+  ["The book is [on the top shelf].", "PP · head: on", ["NP · head: shelf","AP · head: top","PP · head: shelf"], "On is the head; the top shelf is its NP complement."],
+  ["He is [extremely fond of chocolate].", "AP · head: fond", ["AdvP · head: extremely","PP · head: of","NP · head: chocolate"], "Fond is the head; extremely modifies it, of chocolate is its complement."],
+  ["She arrived [much too early].", "AdvP · head: early", ["AdvP · head: much","AdvP · head: too","NP · head: early"], "Early (modifying arrived) is the head; too and much are stacked degree modifiers."],
+  ["We met [in the summer of 2019].", "PP · head: in", ["NP · head: summer","PP · head: of","NP · head: 2019"], "In is the head; the summer of 2019 is its NP complement (with its own PP inside)."],
+  ["[Rather unhappy with the result], she left.", "AP · head: unhappy", ["AdvP · head: rather","PP · head: with","NP · head: result"], "Unhappy is the head; rather modifies it and with the result is its complement."],
+  ["They [sold their house].", "VP · head: sold", ["NP · head: house","NP · head: their","VP · head: house"], "Sold is the head; their house is its object."],
+  ["She bought [a beautiful old Persian rug].", "NP · head: rug", ["AP · head: beautiful","AP · head: Persian","NP · head: Persian"], "Rug is the head; the adjectives are stacked premodifiers."],
+  ["He was [afraid of the dark].", "AP · head: afraid", ["PP · head: of","NP · head: dark","AdvP · head: afraid"], "Afraid is an adjective (predicative only) and the head; of the dark is its complement."],
+  ["I waited [for over an hour].", "PP · head: for", ["PP · head: over","NP · head: hour","AdvP · head: over"], "The outermost head is for; over an hour is its complement."],
+  ["[The decision to resign] surprised us.", "NP · head: decision", ["VP · head: resign","NP · head: resign","PP · head: to"], "Decision is the head noun; to resign is a to-infinitive clause inside the NP."],
+  ["She is [taller than her brother].", "AP · head: taller", ["PP · head: than","NP · head: brother","AdvP · head: taller"], "Taller (comparative adjective) is the head; than her brother completes the comparison."],
+  ["He speaks [far more fluently than I do].", "AdvP · head: fluently", ["AdvP · head: far","AdvP · head: more","AP · head: fluently"], "Fluently is the head; far and more are degree modifiers, than I do completes the comparison."],
+  ["Grandpa [gave the dog a bath].", "VP · head: gave", ["NP · head: dog","NP · head: bath","VP · head: bath"], "Gave is the head with two objects."],
+  ["[Under the bridge] lived a troll.", "PP · head: Under", ["NP · head: bridge","AdvP · head: Under","PP · head: bridge"], "Under + NP the bridge: a PP, here fronted (locative inversion)."],
+  ["We heard some [quite unexpected] news.", "AP · head: unexpected", ["AdvP · head: quite","NP · head: unexpected","AdvP · head: unexpected"], "Unexpected is the head adjective; quite modifies it. The AP premodifies news."],
+  ["She lives [just around the corner].", "PP · head: around", ["AdvP · head: just","NP · head: corner","PP · head: corner"], "Around is the head with the NP the corner; just modifies the PP."],
+  ["[My sister's new car] is red.", "NP · head: car", ["NP · head: sister","AP · head: new","AP · head: car"], "Car is the head; my sister's is a genitive determiner. (Under the DP hypothesis 's would head a DP.)"],
+  ["He [ran up the hill].", "VP · head: ran", ["PP · head: up","NP · head: hill","VP · head: up"], "Ran heads the VP; up the hill is a PP inside it."],
+  ["They were [completely aware of the risks].", "AP · head: aware", ["AdvP · head: completely","PP · head: of","NP · head: risks"], "Aware is the head adjective with the complement of the risks."],
+  ["The man [with the red hat] waved.", "PP · head: with", ["NP · head: hat","AP · head: red","PP · head: hat"], "With is the head; the red hat is its complement. The PP postmodifies man."],
+  ["She answered [surprisingly quickly].", "AdvP · head: quickly", ["AdvP · head: surprisingly","AP · head: surprisingly","AP · head: quickly"], "Quickly is the head adverb; surprisingly modifies it."],
+  ["[Coffee with milk] is my favourite.", "NP · head: Coffee", ["PP · head: with","NP · head: milk","PP · head: milk"], "Coffee is the head; with milk postmodifies it."],
+  ["I'm [so glad that you came].", "AP · head: glad", ["AdvP · head: so","NP · head: you","AdvP · head: glad"], "Glad is the head; so modifies it and the that-clause is its complement."],
+  ["We left [immediately after lunch].", "PP · head: after", ["AdvP · head: immediately","NP · head: lunch","AdvP · head: after"], "After + NP lunch; immediately modifies the PP."],
+  ["[Three very large dogs] chased us.", "NP · head: dogs", ["AP · head: large","AdvP · head: very","NP · head: Three"], "Dogs is the head; three is a numeral determiner, very large an AP premodifier."],
+  ["He [knows the answer].", "VP · head: knows", ["NP · head: answer","VP · head: answer","NP · head: the"], "Knows heads the VP; the answer is its object."],
+  ["It was [too hot to sleep].", "AP · head: hot", ["AdvP · head: too","VP · head: sleep","AdvP · head: hot"], "Hot is the head; too and the to-infinitive it licenses belong to the AP."],
+  ["We walked [along the river].", "PP · head: along", ["NP · head: river","AdvP · head: along","PP · head: river"], "Along + NP the river."],
+  ["The cat [jumped onto the table].", "VP · head: jumped", ["PP · head: onto","NP · head: table","VP · head: onto"], "Jumped heads the VP; onto the table is a PP inside it."]
+];
+
+// ---------- DATA: constituency tests ----------
+var TESTS = ['Substitution (pro-form)','Movement (topicalisation)','Clefting','Pseudoclefting','Coordination','Fragment answer','Ellipsis (deletion)'];
+var TS = [
+  ["The tall woman left.", "She left.", 0, "One pronoun replaces the tall woman, so it is an NP constituent."],
+  ["She put the book on the table.", "She put it there.", 0, "Pro-forms it (NP) and there (PP) replace whole strings."],
+  ["Anna will finish the essay, and Ben will finish the essay too.", "Anna will finish the essay, and Ben will do so too.", 0, "Do so is a pro-form for the VP finish the essay."],
+  ["I like the red car more than the blue car.", "I like the red car more than the blue one.", 0, "One replaces car (an N′): one-substitution."],
+  ["She lives in Vienna.", "She lives there.", 0, "There replaces the PP in Vienna."],
+  ["I met my old teacher in town.", "In town, I met my old teacher.", 1, "In town is fronted as a unit: topicalisation."],
+  ["She loves pasta.", "Pasta, she loves.", 1, "The NP is moved to the front: topicalisation."],
+  ["Anna said she would finish the essay, and she will finish the essay.", "Anna said she would finish the essay, and finish the essay she will.", 1, "The whole VP is fronted (VP preposing), leaving the auxiliary behind."],
+  ["He drank the coffee quickly.", "The coffee, he drank quickly.", 1, "The NP the coffee is fronted: topicalisation."],
+  ["I met my old teacher in town.", "It was my old teacher that I met in town.", 2, "It + be + focus + that-clause: an it-cleft."],
+  ["He drank the coffee quickly.", "It was the coffee that he drank quickly.", 2, "It was ... that: an it-cleft focusing the coffee."],
+  ["She lives in Vienna.", "It is in Vienna that she lives.", 2, "It is ... that: an it-cleft with a PP in focus."],
+  ["The storm destroyed the old barn.", "It was the old barn that the storm destroyed.", 2, "It was ... that: an it-cleft."],
+  ["I met my old teacher in town.", "What I did in town was meet my old teacher.", 3, "What ... was ...: a wh-cleft (pseudocleft), here with the VP in focus."],
+  ["He drank the coffee quickly.", "What he drank quickly was the coffee.", 3, "A wh-clause + be + focus: a pseudocleft."],
+  ["The storm destroyed the old barn.", "What the storm destroyed was the old barn.", 3, "Pseudocleft: what-clause + was + the focused NP."],
+  ["Anna called the police.", "What Anna did was call the police.", 3, "Pseudocleft with do: the VP call the police is the focus."],
+  ["I met my old teacher.", "I met my old teacher and his wife.", 4, "A second NP is joined with and."],
+  ["He drank the coffee.", "He drank the coffee and the juice.", 4, "Two NPs are coordinated: coordination test."],
+  ["She lives in Vienna.", "She lives in Vienna and in Graz.", 4, "Two PPs coordinated with and."],
+  ["The storm destroyed the old barn.", "The storm destroyed the old barn and flooded the fields.", 4, "Two VPs coordinated with and."],
+  ["I met my old teacher.", "Who did you meet? — My old teacher.", 5, "The string answers a question on its own: fragment answer."],
+  ["He drank the coffee.", "What did he drink? — The coffee.", 5, "The NP stands alone as an answer."],
+  ["She lives in Vienna.", "Where does she live? — In Vienna.", 5, "The PP stands alone as an answer."],
+  ["The storm destroyed the old barn.", "What did the storm destroy? — The old barn.", 5, "Fragment answer: the NP answers on its own."],
+  ["Anna will finish the essay, and Ben will finish the essay too.", "Anna will finish the essay, and Ben will too.", 6, "The VP finish the essay is deleted after will: VP ellipsis."],
+  ["He has drunk the coffee, and she has drunk the coffee too.", "He has drunk the coffee, and she has too.", 6, "The VP drunk the coffee is deleted after the auxiliary has: VP ellipsis."],
+  ["Someone called, but I don't know who called.", "Someone called, but I don't know who.", 6, "The clause after who is deleted (sluicing), a kind of ellipsis."]
+];
+// sentence, NOT a constituent, three constituents
+var NC = [
+  ["The girl put the book on the shelf.", "book on the", ["the book","on the shelf","put the book on the shelf"]],
+  ["My brother bought a new bike yesterday.", "brother bought", ["my brother","a new bike","bought a new bike"]],
+  ["She looked at the pictures of the castle.", "the pictures of", ["the castle","the pictures of the castle","at the pictures of the castle"]],
+  ["The man with the hat smiled at me.", "the hat smiled", ["the man with the hat","with the hat","smiled at me"]],
+  ["We will meet in the old library.", "will meet in the", ["the old library","in the old library","meet in the old library"]],
+  ["A very tall woman opened the door.", "tall woman opened", ["a very tall woman","very tall","opened the door"]],
+  ["He gave the children some sweets.", "children some", ["the children","some sweets","gave the children some sweets"]],
+  ["The students in my class like syntax.", "class like", ["in my class","my class","like syntax"]],
+  ["She is proud of her daughter.", "is proud of", ["her daughter","of her daughter","proud of her daughter"]],
+  ["The cat chased a mouse into the kitchen.", "a mouse into", ["the kitchen","into the kitchen","the cat"]],
+  ["An article about Austrian politics appeared today.", "politics appeared", ["an article about Austrian politics","about Austrian politics","Austrian politics"]],
+  ["The waiter brought us the bill.", "us the", ["the waiter","the bill","brought us the bill"]],
+  ["Her parents live in a small village.", "parents live in", ["her parents","a small village","in a small village"]],
+  ["The children were playing in the park.", "children were", ["the park","in the park","playing in the park"]],
+  ["Students from Linz often visit Vienna.", "Linz often", ["students from Linz","from Linz","visit Vienna"]],
+  ["I will read your essay tonight.", "your essay tonight", ["your essay","read your essay","tonight"]]
+];
+
+// ---------- DATA: functions ----------
+var FN = {S:'Subject (S)', V:'Verb (V)', Od:'Direct object (Od)', Oi:'Indirect object (Oi)', Cs:'Subject complement (Cs)', Co:'Object complement (Co)', A:'Adverbial (A)'};
+var FNEAR = {S:['Od','Cs','A'], V:['A','Cs','Od'], Od:['Cs','Oi','A','S'], Oi:['Od','Co','A'], Cs:['Od','Co','A'], Co:['Cs','Od','A'], A:['Od','Cs','Co']};
+var FI = [
+  ["[The new manager] fired three people.", 'S', "It precedes the verb and agrees with it; it inverts in questions (Did the new manager fire...?)."],
+  ["The new manager [fired] three people.", 'V', "The verb element, here a single finite lexical verb."],
+  ["The new manager fired [three people].", 'Od', "It follows a transitive verb and becomes the subject in the passive (Three people were fired)."],
+  ["She gave [her brother] a lift.", 'Oi', "The recipient, between the verb and the direct object (gave a lift to her brother)."],
+  ["She gave her brother [a lift].", 'Od', "The thing given: the direct object, after the indirect object."],
+  ["Her brother is [a pilot].", 'Cs', "After copular be, it describes the subject. No passive is possible."],
+  ["They elected her [chair of the board].", 'Co', "It says what the object became (she is chair): object complement."],
+  ["They elected [her] chair of the board.", 'Od', "The person elected; passive: She was elected chair."],
+  ["The soup tastes [too salty].", 'Cs', "An AP after the copular verb tastes, describing the subject."],
+  ["The news made [everyone] nervous.", 'Od', "Passive: Everyone was made nervous. Nervous then describes it (Co)."],
+  ["The news made everyone [nervous].", 'Co', "It describes the object everyone (everyone became nervous)."],
+  ["[Yesterday] the shop closed early.", 'A', "An optional, movable time adverbial."],
+  ["The shop closed [early].", 'A', "An optional adverb of time modifying the verb."],
+  ["The keys are [under the mat].", 'A', "An obligatory adverbial of place after be (SVA in Quirk): it locates the subject rather than describing it. H&P would call it a locative complement."],
+  ["She put the vase [on the table].", 'A', "Obligatory with put (SVOA): delete it and the clause is incomplete."],
+  ["[What she said] surprised everyone.", 'S', "A nominal relative clause as subject: it precedes the verb and could be replaced by It."],
+  ["I know [that you are busy].", 'Od', "A that-clause as direct object (I know it)."],
+  ["The problem is [that nobody listens].", 'Cs', "A that-clause after copular be, identifying the subject."],
+  ["[It] is raining.", 'S', "Dummy it: no meaning, but it is the grammatical subject (Is it raining?)."],
+  ["[There] are two cats in the garden.", 'S', "Existential there is the grammatical subject: it inverts (Are there...?) and appears in tags (aren't there?)."],
+  ["We painted the fence [white].", 'Co', "It describes the resulting state of the object (the fence is white)."],
+  ["Tom bought [his girlfriend] a ring.", 'Oi', "The beneficiary before the direct object (bought a ring for his girlfriend)."],
+  ["Tom bought his girlfriend [a ring].", 'Od', "The thing bought: direct object."],
+  ["[My younger sister] seems happy.", 'S', "The NP that agrees with seems and precedes it."],
+  ["My younger sister seems [happy].", 'Cs', "An AP after the copular verb seem."],
+  ["The baby [has been crying] all night.", 'V', "Quirk's verb element includes the auxiliaries: has been crying."],
+  ["The baby has been crying [all night].", 'A', "An NP functioning as an adverbial of duration: optional, no passive."],
+  ["[Unfortunately], the train was late.", 'A', "A sentence adverbial commenting on the whole clause (Quirk: disjunct; H&P: supplement)."],
+  ["She became [a famous author].", 'Cs', "After copular become: it describes the subject; *A famous author was become."],
+  ["They consider him [a genius].", 'Co', "It describes the object (he is a genius)."],
+  ["They consider [him] a genius.", 'Od', "Passive: He is considered a genius."],
+  ["I'll send [you] the details.", 'Oi', "Recipient before the direct object."],
+  ["I'll send you [the details].", 'Od', "The thing sent."],
+  ["The children were playing [in the garden].", 'A', "An optional place adverbial (The children were playing is complete)."],
+  ["Most people dislike [being criticised].", 'Od', "A non-finite -ing clause as direct object (dislike it)."],
+  ["[To win the cup] was his dream.", 'S', "A to-infinitive clause as subject (It was his dream to win the cup, with extraposition)."],
+  ["We left [because it was late].", 'A', "A finite adverbial clause of reason."],
+  ["The film was [boring].", 'Cs', "An AP after be describing the subject."],
+  ["She asked [the waiter] a question.", 'Oi', "Ask takes an indirect object (the person asked) and a direct object."],
+  ["Everyone calls him [Ted].", 'Co', "The name assigned to the object: object complement."],
+  ["[The children] have gone to bed.", 'S', "The subject NP; it agrees with have."],
+  ["She sent her mother [a postcard from Rome].", 'Od', "The thing sent; her mother is the indirect object."],
+  ["My parents are [at home].", 'A', "An obligatory place adverbial after be (SVA in Quirk; H&P: a locative complement)."],
+  ["[Swimming in the lake] is forbidden.", 'S', "An -ing clause as subject."],
+  ["She seemed [a nice person].", 'Cs', "An NP after copular seem, describing the subject."]
+];
+
+// ---------- DATA: clause patterns ----------
+var PNEAR = {SV:['SVA','SVO','SVC'], SVO:['SVOA','SVC','SVOO','SVOC'], SVC:['SVO','SVA','SVOC'], SVA:['SV','SVC','SVOA'], SVOO:['SVOC','SVO','SVOA'], SVOC:['SVOO','SVOA','SVC'], SVOA:['SVOC','SVA','SVO']};
+var PATTERNS = ['SV','SVO','SVC','SVA','SVOO','SVOC','SVOA'];
+var CP = [
+  ["The baby is sleeping.", 'SV', "Is sleeping is the verb element; nothing else is needed."],
+  ["The guests have arrived.", 'SV', "Arrive is intransitive: S + V (have arrived)."],
+  ["Prices fell sharply last year.", 'SV', "Sharply and last year are optional adverbials: delete them and Prices fell is complete with the same meaning."],
+  ["The old bridge collapsed.", 'SV', "Collapse here is intransitive: S + V."],
+  ["Everyone laughed.", 'SV', "S + V; no object, no complement."],
+  ["The audience applauded loudly.", 'SV', "Loudly is optional, so it does not count: SV."],
+  ["Her grandfather died in 1998.", 'SV', "In 1998 is an optional time adverbial: SV."],
+  ["The phone rang twice.", 'SV', "Twice is an optional adverbial: SV."],
+  ["The children were swimming.", 'SV', "S + V (were swimming)."],
+  ["Snow fell overnight.", 'SV', "Overnight is optional: SV."],
+  ["She wrote a long letter.", 'SVO', "A long letter is the direct object (A long letter was written)."],
+  ["The committee rejected the proposal.", 'SVO', "One direct object: SVO."],
+  ["My brother plays the guitar.", 'SVO', "The guitar is the direct object."],
+  ["Nobody noticed the mistake.", 'SVO', "The mistake is the direct object (The mistake was noticed by nobody)."],
+  ["The cat caught a mouse yesterday.", 'SVO', "Yesterday is optional; a mouse is Od."],
+  ["We discussed the problem.", 'SVO', "Discuss takes a direct object (no preposition in English)."],
+  ["They have sold their house.", 'SVO', "Their house is Od; have sold is the verb element."],
+  ["I know that she is right.", 'SVO', "The that-clause is the direct object (I know it)."],
+  ["She enjoys reading novels.", 'SVO', "The -ing clause is the direct object."],
+  ["He wants to leave.", 'SVO', "The to-infinitive clause is the direct object."],
+  ["Her brother is a nurse.", 'SVC', "A nurse describes the subject after copular be: Cs."],
+  ["The soup tastes salty.", 'SVC', "Copular taste + AP: SVC."],
+  ["The weather turned cold.", 'SVC', "Turn is copular here (= became): cold is Cs."],
+  ["He became famous.", 'SVC', "Become + Cs."],
+  ["You look tired.", 'SVC', "Look is copular (= seem): tired is Cs."],
+  ["The answer seems obvious.", 'SVC', "Seem + AP: SVC."],
+  ["She remained calm.", 'SVC', "Remain is copular: calm is Cs."],
+  ["The leaves went brown.", 'SVC', "Go = become here: brown is Cs."],
+  ["It got dark.", 'SVC', "Dummy it as S, copular get, dark as Cs."],
+  ["The problem is that we have no money.", 'SVC', "A that-clause as Cs after be."],
+  ["The keys are under the mat.", 'SVA', "Be + obligatory place adverbial: *The keys are (in this sense) is incomplete."],
+  ["Her parents live in Graz.", 'SVA', "In the sense 'reside', live needs a place: without it, They live means 'they are alive'."],
+  ["The meeting is on Tuesday.", 'SVA', "Be + obligatory time adverbial."],
+  ["Vienna lies on the Danube.", 'SVA', "Lie (= be situated) needs a place adverbial: *Vienna lies."],
+  ["The children are in the garden.", 'SVA', "Be + obligatory place adverbial."],
+  ["My office is upstairs.", 'SVA', "Be + obligatory adverbial (an AdvP of place)."],
+  ["The concert is at eight.", 'SVA', "Be + obligatory time adverbial."],
+  ["She resides in Salzburg.", 'SVA', "Reside cannot stand without a place adverbial."],
+  ["The bus stop is round the corner.", 'SVA', "Be + obligatory place adverbial."],
+  ["She gave her nephew a bike.", 'SVOO', "Her nephew (Oi) + a bike (Od)."],
+  ["He told the children a story.", 'SVOO', "The children (Oi), a story (Od)."],
+  ["They sent us a postcard.", 'SVOO', "Us (Oi), a postcard (Od)."],
+  ["I bought my mother some flowers.", 'SVOO', "Beneficiary my mother (Oi) + some flowers (Od)."],
+  ["The teacher asked the class a question.", 'SVOO', "The class (Oi), a question (Od)."],
+  ["Can you lend me your pen?", 'SVOO', "Question order doesn't change the pattern: you (S), can lend (V), me (Oi), your pen (Od)."],
+  ["She showed the visitors the garden.", 'SVOO', "The visitors (Oi), the garden (Od)."],
+  ["He owes his sister fifty euros.", 'SVOO', "His sister (Oi), fifty euros (Od)."],
+  ["We wish you a merry Christmas.", 'SVOO', "You (Oi), a merry Christmas (Od)."],
+  ["Grandma baked us a cake.", 'SVOO', "Us (Oi, beneficiary), a cake (Od)."],
+  ["They elected her president.", 'SVOC', "Her (Od) + president (Co): she became president."],
+  ["The news made him angry.", 'SVOC', "Him (Od) + angry (Co)."],
+  ["She painted the door red.", 'SVOC', "The door (Od) + red (Co, resulting state)."],
+  ["The jury found him guilty.", 'SVOC', "Him (Od) + guilty (Co). Without guilty, found means 'located'."],
+  ["We consider the plan a failure.", 'SVOC', "The plan (Od) + a failure (Co): the plan is a failure."],
+  ["Everyone calls him Ted.", 'SVOC', "Him (Od) + Ted (Co)."],
+  ["The long walk left us exhausted.", 'SVOC', "Us (Od) + exhausted (Co)."],
+  ["I find this book boring.", 'SVOC', "This book (Od) + boring (Co)."],
+  ["They named the baby Clara.", 'SVOC', "The baby (Od) + Clara (Co). Not SVOO: the baby is Clara."],
+  ["She put the vase on the table.", 'SVOA', "Put needs an object and a place: *She put the vase."],
+  ["He put the keys in his pocket.", 'SVOA', "Put + Od + obligatory place adverbial."],
+  ["He placed the letter in the drawer.", 'SVOA', "Place needs a location: SVOA."],
+  ["She laid the baby in its cot.", 'SVOA', "Lay (= put down) needs a place adverbial."],
+  ["He leaned his bike against the wall.", 'SVOA', "Transitive lean needs a place: *He leaned his bike."],
+  ["They stood the ladder against the tree.", 'SVOA', "Transitive stand (= place upright) needs a place adverbial."]
+];
+
+// ---------- DATA: complement or adjunct (X-bar sense) ----------
+var CA = [
+  ["a student [of physics] with long hair", 1, "Of physics is selected by student (studying physics) and sits closest to the head: complement."],
+  ["a student of physics [with long hair]", 0, "With long hair can attach to any noun and stack: adjunct (the one with long hair works)."],
+  ["She ate the cake [in the kitchen].", 0, "Optional, stackable, and do so can leave it behind: adjunct."],
+  ["She put the cake [in the kitchen].", 1, "Put selects a location: obligatory, complement."],
+  ["He relies [on his parents].", 1, "Rely selects on + NP: complement."],
+  ["He waited [for an hour].", 0, "A duration phrase, possible with any activity verb: adjunct."],
+  ["He approved [of the plan].", 1, "Approve selects of: complement."],
+  ["She is fond [of cats].", 1, "Fond selects of + NP and needs it in this sense: complement of the adjective."],
+  ["the destruction [of the city]", 1, "Of the city is the theme argument of destroy/destruction: complement."],
+  ["the destruction of the city [in 1945]", 0, "A time modifier, optional and stackable: adjunct."],
+  ["She sang [beautifully].", 0, "An optional manner modifier: adjunct."],
+  ["She told him [that she was leaving].", 1, "Tell selects the content clause: complement."],
+  ["She left [because she was tired].", 0, "A reason clause, optional: adjunct."],
+  ["He arrived [yesterday].", 0, "An optional time modifier: adjunct."],
+  ["She became [a teacher].", 1, "Become needs its predicative: complement."],
+  ["She seems [happy].", 1, "Seem needs its predicative: complement."],
+  ["the claim [that the earth is flat]", 1, "A content clause with no gap, giving the content of claim: complement."],
+  ["the claim [that he made]", 0, "A relative clause with a gap (he made __): adjunct."],
+  ["the fact [that she left]", 1, "Content clause (no gap): complement of fact."],
+  ["the car [that she bought]", 0, "Relative clause (she bought __): adjunct."],
+  ["He read the book [carefully].", 0, "Optional manner adverb: adjunct."],
+  ["He read [the book] carefully.", 1, "The object is selected by read: complement."],
+  ["proud [of her work]", 1, "Proud selects of + NP: complement."],
+  ["a man [from Linz]", 0, "Origin modifier, attachable to any noun: adjunct."],
+  ["They met [in Paris].", 0, "Optional place modifier: adjunct."],
+  ["I saw her [on Tuesday].", 0, "Optional time modifier: adjunct."],
+  ["the arrival [of the train]", 1, "The train is the argument of arrive: complement."],
+  ["the arrival of the train [at noon]", 0, "Optional time modifier: adjunct."],
+  ["He gave [her] flowers.", 1, "Give selects a recipient: complement."],
+  ["He gave her flowers [on her birthday].", 0, "Optional time modifier: adjunct."],
+  ["She wants [to leave].", 1, "Want selects the infinitive clause: complement."],
+  ["She left early [to catch the train].", 0, "A purpose clause, optional: adjunct."],
+  ["keen [on football]", 1, "Keen selects on: complement."],
+  ["the man [who lives next door]", 0, "A relative clause: adjunct (modifier) in the NP."],
+  ["the rumour [that she had spread]", 0, "Relative clause with a gap (she had spread __): adjunct."],
+  ["the rumour [that the minister had resigned]", 1, "Content clause with no gap: complement of rumour."],
+  ["the teacher [of French]", 1, "Of French says what is taught: complement (*the one of German)."],
+  ["the teacher [in the corner]", 0, "Location modifier: adjunct (the one in the corner)."],
+  ["He drove [very carefully].", 0, "Optional manner modifier: adjunct."],
+  ["They elected [her] president.", 1, "The object of elect is selected: complement."]
+];
+
+// ---------- DATA: clause types ----------
+var FORMS = ['Finite','To-infinitive','Bare infinitive','-ing participle','-ed participle','Verbless'];
+var FUNCS = ['relative (noun postmodifier)','nominal (complement)','adverbial'];
+var CTY = [
+  ["The woman [who lives next door] is a pilot.", 0, 0, "Tensed lives; it postmodifies woman with a gap for the subject."],
+  ["I think [that she is right].", 0, 1, "Tensed is; a that-clause as the object of think."],
+  ["[When the bell rang], everyone left.", 0, 2, "Tensed rang; a time adverbial clause."],
+  ["She wants [to study in Vienna].", 1, 1, "To + base form; the object of wants."],
+  ["[Walking home], I met an old friend.", 3, 2, "An -ing participle clause giving the time/circumstance: adverbial."],
+  ["The man [sitting by the window] is my uncle.", 3, 0, "An -ing clause postmodifying man (= who is sitting): often called a reduced relative clause."],
+  ["The letter [written by her grandfather] was found.", 4, 0, "An -ed participle clause postmodifying letter (= which was written)."],
+  ["[Written in haste], the letter was full of mistakes.", 4, 2, "An -ed participle clause as adverbial (= because it was written in haste)."],
+  ["All he did was [complain].", 2, 1, "A bare infinitive as subject complement in a pseudocleft."],
+  ["[With the exam over], we celebrated.", 5, 2, "No verb at all (with + NP + predicate): a verbless adverbial clause."],
+  ["[Although tired], she kept working.", 5, 2, "Subordinator + adjective, no verb: a verbless concessive clause."],
+  ["The book [that I bought yesterday] is boring.", 0, 0, "Tensed bought, gap for the object: restrictive relative clause."],
+  ["I wonder [whether he will come].", 0, 1, "Tensed (will come); an interrogative complement clause."],
+  ["[If it rains], we'll stay inside.", 0, 2, "Tensed rains; a conditional adverbial clause."],
+  ["[To be honest], I didn't like it.", 1, 2, "A to-infinitive clause commenting on the utterance: adverbial (disjunct)."],
+  ["She left early [to catch the train].", 1, 2, "A purpose clause: adverbial."],
+  ["He has a lot of work [to do].", 1, 0, "A to-infinitive clause postmodifying work, with a gap (to do __)."],
+  ["[Swimming in the sea] is fun.", 3, 1, "An -ing clause as subject: nominal."],
+  ["I enjoy [reading crime novels].", 3, 1, "An -ing clause as object: nominal."],
+  ["My sister, [who lives in Graz], is a doctor.", 0, 0, "Tensed lives; a non-restrictive relative clause."],
+  ["[Because she was ill], she stayed at home.", 0, 2, "Tensed was; a reason adverbial clause."],
+  ["[That he lied] is obvious.", 0, 1, "A that-clause as subject."],
+  ["It is obvious [that he lied].", 0, 1, "An extraposed subject clause: still nominal."],
+  ["He is the first person [to arrive].", 1, 0, "A to-infinitive postmodifying person (= who arrived)."],
+  ["The house [where I grew up] has been sold.", 0, 0, "Tensed grew; where relativizes a place: relative clause."],
+  ["[Having finished the essay], she went to bed.", 3, 2, "A perfect -ing participle clause (having + -ed) as adverbial of time."],
+  ["The problem is [that nobody listens].", 0, 1, "A that-clause as subject complement."],
+  ["I asked [who had called].", 0, 1, "An embedded wh-question as the object of asked."],
+  ["[The weather being fine], we went for a walk.", 3, 2, "An -ing clause with its own subject (absolute clause): adverbial."],
+  ["I want [you to be happy].", 1, 1, "A to-infinitive clause with its own subject you, as object of want."],
+  ["She was surprised [that he called].", 0, 1, "A that-clause complementing the adjective surprised."],
+  ["[Once inside], he locked the door.", 5, 2, "Subordinator + adverb, no verb: verbless adverbial clause."],
+  ["The film [I told you about] is on tonight.", 0, 0, "Tensed told; a relative clause with zero relativizer (about __)."],
+  ["He sat there, [his hands shaking].", 3, 2, "An -ing clause with its own subject (absolute): adverbial."],
+  ["[Born in Linz], she moved to Vienna at ten.", 4, 2, "An -ed participle clause as adverbial."],
+  ["[Asked about the delay], the minister said nothing.", 4, 2, "An -ed participle clause (= when he was asked): adverbial."],
+  ["The people [waiting outside] were getting angry.", 3, 0, "An -ing clause postmodifying people (= who were waiting)."],
+  ["[Though rich], he lived simply.", 5, 2, "Subordinator + adjective, no verb: verbless concessive clause."],
+  ["[Unsure what to do], she called her sister.", 5, 2, "An adjective-headed clause with no verb of its own: verbless adverbial."]
+];
+function ctLabel(f, g){ return FORMS[f]+' · '+FUNCS[g]; }
+
+// ---------- DATA: ambiguity ----------
+// phrase, [bracketing, paraphrase] x2
+var AMB = [
+  ["I saw the man with the telescope.", ["I [saw [the man] [with the telescope]]","I used the telescope to see the man."], ["I [saw [the man with the telescope]]","The man I saw was holding a telescope."]],
+  ["old men and women", ["[[old men] and women]","Only the men are old; the women can be any age."], ["[old [men and women]]","Both the men and the women are old."]],
+  ["the boy with a hat that I met", ["[[the boy with a hat] that I met]","I met the boy (who has a hat)."], ["[the boy with [a hat that I met]]","I met the hat (odd, but that is what this structure says)."]],
+  ["the daughter of the colonel who was on the balcony", ["[[the daughter of the colonel] who was on the balcony]","The daughter was on the balcony."], ["[the daughter of [the colonel who was on the balcony]]","The colonel was on the balcony."]],
+  ["an American history teacher", ["[an [[American history] teacher]]","Someone who teaches American history (from anywhere)."], ["[an [American [history teacher]]]","A history teacher who is American."]],
+  ["a small car factory", ["[a [[small car] factory]]","A factory that makes small cars."], ["[a [small [car factory]]]","A car factory that is small."]],
+  ["They discussed the problem with the manager.", ["They [discussed [the problem] [with the manager]]","They talked to the manager about the problem."], ["They [discussed [the problem with the manager]]","They talked about the problem that the manager causes or has."]],
+  ["We need more intelligent leaders.", ["We need [more [intelligent leaders]]","We need a larger number of intelligent leaders."], ["We need [[more intelligent] leaders]","We need leaders who are cleverer than the present ones."]],
+  ["She said she would leave on Friday.", ["She said [she would [leave on Friday]]","The leaving is planned for Friday."], ["She [said [she would leave] [on Friday]]","The saying happened on Friday."]],
+  ["He told the girl that he liked the story.", ["He told [the girl] [that he liked the story]","He said to the girl: 'I liked the story.'"], ["He told [the girl that he liked] [the story]","He told the story to the girl he liked."]],
+  ["The burglar threatened the student with the knife.", ["The burglar [threatened [the student] [with the knife]]","The burglar used the knife to threaten the student."], ["The burglar [threatened [the student with the knife]]","The student who had the knife was threatened."]],
+  ["French wine merchants", ["[[French wine] merchants]","Merchants who sell French wine."], ["[French [wine merchants]]","Wine merchants who are French."]],
+  ["Mary ate the cake on the table.", ["Mary [ate [the cake on the table]]","The cake she ate was the one on the table."], ["Mary [ate [the cake] [on the table]]","The eating took place on the table (e.g. she sat on it)."]],
+  ["the tall boys and girls", ["[the [[tall boys] and girls]]","Only the boys are said to be tall."], ["[the [tall [boys and girls]]]","The boys and the girls are all tall."]]
+];
+
+// ---------- DATA: operations ----------
+var OPS = ['Passive','Subject-auxiliary inversion','Do-support','Wh-movement','Extraposition','There-insertion','Topicalisation'];
+var OI = [
+  ["The dog chased the cat.", "The cat was chased by the dog.", 0, [], "The object becomes the subject, be + -ed participle, the old subject in a by-phrase."],
+  ["The committee approved the plan.", "The plan was approved.", 0, [], "An agentless passive: object promoted to subject, be + -ed participle."],
+  ["Someone stole my bike.", "My bike got stolen.", 0, [], "A get-passive: the object is promoted to subject."],
+  ["They will repair the road next year.", "The road will be repaired next year.", 0, [], "Passive with a modal: will be + -ed participle."],
+  ["The police arrested the thief.", "The thief was arrested by the police.", 0, [], "Passive: object to subject, by-phrase agent."],
+  ["She is reading.", "Is she reading?", 1, [], "The auxiliary is moves in front of the subject: subject-auxiliary inversion."],
+  ["You can swim.", "Can you swim?", 1, [], "The modal moves in front of the subject."],
+  ["He has finished.", "Has he finished?", 1, [], "Perfect has inverts with the subject."],
+  ["They are not coming.", "Aren't they coming?", 1, [], "The auxiliary (with n't) inverts with the subject."],
+  ["She should go.", "Should she go?", 1, [], "The modal inverts with the subject."],
+  ["Anna is from Graz.", "Is Anna from Graz?", 1, [], "Main-verb be has NICE properties and inverts without do."],
+  ["He knows the answer.", "He doesn't know the answer.", 2, [], "Know is lexical, so dummy do carries tense and n't."],
+  ["She likes jazz.", "She does like jazz!", 2, [], "Emphatic do: the emphasis needs an auxiliary, so do is inserted."],
+  ["She left early.", "Did she leave early?", 2, [1], "Dummy do appears and carries the past tense (left → did ... leave). It then inverts, but the do is what is new."],
+  ["Anna plays chess, and Ben plays chess too.", "Anna plays chess, and Ben does too.", 2, [], "After VP ellipsis the tense has nothing to attach to, so do is inserted."],
+  ["I wonder [she bought what].", "I wonder what she bought.", 3, [], "The wh-phrase moves to the front of the embedded clause, leaving a gap; no inversion in embedded clauses."],
+  ["You will buy what?", "What will you buy?", 3, [1], "What moves to the front of the clause (the auxiliary inverts as well, but the question is about the wh-phrase)."],
+  ["the book [I read which]", "the book which I read", 3, [], "The relative pronoun moves to the front of the relative clause."],
+  ["She met who at the party?", "Who did she meet at the party?", 3, [1, 2], "Who moves from object position to the front (do-support and inversion come along)."],
+  ["Tell me [you are going where].", "Tell me where you are going.", 3, [], "Where moves to the front of the embedded question."],
+  ["That he lied is obvious.", "It is obvious that he lied.", 4, [], "The subject clause moves to the end and dummy it fills the subject slot."],
+  ["To learn Chinese is hard.", "It is hard to learn Chinese.", 4, [], "The infinitival subject clause is extraposed; it fills the slot."],
+  ["That she won surprised nobody.", "It surprised nobody that she won.", 4, [], "Extraposition of the subject clause."],
+  ["Whether he'll come is unclear.", "It is unclear whether he'll come.", 4, [], "Extraposition of an interrogative subject clause."],
+  ["A man is at the door.", "There is a man at the door.", 5, [], "The indefinite subject moves after be and there takes the subject slot."],
+  ["Several people were in the room.", "There were several people in the room.", 5, [], "There-insertion with an indefinite subject."],
+  ["A storm is coming.", "There is a storm coming.", 5, [], "There-insertion with progressive be."],
+  ["No tickets are left.", "There are no tickets left.", 5, [], "There-insertion with a negative indefinite subject."],
+  ["I don't like this film.", "This film I don't like.", 6, [], "The object is fronted for contrast; no inversion."],
+  ["She loves pasta.", "Pasta she loves.", 6, [], "The object NP is fronted: topicalisation."],
+  ["I find this argument convincing.", "This argument I find convincing.", 6, [], "The object is fronted without inversion."],
+  ["We sold the old car last year.", "The old car we sold last year.", 6, [], "Topicalisation of the object NP."]
+];
+
+// ---------- DATA: tree gallery ----------
+var GAL = [
+  {t:'Simple clause, flat', fw:'Flat PSG: S → NP VP', b:"[S [NP [D the] [N dog]] [VP [V chased] [NP [D the] [N cat]]]]", n:"The oldest style: the clause is S, tense is simply part of the verb, no bar levels."},
+  {t:'Simple clause, X-bar', fw:'X-bar: TP', b:"[TP [NP [D the] [N dog]] [T' [T -ed] [VP [V chase] [NP [D the] [N cat]]]]]", n:"The subject is the specifier of TP. T holds the past-tense affix, which is lowered onto the verb (affix hopping) to give chased. A modal would sit in T instead: the dog will chase the cat. Non-branching bar levels are left out."},
+  {t:'"I saw the man with the telescope": instrument', fw:'X-bar: PP adjoined to V′', b:"[TP [NP I] [T' [T -ed] [VP [V' [V' [V see] [^NP the man]] [PP [P with] [^NP the telescope]]]]]]", n:"Reading: I used the telescope to see him. The PP is an adjunct of the verb: it attaches to V′, so it modifies the seeing."},
+  {t:'"I saw the man with the telescope": possession', fw:'X-bar: PP adjoined to N′', b:"[TP [NP I] [T' [T -ed] [VP [V see] [NP [D the] [N' [N' [N man]] [PP [P with] [^NP the telescope]]]]]]]", n:"Reading: the man who had the telescope. The PP is an adjunct inside the object NP: it attaches to N′, so it modifies man."},
+  {t:'"old men and women": only the men are old', fw:'X-bar: NP coordination', b:"[NP [NP [N' [AP old] [N' [N men]]]] [Conj and] [NP [N' [N women]]]]", n:"Two NPs are coordinated and old sits inside the first one only. (Coordination is drawn flat here, as in Carnie's early chapters; some courses use a ConjP.)"},
+  {t:'"old men and women": all are old', fw:'X-bar: N′ coordination', b:"[NP [N' [AP old] [N' [N' [N men]] [Conj and] [N' [N women]]]]]", n:"Men and women are coordinated first (at N′), and the adjunct old attaches above the whole coordination, so it modifies both."},
+  {t:'"the boy with a hat that I met": I met the boy', fw:'X-bar: relative clause adjoined high', b:"[NP [D the] [N' [N' [N' [N boy]] [PP [P with] [^NP a hat]]] [^CP that I met]]]", n:"The relative clause adjoins to the N′ boy with a hat, so it restricts the boy."},
+  {t:'"the boy with a hat that I met": I met the hat', fw:'X-bar: relative clause adjoined low', b:"[NP [D the] [N' [N' [N boy]] [PP [P with] [NP [D a] [N' [N' [N hat]] [^CP that I met]]]]]]", n:"The relative clause adjoins to the N′ hat inside the PP, so it restricts the hat: odd meaning, legal structure."},
+  {t:'Ditransitive VP', fw:'Ternary VP (simplified)', b:"[TP [NP she] [T' [T -ed] [VP [V give] [NP [D the] [N boy]] [NP [D a] [N book]]]]]", n:"Many introductory courses draw both objects as sisters of V. Strict binary branching cannot do that; advanced analyses use a VP shell (Larson) with an extra verb layer. Use whichever your course uses."},
+  {t:'Clause with a that-clause', fw:'X-bar: CP complement', b:"[TP [NP I] [T' [T ∅] [VP [V think] [CP [C' [C that] [TP [^NP the dog] [T' [T -ed] [VP [V chase] [^NP the cat]]]]]]]]]", n:"The embedded clause is a CP: C holds the complementizer that, its complement is a full TP. The main clause has a silent present tense (∅) in T. Strictly the main clause is a CP too, with a silent C."},
+  {t:'Wh-question with movement', fw:'X-bar: CP, wh-movement + T-to-C', b:"[CP [NP what_i] [C' [C will_j] [TP [NP you] [T' [T t_j] [VP [V buy] [NP t_i]]]]]]", n:"What starts as the object of buy and moves to the specifier of CP (wh-movement), leaving the trace tᵢ. The modal moves from T to C (subject-auxiliary inversion), leaving tⱼ.", ar:[['t_i','what_i'],['t_j','will_j']]},
+  {t:'The X-bar schema', fw:'X-bar template', b:"[XP [YP specifier] [X' [X' [X head] [ZP complement]] [WP adjunct]]]", n:"Head X and its complement form the lowest X′. An adjunct adds another X′ on top (repeatable). The specifier is the daughter of XP and the sister of the top X′."},
+  {t:'Complement vs adjunct in an NP', fw:'X-bar: NP', b:"[NP [D the] [N' [N' [N student] [^PP of physics]] [^PP with long hair]]]", n:"Of physics is the complement (sister of N). With long hair is an adjunct (sister of the lower N′). That is why one can replace student of physics: the one with long hair."}
+];
+
+// ---------- DATA: glossary ----------
+var GLOSS = [
+  ["Adjunct","An optional modifier that the head does not select; adjuncts can be stacked. In X-bar it is the sister and daughter of X′. Quirk uses adjunct for the main subclass of adverbials.","She ate the cake [in the kitchen] [on Sunday]."],
+  ["Adverbial (A)","Quirk's clause element for circumstances (time, place, manner, reason...) and comments. Realised by AdvP, PP, NP or clause; usually optional, obligatory with some verbs.","We met [last week]. She put it [on the table]."],
+  ["Affix hopping (T lowering)","In X-bar trees the tense affix sits in T and is lowered onto the verb when nothing intervenes.","[T -ed] + [V chase] → chased"],
+  ["Agent","The thematic role of the doer of an action; in a passive it can appear in a by-phrase.","The cat was chased [by the dog]."],
+  ["AP (AdjP)","Adjective phrase, headed by an adjective.","[very proud of her son]"],
+  ["AdvP","Adverb phrase, headed by an adverb.","[remarkably clearly]"],
+  ["Argument","A participant required by the meaning of a predicate; arguments are realised as the subject and the complements.","[Anna] gave [Ben] [a book]: give has three."],
+  ["Auxiliary verb","A verb with the NICE properties: be, have, do and the modals. Quirk splits them into primary auxiliaries (be, have, do) and modals.","She [has] left. [Can] you swim?"],
+  ["Bare infinitive","The base form of the verb without to, heading a non-finite clause.","All I did was [ask]. You must [go]."],
+  ["Binary branching","The X-bar requirement that no node has more than two daughters.","[V′ [V′ ate the cake] [PP in the kitchen]]"],
+  ["C-command","A node c-commands its sister and everything its sister dominates. A reflexive needs an antecedent that c-commands it.","In Anna hurt herself, Anna c-commands herself."],
+  ["Category","What a constituent is (N, V, NP, PP, clause...), as opposed to its function.","[last week] is an NP (category) used as an adverbial (function)."],
+  ["Clause","A unit built around a predicate, normally a verb with its subject and complements; finite, non-finite or verbless.","[because she was tired]"],
+  ["Clause pattern","Quirk's seven configurations of obligatory clause elements: SV, SVO, SVC, SVA, SVOO, SVOC, SVOA. Quirk calls them clause types.","She put the vase on the table = SVOA."],
+  ["Cleft sentence","It + be + focus + that/who-clause, used to put one constituent in focus; also a constituency test.","It was [the red car] that she sold."],
+  ["Closed class","A word class whose membership is practically fixed: determiners, pronouns, prepositions, conjunctions, auxiliaries.","New nouns appear every year; new pronouns hardly ever."],
+  ["Complement","(1) Generative and H&P: a dependent selected by the head, the sister of X. (2) Quirk: specifically the subject and object complements Cs and Co.","(1) put [the cake] [on the table]. (2) She is [a nurse]."],
+  ["Complementizer (C)","A word that introduces a subordinate clause and marks its type: that, if, whether, for. Quirk: subordinating conjunction; H&P: subordinator.","I know [that] you're right."],
+  ["Constituent","A word or string of words that functions as a unit; in a tree, everything one node dominates.","[the old books] in The student put the old books on the shelf."],
+  ["Content clause","H&P's term for a finite complement clause such as a that-clause; Quirk: nominal that-clause.","the claim [that the earth is flat]"],
+  ["Coordination","Joining two or more units of the same kind with a coordinator.","[the cat] and [the dog]"],
+  ["Coordinator","A coordinating conjunction: and, or, but (nor).","tired [but] happy"],
+  ["Copular verb","A linking verb that takes a subject complement: be, become, seem, appear, look, sound, remain, get, turn.","The soup [tastes] salty."],
+  ["CP","Complementizer phrase, the clause layer above TP. C holds a complementizer or an inverted auxiliary; Spec-CP holds a fronted wh-phrase.","[CP that [TP the dog chased the cat]]"],
+  ["Declarative / interrogative / imperative","The main clause types: statements, questions, commands. Questions are yes/no (inversion) or wh- (wh-movement).","She left. / Did she leave? / Leave!"],
+  ["Determiner","A word that introduces an NP and fixes reference or quantity: the, a, this, every, some. H&P call the class determinative and use determiner for the function.","[this] book"],
+  ["Direct object (Od)","The NP or clause after a transitive verb, typically the affected thing; becomes the subject in the passive.","She wrote [a letter]."],
+  ["Ditransitive","A verb (sense) with an indirect and a direct object (SVOO).","give, send, tell, show, buy"],
+  ["Dominance","A dominates B if a downward path leads from A to B. Immediate dominance = being the mother.","VP dominates every word of chased the cat."],
+  ["Do-support","Insertion of dummy do to carry tense when a clause with no auxiliary needs negation, inversion, code or emphasis.","She doesn't swim. Does she swim?"],
+  ["DP hypothesis","The analysis in which the determiner heads the nominal phrase, with the NP as its complement (Radford, later chapters of Carnie).","[DP [D the] [NP dog]]"],
+  ["Dummy subject","A subject without meaning that fills the subject slot: it (weather, extraposition) and existential there.","[It] is raining. [There] is a problem."],
+  ["Ellipsis","Leaving out recoverable material. VP ellipsis after an auxiliary is a constituency test.","Anna can swim and Ben can too."],
+  ["Endocentric","Having a head of the same category as the whole phrase; X-bar says every phrase is endocentric.","an AP is headed by an adjective"],
+  ["Existential there","The dummy subject of there-sentences; it inverts and appears in tags, so it is the grammatical subject.","There's a fly in my soup, isn't there?"],
+  ["Extraposition","A clause (usually a subject) moves to the end and dummy it fills its slot.","That he lied is obvious → It is obvious that he lied."],
+  ["Finite clause","A clause whose verb is marked for tense (present or past) or is a modal.","[She left early] [because she was tired]."],
+  ["Fragment answer test","A string that can answer a question on its own is a constituent.","Where did she put it? — On the shelf."],
+  ["Functional category","A category carrying grammatical rather than descriptive meaning: D, T, C, auxiliaries, pronouns, coordinators.","the, will, that"],
+  ["Gap","The empty position in which a moved element is understood, written __ or t.","What did you buy __?"],
+  ["Gerund-participle","H&P's single name for the -ing form, since English has no formal difference between gerund and present participle. Quirk: -ing participle.","[Swimming] is fun. She is [swimming]."],
+  ["Grammatical function","The role a constituent plays in its clause (S, V, O, C, A) or phrase (head, determiner, modifier, complement).","[the dog] is subject in The dog barked, object in I saw the dog."],
+  ["Head","The word that determines the category of its phrase and which dependents it can have; it cannot be left out.","[very proud of her son] is an AP: proud is the head."],
+  ["Indirect object (Oi)","The NP before the direct object, usually a recipient or beneficiary; often paraphrasable with to/for.","She gave [her nephew] a bike."],
+  ["Intransitive","A verb (sense) with no object.","The baby slept."],
+  ["Lexical category","A content-word category: N, V, Adj, Adv (P is borderline).","house, sell, proud, clearly"],
+  ["Main clause","A clause that is not part of another clause and can stand alone.","[I know] that she's right."],
+  ["Matrix clause","The clause that contains a given subordinate clause (also superordinate clause).","In I know that she's right, the whole sentence is the matrix."],
+  ["Modal verb","An auxiliary expressing possibility, necessity, permission etc.: can, could, may, might, must, shall, should, will, would. No -s, no non-finite forms, bare infinitive after it.","She [must] go."],
+  ["Monotransitive","A verb (sense) with one object (SVO).","She wrote a letter."],
+  ["Movement test","A string that can be moved as a unit, e.g. fronted, is a constituent.","[On the shelf] she put the books."],
+  ["NICE properties","What makes a verb an auxiliary: Negation with n't, Inversion with the subject, Code (standing in for a VP), Emphasis.","can't / Can you? / So can I. / I CAN."],
+  ["Nominal clause","A subordinate clause that does the work of an NP: subject, object, complement.","[That he lied] is obvious."],
+  ["Non-finite clause","A clause headed by a to-infinitive, bare infinitive, -ing or -ed participle; no tense, usually no overt subject.","[Walking home], I met Tom."],
+  ["Non-restrictive relative clause","A relative clause that adds information about an already identified referent; commas, no that, no zero relativizer.","My sister, [who lives in Graz], is a doctor."],
+  ["NP","Noun phrase, headed by a noun or pronoun.","[the old house on the hill]"],
+  ["Object complement (Co)","A complement that describes the direct object (H&P: predicative complement).","They elected her [president]."],
+  ["Open class","A word class that readily takes new members: nouns, verbs, adjectives, adverbs.","to google, a podcast"],
+  ["Operator","Quirk's term for the first auxiliary of the verb element, the one that takes n't and inverts; do is supplied when there is none.","She [has] been working → Has she been working?"],
+  ["Particle","The adverb-like part of a phrasal verb; unlike a preposition it can follow the object (H&P: intransitive preposition).","She looked the word [up]."],
+  ["Passive","A clause in which the original object is the subject and the verb is be/get + -ed participle; the agent is optional.","The plan was approved (by the board)."],
+  ["Phrasal verb","Verb + particle forming one lexical unit; the particle can move around the object.","turn off the light / turn the light off"],
+  ["Phrase","A group of words built around a head (NP, VP, AP, AdvP, PP). In X-bar a single word can be a phrase too.","[the dog], [she]"],
+  ["Phrase structure rule","A rewrite rule saying what a category consists of.","S → NP VP; NP → (D) (AP) N (PP)"],
+  ["Postmodifier","A modifier after the head of a phrase: PP, relative clause, non-finite clause, postpositive adjective.","the man [with the hat]"],
+  ["PP","Prepositional phrase: a preposition plus (usually) an NP complement.","[on the top shelf]"],
+  ["Predicate","Traditionally the part of the clause apart from the subject; the verb with its complements.","The dog [chased the cat]."],
+  ["Predicator","H&P's name for the function of the verb in the clause (Quirk: V).","The dog [chased] the cat."],
+  ["Premodifier","A modifier before the head.","a [stone] wall, the [old] house"],
+  ["Prepositional verb","Verb + fixed preposition taking a prepositional object; the preposition cannot follow the object.","rely on him (*rely him on)"],
+  ["Pro-form","A word standing in for a phrase: pronoun (NP), there/then (PP), do so (VP), one (N′).","She put [them] [there]."],
+  ["Projection","The levels built from a head: X, X′, XP (the maximal projection).","N → N′ → NP"],
+  ["Pseudocleft","A wh-cleft: what-clause + be + focus.","What she did was [call the police]."],
+  ["Recursion","A category can contain another of its own kind, so there is no longest sentence.","the dog [that chased the cat [that ate the rat]]"],
+  ["Relative clause","A clause that modifies a noun and contains a gap linked to it; introduced by who, which, that or nothing.","the film [(that) I saw __]"],
+  ["Restrictive relative clause","A relative clause that narrows down which referent is meant; no commas.","The students [who passed] celebrated."],
+  ["Selection (subcategorisation)","A head's requirements for complements, listed in the lexicon.","put needs an NP and a place PP; sleep needs none."],
+  ["Sister","Two nodes with the same mother.","In [VP [V chased] [NP the cat]], V and NP are sisters."],
+  ["Specifier","The daughter of XP and sister of X′: the subject in TP, a fronted wh-phrase in CP.","[TP [the dog] [T′ will chase the cat]]"],
+  ["Structural ambiguity","One string with two structures and therefore two meanings.","I saw the man with the telescope."],
+  ["Subject (S)","The element that agrees with the finite verb, precedes it in statements and inverts with the operator in questions.","[The dog] chases cats."],
+  ["Subject complement (Cs)","A complement after a copular verb that describes the subject (H&P: predicative complement).","She became [a famous author]."],
+  ["Subject-auxiliary inversion","The operator moves in front of the subject; in X-bar terms T-to-C movement.","You can swim → Can you swim?"],
+  ["Subordinate clause","A clause that works inside another clause (as S, O, C, A) or inside a phrase.","[When the bell rang], everyone left."],
+  ["Subordinator","A word that marks a clause as subordinate. All books: that, whether, if; Quirk also because, although, when...","I wonder [whether] it will rain."],
+  ["Tense","Grammatical marking of time on the finite verb. English has two tenses, present and past; will is a modal.","walk(s) / walked"],
+  ["There-insertion","An indefinite subject moves after be and there takes the subject slot.","A man is at the door → There is a man at the door."],
+  ["Topicalisation","Fronting a constituent to make it the topic or contrast it.","[This film] I don't like."],
+  ["TP","Tense phrase, the X-bar clause: Spec-TP is the subject, T holds tense/modal/to, the complement is VP. Older names: IP, S.","[TP the dog [T′ will [VP chase the cat]]]"],
+  ["Trace (t)","The silent copy left by movement, coindexed with the moved element.","Whatᵢ will you buy tᵢ?"],
+  ["Transitive","A verb (sense) that takes an object.","She [wrote] a letter."],
+  ["Triangle","Tree shorthand for a constituent whose inside is not shown.","[^NP the old man] in the bracketing box"],
+  ["Valency","The number of arguments a verb takes: zero (rain), one (sleep), two (read), three (give).","give is trivalent."],
+  ["Verbless clause","Quirk's clause with no verb that is still understood as a clause.","[Although tired], she kept working."],
+  ["VP","Verb phrase. Generative and H&P: the verb with its complements (and adjuncts). Quirk: only the verbal group, auxiliaries + main verb.","She [VP sold her car]. Quirk: She [has been working]."],
+  ["Wh-movement","Fronting of a wh-phrase (to Spec-CP) in questions and relative clauses, leaving a gap.","What will you buy __?"],
+  ["X-bar theory","The theory that all phrases share one shape: specifier, X′, head, complement and adjuncts, with binary branching.","XP → (Spec) X′; X′ → X′ (Adj); X′ → X (Comp)"],
+  ["X′ (X-bar)","The intermediate level between head and phrase, where adjuncts attach.","the N′ student of physics in the student of physics with long hair"],
+  ["Zero relative","A restrictive relative clause with no relativizer; only possible when the gap is not the subject.","the book [I bought __]"]
+];
+
+// ---------- tabs ----------
+var VIEWS = ['drill','constituents','functions','trees','glossary'];
+function show(v){
+  if (VIEWS.indexOf(v) < 0) v = 'drill';
+  VIEWS.forEach(function(x){
+    document.getElementById('view-'+x).hidden = x !== v;
+    document.getElementById('tab-'+x).setAttribute('aria-selected', x === v ? 'true' : 'false');
+  });
+}
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click', function(){ var v = b.getAttribute('data-view'); try{ history.replaceState(null, '', '#'+v); }catch(e){ location.hash = v; } show(v); });
+});
+window.addEventListener('hashchange', function(){ show(location.hash.slice(1)); });
+
+// ---------- tree renderer ----------
+var SVGNS = 'http://www.w3.org/2000/svg';
+function svg(tag, attrs){ var n = document.createElementNS(SVGNS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); return n; }
+function parseTree(s){
+  var toks = String(s).match(/\[|\]|[^\s\[\]]+/g) || [];
+  var i = 0;
+  function node(){
+    if (toks[i] !== '[') throw new Error('Expected "[" where "' + (toks[i] || 'the end') + '" is.');
+    i++;
+    var lab = toks[i];
+    if (lab == null || lab === '[' || lab === ']') throw new Error('Every "[" needs a label right after it.');
+    i++;
+    var n = {label:lab, tri:false, kids:[]};
+    if (lab.charAt(0) === '^' && lab.length > 1){ n.tri = true; n.label = lab.slice(1); }
+    var words = [];
+    function flush(){ if (words.length){ n.kids.push({leaf:true, text:words.join(' ')}); words = []; } }
+    while (i < toks.length && toks[i] !== ']'){
+      if (toks[i] === '['){ flush(); n.kids.push(node()); }
+      else { words.push(toks[i]); i++; }
+    }
+    if (toks[i] !== ']') throw new Error('A "]" is missing: the brackets do not balance.');
+    i++; flush();
+    if (n.tri){
+      var txt = [];
+      (function collect(k){ k.kids.forEach(function(c){ if (c.leaf) txt.push(c.text); else collect(c); }); })(n);
+      n.kids = txt.length ? [{leaf:true, text:txt.join(' ')}] : [];
+      if (!n.kids.length) n.tri = false;
+    }
+    return n;
+  }
+  if (!toks.length) throw new Error('Type a bracketing first.');
+  var root = node();
+  if (i < toks.length) throw new Error('There is extra material after the last "]".');
+  return root;
+}
+function dispText(s){ return String(s).replace(/'/g, '′'); }
+var mctx = null;
+function textW(s, isLabel){
+  var t = dispText(s).replace('_', '');
+  try{
+    if (!mctx){ var c = document.createElement('canvas'); mctx = c && c.getContext ? c.getContext('2d') : null; }
+    if (mctx && typeof mctx.measureText === 'function'){
+      mctx.font = (isLabel ? '800 13px ' : 'italic 400 15px ') + '"Nunito Sans", "Segoe UI", sans-serif';
+      var m = mctx.measureText(t);
+      var w = m && m.width;
+      if (typeof w === 'number' && isFinite(w) && w > 0) return w;
+    }
+  }catch(e){}
+  return t.length * (isLabel ? 8.6 : 7.8);
+}
+function setText(node, s){
+  var str = dispText(s), k = str.indexOf('_');
+  if (k < 0){ node.textContent = str; return; }
+  node.appendChild(document.createTextNode(str.slice(0, k)));
+  var sub = svg('tspan', {dy:'4', 'font-size':'11'}); sub.textContent = str.slice(k+1); node.appendChild(sub);
+}
+var GAP = 14, LH = 54, TOP = 22, PAD = 14, treeSeq = 0;
+function measureT(n){
+  if (n.leaf){ n.tw = textW(n.text, false); n.w = n.tw + 12; return n.w; }
+  var lw = textW(n.label, true) + 14;
+  if (!n.kids.length){ n.w = lw; return n.w; }
+  var sum = 0; n.kids.forEach(function(k){ sum += measureT(k); });
+  sum += GAP * (n.kids.length - 1);
+  if (n.tri) sum = n.kids[0].tw + 26;
+  n.w = Math.max(lw, sum); return n.w;
+}
+function placeT(n, x0, d, acc){
+  n.y = TOP + d * LH; acc.maxY = Math.max(acc.maxY, n.y);
+  if (n.leaf){ acc.leaves.push(n); }
+  if (n.leaf || !n.kids.length){ n.x = x0 + n.w / 2; return; }
+  var sum = 0; n.kids.forEach(function(k){ sum += k.w; }); sum += GAP * (n.kids.length - 1);
+  var x = x0 + (n.w - sum) / 2;
+  n.kids.forEach(function(k){ placeT(k, x, d + 1, acc); x += k.w + GAP; });
+  n.x = n.kids.length === 1 ? n.kids[0].x : (n.kids[0].x + n.kids[n.kids.length - 1].x) / 2;
+  if (n.tri) n.x = x0 + n.w / 2;
+}
+function drawT(n, g){
+  var t = svg('text', {x:n.x, y:n.y, 'text-anchor':'middle', class:n.leaf ? 'wd' : 'lbl'});
+  setText(t, n.leaf ? n.text : n.label); g.appendChild(t);
+  if (n.leaf) return;
+  if (n.tri && n.kids.length){
+    var k = n.kids[0], hw = k.tw / 2 + 6;
+    g.appendChild(svg('polygon', {class:'tri', points:[n.x+','+(n.y+6), (k.x-hw)+','+(k.y-16), (k.x+hw)+','+(k.y-16)].join(' ')}));
+    drawT(k, g); return;
+  }
+  n.kids.forEach(function(k){
+    g.appendChild(svg('line', {class:'edge', x1:n.x, y1:n.y+6, x2:k.x, y2:k.y-16}));
+    drawT(k, g);
+  });
+}
+function renderTree(src, arrows){
+  var root = parseTree(src);
+  measureT(root);
+  var acc = {maxY:0, leaves:[]};
+  placeT(root, PAD, 0, acc);
+  var W = Math.ceil(root.w + 2 * PAD), H = Math.ceil(acc.maxY + 16);
+  var s = svg('svg', {class:'tree', viewBox:'0 0 '+W+' '+H, role:'img', 'aria-label':'Tree diagram: '+src});
+  var g = svg('g', {});
+  drawT(root, g);
+  if (arrows && arrows.length){
+    var id = 'mvh' + (++treeSeq);
+    var defs = svg('defs', {}); var mk = svg('marker', {id:id, viewBox:'0 0 10 10', refX:'8', refY:'5', markerWidth:'7', markerHeight:'7', orient:'auto-start-reverse'});
+    mk.appendChild(svg('path', {d:'M0,0 L10,5 L0,10 z', class:'mvh'})); defs.appendChild(mk); s.appendChild(defs);
+    arrows.forEach(function(a, i){
+      var from = acc.leaves.filter(function(l){ return l.text === a[0]; })[0], to = acc.leaves.filter(function(l){ return l.text === a[1]; })[0];
+      if (!from || !to) return;
+      var by = acc.maxY + 22 + i * 14;
+      g.appendChild(svg('path', {class:'mv', d:'M'+from.x+','+(from.y+6)+' C'+from.x+','+by+' '+to.x+','+by+' '+to.x+','+(to.y+8), 'marker-end':'url(#'+id+')'}));
+      H = Math.max(H, Math.ceil(by + 10));
+    });
+    s.setAttribute('viewBox', '0 0 '+W+' '+H);
+  }
+  s.appendChild(g);
+  s.setAttribute('width', W); s.setAttribute('height', H);
+  s.setAttribute('style', 'width:100%; max-width:'+W+'px; min-width:'+Math.round(W*0.72)+'px');
+  return s;
+}
+function buildGallery(){
+  var host = document.getElementById('gallery'); host.textContent = '';
+  GAL.forEach(function(t){
+    var box = el('div', {class:'scroll'});
+    try{ box.appendChild(renderTree(t.b, t.ar)); }catch(e){ box.appendChild(el('p', {class:'err', text:String(e && e.message || e)})); }
+    host.appendChild(el('div', {class:'tcard'}, [
+      el('h3', null, [t.t, el('span', {class:'fw', text:t.fw})]),
+      box,
+      el('p', {class:'tnote', text:t.n}),
+      el('p', {class:'src mono', text:t.b})
+    ]));
+  });
+}
+function drawOwn(){
+  var src = document.getElementById('tin').value, out = document.getElementById('tout'), err = document.getElementById('terr');
+  out.textContent = ''; err.textContent = '';
+  try{ out.appendChild(renderTree(src)); }catch(e){ err.textContent = String(e && e.message || e); }
+}
+document.getElementById('tdraw').addEventListener('click', drawOwn);
+
+// ---------- glossary ----------
+function buildGloss(){
+  var q = (document.getElementById('gq').value || '').toLowerCase().trim();
+  var list = document.getElementById('glist'); list.textContent = '';
+  var items = GLOSS.slice().sort(function(a, b){ return a[0].toLowerCase() < b[0].toLowerCase() ? -1 : 1; }).filter(function(g){ return !q || (g[0]+' '+g[1]+' '+g[2]).toLowerCase().indexOf(q) >= 0; });
+  items.forEach(function(g){ list.appendChild(el('li', null, [el('div', {class:'term', text:g[0]}), el('div', {class:'def', text:g[1]}), el('div', {class:'eg', text:'e.g. '+g[2]})])); });
+  document.getElementById('gcount').textContent = items.length + ' of ' + GLOSS.length + ' terms';
+}
+document.getElementById('gq').addEventListener('input', buildGloss);
+
+// ---------- quiz generators ----------
+function fillEx(ok, pref, pool, ex, k){
+  var bad = [ok].concat(ex || []);
+  var o = [ok];
+  shuffle(pref || []).forEach(function(x){ if (o.length < k && bad.indexOf(x) < 0 && o.indexOf(x) < 0) o.push(x); });
+  shuffle(pool).forEach(function(x){ if (o.length < k && bad.indexOf(x) < 0 && o.indexOf(x) < 0) o.push(x); });
+  return o;
+}
+var CATS = [
+  {id:'wclass', name:'Word classes', gen:function(){
+    var i = rnd(WC.length), w = WC[i];
+    var pref = Array.isArray(w[2]) ? w[2] : (w[2] ? WCFAM[w[2]] : []);
+    var pool = w[1] === INF ? WCPOOL.concat([INF]) : WCPOOL;
+    return {id:'wc:'+plain(w[0]), cat:'Word class (Quirk)', prompt:['What word class is the underlined word here?', mark(w[0])], ok:w[1], opts:fillEx(w[1], pref, pool, w[3], 4), why:w[4], plain:plain(w[0])};
+  }},
+  {id:'phrase', name:'Phrases & heads', gen:function(){
+    var p = pick(PH);
+    return {id:'ph:'+p[0], cat:'Phrase type and head', prompt:['What kind of phrase is the bracketed string, and what is its head?', mark(p[0])], ok:p[1], opts:[p[1]].concat(p[2]), why:p[3], plain:p[0]};
+  }},
+  {id:'ctest', name:'Constituency tests', gen:function(){
+    if (Math.random() < .62){
+      var t = pick(TS), ok = TESTS[t[2]];
+      return {id:'ts:'+t[1], cat:'Name the test', prompt:['Which constituency test turns the first sentence into the second?', el('div', {class:'qs'}, [t[0], el('br'), '→ ', el('b', {text:t[1]})])], ok:ok, opts:fill([ok], TESTS, 4), why:t[3], plain:t[0]+' → '+t[1]};
+    }
+    var n = pick(NC);
+    return {id:'nc:'+n[0], cat:'Not a constituent', prompt:['Which string is NOT a constituent of this sentence?', el('div', {class:'qs', text:n[0]})], ok:n[1], opts:[n[1]].concat(n[2]), why:'No single node dominates exactly "'+n[1]+'", and it fails the tests: it cannot be replaced by a pro-form, moved, clefted or given as an answer. '+n[2].map(function(x){ return '"'+x+'"'; }).join(', ')+' are all constituents.', plain:n[0]};
+  }},
+  {id:'func', name:'Functions (S V O C A)', gen:function(){
+    var f = pick(FI), ok = FN[f[1]];
+    var near = FNEAR[f[1]].map(function(k){ return FN[k]; });
+    var all = Object.keys(FN).map(function(k){ return FN[k]; });
+    return {id:'fn:'+f[0], cat:'Clause element (Quirk)', prompt:['What is the function of the bracketed part?', mark(f[0])], ok:ok, opts:fillEx(ok, near, all, [], 4), why:f[2], plain:f[0]};
+  }},
+  {id:'pattern', name:'Clause patterns', gen:function(){
+    var c = pick(CP);
+    return {id:'cp:'+c[0], cat:'Clause pattern (Quirk)', prompt:['Which of the seven clause patterns does this clause have? (Count obligatory elements only.)', el('div', {class:'qs', text:c[0]})], ok:c[1], opts:fillEx(c[1], PNEAR[c[1]], PATTERNS, [], 4), why:c[2], plain:c[0]};
+  }},
+  {id:'compadj', name:'Complement or adjunct?', gen:function(){
+    var c = pick(CA), ok = c[1] ? 'Complement' : 'Adjunct';
+    return {id:'ca:'+c[0], cat:'Complement or adjunct (X-bar sense)', prompt:['Is the bracketed phrase a complement or an adjunct of its head?', mark(c[0])], ok:ok, opts:shuffle(['Complement','Adjunct']), fixed:true, why:c[2], plain:c[0]};
+  }},
+  {id:'clausetype', name:'Clause types', gen:function(){
+    var c = pick(CTY), ok = ctLabel(c[1], c[2]);
+    var cand = [];
+    FORMS.forEach(function(f, fi){ if (fi !== c[1]) cand.push(ctLabel(fi, c[2])); });
+    var cand2 = [];
+    FUNCS.forEach(function(g, gi){ if (gi !== c[2]) cand2.push(ctLabel(c[1], gi)); });
+    var o = [ok, pick(cand), pick(cand2)];
+    var all = []; FORMS.forEach(function(f, fi){ FUNCS.forEach(function(g, gi){ all.push(ctLabel(fi, gi)); }); });
+    return {id:'ct:'+c[0], cat:'Form and function of the clause', prompt:['Classify the bracketed clause: form · function.', mark(c[0])], ok:ok, opts:fill(o, all, 4), why:c[3], plain:c[0]};
+  }},
+  {id:'ambig', name:'Ambiguity', gen:function(){
+    var a = pick(AMB), r = rnd(2), dir = rnd(2), mine = a[1+r], other = a[2-r];
+    if (dir === 0){
+      return {id:'am:'+a[0]+r+'p', cat:'Structural ambiguity', prompt:['"'+a[0]+'" — which bracketing gives this meaning?', el('div', {class:'qs', text:mine[1]})], ok:mine[0], opts:shuffle([mine[0], other[0]]), fixed:true, why:'Meaning: '+mine[1]+' Structure: '+mine[0]+'. The other bracketing means: '+other[1], plain:a[0]};
+    }
+    return {id:'am:'+a[0]+r+'b', cat:'Structural ambiguity', prompt:['"'+a[0]+'" — what does this bracketing mean?', el('div', {class:'qs mono', text:mine[0]})], ok:mine[1], opts:shuffle([mine[1], other[1]]), fixed:true, why:mine[0]+' = '+mine[1]+' The other structure, '+other[0]+', means: '+other[1], plain:a[0]};
+  }},
+  {id:'ops', name:'Operations', gen:function(){
+    var o = pick(OI), ok = OPS[o[2]];
+    var ex = o[3].map(function(k){ return OPS[k]; });
+    return {id:'op:'+o[1], cat:'Name the operation', prompt:['Which operation relates the two sentences?', el('div', {class:'qs'}, [o[0], el('br'), '→ ', el('b', {text:o[1]})])], ok:ok, opts:fillEx(ok, [], OPS, ex, 4), why:o[4], plain:o[0]+' → '+o[1]};
+  }}
+];
+
+// ---------- drill engine ----------
+var SKEY = 'baumhaus.v1';
+var stats = store.get(SKEY, {}); // id -> [seen, wrong]
+var prefs = store.get(SKEY+'.prefs', {cats:CATS.map(function(c){ return c.id; }), len:20});
+var enabled = (prefs.cats && prefs.cats.length ? prefs.cats : CATS.map(function(c){ return c.id; })).filter(function(id){ return CATS.some(function(c){ return c.id === id; }); });
+if (!enabled.length) enabled = CATS.map(function(c){ return c.id; });
+var round = null;
+
+function weightOf(id){ var s = stats[id]; if (!s) return 1.4; var miss = s[1] / Math.max(1, s[0]); return .5 + miss*3 + (s[0] < 2 ? .4 : 0); }
+function nextQ(onlyMisses){
+  var best = null, bestScore = -1;
+  for (var tries = 0; tries < 14; tries++){
+    var cat = CATS.filter(function(c){ return enabled.indexOf(c.id) >= 0; });
+    if (!cat.length) cat = CATS;
+    var q = pick(cat).gen();
+    if (round && round.used[q.id] && tries < 13) continue;
+    var w = weightOf(q.id);
+    if (onlyMisses && !(stats[q.id] && stats[q.id][1] > 0) && tries < 13) continue;
+    var sc = w * (0.6 + Math.random());
+    if (sc > bestScore){ best = q; bestScore = sc; }
+    if (tries > 4 && best) break;
+  }
+  return best;
+}
+function startRound(onlyMisses){
+  var len = parseInt(document.getElementById('len').value, 10) || 20;
+  if (onlyMisses){ var any = Object.keys(stats).some(function(k){ return stats[k][1] > 0; }); if (!any) onlyMisses = false; }
+  round = {len:len, pos:0, right:0, done:0, used:{}, missed:[], onlyMisses:!!onlyMisses};
+  document.getElementById('sc-len').textContent = len;
+  ask();
+}
+function updScore(){
+  document.getElementById('sc-right').textContent = round.right;
+  document.getElementById('sc-done').textContent = round.done;
+  document.getElementById('sc-pos').textContent = Math.min(round.pos+1, round.len);
+  document.getElementById('sc-bar').style.width = (100*round.done/round.len)+'%';
+}
+var cur = null, answered = false;
+function ask(){
+  updScore();
+  var host = document.getElementById('qhost'); host.textContent = '';
+  if (round.pos >= round.len){ return summary(); }
+  cur = nextQ(round.onlyMisses); round.used[cur.id] = 1; answered = false;
+  var card = el('div', {class:'qcard'});
+  card.appendChild(el('div', {class:'qcat', text:cur.cat}));
+  card.appendChild(el('div', {class:'qprompt'}, cur.prompt.slice()));
+  var opts = uniq(cur.opts).slice(0, 4); if (opts.indexOf(cur.ok) < 0) opts[opts.length-1] = cur.ok;
+  if (!cur.fixed) opts = shuffle(opts);
+  var grid = el('div', {class:'opts', role:'group', 'aria-label':'Answers'});
+  opts.forEach(function(o, i){
+    grid.appendChild(el('button', {class:'opt', type:'button', 'data-v':o, onclick:function(){ answer(o); }}, [el('span', {class:'k', text:String(i+1)}), el('span', {class:'t', text:o})]));
+  });
+  card.appendChild(grid);
+  card.appendChild(el('div', {id:'whyhost'}));
+  host.appendChild(card);
+}
+function answer(o){
+  if (answered) return; answered = true;
+  var good = o === cur.ok;
+  document.querySelectorAll('#qhost .opt').forEach(function(b){
+    b.disabled = true; var v = b.getAttribute('data-v');
+    if (v === cur.ok) b.classList.add('right'); else if (v === o) b.classList.add('wrong');
+  });
+  var s = stats[cur.id] || [0,0]; s[0]++; if (!good) s[1]++; else if (s[1] > 0 && s[0] > 3) s[1] = Math.max(0, s[1]-1);
+  stats[cur.id] = s; store.set(SKEY, stats);
+  round.done++; if (good) round.right++; else round.missed.push(cur);
+  var why = el('div', {class:'why'}, [
+    el('div', {class:'verdict '+(good ? 'ok' : 'no'), text: good ? 'Right.' : 'Not quite. Answer: '+cur.ok}),
+    el('div', {text:cur.why})
+  ]);
+  var row = el('div', {class:'row', style:'margin-top:10px'}, [el('button', {class:'btn', type:'button', id:'next', onclick:function(){ round.pos++; ask(); }, text: round.pos+1 >= round.len ? 'See results' : 'Next'})]);
+  why.appendChild(row);
+  document.getElementById('whyhost').appendChild(why);
+  updScore();
+  try{ document.getElementById('next').focus({preventScroll:true}); }catch(e){}
+}
+function summary(){
+  var host = document.getElementById('qhost');
+  var pct = Math.round(100*round.right/Math.max(1, round.done));
+  host.appendChild(el('div', {class:'stack'}, [
+    el('h3', {text: round.right+' of '+round.done+' right ('+pct+'%)'}),
+    el('p', {class:'muted', text: round.missed.length ? 'These come back more often in the next rounds:' : 'Clean round. Try 40 questions or a harder section.'}),
+    round.missed.length ? el('ul', {class:'summary-list'}, round.missed.map(function(q){ return el('li', null, [el('b', {text:q.cat+': '}), el('span', {text:(q.plain ? q.plain+' → ' : '')+q.ok}), el('div', {class:'small muted', text:q.why})]); })) : null,
+    el('div', {class:'row'}, [el('button', {class:'btn', type:'button', onclick:function(){ startRound(false); }, text:'New round'}), round.missed.length ? el('button', {class:'btn quiet', type:'button', onclick:function(){ startRound(true); }, text:'Drill my misses'}) : null])
+  ]));
+}
+function buildCats(){
+  var h = document.getElementById('cats');
+  CATS.forEach(function(c){
+    var b = el('button', {class:'chip', type:'button', 'aria-pressed': enabled.indexOf(c.id) >= 0 ? 'true' : 'false', text:c.name});
+    b.addEventListener('click', function(){
+      var i = enabled.indexOf(c.id);
+      if (i >= 0){ if (enabled.length > 1) enabled.splice(i, 1); } else enabled.push(c.id);
+      document.querySelectorAll('#cats .chip').forEach(function(x, k){ x.setAttribute('aria-pressed', enabled.indexOf(CATS[k].id) >= 0 ? 'true' : 'false'); });
+      savePrefs();
+    });
+    h.appendChild(b);
+  });
+}
+function savePrefs(){ store.set(SKEY+'.prefs', {cats:enabled, len:parseInt(document.getElementById('len').value, 10) || 20}); }
+document.getElementById('len').value = String(prefs.len || 20);
+document.getElementById('len').addEventListener('change', savePrefs);
+document.getElementById('restart').addEventListener('click', function(){ startRound(false); });
+document.getElementById('misses').addEventListener('click', function(){ startRound(true); });
+document.addEventListener('keydown', function(e){
+  if (document.getElementById('view-drill').hidden || e.ctrlKey || e.metaKey || e.altKey) return;
+  var t = e.target; if (t && (t.tagName === 'SELECT' || t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+  if (!answered && /^[1-4]$/.test(e.key)){ var b = document.querySelectorAll('#qhost .opt')[+e.key-1]; if (b){ e.preventDefault(); b.click(); } }
+  else if (answered && e.key === 'Enter'){ var n = document.getElementById('next'); if (n && document.activeElement !== n){ e.preventDefault(); n.click(); } }
+});
+
+// ---------- boot ----------
+buildGallery(); drawOwn(); buildGloss(); buildCats();
+try{ if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === 'function') document.fonts.ready.then(function(){ buildGallery(); drawOwn(); }); }catch(e){}
+startRound(false);
+show(location.hash.slice(1) || 'drill');
+})();
+</script>
+</body>
+</html>
