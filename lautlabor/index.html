@@ -335,7 +335,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
         <h3>Wells's lexical sets</h3>
         <p class="small muted">Each keyword stands for every word that has that vowel. They are the standard way to compare accents: say "the BATH vowel" instead of "the a in bath".</p>
         <div class="scroll"><table class="vtable" id="lexsets"></table></div>
-        <p class="note"><b>Symbol conventions.</b> This page follows Wells and Roach. RP writes DRESS as /e/ and GA as /ɛ/ (same idea, different tradition). GA transcriptions usually drop the length mark ː. Modern RP (often called SSBE) has moved on in places: TRAP is close to [a], SQUARE is often a long monophthong [ɛː], CURE often merges with NORTH/FORCE (<i>sure</i> /ʃɔː/), GOOSE is fronted toward [ʉː].</p>
+        <p class="note"><b>Symbol conventions.</b> RP symbols follow Wells and Roach. For GA this page uses the American textbook convention: no length marks and /ɛ/ for DRESS. Wells&rsquo;s Longman dictionary and the Cambridge dictionary write GA with length marks and /e/ instead (<i>hot</i> /hɑːt/, <i>thought</i> /θɔːt/), so both are correct. Use the convention your course uses. Modern RP (often called SSBE) has moved on in places: TRAP is close to [a], SQUARE is often a long monophthong [ɛː], CURE often merges with NORTH/FORCE (<i>sure</i> /ʃɔː/), GOOSE is fronted toward [ʉː].</p>
       </div>
       <div class="sheet stack">
         <h3>Describing a vowel</h3>
@@ -379,7 +379,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
     <div class="scroll"><table class="vtable" id="credits"></table></div>
   </details>
 
-  <footer>Transcriptions follow Wells (Longman Pronunciation Dictionary) and Roach (English Phonetics and Phonology). Where accents vary, the most common textbook form is given.</footer>
+  <footer>RP transcriptions follow Wells (Longman Pronunciation Dictionary) and Roach (English Phonetics and Phonology); GA uses the American textbook convention (no length marks, /ɛ/). Where accents vary, the most common textbook form is given.</footer>
 </div>
 
 <script>
@@ -512,7 +512,7 @@ var CONS = [
   ['f','voiceless','labiodental','fricative',['fan','phone','laugh'],'Spelled f, ff, ph, gh.'],
   ['v','voiced','labiodental','fricative',['van','of','love'],'German w. Note of = /ɒv/.'],
   ['θ','voiceless','dental','fricative',['thin','author','bath'],'Theta. Not in German.'],
-  ['ð','voiced','dental','fricative',['this','mother','breathe'],'Eth. Function words with th (the, this, that, they) all have /ð/.'],
+  ['ð','voiced','dental','fricative',['this','mother','breathe'],'Eth. Function words that begin with th (the, this, that, they, then, there, though) have /ð/. Exception: through /θruː/.'],
   ['s','voiceless','alveolar','fricative',['sip','cats','kiss'],'Plural -s is /s/ after voiceless sounds.'],
   ['z','voiced','alveolar','fricative',['zip','dogs','buzz'],'Plural -s is /z/ after voiced sounds and /ɪz/ after sibilants (buses).'],
   ['ʃ','voiceless','postalveolar','fricative',['ship','nation','wish'],'Esh. Spelled sh, ti (nation), ci (special), s (sugar).'],
@@ -541,10 +541,10 @@ function label(c){ return c.voice+' '+c.place+' '+c.manner; }
 var INWORD = [
   ['measure','s','ʒ'],['vision','s','ʒ'],['beige','g','ʒ'],['thin','th','θ'],['this','th','ð'],['breathe','th','ð'],['breath','th','θ'],
   ['sing','ng','ŋ'],['think','n','ŋ'],['judge','dg','dʒ'],['soldier','d','dʒ'],['nature','t','tʃ'],['church','ch','tʃ'],['chorus','ch','k'],
-  ['yes','y','j'],['use','u (start)','j'],['ship','sh','ʃ'],['nation','t','ʃ'],['sugar','s','ʃ'],['special','c','ʃ'],['Thomas','Th','t'],
-  ['phone','ph','f'],['laugh','gh','f'],['of','f','v'],['dogs','s','z'],['cats','s','s'],['buses','es','z'],['one','o (start)','w'],
+  ['yes','y','j'],['use','u (start)','j'],['ship','sh','ʃ'],['nation','ti','ʃ'],['sugar','s','ʃ'],['special','ci','ʃ'],['Thomas','Th','t'],
+  ['phone','ph','f'],['laugh','gh','f'],['of','f','v'],['dogs','s','z'],['cats','s','s'],['buses','es','ɪz'],['one','o (start)','w'],
   ['quick','u','w'],['xylophone','x','z'],['gem','g','dʒ'],['get','g','ɡ'],['hour','h','(silent)'],['knee','kn','n'],['the','th','ð'],
-  ['author','th','θ'],['mother','th','ð'],['finger','ng','ŋɡ'],['singer','ng','ŋ'],['question','t','tʃ'],['education','d','dʒ']
+  ['author','th','θ'],['mother','th','ð'],['finger','ng','ŋɡ'],['singer','ng','ŋ'],['question','t','tʃ'],['education','d','dʒ',['d'],'education usually has /dʒ/ there (careful RP can keep /dj/: /ˌedjuˈkeɪʃn̩/).']
 ];
 
 // ---------- DATA: vowels ----------
@@ -553,7 +553,7 @@ var LEX = [
   ['KIT','ɪ','ɪ','ship, bridge, myth',''],
   ['DRESS','e','ɛ','step, head, friend','Same vowel; RP books write /e/, GA books /ɛ/.'],
   ['TRAP','æ','æ','cat, bad, hand','Modern RP is near [a]. GA raises it toward [eə] before nasals (man).'],
-  ['LOT','ɒ','ɑ','hot, stop, wash','RP short rounded back; GA unrounded, the same vowel as PALM.'],
+  ['LOT','ɒ','ɑ','hot, stop, sock','RP short rounded back; GA unrounded, the same vowel as PALM.'],
   ['STRUT','ʌ','ʌ','cup, love, blood','Modern RP close to [ɐ].'],
   ['FOOT','ʊ','ʊ','put, good, could',''],
   ['BATH','ɑː','æ','bath, dance, ask, after','The BATH-TRAP split: RP moved these words to the PALM vowel; GA kept TRAP.'],
@@ -623,7 +623,7 @@ var WORDS = [
   ['hot','/hɒt/','/hɑt/','LOT: RP rounded /ɒ/, GA unrounded /ɑ/.'],
   ['coffee','/ˈkɒfi/','/ˈkɔfi/','CLOTH: RP /ɒ/, GA /ɔ/ (or /ɑ/ with the cot-caught merger).'],
   ['thought','/θɔːt/','/θɔt/','THOUGHT: RP long /ɔː/, GA /ɔ/ without the length mark.'],
-  ['water','/ˈwɔːtə/','/ˈwɔtɚ/','Non-rhotic RP ends in /ə/, rhotic GA in /ɚ/. Narrow GA is [ˈwɑɾɚ] with a tap.'],
+  ['water','/ˈwɔːtə/','/ˈwɔtɚ/','Non-rhotic RP ends in /ə/, rhotic GA in /ɚ/. Narrow GA is [ˈwɔɾɚ] (or [ˈwɑɾɚ]) with a tap.'],
   ['butter','/ˈbʌtə/','/ˈbʌtɚ/','Final lettER: RP /ə/, GA /ɚ/.'],
   ['mother','/ˈmʌðə/','/ˈmʌðɚ/','Final lettER: RP /ə/, GA /ɚ/.'],
   ['teacher','/ˈtiːtʃə/','/ˈtitʃɚ/','RP marks length /iː/; GA writes /i/ and r-colours the end.'],
@@ -636,7 +636,7 @@ var WORDS = [
   ['square','/skweə/','/skwɛr/','SQUARE: RP centring diphthong /eə/ (modern [ɛː]), GA /ɛr/.'],
   ['near','/nɪə/','/nɪr/','NEAR: RP /ɪə/, GA /ɪr/.'],
   ['cure','/kjʊə/','/kjʊr/','CURE: RP /ʊə/ (modern often /ɔː/), GA /ʊr/.'],
-  ['new','/njuː/','/nu/','Yod-dropping: GA loses /j/ after alveolars (/t d n s l/).'],
+  ['new','/njuː/','/nu/','Yod-dropping: GA loses /j/ after /t d n/ in a stressed syllable.'],
   ['Tuesday','/ˈtjuːzdeɪ/','/ˈtuzdeɪ/','Yod-dropping in GA; RP keeps /tj/ (or coalesces to /tʃ/).'],
   ['student','/ˈstjuːdənt/','/ˈstudənt/','Yod-dropping in GA.'],
   ['tomato','/təˈmɑːtəʊ/','/təˈmeɪtoʊ/','Lexical difference: RP PALM vowel, GA FACE vowel.'],
@@ -660,7 +660,7 @@ var WORDS = [
   ['thinking','/ˈθɪŋkɪŋ/','/ˈθɪŋkɪŋ/','Same in both: /ŋ/ before /k/ and at the end.'],
   ['strength','/streŋθ/','/strɛŋθ/','Only the DRESS symbol differs.'],
   ['choice','/tʃɔɪs/','/tʃɔɪs/','Same in both.'],
-  ['mouth','/maʊθ/','/maʊθ/','Same in both.'],
+  ['mouth','/maʊθ/','/maʊθ/','Same in both. (The verb to mouth has /ð/: /maʊð/.)','mouth (noun)'],
   ['language','/ˈlæŋɡwɪdʒ/','/ˈlæŋɡwɪdʒ/','Same in both: /ŋɡ/ then /w/.'],
   ['question','/ˈkwestʃən/','/ˈkwɛstʃən/','/tʃ/ spelled t.'],
   ['beautiful','/ˈbjuːtɪfl̩/','/ˈbjutɪfəl/','/j/ after /b/ stays in both accents (yod-dropping only after alveolars).']
@@ -712,13 +712,13 @@ var ALLO = [
   ['play, narrow','both','[pl̥eɪ]',['[pleɪ]','[bleɪ]','[plɛː]'],'An approximant after a stressed aspirated plosive is devoiced: the aspiration happens during the /l/.'],
   ['tree, narrow','RP','[tɹ̥iː]',['[tɹiː]','[tʃɹiː]','[dɹiː]'],'/r/ devoiced after /t/. (Some speakers make it sound close to [tʃɹ̥].)'],
   ['act (unreleased plosive)','both','[æk̚t]',['[ækʰt]','[æɡt]','[æk.ət]'],'The first of two plosives is often unreleased (no audible burst).'],
-  ['button, narrow','both','[ˈbʌʔn̩]',['[ˈbʌtən]','[ˈbʌɾən]','[ˈbʊtn̩]'],'Glottal stop before syllabic /n/: normal in both RP and GA. [ˈbʌtn̩] with nasal plosion is the careful form.'],
+  ['button (glottal replacement)','both','[ˈbʌʔn̩]',['[ˈbʌɾən]','[ˈbʊʔn̩]','[ˈbʌdn̩]'],'Glottal stop before syllabic /n/: the usual GA form and common in modern RP. Careful RP has [ˈbʌtn̩] with nasal release.'],
   ['bottle, narrow','GA','[ˈbɑɾl̩]',['[ˈbɒtl̩]','[ˈbɑtʰəl]','[ˈbɑʔɫ]'],'GA tap plus syllabic l.'],
   ['man, narrow','GA','[mæ̃n]',['[mæn̥]','[mɑn]','[mɛːn]'],'Vowels are nasalised before a nasal consonant.'],
   ['eighth, narrow','both','[eɪt̪θ]',['[eɪtθ]','[eɪθt]','[ɛtθ]'],'/t/ becomes dental before a dental fricative.'],
   ['bag (careful, end of phrase)','both','[bæɡ̊]',['[bæk]','[bæɡʰ]','[beɡ]'],'Final lenis plosives are partly devoiced, but the vowel stays long and the /ɡ/ stays lenis. Full [k] is the German error.'],
   ['far away (linking r)','RP','[fɑːr əˈweɪ]',['[fɑː əˈweɪ]','[fɑːʔ əˈweɪ]','[fɑɚ əˈweɪ]'],'RP drops final r, but it comes back before a vowel: linking r.'],
-  ['law and order (intrusive r)','RP','[ˈlɔːr ənd ˈɔːdə]',['[ˈlɔː ənd ˈɔːdə]','[ˈlɔːʔ ənd ˈɔːdɚ]','[ˈlɔːw ənd ˈɔːdə]'],'Intrusive r: RP speakers insert /r/ between vowels even with no r in the spelling.'],
+  ['law and order (intrusive r)','RP','[ˈlɔːr ənd ˈɔːdə]',['[ˈlɔː ənd ˈɔːdə]','[ˈlɔːʔ ənd ˈɔːdɚ]','[ˈlɔːw ənd ˈɔːdə]'],'Intrusive r: after /ə ɑː ɔː/ (and /ɪə eə ʊə/) RP speakers insert /r/ before a vowel even with no r in the spelling. Never after other vowels (see it, go on).'],
   ['ten boys (assimilation)','both','[tem bɔɪz]',['[ten bɔɪz]','[teŋ bɔɪz]','[ten pɔɪz]'],'Assimilation of place: /n/ becomes bilabial [m] before /b/.'],
   ['that girl (assimilation)','RP','[ðæk ɡɜːl]',['[ðæt ɡɜːl]','[ðæd ɡɜːl]','[ðæp ɡɜːl]'],'Assimilation of place: alveolar /t/ becomes velar before /ɡ/.'],
   ['did you (yod coalescence)','both','[ˈdɪdʒu]',['[ˈdɪd ju]','[ˈdɪtʃu]','[ˈdɪdʒuː.ə]'],'Yod coalescence: /d/ + /j/ fuse into /dʒ/.'],
@@ -738,7 +738,7 @@ var RULES = [
   {t:'Aspiration', a:'both', r:'Voiceless plosives /p t k/ get a puff of air [ʰ] at the start of a stressed syllable. Not after /s/, and weaker in unstressed syllables.', ex:[['pin','[pʰɪn]'],['spin','[spɪn]'],['attack','[əˈtʰæk]']]},
   {t:'Devoicing of approximants', a:'both', r:'/l r j w/ are devoiced after a stressed /p t k/: the aspiration happens during the approximant.', ex:[['play','[pl̥eɪ]'],['tree','[tɹ̥iː]'],['cue','[kj̊uː]'],['twin','[tw̥ɪn]']]},
   {t:'Unreleased plosives', a:'both', r:'In a cluster of two plosives, the first often has no audible release.', ex:[['act','[æk̚t]'],['good boy','[ɡʊd̚ bɔɪ]']]},
-  {t:'Glottal reinforcement and replacement', a:'both', r:'/p t k tʃ/ before a consonant are often reinforced with a glottal closure [ʔt]. /t/ can be replaced by [ʔ] before consonants (modern RP and GA) and before syllabic /n/ in both. Between vowels (wa[ʔ]er) it is Cockney/Estuary, not RP.', ex:[['that man','[ðæʔ mæn]'],['button','[ˈbʌʔn̩]'],['batman','[ˈbæʔmæn]']]},
+  {t:'Glottal reinforcement and replacement', a:'both', r:'/p t k tʃ/ before a consonant are often reinforced with a glottal closure [ʔt]. /t/ can be replaced by [ʔ] before consonants (modern RP and GA) and before syllabic /n/ (usual in GA, common in modern RP). Between vowels (wa[ʔ]er) it is Cockney/Estuary, not RP.', ex:[['that man','[ðæʔ mæn]'],['button','[ˈbʌʔn̩]'],['batman','[ˈbæʔmæn]']]},
   {t:'Tapping (flapping)', a:'GA', r:'In GA, /t/ and /d/ between vowels (or after /r/), with the second syllable unstressed, become a quick voiced tap [ɾ]. So writer and rider can sound alike, told apart only by vowel length.', ex:[['water','[ˈwɑɾɚ]'],['city','[ˈsɪɾi]'],['party','[ˈpɑrɾi]'],['ladder','[ˈlæɾɚ]']]},
   {t:'Clear and dark l', a:'RP', r:'RP: clear [l] before a vowel or /j/, dark [ɫ] (back of the tongue raised) before a consonant or a pause. GA: dark in nearly all positions. Cockney turns dark l into a vowel: milk [mɪʊk].', ex:[['leaf','[liːf]'],['feel','[fiːɫ]'],['milk','[mɪɫk]']]},
   {t:'Syllabic consonants', a:'both', r:'/n l/ (and sometimes /m/) form a syllable on their own after another consonant, instead of schwa + consonant.', ex:[['button','[ˈbʌtn̩]'],['bottle','[ˈbɒtl̩]'],['rhythm','[ˈrɪðm̩]']]},
@@ -747,7 +747,7 @@ var RULES = [
   {t:'Final devoicing (partial)', a:'both', r:'Lenis /b d ɡ v ð z ʒ/ lose some voicing before a pause. Unlike German, they stay lenis and the vowel before them stays long.', ex:[['bag','[bæɡ̊]'],['dogs','[dɒɡz̥]']]},
   {t:'Nasalisation', a:'both', r:'Vowels before a nasal consonant are nasalised. Strong in GA.', ex:[['man','[mæ̃n]'],['song','[sɒ̃ŋ]']]},
   {t:'Dentalisation and labialisation', a:'both', r:'Alveolars become dental before /θ ð/; consonants are lip-rounded before rounded vowels.', ex:[['eighth','[eɪt̪θ]'],['in the','[ɪn̪ ðə]'],['two','[tʷuː]']]},
-  {t:'Linking r and intrusive r', a:'RP', r:'Non-rhotic RP drops /r/ before a consonant or pause but pronounces it before a vowel (linking r). By analogy it also inserts /r/ between vowels where there is none (intrusive r).', ex:[['far away','[fɑːr əˈweɪ]'],['law and order','[ˈlɔːr ənd ˈɔːdə]'],['idea of','[aɪˈdɪər əv]']]},
+  {t:'Linking r and intrusive r', a:'RP', r:'Non-rhotic RP drops /r/ before a consonant or pause but pronounces it before a vowel (linking r). By analogy it also inserts /r/ after /ə ɑː ɔː/ (and /ɪə eə ʊə/) before a vowel where the spelling has no r (intrusive r): law and order, idea of, Shah of. Never after other vowels.', ex:[['far away','[fɑːr əˈweɪ]'],['law and order','[ˈlɔːr ənd ˈɔːdə]'],['idea of','[aɪˈdɪər əv]']]},
   {t:'Assimilation', a:'both', r:'In connected speech a sound takes on a feature of a neighbour. Place: alveolar /t d n/ copy the place of the next consonant. Yod coalescence: /t d s z/ + /j/ fuse into /tʃ dʒ ʃ ʒ/.', ex:[['ten boys','[tem bɔɪz]'],['that girl','[ðæk ɡɜːl]'],['did you','[ˈdɪdʒu]'],['this year','[ðɪʃ jɪə]']]},
   {t:'Elision', a:'both', r:'Sounds disappear in fast speech: /t d/ between consonants, and schwa before /r l/ in unstressed syllables.', ex:[['next day','[neks deɪ]'],['handbag','[ˈhæmbæɡ]'],['camera','[ˈkæmrə]'],['history','[ˈhɪstri]']]},
   {t:'Weak forms', a:'both', r:'Function words have a strong form (stressed, citation) and a weak form with schwa in normal speech.', ex:[['and','/ænd/ → /ən/'],['for','/fɔː/ → /fə/'],['can','/kæn/ → /kən/'],['of','/ɒv/ → /əv/']]}
@@ -758,7 +758,7 @@ var SYSTEMS = [
   {t:'LOT, CLOTH and THOUGHT', r:'RP LOT is rounded /ɒ/; GA LOT is unrounded /ɑ/ and falls together with PALM (father-bother merger). CLOTH words have /ɔ/ in GA. Many Americans also merge THOUGHT with LOT (cot-caught merger).', ex:[['hot','/hɒt/','/hɑt/'],['long','/lɒŋ/','/lɔŋ/'],['caught','/kɔːt/','/kɔt/ or /kɑt/']]},
   {t:'GOAT', r:'RP starts the diphthong in the centre, /əʊ/; GA starts back and rounded, /oʊ/.', ex:[['go','/ɡəʊ/','/ɡoʊ/'],['phone','/fəʊn/','/foʊn/']]},
   {t:'Tapping', r:'GA taps /t d/ between vowels; RP keeps [t].', ex:[['city','[ˈsɪti]','[ˈsɪɾi]'],['metal','[ˈmetl̩]','[ˈmɛɾl̩]']]},
-  {t:'Yod-dropping', r:'GA drops /j/ after alveolars /t d n s θ l/ in a stressed syllable. RP keeps it, or coalesces /tj dj/ into /tʃ dʒ/.', ex:[['tune','/tjuːn/','/tun/'],['duke','/djuːk/','/duk/'],['news','/njuːz/','/nuz/']]},
+  {t:'Yod-dropping', r:'GA drops /j/ after /t d n/ in a stressed syllable; RP keeps it there, or coalesces /tj dj/ into /tʃ dʒ/. After /s z l θ/ GA always drops it, and modern RP mostly does too (suit /suːt/, lute /luːt/; but assume /əˈsjuːm/).', ex:[['tune','/tjuːn/','/tun/'],['duke','/djuːk/','/duk/'],['news','/njuːz/','/nuz/']]},
   {t:'Mary, marry, merry', r:'Three different vowels in RP; merged into /ɛr/ for most GA speakers.', ex:[['Mary','/ˈmeəri/','/ˈmɛri/'],['marry','/ˈmæri/','/ˈmɛri/'],['merry','/ˈmeri/','/ˈmɛri/']]},
   {t:'Endings -ary, -ery, -ory, -mony', r:'RP reduces them (often to one syllable); GA keeps a full vowel with secondary stress.', ex:[['secretary','/ˈsekrətri/','/ˈsɛkrəˌtɛri/'],['territory','/ˈterətri/','/ˈtɛrəˌtɔri/'],['ceremony','/ˈserəməni/','/ˈsɛrəˌmoʊni/']]},
   {t:'Ending -ile', r:'RP /aɪl/; GA usually a syllabic /l̩/ or /əl/.', ex:[['fertile','/ˈfɜːtaɪl/','/ˈfɝtl̩/'],['missile','/ˈmɪsaɪl/','/ˈmɪsl̩/'],['fragile','/ˈfrædʒaɪl/','/ˈfrædʒl̩/']]},
@@ -937,7 +937,7 @@ function buildRules(){
 // ---------- quiz generators ----------
 // token list for transcription mutation (longest first)
 var TOK = ['tʃ','dʒ','iː','uː','ɑː','ɔː','ɜː','eɪ','aɪ','ɔɪ','əʊ','aʊ','ɪə','eə','ʊə','oʊ','ɪ','e','æ','ʌ','ɒ','ʊ','ə','ɛ','ɑ','ɔ','i','u','ɝ','ɚ','θ','ð','ʃ','ʒ','ŋ','s','z','j','k','ɡ'];
-var SWAP = {'tʃ':'dʒ','dʒ':'tʃ','θ':'ð','ð':'θ','ʃ':'ʒ','ʒ':'ʃ','ŋ':'n','iː':'ɪ','ɪ':'iː','uː':'ʊ','ʊ':'uː','ʌ':'ɒ','ɒ':'ɔː','ɔː':'əʊ','əʊ':'ɔː','ɜː':'ɑː','ɑː':'ʌ','æ':'ʌ','e':'ɪ','ə':'ʌ','eɪ':'aɪ','aɪ':'eɪ','ɔɪ':'aɪ','aʊ':'əʊ','ɪə':'iː','eə':'ɜː','ʊə':'uː','oʊ':'aʊ','ɛ':'ɪ','ɑ':'æ','ɔ':'oʊ','i':'eɪ','u':'ʊ','ɝ':'ɑr','ɚ':'ə','s':'z','z':'s','j':'dʒ','k':'ɡ','ɡ':'k'};
+var SWAP = {'tʃ':'dʒ','dʒ':'tʃ','θ':'ð','ð':'θ','ʃ':'ʒ','ʒ':'ʃ','ŋ':'n','iː':'ɪ','ɪ':'iː','uː':'ʊ','ʊ':'uː','ʌ':'ɒ','ɒ':'ɔː','ɔː':'əʊ','əʊ':'ɔː','ɜː':'ɑː','ɑː':'ʌ','æ':'ʌ','e':'ɪ','ə':'ʌ','eɪ':'aɪ','aɪ':'eɪ','ɔɪ':'aɪ','aʊ':'əʊ','ɪə':'iː','eə':'ɜː','ʊə':'uː','oʊ':'aʊ','ɛ':'ɪ','ɑ':'æ','ɔ':'ʊ','i':'eɪ','u':'ʊ','ɝ':'ɑr','ɚ':'ə','s':'z','z':'s','j':'dʒ','k':'ɡ','ɡ':'k'};
 function tokenize(s){ var out = [], i = 0; while (i < s.length){ var hit = null; for (var k=0;k<TOK.length;k++){ if (s.substr(i, TOK[k].length) === TOK[k]){ hit = TOK[k]; break; } } if (hit){ out.push(hit); i += hit.length; } else { out.push(s[i]); i++; } } return out; }
 function mutate(s, avoid){
   var toks = tokenize(s), idx = [];
@@ -949,12 +949,19 @@ function mutate(s, avoid){
   }
   return null;
 }
-function wrongTranscriptions(ok, other, k){
+// words whose RP and GA forms differ only in notation (e/ɛ, length mark, l̩/əl): never quiz the accent on them
+var NOTATION_ONLY = ['strength','question','thought','beautiful'];
+// real variants that must never be offered as wrong
+var VARIANTS = {strength:['/strenθ/','/strɛnθ/','/strenkθ/','/strɛŋkθ/'], laboratory:['/ˈlæbrəˌtoʊri/'], mouth:['/maʊð/']};
+function bare(s){ return s.replace(/ː/g, ''); }
+function wrongTranscriptions(ok, other, k, word){
   var out = []; if (other && other !== ok) out.push(other);
+  var ban = [ok].concat(VARIANTS[word] || []);
+  var okay = function(m){ return m && ban.indexOf(m) < 0 && bare(m) !== bare(ok) && out.indexOf(m) < 0; };
   var guard = 0;
-  while (out.length < k && guard++ < 30){ var m = mutate(ok, [ok].concat(out)); if (m) out.push(m); else break; }
+  while (out.length < k && guard++ < 30){ var m = mutate(ok, ban.concat(out)); if (okay(m)) out.push(m); else if (!m) break; }
   guard = 0;
-  while (out.length < k && guard++ < 30){ var b = pick(out.length ? out : [ok]); var m2 = mutate(b, [ok].concat(out)); if (m2) out.push(m2); else break; }
+  while (out.length < k && guard++ < 30){ var b = pick(out.length ? out : [ok]); var m2 = mutate(b, ban.concat(out)); if (okay(m2)) out.push(m2); }
   return out.slice(0, k);
 }
 function fill(opts, pool, k){ var o = uniq(opts); var p = shuffle(pool); for (var i=0;i<p.length && o.length<k;i++) if (o.indexOf(p[i]) < 0) o.push(p[i]); return o; }
@@ -974,13 +981,16 @@ var CATS = [
   {id:'cword', name:'Sound in a word', gen:function(){
     var w = pick(INWORD); var pool = ['ʒ','ʃ','θ','ð','dʒ','tʃ','s','z','ŋ','n','j','w','v','f','k','ɡ','t','d','(silent)','ŋɡ','h'];
     if (w[2] === 'ŋɡ' || w[2] === 'ŋ') pool = ['ŋ','ŋɡ','n','ŋk','ɡ'];
-    return {id:'cword:'+w[0], cat:'Sound in a word', prompt:['In ', el('b', {text:w[0]}), ', which sound does the spelling ', el('b', {text:'"'+w[1]+'"'}), ' stand for?'], ok:w[2], ipaOpts:true, opts:fill([w[2]], pool, 4), why: w[2] === '(silent)' ? 'The h in hour is silent: /ˈaʊə/.' : w[0]+' has /'+w[2]+'/ there.', say:w[0]};
+    if (w[3]) pool = pool.filter(function(x){ return w[3].indexOf(x) < 0; });
+    return {id:'cword:'+w[0], cat:'Sound in a word', prompt:['In ', el('b', {text:w[0]}), ', which sound does the spelling ', el('b', {text:'"'+w[1]+'"'}), ' stand for?'], ok:w[2], ipaOpts:true, opts:fill([w[2]], pool, 4), why: w[4] ? w[4] : w[2] === '(silent)' ? 'The h in hour is silent: /ˈaʊə/.' : w[0]+' has /'+w[2]+'/ there.', say:w[0]};
   }},
   {id:'vowel', name:'Vowels', gen:function(){
     var r = Math.random();
     if (r < .45){
       var l = pick(LEX), acc = Math.random() < .6 ? 'RP' : 'GA', ok = acc === 'RP' ? l[1] : l[2];
-      var pool = (acc === 'RP' ? LEX.map(function(x){ return x[1]; }) : LEX.map(function(x){ return x[2]; })).filter(function(x){ return x !== ok; });
+      var LEXX = {happYRP:['ɪ','iː'], happYGA:['ɪ','iː'], CURERP:['ɔː'], CUREGA:['ɔr','ɝ'], CLOTHGA:['ɑ'], THOUGHTGA:['ɑ'], LOTGA:['ɔ']};
+      var noL = LEXX[l[0]+acc] || [];
+      var pool = (acc === 'RP' ? LEX.map(function(x){ return x[1]; }) : LEX.map(function(x){ return x[2]; })).filter(function(x){ return x !== ok && noL.indexOf(x) < 0; });
       return {id:'lex:'+l[0]+acc, cat:'Lexical sets', acc:acc, prompt:['Which vowel does ', el('b', {text:acc}), ' use in the ', el('b', {text:l[0]}), ' set (', el('i', {text:l[3]}), ')?'], ok:'/'+ok+'/', ipaOpts:true, opts:fill(['/'+ok+'/'], uniq(pool).map(function(x){ return '/'+x+'/'; }), 4), why:l[0]+': RP /'+l[1]+'/, GA /'+l[2]+'/. '+l[4]};
     }
     var set = Math.random() < .7 ? VRP : VGA, v = pick(set), accv = set === VRP ? 'RP' : 'GA';
@@ -992,14 +1002,15 @@ var CATS = [
   {id:'trans', name:'Transcribe', gen:function(){
     var w = pick(WORDS), same = w[1] === w[2], acc = same ? 'both' : (Math.random() < .55 ? 'RP' : 'GA');
     var ok = acc === 'GA' ? w[2] : w[1], other = acc === 'RP' ? w[2] : acc === 'GA' ? w[1] : null;
-    return {id:'trans:'+w[0]+acc, cat:'Transcribe', acc:acc, prompt:['Pick the correct ', accTag(acc), ' transcription of ', el('b', {text:w[0]}), '.'], ok:ok, ipaOpts:true, opts:[ok].concat(wrongTranscriptions(ok, other, 3)), why:w[3]+(other ? ' The other accent: '+other+'.' : ''), say:w[0]};
+    var otherOpt = NOTATION_ONLY.indexOf(w[0]) >= 0 ? null : other;
+    return {id:'trans:'+w[0]+acc, cat:'Transcribe', acc:acc, prompt:['Pick the correct ', accTag(acc), ' transcription of ', el('b', {text:w[4] || w[0]}), '.'], ok:ok, ipaOpts:true, opts:[ok].concat(wrongTranscriptions(ok, otherOpt, 3, w[0])), why:w[3]+(other ? ' The other accent: '+other+'.' : ''), say:w[0]};
   }},
   {id:'read', name:'Read it', gen:function(){
     var r = pick(READ);
     return {id:'read:'+r[0], cat:'Read the transcription', acc:r[1], prompt:['Which word is this? ', accTag(r[1])], big:r[0], ok:r[2], opts:[r[2]].concat(r[3]), why:r[0]+' is '+r[2]+'.', say:r[2]};
   }},
   {id:'accent', name:'RP or GA?', gen:function(){
-    var diff = WORDS.filter(function(w){ return w[1] !== w[2]; }); var w = pick(diff), acc = Math.random() < .5 ? 'RP' : 'GA';
+    var diff = WORDS.filter(function(w){ return w[1] !== w[2] && NOTATION_ONLY.indexOf(w[0]) < 0; }); var w = pick(diff), acc = Math.random() < .5 ? 'RP' : 'GA';
     return {id:'accent:'+w[0]+acc, cat:'RP or GA?', prompt:['This is ', el('b', {text:w[0]}), '. Which accent is the transcription?'], big:acc === 'RP' ? w[1] : w[2], ok:acc === 'RP' ? 'RP (British)' : 'GA (American)', opts:['RP (British)','GA (American)'], fixed:true, why:w[3]+' RP '+w[1]+', GA '+w[2]+'.'};
   }},
   {id:'allo', name:'Allophones', gen:function(){

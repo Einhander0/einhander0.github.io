@@ -299,9 +299,9 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
           <tbody>
             <tr><td class="kw">Observing</td><td>The speaker follows the maxims. Implicatures still arise: the hearer assumes the reply is relevant and fills the gap.</td><td>A: <i>I’m out of petrol.</i> B: <i>There’s a garage round the corner.</i> +&gt; it’s open and sells petrol.</td></tr>
             <tr><td class="kw">Flouting</td><td>A <b>blatant, overt</b> failure: the speaker wants the hearer to notice it, and the hearer infers an implicature that restores cooperation.</td><td>Irony, metaphor, tautology (<i>War is war</i>), the faint-praise reference letter.</td></tr>
-            <tr><td class="kw">Violating</td><td>A <b>quiet, covert</b> failure: the hearer is not meant to notice, so the speaker is liable to mislead. No implicature is intended; deception is.</td><td>A lie; a true but misleading answer (<i>Some jobs were cut</i>, when all were).</td></tr>
+            <tr><td class="kw">Violating</td><td>A <b>quiet, covert</b> failure: the hearer is not meant to notice, so the speaker is liable to mislead. The aim is to deceive, not to be seen through: a lie creates no implicature; a true-but-misleading answer deliberately creates a false one.</td><td>A lie; a true but misleading answer (<i>Some jobs were cut</i>, when all were).</td></tr>
             <tr><td class="kw">Opting out</td><td>The speaker openly signals unwillingness to cooperate in the way the maxim requires.</td><td><i>No comment.</i> <i>I’m afraid I can’t discuss my patients.</i></td></tr>
-            <tr><td class="kw">Clash</td><td>The speaker can’t fulfil one maxim without breaking another, usually Quantity vs Quality.</td><td>A: <i>Where does C live?</i> B: <i>Somewhere in the south of France.</i> +&gt; B doesn’t know more.</td></tr>
+            <tr><td class="kw">Clash</td><td>The speaker can’t fulfil one maxim without breaking another, usually Quantity vs Quality. (Thomas 1995 files this case under flouting: a flout necessitated by a clash between maxims.)</td><td>A: <i>Where does C live?</i> B: <i>Somewhere in the south of France.</i> +&gt; B doesn’t know more.</td></tr>
             <tr><td class="kw">Infringing</td><td>(Thomas 1995) Non-observance through imperfect linguistic performance, with no intention to implicate or deceive: learners, small children, nervousness, drunkenness.</td><td>A beginner asked how long she is staying answers <i>Two</i>, meaning two weeks.</td></tr>
             <tr><td class="kw">Suspending</td><td>(Thomas 1995) In some events or cultures a maxim isn’t expected to be observed, so its non-observance creates no implicature.</td><td>Withholding information as a cultural norm (Keenan’s study of Malagasy speakers); fiction and jokes for Quality.</td></tr>
           </tbody>
@@ -697,7 +697,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
         <p><b>Preferred</b> seconds are unmarked: immediate, short, simple. <b>Dispreferred</b> seconds are marked by <b>delay</b> (pause, <i>uh, um</i>), a <b>preface</b> (<i>well, oh</i>), <b>token agreement or appreciation</b> (<i>That’s very kind, but…</i>), an <b>apology</b>, <b>hedges and qualifications</b> (<i>I’m not sure…</i>), an <b>account</b> (the reason), and a softened, often indirect declining component. Preference is a <b>structural</b> notion about the shape of turns, not about what people personally want.</p>
         <p class="ex">A: <i>Want to come to the cinema tonight?</i> B: <i>Oh, um, well, I’d love to, but I’ve got this report due tomorrow, so… maybe another time?</i> (delay, preface, appreciation, account, softened refusal)</p>
         <h3>Pre-sequences and insertion sequences</h3>
-        <p><b>Pre-sequences</b> prepare the ground for an FPP: pre-invitation (<i>Are you doing anything tonight?</i>), pre-request (<i>Have you got a minute?</i>), pre-announcement (<i>Guess what!</i>), pre-closing (<i>Okay… right then…</i>). A negative reply to a pre-invitation spares both sides an outright refusal. An <b>insertion sequence</b> is a pair embedded between an FPP and its SPP: A: <i>Could I get a large coffee?</i> B: <i>Oat milk or regular?</i> A: <i>Regular.</i> B: <i>Sure, that’s 3.40.</i> (Q1 Q2 A2 A1).</p>
+        <p><b>Pre-sequences</b> prepare the ground for an FPP: pre-invitation (<i>Are you doing anything tonight?</i>), pre-request (<i>Have you got a minute?</i>), pre-announcement (<i>Guess what!</i>), pre-closing (<i>Okay… right then…</i>). A negative reply to a pre-invitation spares both sides an outright refusal. An <b>insertion sequence</b> is a pair embedded between an FPP and its SPP: A: <i>Could I get a large coffee?</i> B: <i>Oat milk or regular?</i> A: <i>Regular.</i> B: <i>Sure, that’s 3.40.</i> (FPP1 FPP2 SPP2 SPP1: a question-answer pair inside a request-acceptance pair).</p>
         <h3>Repair</h3>
         <div class="scroll"><table class="tbl wide">
           <thead><tr><th></th><th>Repaired by self</th><th>Repaired by other</th></tr></thead>
@@ -816,7 +816,7 @@ var MAXIMS = [
   ['r8','R',"",["A: Your presentation was a disaster, wasn’t it?","B: Is that a new jacket? It really suits you."],"B pointedly talks about something else: +> let’s not go there."],
   ['r9','R',"Professor Huber has just walked into the room.",["A: I’m sure Huber failed me because he doesn’t like me.","B: Gosh, it’s warm in here today."],"A sudden irrelevant remark: +> be quiet, he’s here."],
   ['r10','R',"",["A: Did you book the restaurant for our anniversary?","B: Oh, look at the time! I’d better feed the cat."],"B obviously avoids the question: +> no, I forgot."],
-  ['m1','M',"Two parents, in front of their young children.",["A: Let’s get the kids something.","B: Okay, but I veto I-C-E C-R-E-A-M-S."],"Spelling the word out is deliberately obscure (Grice’s example): +> I don’t want the children to understand."],
+  ['m1','M',"Two parents, in front of their young children.",["A: Let’s get the kids something.","B: Okay, but I veto I-C-E C-R-E-A-M-S."],"Spelling the word out is deliberately obscure (Levinson’s example): +> I don’t want the children to understand."],
   ['m2','M',"A music critic’s review.",["“Miss X produced a series of sounds that corresponded closely with the score of ‘Home Sweet Home’.”"],"A long-winded description instead of the brief “Miss X sang” (Grice’s example): +> her singing hardly deserved the name."],
   ['m3','M',"Parents talking at breakfast while their four-year-old listens.",["A: Shall we go to the Z-O-O on Saturday?"],"Spelling it out is deliberately obscure: +> don’t let her understand yet."],
   ['m4','M',"A professor writes in a reference.",["“I cannot recommend this candidate too highly.”"],"Deliberately ambiguous: “no praise would be too much” or “any high recommendation would be too much”. +> the reader is meant to suspect the unflattering reading."],
@@ -1096,16 +1096,16 @@ var DEIXIS = [
 ];
 
 // ---------- DATA: presupposition [id, trigger, sentence, presupposition, three non-presupposed, test] ----------
-var PTL = {DEF:'Definite description', FACT:'Factive verb', COS:'Change-of-state verb', ITER:'Iterative', IMPL:'Implicative verb', CLEFT:'Cleft sentence', TEMP:'Temporal clause', COMP:'Comparison', CF:'Counterfactual conditional', WH:'Wh-question'};
+var PTL = {DEF:'Definite description', FACT:'Factive verb / predicate', COS:'Change-of-state verb', ITER:'Iterative', IMPL:'Implicative verb', CLEFT:'Cleft sentence', TEMP:'Temporal clause', COMP:'Comparison', CF:'Counterfactual conditional', WH:'Wh-question'};
 var PTD = {
   DEF:"A definite description presupposes that its referent exists.",
-  FACT:"A factive verb presupposes that its complement clause is true.",
+  FACT:"A factive verb or predicate (know, regret, be glad, be odd) presupposes that its complement clause is true.",
   COS:"A change-of-state verb presupposes the state before the change.",
   ITER:"An iterative presupposes that the event or state happened before.",
   IMPL:"An implicative verb presupposes an attempt, intention or expectation.",
   CLEFT:"A cleft presupposes the clause it backgrounds (“someone did X”) and focuses the rest.",
   TEMP:"A temporal clause (before, after, since, while) presupposes that its event happened.",
-  COMP:"A comparison presupposes that the property holds of the thing compared with.",
+  COMP:"Some comparisons presuppose something about the thing compared with: a better linguist than Barbara >> Barbara is a linguist. (Plain taller than / as tall as presuppose nothing of the kind.)",
   CF:"A counterfactual conditional presupposes that its if-clause is false.",
   WH:"A wh-question presupposes the corresponding statement with “someone / something / somewhere”."
 };
@@ -1143,7 +1143,7 @@ var PRESUP = [
   ['pt4','TEMP',"While you were out, your mother called.","You were out.",["Your mother called.","Your mother was worried.","You were at work."],"Negate it: “While you were out, your mother didn’t call.” It still >> you were out."],
   ['pco1','COMP',"Carol is a better linguist than Barbara.","Barbara is a linguist.",["Carol outdoes Barbara as a linguist.","Barbara is jealous of Carol.","Carol is older than Barbara."],"Negate it: “Carol isn’t a better linguist than Barbara.” It still >> Barbara is a linguist."],
   ['pco2','COMP',"Jimmy is as unreliable as Billy.","Billy is unreliable.",["Jimmy and Billy are equally unreliable.","Jimmy and Billy are brothers.","Billy is more reliable than Jimmy."],"Negate it: “Jimmy isn’t as unreliable as Billy.” It still >> Billy is unreliable."],
-  ['pco3','COMP',"Vienna is as expensive as Munich.","Munich is expensive.",["Vienna and Munich are equally expensive.","Vienna is a big city.","Vienna is cheaper than Munich."],"Negate it: “Vienna isn’t as expensive as Munich.” It still >> Munich is expensive."],
+  ['pco3','COMP',"Vienna is as overpriced as Munich.","Munich is overpriced.",["Vienna and Munich are equally overpriced.","Vienna is a big city.","Vienna is cheaper than Munich."],"Negate it: “Vienna isn’t as overpriced as Munich.” It still >> Munich is overpriced."],
   ['pcf1','CF',"If Hannibal had had twelve more elephants, the Romance languages wouldn’t exist.","Hannibal didn’t have twelve more elephants.",["Hannibal wanted more elephants.","Hannibal won the war.","Elephants decided the war."],"The conditional as a whole takes it for granted that its if-clause is false; that survives in the question “Would the Romance languages exist if Hannibal had had twelve more elephants?” too."],
   ['pcf2','CF',"If you had listened to me, we wouldn’t be lost.","You didn’t listen to me.",["The speaker knows the way.","The speaker is angry.","You never listen to anyone."],"The counterfactual form (had + past participle, would) takes the falsity of the if-clause for granted."],
   ['pcf3','CF',"If I were rich, I’d buy a boat.","I’m not rich.",["I will buy a boat.","Boats are expensive.","I have a lot of money."],"The counterfactual “were” takes the falsity of the if-clause for granted."],
@@ -1381,7 +1381,7 @@ var CATS = [
   }},
   {id:'nonobs', name:'Flout, violate, opt out...', gen:function(){
     var n = pick(NONOBS), ok = NOL[n[1]];
-    var others = Object.keys(NOL).filter(function(k){ return k !== n[1]; }).map(function(k){ return NOL[k]; });
+    var others = Object.keys(NOL).filter(function(k){ return k !== n[1] && !(n[1] === 'C' && k === 'F'); }).map(function(k){ return NOL[k]; });
     return {id:'no:'+n[0], cat:'Not observing a maxim', prompt:P('How does the speaker fail to observe a maxim here?', qdef(n[2])), ok:ok, opts:fill([ok], others, 4), why:n[3]};
   }},
   {id:'impl', name:'Kind of implicature', gen:function(){
@@ -1408,7 +1408,7 @@ var CATS = [
   }},
   {id:'deixis', name:'Kind of deixis', gen:function(){
     var x = pick(DEIXIS), ok = DXL[x[1]];
-    var others = Object.keys(DXL).filter(function(k){ return k !== x[1]; }).map(function(k){ return DXL[k]; });
+    var others = Object.keys(DXL).filter(function(k){ return k !== x[1] && !(x[1] === 'SO' && k === 'P'); }).map(function(k){ return DXL[k]; });
     return {id:'dx:'+x[0], cat:'Kind of deixis', prompt:P('What kind of deixis is the bracketed expression?', qctx(x[2]), brk(x[3])), ok:ok, opts:fill([ok], others, 4), why:x[4]+' '+DXD[x[1]]};
   }},
   {id:'presup', name:'Presupposition triggers', gen:function(){

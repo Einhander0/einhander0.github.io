@@ -312,7 +312,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
           <li><b>Base</b>: any form an affix attaches to. <i>touch</i> is the base of <i>-able</i>, <i>touchable</i> is the base of <i>un-</i>, and <i>untouchable</i> is the base of plural <i>-s</i>. Every root can be a base; not every base is a root.</li>
           <li><b>Stem</b>: the form that inflectional affixes attach to: here <i>untouchable</i> (used as a noun). A stem can already contain derivational affixes.</li>
         </ul>
-        <p class="note">This is the usage of Plag and Katamba. Some books use <i>stem</i> loosely for any base. In German grammar <i>Stamm</i> is used in the same inflectional sense.</p>
+        <p class="note">This is Katamba&rsquo;s usage; Plag defines root and base the same way but avoids the term <i>stem</i>. Some books use <i>stem</i> loosely for any base. In German grammar <i>Stamm</i> is used in the same inflectional sense.</p>
       </div>
 
       <div class="sheet stack">
@@ -497,7 +497,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
         <p>The form stays the same, only the word class changes: noun → verb (<i>to bottle</i>, <i>to email</i>, <i>to microwave</i>), verb → noun (<i>a run</i>, <i>a big ask</i>), adjective → verb (<i>to empty</i>, <i>to slow down</i>), even preposition → verb (<i>to up the price</i>). The <b>direction</b> is decided by meaning (<i>to bottle</i> means 'put into a bottle', so the noun is basic), by history, and by frequency.</p>
         <p>Some noun–verb pairs differ in stress: the noun is stressed on the first syllable, the verb on the second (capitals mark the stressed syllable). Whether these count as conversion is debated, since the form does change.</p>
         <div class="scroll"><table class="tbl" id="stresspairs"></table></div>
-        <p class="note">German nominalizes infinitives freely (<i>das Laufen</i>), but English noun-to-verb conversion (<i>to google</i>, <i>to bin</i>) has no productive German equivalent: German needs a suffix (<i>googeln</i>).</p>
+        <p class="note">German has conversion too (<i>das Laufen</i>; <i>Film → filmen</i>, <i>Google → googeln</i>), but a German verb always carries an inflectional ending (<i>-en / -n</i>), so noun and verb never look identical the way English <i>a bottle / to bottle</i> do. That is why conversion is so much more visible in English.</p>
       </div>
 
       <div class="sheet stack">
@@ -524,7 +524,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
       <div class="sheet stack">
         <h2>Morphological trees</h2>
         <p>A tree (or a labelled bracketing) shows the order in which a complex word is built. Each branching node joins exactly two parts (<b>binary branching</b>) and gets the word class of the result: N noun, V verb, A adjective, Adv adverb. Affixes carry no label of their own. The two parts under a node are its <b>immediate constituents</b>.</p>
-        <p class="note"><b>How to decide.</b> Check what each affix attaches to (re- and reversative un- take verbs, negative un- takes adjectives, -able takes verbs, -ness takes adjectives), and whether every intermediate node is an existing or possible word. <i>unhappiness</i> = [[un-happy]-ness], because *<i>happiness</i> + un- would mean 'not happiness'.</p>
+        <p class="note"><b>How to decide.</b> Check what each affix attaches to (re- and reversative un- take verbs, negative un- takes adjectives, -able takes verbs, -ness takes adjectives), and whether every intermediate node is an existing or possible word. <i>unhappiness</i> = [[un-happy]-ness], because negative un- attaches to adjectives, not nouns; un- + <i>happiness</i> would wrongly mean 'not happiness'.</p>
         <div class="chips" id="treepick"></div>
         <div class="treebox" id="treeview" aria-live="polite"></div>
       </div>
@@ -571,7 +571,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
         <p class="small muted">Average morphemes per word in a text sample (Greenberg 1960).</p>
         <div class="stack" id="bars" style="gap:8px"></div>
         <p><b>English</b> is mostly analytic: <i>will go</i>, <i>more beautiful</i>, <i>the roof of the house</i>. It keeps some fusion (<i>-s</i> in <i>walks</i> = 3rd person + singular + present; <i>went</i>, <i>sang</i>) and agglutinating derivation (<i>un-help-ful-ness</i>). Old English, with its case endings, was far more synthetic (index about 2.1).</p>
-        <p class="note"><b>Don't confuse</b> polysynthetic with agglutinating. Turkish words are long chains of one-meaning affixes; polysynthetic words go further and contain several lexical roots, often a whole clause. Many polysynthetic languages are also agglutinating in technique.</p>
+        <p class="note"><b>Don't confuse</b> polysynthetic with agglutinating. Turkish words are long chains of one-meaning affixes; polysynthetic words go further: a single word can hold what English says in a whole clause, either by incorporating noun roots into the verb (Mohawk, Chukchi) or by stacking many suffixes with word-like meanings on one root (Inuktitut, Greenlandic). Many polysynthetic languages are also agglutinating in technique.</p>
       </div>
     </section>
 
@@ -765,7 +765,7 @@ var CLASSIFY = [
   ["bookish","book","FL","A noun that can stand alone."],
   ["friendship","friend","FL","A noun that can stand alone."],
   ["taller","tall","FL","An adjective that can stand alone."],
-  ["greenhouse","house","FL","Each part of a compound is a free lexical morpheme."],
+  ["greenhouse","house","FL","Both parts of this compound are free lexical morphemes."],
   ["national","nation","FL","A noun that can stand alone."],
   ["the cat sat down","the","FF","Articles are a closed class of grammar words."],
   ["a cup of tea","of","FF","A preposition used for a purely grammatical relation: free functional."],
@@ -890,8 +890,8 @@ var WF = [
   ["toothbrush","comp","tooth + brush, right-headed."],
   ["blackbird","comp","black + bird with compound stress (ˈblackbird): a species, not just any black bird."],
   ["sunflower","comp","sun + flower."],
-  ["skyscraper","comp","sky + scraper (a synthetic compound). German calqued it as Wolkenkratzer."],
-  ["truck driver","comp","A synthetic compound: truck is the object of drive. English writes it as two words, but it is one compound."],
+  ["skyscraper","comp","sky + scraper (a synthetic compound). German calqued it as Wolkenkratzer.",["der"]],
+  ["truck driver","comp","A synthetic compound: truck is the object of drive. English writes it as two words, but it is one compound.",["der"]],
   ["redhead","comp","An exocentric compound: a redhead is a person, not a kind of head."],
   ["pickpocket","comp","An exocentric compound: a person who picks pockets."],
   ["airport","comp","air + port."],
@@ -1041,7 +1041,7 @@ var WF = [
   ["googol","coin","Invented by a mathematician's young nephew for 10 to the power of 100."],
   ["blurb","coin","Invented by the humorist Gelett Burgess."],
   ["grok","coin","Invented by Robert Heinlein in a science-fiction novel."],
-  ["quark","coin","A nonsense word from James Joyce, adopted by physics."],
+  ["quark (the particle in physics)","coin","A nonsense word from James Joyce's Finnegans Wake, adopted by physics. (Quark the cheese is a different word, borrowed from German.)",["borr"]],
   ["so-so","redup","Full reduplication."],
   ["bye-bye","redup","Full reduplication."],
   ["goody-goody","redup","Full reduplication."],
@@ -1132,7 +1132,7 @@ var AFORM = [
   ["oxen","the plural of ox","EN"],["eaten","the past participle of eat","EN"],["taken","the past participle of take","EN"],["given","the past participle of give","EN"],["shaken","the past participle of shake","EN"],["fallen","the past participle of fall","EN"],["seen","the past participle of see","EN"],["known","the past participle of know","EN"],["shown","the past participle of show","EN"],["drawn","the past participle of draw","EN"],["beaten","the past participle of beat","EN"],
   ["feet","the plural of foot","VOW"],["geese","the plural of goose","VOW"],["teeth","the plural of tooth","VOW"],["mice","the plural of mouse","VOW"],["men","the plural of man","VOW"],["lice","the plural of louse","VOW"],
   ["sang","the past tense of sing","VOW"],["swam","the past tense of swim","VOW"],["drank","the past tense of drink","VOW"],["rode","the past tense of ride","VOW"],["began","the past tense of begin","VOW"],["sat","the past tense of sit","VOW"],["came","the past tense of come","VOW"],["ran","the past tense of run","VOW"],["grew","the past tense of grow","VOW"],["wrote","the past tense of write","VOW"],
-  ["sheep","the plural of sheep","ZERO"],["deer","the plural of deer","ZERO"],["aircraft","the plural of aircraft","ZERO"],["moose","the plural of moose","ZERO"],["species","the plural of species","ZERO"],["salmon","the plural of salmon","ZERO"],
+  ["sheep","the plural of sheep","ZERO"],["deer","the plural of deer","ZERO"],["aircraft","the plural of aircraft","ZERO"],["moose","the plural of moose","ZERO"],["species","the plural of species","ZERO",["FOR"]],["salmon","the plural of salmon","ZERO"],
   ["hit","the past tense of hit","ZERO"],["cut","the past tense of cut","ZERO"],["put","the past tense of put","ZERO"],["set","the past tense of set","ZERO"],["let","the past tense of let","ZERO"],["hurt","the past tense of hurt","ZERO"],["shut","the past tense of shut","ZERO"],
   ["went","the past tense of go","SUPP"],["was","the past tense of be","SUPP"],["better","the comparative of good","SUPP",["REG"]],["best","the superlative of good","SUPP",["REG"]],["worse","the comparative of bad","SUPP"],["worst","the superlative of bad","SUPP",["REG"]],
   ["criteria","the plural of criterion","FOR"],["phenomena","the plural of phenomenon","FOR"],["cacti","the plural of cactus","FOR"],["alumni","the plural of alumnus","FOR"],["analyses","the plural of analysis","FOR"],["larvae","the plural of larva","FOR"],["theses","the plural of thesis","FOR"],["curricula","the plural of curriculum","FOR"],["nuclei","the plural of nucleus","FOR"],["stimuli","the plural of stimulus","FOR"],["bacteria","the plural of bacterium","FOR"],
@@ -1244,7 +1244,7 @@ var TYPQ = [
   ["German des Kind-es: -es marks genitive + singular at once","F","Case and number fused: German is partly fusional."],
   ["English walk-s: -s marks 3rd person + singular + present at once","F","A fusional (cumulative) suffix in mostly analytic English."],
   ["Inuktitut qangatasuukkuvimmuuriaqalaaqtunga, one word for 'I'll have to go to the airport'","P","A whole clause in one word."],
-  ["Mohawk forms one verb meaning 'I bed-bought' by building the noun into the verb","P","Noun incorporation is the hallmark of polysynthesis."],
+  ["Mohawk forms one verb meaning 'I bed-bought' by building the noun into the verb","P","Noun incorporation is a typical feature of many polysynthetic languages."],
   ["Words are mostly single morphemes; grammar is carried by word order and separate words.","I","That is the definition of isolating."],
   ["Each affix has one meaning, and affixes line up with clean boundaries.","A","That is the definition of agglutinating."],
   ["One affix expresses several grammatical meanings at once, and the stem itself may change.","F","That is the definition of fusional."],
@@ -1491,7 +1491,8 @@ var CATS = [
   {id:'process', name:'Word-formation process', gen:function(){
     if (Math.random() < .14){
       var ps = pick(PSEUDO);
-      var pool = PSEUDO.filter(function(x){ return x !== ps; }).map(function(x){ return x[1]; });
+      var PSX = {Showmaster:'Talkmaster', Talkmaster:'Showmaster'};
+      var pool = PSEUDO.filter(function(x){ return x !== ps && x[0] !== PSX[ps[0]]; }).map(function(x){ return x[1]; });
       return {id:'ps:'+ps[0], cat:'Pseudo-anglicisms', prompt:['German ', b(ps[0]), ' is a pseudo-anglicism. What do English speakers actually say?'], ok:ps[1], opts:fill([ps[1]], pool, 4), why:'German '+ps[0]+' = English '+ps[1]+'. ' + (ps[2] === 'not an English word' ? ps[0]+' is not an English word at all.' : 'In English, '+ps[2]+'.')};
     }
     var w = pick(WF), key = w[1], ex = (PEXCL[key] || []).concat(w[3] || []);

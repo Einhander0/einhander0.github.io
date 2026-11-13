@@ -398,10 +398,10 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
             <tr><td class="kw">SV</td><td>intransitive</td><td>The baby is sleeping.</td><td>intransitive</td></tr>
             <tr><td class="kw">SVO</td><td>monotransitive</td><td>She wrote a letter.</td><td>monotransitive</td></tr>
             <tr><td class="kw">SVC</td><td>copular</td><td>He became famous.</td><td>complex-intransitive</td></tr>
-            <tr><td class="kw">SVA</td><td>intransitive + obligatory A</td><td>The keys are under the mat.</td><td>no own label: the obligatory adverbial counts as a complement (locative/goal)</td></tr>
+            <tr><td class="kw">SVA</td><td>copular (with an obligatory A)</td><td>The keys are under the mat.</td><td>no own label: the obligatory adverbial counts as a complement (locative/goal)</td></tr>
             <tr><td class="kw">SVOO</td><td>ditransitive</td><td>She gave him a book.</td><td>ditransitive</td></tr>
             <tr><td class="kw">SVOC</td><td>complex-transitive</td><td>They elected her president.</td><td>complex-transitive</td></tr>
-            <tr><td class="kw">SVOA</td><td>transitive + obligatory A</td><td>She put the vase on the table.</td><td>no own label: object + locative complement (<i>put</i>)</td></tr>
+            <tr><td class="kw">SVOA</td><td>complex-transitive (with an obligatory A)</td><td>She put the vase on the table.</td><td>no own label: object + locative complement (<i>put</i>)</td></tr>
           </tbody>
         </table></div>
         <p>The pattern belongs to a <b>verb in one sense</b>, so one verb can appear in several: <i>She got angry</i> (SVC), <i>She got a letter</i> (SVO), <i>She got him a coffee</i> (SVOO), <i>She got the children ready</i> (SVOC), <i>She got home late</i> (SVA: <i>home</i> obligatory, <i>late</i> optional). Optional adverbials never count, wherever they stand.</p>
@@ -415,7 +415,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
           <tbody>
             <tr><td class="kw">Finite</td><td>a tensed verb (present or past) or a modal; can stand alone; needs a subject (except imperatives)</td><td>She left. / [because she was tired]</td></tr>
             <tr><td class="kw">to-infinitive</td><td><i>to</i> + base form</td><td>I want [to leave]. / [To be honest], ...</td></tr>
-            <tr><td class="kw">Bare infinitive</td><td>base form without <i>to</i></td><td>All he did was [complain]. / You must [go].</td></tr>
+            <tr><td class="kw">Bare infinitive</td><td>base form without <i>to</i></td><td>All he did was [complain]. / She made him [leave].</td></tr>
             <tr><td class="kw">-ing participle</td><td>V-ing (H&amp;P: gerund-participle)</td><td>[Walking home], I met an old friend.</td></tr>
             <tr><td class="kw">-ed participle</td><td>V-ed / V-en (H&amp;P: past participle)</td><td>[Written in haste], the note was hard to read.</td></tr>
             <tr><td class="kw">Verbless</td><td>no verb at all, but understood as a clause (Quirk)</td><td>[Although tired], she kept working. / [With the exam over], we celebrated.</td></tr>
@@ -449,7 +449,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
         <div class="scroll"><table class="tbl wide">
           <thead><tr><th>Operation</th><th>What happens</th><th>Example</th></tr></thead>
           <tbody>
-            <tr><td class="kw">Passive</td><td>Od becomes S; <i>be/get</i> + -ed participle; old S optional in a <i>by</i>-phrase. Only clauses with an object passivise, which makes it an object test.</td><td>The dog chased the cat. → The cat was chased (by the dog).</td></tr>
+            <tr><td class="kw">Passive</td><td>An object (Od, or Oi in SVOO: <i>He was given a book</i>) becomes S; <i>be/get</i> + -ed participle; old S optional in a <i>by</i>-phrase. A useful object test, but not perfect: a few verbs with objects resist the passive (<i>have, resemble, cost</i>), and prepositional verbs can passivise (<i>The bed was slept in</i>).</td><td>The dog chased the cat. → The cat was chased (by the dog).</td></tr>
             <tr><td class="kw">Subject-auxiliary inversion</td><td>The operator (first auxiliary) moves in front of S. Quirk: subject-operator inversion. Yes/no questions, after negative openers (<i>Never have I...</i>), <i>so/neither</i> tags.</td><td>She can swim. → Can she swim?</td></tr>
             <tr><td class="kw">Do-support</td><td>With no auxiliary present, dummy <i>do</i> is inserted to carry tense for negation, inversion, code or emphasis.</td><td>She swims. → Does she swim? / She doesn't swim.</td></tr>
             <tr><td class="kw">Wh-movement</td><td>A wh-phrase moves to the front of its clause and leaves a gap. Questions and relative clauses.</td><td>You saw who? → Who did you see __? / the man [who you met __]</td></tr>
@@ -491,7 +491,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
             <tr><td><i>up</i> in <i>turn the music up</i></td><td>adverb particle</td><td>intransitive preposition</td><td>particle (often P)</td></tr>
             <tr><td>-ing form</td><td>-ing participle</td><td>gerund-participle</td><td>-ing</td></tr>
             <tr><td>clause pattern labels</td><td>SV, SVO, SVC, SVA, SVOO, SVOC, SVOA</td><td>intransitive, monotransitive, ditransitive, complex-intransitive, complex-transitive</td><td>subcategorisation frames</td></tr>
-            <tr><td>tenses</td><td>two: present, past (<i>will</i> is a modal)</td><td>two: present, preterite</td><td>T [±past]</td></tr>
+            <tr><td>tenses</td><td>two: present, past (<i>will</i> is a modal)</td><td>primary tense: present vs preterite (plus the perfect as a &ldquo;secondary tense&rdquo;); no future tense</td><td>T [±past]</td></tr>
             <tr><td><i>is</i> in <i>She is a nurse</i></td><td>main verb (copula)</td><td>auxiliary verb (it has NICE)</td><td>raises to T</td></tr>
           </tbody>
         </table></div>
@@ -507,7 +507,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
           <li><b>Existential <i>there</i> is the subject</b>, not an adverbial: <i>Is there a problem? There's a problem, isn't there?</i></li>
           <li><b>German: V2.</b> German puts the finite verb second whatever comes first (<i>Gestern habe ich ihn gesehen</i>). English stays SVO after a fronted adverbial: <i>Yesterday I saw him</i>, not *<i>Yesterday saw I him</i>. English inverts only in questions, after negative or restrictive openers (<i>Never have I...</i>), with <i>so/neither</i>, and in a few fixed patterns (<i>Here comes the bus</i>).</li>
           <li><b>German: verb-final subclauses.</b> <i>...weil ich müde bin</i>, but English keeps SVO: <i>because I am tired</i>, never *<i>because I tired am</i>.</li>
-          <li><b>German: case vs position.</b> German can front the object and stay clear (<i>Den Hund beißt der Mann</i>). English nouns have no case, so position <i>is</i> the function: <i>The dog bites the man</i> means the dog bites. Only pronouns show case (<i>he/him, who/whom</i>).</li>
+          <li><b>German: case vs position.</b> German can front the object and stay clear (<i>Den Hund beißt der Mann</i>). English nouns do not mark subject vs object case (only the genitive <i>'s</i> survives), so position <i>is</i> the function: <i>The dog bites the man</i> means the dog bites. Only pronouns show case (<i>he/him, who/whom</i>).</li>
           <li><b>German: nothing between V and Od.</b> *<i>I read yesterday the book</i> → <i>I read the book yesterday</i>. English keeps verb and object adjacent.</li>
           <li><b>German: questions and negation need do</b> with lexical verbs: <i>Do you know?</i> not *<i>Know you?</i>; <i>I don't know</i> not *<i>I know not</i>.</li>
           <li><b>German: commas.</b> German puts commas round every relative clause. In English a comma makes the clause non-restrictive and changes the meaning, and <i>that</i> is impossible after the comma.</li>
@@ -735,7 +735,7 @@ var PH = [
   ["[Students of linguistics] love trees.", "NP · head: Students", ["PP · head: of","NP · head: linguistics","PP · head: linguistics"], "Students is the head (it agrees with love); of linguistics is a PP complement."],
   ["The book is [on the top shelf].", "PP · head: on", ["NP · head: shelf","AP · head: top","PP · head: shelf"], "On is the head; the top shelf is its NP complement."],
   ["He is [extremely fond of chocolate].", "AP · head: fond", ["AdvP · head: extremely","PP · head: of","NP · head: chocolate"], "Fond is the head; extremely modifies it, of chocolate is its complement."],
-  ["She arrived [much too early].", "AdvP · head: early", ["AdvP · head: much","AdvP · head: too","NP · head: early"], "Early (modifying arrived) is the head; too and much are stacked degree modifiers."],
+  ["She arrived [much too early].", "AdvP · head: early", ["AdvP · head: much","AdvP · head: too","NP · head: early"], "Early (modifying arrived) is the head; too is its degree modifier, and much in turn modifies too."],
   ["We met [in the summer of 2019].", "PP · head: in", ["NP · head: summer","PP · head: of","NP · head: 2019"], "In is the head; the summer of 2019 is its NP complement (with its own PP inside)."],
   ["[Rather unhappy with the result], she left.", "AP · head: unhappy", ["AdvP · head: rather","PP · head: with","NP · head: result"], "Unhappy is the head; rather modifies it and with the result is its complement."],
   ["They [sold their house].", "VP · head: sold", ["NP · head: house","NP · head: their","VP · head: house"], "Sold is the head; their house is its object."],
@@ -1023,7 +1023,7 @@ var CTY = [
   ["[Asked about the delay], the minister said nothing.", 4, 2, "An -ed participle clause (= when he was asked): adverbial."],
   ["The people [waiting outside] were getting angry.", 3, 0, "An -ing clause postmodifying people (= who were waiting)."],
   ["[Though rich], he lived simply.", 5, 2, "Subordinator + adjective, no verb: verbless concessive clause."],
-  ["[Unsure what to do], she called her sister.", 5, 2, "An adjective-headed clause with no verb of its own: verbless adverbial."]
+  ["[Unsure of the answer], she called her sister.", 5, 2, "An adjective-headed clause with no verb of its own: verbless adverbial."]
 ];
 function ctLabel(f, g){ return FORMS[f]+' · '+FUNCS[g]; }
 
@@ -1096,7 +1096,7 @@ var GAL = [
   {t:'Ditransitive VP', fw:'Ternary VP (simplified)', b:"[TP [NP she] [T' [T -ed] [VP [V give] [NP [D the] [N boy]] [NP [D a] [N book]]]]]", n:"Many introductory courses draw both objects as sisters of V. Strict binary branching cannot do that; advanced analyses use a VP shell (Larson) with an extra verb layer. Use whichever your course uses."},
   {t:'Clause with a that-clause', fw:'X-bar: CP complement', b:"[TP [NP I] [T' [T ∅] [VP [V think] [CP [C' [C that] [TP [^NP the dog] [T' [T -ed] [VP [V chase] [^NP the cat]]]]]]]]]", n:"The embedded clause is a CP: C holds the complementizer that, its complement is a full TP. The main clause has a silent present tense (∅) in T. Strictly the main clause is a CP too, with a silent C."},
   {t:'Wh-question with movement', fw:'X-bar: CP, wh-movement + T-to-C', b:"[CP [NP what_i] [C' [C will_j] [TP [NP you] [T' [T t_j] [VP [V buy] [NP t_i]]]]]]", n:"What starts as the object of buy and moves to the specifier of CP (wh-movement), leaving the trace tᵢ. The modal moves from T to C (subject-auxiliary inversion), leaving tⱼ.", ar:[['t_i','what_i'],['t_j','will_j']]},
-  {t:'The X-bar schema', fw:'X-bar template', b:"[XP [YP specifier] [X' [X' [X head] [ZP complement]] [WP adjunct]]]", n:"Head X and its complement form the lowest X′. An adjunct adds another X′ on top (repeatable). The specifier is the daughter of XP and the sister of the top X′."},
+  {t:'The X-bar schema', fw:'X-bar template', b:"[XP [YP specifier] [X' [X' [X head] [WP complement]] [ZP adjunct]]]", n:"Head X and its complement form the lowest X′. An adjunct adds another X′ on top (repeatable). The specifier is the daughter of XP and the sister of the top X′."},
   {t:'Complement vs adjunct in an NP', fw:'X-bar: NP', b:"[NP [D the] [N' [N' [N student] [^PP of physics]] [^PP with long hair]]]", n:"Of physics is the complement (sister of N). With long hair is an adjunct (sister of the lower N′). That is why one can replace student of physics: the one with long hair."}
 ];
 
@@ -1110,7 +1110,7 @@ var GLOSS = [
   ["AdvP","Adverb phrase, headed by an adverb.","[remarkably clearly]"],
   ["Argument","A participant required by the meaning of a predicate; arguments are realised as the subject and the complements.","[Anna] gave [Ben] [a book]: give has three."],
   ["Auxiliary verb","A verb with the NICE properties: be, have, do and the modals. Quirk splits them into primary auxiliaries (be, have, do) and modals.","She [has] left. [Can] you swim?"],
-  ["Bare infinitive","The base form of the verb without to, heading a non-finite clause.","All I did was [ask]. You must [go]."],
+  ["Bare infinitive","The base form of the verb without to, heading a non-finite clause.","All I did was [ask]. She made him [leave]. (After a modal, as in must go, Quirk counts the bare infinitive as part of one verb phrase, not a separate clause.)"],
   ["Binary branching","The X-bar requirement that no node has more than two daughters.","[V′ [V′ ate the cake] [PP in the kitchen]]"],
   ["C-command","A node c-commands its sister and everything its sister dominates. A reflexive needs an antecedent that c-commands it.","In Anna hurt herself, Anna c-commands herself."],
   ["Category","What a constituent is (N, V, NP, PP, clause...), as opposed to its function.","[last week] is an NP (category) used as an adverbial (function)."],
@@ -1124,7 +1124,7 @@ var GLOSS = [
   ["Content clause","H&P's term for a finite complement clause such as a that-clause; Quirk: nominal that-clause.","the claim [that the earth is flat]"],
   ["Coordination","Joining two or more units of the same kind with a coordinator.","[the cat] and [the dog]"],
   ["Coordinator","A coordinating conjunction: and, or, but (nor).","tired [but] happy"],
-  ["Copular verb","A linking verb that takes a subject complement: be, become, seem, appear, look, sound, remain, get, turn.","The soup [tastes] salty."],
+  ["Copular verb","A linking verb that takes a subject complement (SVC) or, in Quirk, an obligatory adverbial (SVA): be, become, seem, appear, look, sound, remain, get, turn.","The soup [tastes] salty."],
   ["CP","Complementizer phrase, the clause layer above TP. C holds a complementizer or an inverted auxiliary; Spec-CP holds a fronted wh-phrase.","[CP that [TP the dog chased the cat]]"],
   ["Declarative / interrogative / imperative","The main clause types: statements, questions, commands. Questions are yes/no (inversion) or wh- (wh-movement).","She left. / Did she leave? / Leave!"],
   ["Determiner","A word that introduces an NP and fixes reference or quantity: the, a, this, every, some. H&P call the class determinative and use determiner for the function.","[this] book"],
@@ -1148,8 +1148,8 @@ var GLOSS = [
   ["Indirect object (Oi)","The NP before the direct object, usually a recipient or beneficiary; often paraphrasable with to/for.","She gave [her nephew] a bike."],
   ["Intransitive","A verb (sense) with no object.","The baby slept."],
   ["Lexical category","A content-word category: N, V, Adj, Adv (P is borderline).","house, sell, proud, clearly"],
-  ["Main clause","A clause that is not part of another clause and can stand alone.","[I know] that she's right."],
-  ["Matrix clause","The clause that contains a given subordinate clause (also superordinate clause).","In I know that she's right, the whole sentence is the matrix."],
+  ["Main clause","A clause that is not part of another clause and can stand alone.","[I know that she's right]: the that-clause is its object, so it is part of the main clause."],
+  ["Matrix clause","The clause that contains a given subordinate clause (also superordinate clause).","In I know that she's right, the whole sentence is the matrix. (Quirk et al. use the term more narrowly, for the superordinate clause minus the subordinate one: I know. Check your lecturer's usage.)"],
   ["Modal verb","An auxiliary expressing possibility, necessity, permission etc.: can, could, may, might, must, shall, should, will, would. No -s, no non-finite forms, bare infinitive after it.","She [must] go."],
   ["Monotransitive","A verb (sense) with one object (SVO).","She wrote a letter."],
   ["Movement test","A string that can be moved as a unit, e.g. fronted, is a constituent.","[On the shelf] she put the books."],

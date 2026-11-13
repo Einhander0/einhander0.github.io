@@ -346,7 +346,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
           </details>
           <details class="card"><summary><span class="ct">Hyponymy<span class="cd">kind-of inclusion: tulip → flower</span></span><span class="plus">+</span></summary>
             <div class="body">
-              <p>The meaning of the <b>hyponym</b> includes the meaning of the <b>hypernym</b> (also called the <b>superordinate</b>): a tulip is a kind of flower. Words at the same level under one hypernym are <b>co-hyponyms</b>; they are incompatible with each other (<i>tulip</i>, <i>rose</i>, <i>daisy</i>: one flower can't be two of them).</p>
+              <p>The meaning of the <b>hyponym</b> includes the meaning of the <b>hypernym</b> (also called the <b>superordinate</b>): a tulip is a kind of flower. Words at the same level under one hypernym are <b>co-hyponyms</b>. In a taxonomy they are <b>incompatible</b> with each other (<i>tulip</i>, <i>rose</i>, <i>daisy</i>: one flower can't be two of them), though not all co-hyponyms are: <i>queen</i> and <i>mother</i> are both hyponyms of <i>woman</i>, and one woman can be both.</p>
               <p><b>Tests</b>: <i>X is a kind/type of Y</i>; one-way entailment: <i>I picked a tulip</i> entails <i>I picked a flower</i>, not the other way round.</p>
               <p>Hyponymy is <b>transitive</b>: a robin is a bird, a bird is an animal, so a robin is an animal. Stacked levels form a <b>taxonomy</b>: <i>animal</i> &gt; <i>bird</i> &gt; <i>robin</i>. Verbs have hyponyms too: <i>murder</i> &lt; <i>kill</i>, <i>stroll</i> &lt; <i>walk</i>, <i>whisper</i> &lt; <i>speak</i>.</p>
               <p>A language can lack a hypernym where you expect one: English has no everyday word covering both <i>uncle</i> and <i>aunt</i> (a <b>lexical gap</b>).</p>
@@ -429,7 +429,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
       <div class="sheet stack">
         <h2>Metaphor and metonymy</h2>
         <div class="grid2">
-          <div class="mini"><h3>Conceptual metaphor</h3><p>Lakoff &amp; Johnson (1980): we understand one domain (the <b>target</b>, usually abstract) in terms of another (the <b>source</b>, usually concrete). The link is <b>similarity</b> across two domains, and the mapping is systematic, not one-off.</p>
+          <div class="mini"><h3>Conceptual metaphor</h3><p>Lakoff &amp; Johnson (1980): we understand one domain (the <b>target</b>, usually abstract) in terms of another (the <b>source</b>, usually concrete). The mapping is <b>systematic</b>, not one-off, and it crosses <b>two domains</b>. (Traditionally metaphor is said to rest on <b>similarity</b>; Lakoff &amp; Johnson ground it in correlations in experience instead: adding more makes the pile go up, hence MORE IS UP.)</p>
             <p><b>ARGUMENT IS WAR</b>: <i>attack a position</i>, <i>indefensible claims</i>, <i>shoot down an argument</i>, <i>win</i> a debate.<br><b>TIME IS MONEY</b>: <i>spend</i>, <i>waste</i>, <i>save</i>, <i>invest</i> time; <i>running out of</i> time.<br><b>LOVE IS A JOURNEY</b>: <i>at a crossroads</i>, <i>going nowhere</i>, <i>a dead end</i>.<br><b>MORE IS UP / HAPPY IS UP</b>: prices <i>soar</i>; I'm feeling <i>down</i>.</p></div>
           <div class="mini"><h3>Metonymy</h3><p>One thing stands for another it is closely <b>associated</b> with inside the <b>same domain</b> (contiguity, not similarity).</p>
             <p><i>The kettle is boiling</i> (container for contents).<br><i>Downing Street said</i> (place for institution).<br><i>The ham sandwich wants the bill</i> (food ordered for the customer).<br><i>I'm reading Shakespeare</i> (producer for product).<br><i>The buses are on strike</i> (object for user).<br><i>Watergate</i> (place for event).</p></div>
@@ -573,7 +573,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
 
       <div class="sheet stack">
         <h2>Situation types (Aktionsart)</h2>
-        <p>Vendler (1957) sorted predicates into four classes by three properties: <b>dynamic</b> (something happens), <b>durative</b> (it takes time) and <b>telic</b> (it has a built-in endpoint).</p>
+        <p>Vendler (1957) sorted predicates into four classes. They are usually described with three properties (the feature grid comes from later work such as Smith 1991): <b>dynamic</b> (something happens), <b>durative</b> (it takes time) and <b>telic</b> (it has a built-in endpoint).</p>
         <div class="scroll"><table class="tbl">
           <thead><tr><th>Type</th><th>Dynamic</th><th>Durative</th><th>Telic</th><th>Examples</th></tr></thead>
           <tbody>
@@ -604,7 +604,7 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
         <ul class="list">
           <li><b>Presupposition vs entailment.</b> Negate A. If B still follows, it's a presupposition; if it disappears, it was only an entailment.</li>
           <li><b>Implicature is not entailment.</b> <i>Some students passed</i> suggests <i>not all</i>, but doesn't entail it: <i>Some students passed, in fact all of them did</i> is not a contradiction.</li>
-          <li><b>Non-factive verbs.</b> <i>believe</i>, <i>think</i>, <i>say</i>, <i>try</i> don't commit the speaker to their complement; <i>know</i>, <i>realise</i>, <i>regret</i>, <i>manage</i> do.</li>
+          <li><b>Non-factive verbs.</b> <i>believe</i>, <i>think</i>, <i>say</i>, <i>try</i> don't commit the speaker to their complement; factive <i>know</i>, <i>realise</i>, <i>regret</i> do, even when negated. Implicative <i>manage</i> does only in the positive (<i>didn't manage to</i> = didn't).</li>
           <li><b>Roles ≠ functions.</b> The subject is not automatically the agent: <i>The key opened the door</i> (instrument), <i>The vase broke</i> (patient), <i>Tom received a letter</i> (recipient).</li>
           <li><b>Vague ≠ ambiguous.</b> Use the <i>so did</i> test before you call something ambiguous.</li>
           <li><b>Lexical vs structural.</b> If you can paraphrase the two readings by regrouping the same words (brackets, different trees), it's structural. If one word has two senses, it's lexical.</li>
@@ -1173,7 +1173,7 @@ var CONNO = [
   ['walk','run','D','Different denotation: different kinds of movement.']
 ];
 var DEF_POOL = ['Sense','Reference','Referent','Denotation','Connotation','Intension','Extension'];
-var DEF_EXCL = {Sense:['Intension'], Intension:['Sense'], Extension:['Denotation'], Denotation:['Extension'], Reference:['Denotation'], Referent:['Extension'], Connotation:[]};
+var DEF_EXCL = {Sense:['Intension'], Intension:['Sense'], Extension:['Denotation'], Denotation:['Extension'], Reference:['Denotation'], Referent:['Extension','Denotation'], Connotation:[]};
 var DEFS = [
   ['The act or relation by which a speaker uses an expression to pick out a particular thing on a particular occasion.','Reference','Reference is utterance-bound: in The dog is ill, the speaker refers to one dog.'],
   ['The thing in the world itself that an expression picks out, for example the planet Venus.','Referent','The referent is the entity; reference is the relation or act of picking it out.'],
@@ -1242,7 +1242,7 @@ var MTY = [
   ['The farm has fifty head of cattle.','head','PW','Head (a part) stands for whole animals.'],
   ['We need some new faces around here.','faces','PW','Faces stand for whole people.'],
   ['Nice wheels!','wheels','PW','Wheels stand for the whole car.'],
-  ['The army has no boots on the ground there.','boots','PW','Boots stand for soldiers.'],
+  ['The ranch took on three new hands.','hands','PW','Hands (a part of the worker) stand for the workers.'],
   ['She has five mouths to feed.','mouths','PW','Mouths stand for people (dependants).'],
   ['The kettle is boiling.','the kettle','CC','The kettle stands for the water in it.'],
   ['He drank the whole bottle.','the whole bottle','CC','The bottle stands for what was in it.'],
@@ -1278,7 +1278,7 @@ var PEIRCE = [
   ['a statue of Mozart','Icon','It resembles Mozart.'],
   ['a scale model of a ship','Icon','It reproduces the ship’s shape in miniature.'],
   ['a mime pretending to drink from a glass','Icon','The gesture imitates drinking.'],
-  ['the word cuckoo, imitating the bird’s call','Icon','Onomatopoeia imitates the sound, so it is (partly) iconic; the exact form is still shaped by English conventions.'],
+  ['the word cuckoo, in the way its sound copies the bird’s call','Icon','The link asked about is resemblance of sound, so it is iconic. As an English word, cuckoo is also a conventional symbol: in an exam, say both.'],
   ['the sound of thunder in a radio play','Icon','The sound effect resembles real thunder.'],
   ['a caricature of a politician','Icon','It resembles the politician, exaggerated.'],
   ['a child’s drawing of a house','Icon','It resembles a house.'],
@@ -1326,7 +1326,7 @@ var VEN = [
   ['She [owns a house].','ST','Possession is a state.'],
   ['He [resembles his father].','ST','A state: *He is resembling his father (in the static sense).'],
   ['They [believe in miracles].','ST','A mental state.'],
-  ['The bag [weighs five kilos].','ST','A static property; compare the activity He weighed the bag.'],
+  ['The bag [weighs five kilos].','ST','A static property; compare the dynamic use He weighed the bag.'],
   ['I [hate spinach].','ST','A state of feeling.'],
   ['Paul [has blue eyes].','ST','A permanent property.'],
   ['She [understands Japanese].','ST','A state of knowledge.'],
@@ -1404,8 +1404,8 @@ var GLOSS = [
   ['Markedness','In a gradable pair, the unmarked term is neutral in questions and measurements.','How old is the baby? (old unmarked)'],
   ['Hyponymy','Inclusion of meaning: the hyponym denotes a kind of what the hypernym denotes. Transitive.','tulip is a hyponym of flower'],
   ['Hypernym','The more general term in a hyponymy relation. Also called superordinate.','flower is the hypernym of tulip, rose, daisy'],
-  ['Co-hyponyms','Words at the same level under one hypernym; they are incompatible with each other.','tulip, rose, daisy'],
-  ['Incompatibility','The relation between co-hyponyms: one thing can’t be both.','It’s a tulip excludes It’s a rose.'],
+  ['Co-hyponyms','Words at the same level under one hypernym; usually (not always) incompatible with each other.','tulip, rose, daisy (but queen and mother can overlap)'],
+  ['Incompatibility','Two terms that cannot both apply to the same thing; typical of co-hyponyms in a taxonomy.','It’s a tulip excludes It’s a rose.'],
   ['Taxonomy','A hierarchy of hyponymy levels.','animal > bird > robin'],
   ['Meronymy','Part–whole relation. The meronym is the part, the holonym the whole. Not always transitive.','finger / hand, petal / flower'],
   ['Homonymy','Unrelated words that share a form (sound and/or spelling).','bat (animal) / bat (club)'],
