@@ -228,15 +228,17 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
   <header>
     <p class="eyebrow">Language in social context · sociolinguistics</p>
     <h1><span lang="de">Die Sprachgemeinschaft</span> <span class="slash">/ˈʃpʁaːxɡəˌmaɪ̯nʃaft/</span></h1>
-    <p class="lede">Language varieties, the classic variationist and contact studies, multilingualism, pidgins and creoles, and the terminology examiners love. <b>Drill</b> quizzes you and brings back the ones you miss.</p>
+    <p class="lede">Language varieties, the classic variationist and contact studies, multilingualism, pidgins and creoles, and the terminology examiners love. <b>At a glance</b> puts the whole unit on one page; <b>Drill</b> quizzes you and brings back the ones you miss.</p>
   </header>
 
 
   <nav class="tabs" role="tablist" aria-label="Sections">
     <button class="tab" role="tab" id="tab-drill" data-view="drill">Drill</button>
+    <button class="tab" role="tab" id="tab-glance" data-view="glance">At a glance</button>
     <button class="tab" role="tab" id="tab-varieties" data-view="varieties">Varieties</button>
     <button class="tab" role="tab" id="tab-studies" data-view="studies">Classic studies</button>
     <button class="tab" role="tab" id="tab-contact" data-view="contact">Multilingualism &amp; contact</button>
+    <button class="tab" role="tab" id="tab-more" data-view="more">More topics</button>
     <button class="tab" role="tab" id="tab-glossary" data-view="glossary">Glossary</button>
   </nav>
 
@@ -263,6 +265,67 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
           <button class="btn quiet" id="misses">Only my misses</button>
         </div>
         <p class="small muted" id="memo">Questions you get wrong come back more often. Keys 1 to 4 answer, Enter goes on.</p>
+      </div>
+    </section>
+
+    <!-- AT A GLANCE -->
+    <section class="panel" id="view-glance" role="tabpanel" aria-labelledby="tab-glance" hidden>
+      <div class="sheet stack">
+        <h2>At a glance</h2>
+        <p class="lede">The whole unit on one page: the distinctions examiners test most, the research methods, and every classic study with its one-line takeaway. The other tabs have the detail.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>The distinctions that get tested</h3>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th scope="col">Pair</th><th scope="col">The difference</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">Language vs dialect</td><td>No purely linguistic line. Mutual intelligibility fails as a test; politics, states and standards decide (Weinreich's "army and navy"; Kloss's Abstand vs Ausbau).</td></tr>
+            <tr><td class="kw">Dialect vs accent</td><td>Dialect = grammar, vocabulary and pronunciation. Accent = pronunciation only. RP is an accent; Standard English is a dialect.</td></tr>
+            <tr><td class="kw">Register vs style</td><td>Register: tied to an activity, topic or occupation (legal English, sports commentary). Style: one speaker shifting along formality.</td></tr>
+            <tr><td class="kw">Overt vs covert prestige</td><td>Overt: publicly recognised "correct" value (the standard). Covert: value of non-standard forms within a group, signalling toughness or local loyalty (Trudgill, Norwich).</td></tr>
+            <tr><td class="kw">Variable vs variant</td><td>(ing) is the variable; [ɪŋ] and [ɪn] are its variants. Round brackets for variables, square for variants.</td></tr>
+            <tr><td class="kw">Indicator / marker / stereotype</td><td>Indicator: differs by group, not by style. Marker: also shifts with style. Stereotype: people comment on it and imitate it (Labov).</td></tr>
+            <tr><td class="kw">Change from above vs below</td><td>Above or below <b>conscious awareness</b>, not upper or lower class.</td></tr>
+            <tr><td class="kw">Apparent time vs real time</td><td>Apparent time: compare age groups now. Real time: compare over years, as a panel (same people) or a trend study (same community, new sample). Age grading = a pattern speakers grow out of, which can mimic change.</td></tr>
+            <tr><td class="kw">Speech community / network / community of practice</td><td>Shared evaluative norms (Labov) / ties between individuals, by density and multiplexity (Milroy) / a group built around a shared activity (Eckert & McConnell-Ginet).</td></tr>
+            <tr><td class="kw">Bilingualism vs diglossia</td><td>Bilingualism is individual; diglossia is societal, with H and L varieties split by function (Ferguson; extended by Fishman).</td></tr>
+            <tr><td class="kw">Code-switching vs borrowing</td><td>Switching: bilinguals alternate between two systems. Borrowing: a word integrated into the other language, used by monolinguals too.</td></tr>
+            <tr><td class="kw">Situational vs metaphorical switching</td><td>Situational: the situation changes, so the code does. Metaphorical: the situation stays and the switch adds meaning (Blom &amp; Gumperz, Hemnesberget).</td></tr>
+            <tr><td class="kw">Pidgin vs creole</td><td>Pidgin: contact language with no native speakers. Creole: has native speakers and a fully expanded grammar.</td></tr>
+            <tr><td class="kw">Basilect / mesolect / acrolect</td><td>Creole continuum: furthest from the standard / in between / closest to the standard.</td></tr>
+            <tr><td class="kw">Status / corpus / acquisition planning</td><td>Function of a language / its form (spelling, terms, grammar) / who learns it and how.</td></tr>
+            <tr><td class="kw">Power vs solidarity semantic</td><td>Non-reciprocal T/V use signals power; reciprocal use (mutual <i>du</i> or mutual <i>Sie</i>) signals solidarity or distance (Brown &amp; Gilman).</td></tr>
+            <tr><td class="kw">Deficit / dominance / difference</td><td>Gender and language: women's speech as lacking (Lakoff, as read) / as a reflection of male power / as a different culture (Tannen).</td></tr>
+            <tr><td class="kw">Restricted vs elaborated code</td><td>Bernstein: meaning left implicit and context-bound vs made explicit and context-independent. See More topics for the critique.</td></tr>
+            <tr><td class="kw">Inner / Outer / Expanding circle</td><td>Kachru: English as a native language (norm-providing) / institutionalised second language (norm-developing) / foreign language (norm-dependent).</td></tr>
+            <tr><td class="kw">Relativity vs determinism</td><td>Language influences thought (weak, partly supported) vs language determines thought (strong, rejected).</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Methods in one line each</h3>
+        <ul class="list">
+          <li><b>Sociolinguistic interview</b> (Labov): casual speech, careful speech, reading passage, word list, minimal pairs, from least to most attention paid to speech. The danger-of-death question is there to reach the vernacular.</li>
+          <li><b>Observer's paradox</b>: we want to see how people speak when unobserved, but we can only find out by observing them.</li>
+          <li><b>Rapid anonymous survey</b>: short elicitations from strangers who don't know they're being studied (the department-store "fourth floor").</li>
+          <li><b>Matched guise</b>: the same speaker records two varieties; listeners rate the "two speakers", which exposes attitudes to the varieties (Lambert, Montreal). <b>Verbal guise</b> uses different speakers.</li>
+          <li><b>Self-report test</b>: speakers say which form they use; comparing that with what they actually use shows over- and under-reporting (Trudgill).</li>
+          <li><b>Participant observation / ethnography</b>: long-term fieldwork inside a group (Milroy in Belfast, Eckert at Belten High).</li>
+          <li><b>Perceptual dialectology</b>: non-linguists draw and rate dialect areas on maps.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Every classic study, one line each</h3>
+        <p class="small muted">The full method, variables and finding for each are in Classic studies.</p>
+        <div class="scroll"><table class="tbl" id="glancestudies"></table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Where the exam traps are</h3>
+        <p>Each content tab ends with an <b>Exam traps</b> box: Varieties (accent vs dialect, prestige, variables), Multilingualism &amp; contact (lexifier, planning types, T/V) and More topics (Bernstein, the three waves, euphemisms). Read all three the night before.</p>
       </div>
     </section>
 
@@ -584,6 +647,99 @@ body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-in
       </div>
     </section>
 
+    <!-- MORE TOPICS -->
+    <section class="panel" id="view-more" role="tabpanel" aria-labelledby="tab-more" hidden>
+      <div class="sheet stack">
+        <h2>More topics</h2>
+        <p class="lede">Topics that many introductory sociolinguistics courses include and the other tabs don't cover: the ethnography of communication, Bernstein's codes, Eckert's three waves, accents in England today, linguistic landscapes, and taboo and euphemism. Check your course outline for which of these you need.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>The ethnography of communication (Hymes)</h3>
+        <p>Dell Hymes argued that knowing a language means more than forming grammatical sentences. You also have to know who may say what, to whom, when, where and how. He called this <b>communicative competence</b> (1972), against Chomsky's purely grammatical <i>competence</i>. The <b>ethnography of communication</b> studies how speaking is organised in a particular community by observing real <b>speech events</b>: a sermon, a job interview, a toast at a wedding.</p>
+        <p>To describe a speech event he proposed the <b>SPEAKING</b> mnemonic (1972):</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th scope="col">Letter</th><th scope="col">Component</th><th scope="col">Example: a university lecture</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">S</td><td>Setting and scene: time, place, and the psychological setting</td><td>A lecture hall, 10 am; formal, academic</td></tr>
+            <tr><td class="kw">P</td><td>Participants: speaker, addressee, audience</td><td>One lecturer, many students</td></tr>
+            <tr><td class="kw">E</td><td>Ends: purposes and outcomes</td><td>Pass on knowledge; prepare for the exam</td></tr>
+            <tr><td class="kw">A</td><td>Act sequence: the form and order of what is said</td><td>Overview, main points, questions at the end</td></tr>
+            <tr><td class="kw">K</td><td>Key: tone or manner</td><td>Serious, with the occasional joke</td></tr>
+            <tr><td class="kw">I</td><td>Instrumentalities: channel and form of speech</td><td>Spoken, with slides; standard academic English</td></tr>
+            <tr><td class="kw">N</td><td>Norms of interaction and interpretation</td><td>Students don't interrupt; raise a hand to ask</td></tr>
+            <tr><td class="kw">G</td><td>Genre: the type of event</td><td>Lecture</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Restricted and elaborated codes (Bernstein)</h3>
+        <p>The British sociologist Basil Bernstein (essays from 1958, collected in <i>Class, Codes and Control</i>, 1971) distinguished two ways of using language:</p>
+        <ul class="list">
+          <li><b>Restricted code</b>: meaning left implicit and tied to the shared situation. Short, predictable, relies on what speakers already share. "Put it over there."</li>
+          <li><b>Elaborated code</b>: meaning made explicit and independent of the situation. "Put the blue box on the shelf next to the door."</li>
+        </ul>
+        <p>He linked restricted code to working-class family socialisation and argued that schools demand the elaborated code, which middle-class children have readier access to. A study from his research unit (Hawkins 1969) had children tell a story from a series of pictures: middle-class children named things ("the boys are playing football"), working-class children used pronouns that only make sense if you can see the pictures ("they're playing football").</p>
+        <p class="note"><b>The critique.</b> The theory was widely read as a <b>deficit model</b> of working-class speech, though Bernstein rejected that reading. It fed the "verbal deprivation" arguments of the 1960s, which Labov attacked in "The logic of nonstandard English" (1969): non-standard varieties are systematic and can express complex logical argument. In an exam, present both the theory and this critique.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Three waves of variation (Eckert 2012) and indexicality</h3>
+        <p>Penelope Eckert sorted fifty years of variationist research into three "waves":</p>
+        <div class="scroll"><table class="tbl">
+          <thead><tr><th scope="col">Wave</th><th scope="col">Question</th><th scope="col">Typical studies</th></tr></thead>
+          <tbody>
+            <tr><td class="kw">First</td><td>Which social groups use which variants? Large surveys correlating variables with class, sex, age and style.</td><td>Labov's New York City; Trudgill's Norwich</td></tr>
+            <tr><td class="kw">Second</td><td>Which local categories matter? Ethnography to find the groups that are meaningful to the speakers themselves.</td><td>Milroy's Belfast networks; Eckert's jocks and burnouts</td></tr>
+            <tr><td class="kw">Third</td><td>What does a variant mean? Speakers combine variables into styles to build identities and take stances.</td><td>Studies of style and persona, e.g. "nerd girls" (Bucholtz)</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>Indexicality</b> is the key idea of the third wave: a form <b>points to</b> (indexes) a social meaning through repeated association with it. Meanings come in layers and depend on context. Eckert (2008) speaks of an <b>indexical field</b>: a cluster of related meanings a variant can take on. A carefully released /t/ at the end of a word can index being articulate, being formal, being a nerd or being annoyed, depending on who uses it and where.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Accents of England today: RP, Estuary English, MLE</h3>
+        <ul class="list">
+          <li><b>RP</b> (Received Pronunciation) is a social accent, not a regional one, and only a few per cent of the population ever spoke it. It has changed: younger RP speakers use features that older ones would have called careless, and "Standard Southern British English" is increasingly used as a label for the modern standard accent.</li>
+          <li><b>Estuary English</b> (a label coined by Rosewarne in 1984) refers to accents of London and the South-East between RP and Cockney. Typical features are <b>T-glottalling</b> (<i>wa'er</i> for water) and <b>L-vocalisation</b> (<i>miwk</i> for milk). Many linguists treat it as a media label for a range of South-Eastern accents rather than one distinct variety.</li>
+          <li><b>Multicultural London English</b> (MLE; Cheshire et al. 2011) is a <b>multiethnolect</b> that grew up among young people in multiethnic inner London and is used across ethnic backgrounds. Features include new quotatives (<i>this is me: "…"</i>), <i>man</i> as a pronoun (<i>man's tired</i> = I'm tired) and changed vowels. The German parallel is <i>Kiezdeutsch</i>.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Linguistic landscape</h3>
+        <p><b>Linguistic landscape</b> is the visible language of public space: road signs, street names, shop signs, advertising, notices on government buildings (Landry &amp; Bourhis 1997). They distinguished two functions:</p>
+        <ul class="list">
+          <li><b>Informational</b>: the signs tell you which languages are used in an area and where its borders are.</li>
+          <li><b>Symbolic</b>: a language's presence on signs signals its status and value. Landry and Bourhis found that how much French francophone students in Canada saw on signs was linked to how vital they thought French was, and how much they used it.</li>
+        </ul>
+        <p>Typical topics: <b>top-down</b> signs (official, from the state) vs <b>bottom-up</b> signs (shops, private), bilingual street signs (Wales, South Tyrol), and English on shop fronts in non-English-speaking countries as a symbol of being modern and international, not as a way to inform.</p>
+      </div>
+
+      <div class="sheet stack">
+        <h3>Taboo and euphemism</h3>
+        <ul class="list">
+          <li><b>Taboo</b>: words or topics avoided because using them feels offensive, dangerous or impolite in a community. The usual areas are sex, bodily functions, death, disease, religion, and slurs for social groups. What is taboo varies by culture: some communities avoid saying the name of someone who has recently died.</li>
+          <li><b>Euphemism</b>: a milder or indirect expression used instead (<i>pass away</i> for <i>die</i>, <i>let go</i> for <i>fire</i>, <i>restroom</i> for <i>toilet</i>). The opposite, a deliberately harsher term, is a <b>dysphemism</b>.</li>
+          <li><b>The euphemism treadmill</b> (Pinker 1994): a euphemism soon takes on the negative associations of the word it replaced and needs replacing in turn. <i>Water closet → toilet → bathroom → restroom</i>.</li>
+          <li><b>Swearing</b> is used for emotion, solidarity and humour as well as aggression. Studies find it can mark closeness inside a group, which links it to covert prestige.</li>
+        </ul>
+      </div>
+
+      <div class="sheet stack traps">
+        <h3>Exam traps</h3>
+        <ul class="list">
+          <li><b>Communicative competence</b> is Hymes's term: knowing what is <i>appropriate</i>, not only what is grammatical. It widens Chomsky's purely grammatical <i>competence</i>; it doesn't replace grammar.</li>
+          <li><b>Bernstein ≠ "working-class speech is bad".</b> He talked about codes and access to them. Name the deficit reading and Labov's critique, but don't attribute the deficit view to him without comment.</li>
+          <li><b>The waves are research approaches, not periods with clean edges.</b> Martha's Vineyard (1963) is one of the earliest studies, yet it already asked what a variant meant to the islanders, which is the third wave's question.</li>
+          <li><b>Estuary English and RP</b> are accents, not dialects: they can be used to speak Standard English.</li>
+          <li><b>Linguistic landscape is about signs</b>, not about the geographic spread of dialects (that is dialect geography and isoglosses).</li>
+          <li><b>Euphemism vs dysphemism</b>: softer vs harsher than the neutral word.</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- GLOSSARY -->
     <section class="panel" id="view-glossary" role="tabpanel" aria-labelledby="tab-glossary" hidden>
       <div class="sheet stack">
@@ -736,7 +892,21 @@ var GLOSS = [
   ["deficit model","View that a group's way of speaking (women's, working-class children's) is a deficient version of the norm.","Lakoff's 'women's language' as weak and tentative."],
   ["dominance model","View that gender differences in talk reflect and reproduce men's power over women.","Studies of men interrupting women."],
   ["difference model","View that men and women grow up in different subcultures with different conversational styles.","Tannen's 'report talk' vs 'rapport talk'."],
-  ["dialect levelling","Reduction of differences between regional varieties as speakers in contact give up strongly local features.","New towns where children drop their parents' regional forms."]
+  ["dialect levelling","Reduction of differences between regional varieties as speakers in contact give up strongly local features.","New towns where children drop their parents' regional forms."],
+  ["ethnography of communication", "Hymes's approach: studying how speaking is organised in a particular community (who may say what, to whom, when and how) by observing real speech events.", "How a sermon, a job interview or a wedding toast is run in one community."],
+  ["communicative competence", "Hymes's term (1972) for knowing how to use language appropriately in social context, not only how to form grammatical sentences.", "Knowing that 'Gimme the salt' is fine at home but not at a business dinner."],
+  ["SPEAKING model", "Hymes's mnemonic for the components of a speech event: Setting and scene, Participants, Ends, Act sequence, Key, Instrumentalities, Norms, Genre.", "Key = the tone (serious, ironic); Instrumentalities = channel and variety."],
+  ["restricted code", "Bernstein's term for language that leaves meaning implicit and depends on a shared situation; he linked it to working-class socialisation.", "'They're playing football and he kicks it' (who? what?) when telling a story from pictures."],
+  ["elaborated code", "Bernstein's term for language that makes meaning explicit and independent of the situation; he argued schools demand it.", "'Three boys are playing football and one boy kicks the ball.'"],
+  ["indexicality", "The way a linguistic form points to a social meaning (a group, a place, a stance) through repeated association with it; meanings are layered and depend on context.", "A carefully released final /t/ can index being articulate, being a nerd or being annoyed."],
+  ["three waves of variation", "Eckert's (2012) division of variationist research: macro-social correlations, then local ethnographic categories, then variation as a resource for building style and identity.", "Wave one asks who uses a variant; wave three asks what using it means."],
+  ["Estuary English", "Label (Rosewarne 1984) for accents of London and the South-East between RP and Cockney, with T-glottalling and L-vocalisation.", "wa'er for water; miwk for milk."],
+  ["Multicultural London English", "A multiethnolect that grew up among young people in multiethnic inner London and is used across ethnic backgrounds (Cheshire et al. 2011).", "'This is me: …' as a quotative; 'man's tired' meaning I'm tired."],
+  ["linguistic landscape", "The visible language of public space (road signs, street names, shop signs, advertising, official notices) and what it shows about the status of languages there (Landry & Bourhis 1997).", "Bilingual street signs in Wales; English shop names on a German high street."],
+  ["taboo", "Words or topics avoided because using them feels offensive, dangerous or impolite in a community.", "Sex, bodily functions, death and religion are the usual areas."],
+  ["euphemism", "A milder or indirect expression used in place of a taboo or unpleasant one.", "pass away for die; let go for fire."],
+  ["dysphemism", "A deliberately harsher or more offensive expression than the neutral word.", "croak for die; shrink for psychiatrist."],
+  ["euphemism treadmill", "The process by which a polite replacement word takes on the negative associations of the word it replaced and is replaced in its turn (Pinker 1994).", "water closet → toilet → bathroom → restroom."]
 ];
 var GL = GLOSS.map(function(g){ return {t:g[0], d:g[1], e:g[2], nod:g[3] === 'n'}; });
 var GL_DRILL = GL.filter(function(g){ return !g.nod; });
@@ -765,7 +935,10 @@ var CONFLICT_GROUPS = [
   ['social network','density'],['social network','multiplexity'],
   ['speech community','community of practice','social network'],
   ['dialect continuum','mutual intelligibility'],
-  ['linguistic variable','indicator'],['linguistic variable','marker'],['linguistic variable','stereotype']
+  ['linguistic variable','indicator'],['linguistic variable','marker'],['linguistic variable','stereotype'],
+  ['ethnography of communication','communicative competence','SPEAKING model'],['restricted code','elaborated code'],['restricted code','deficit model'],
+  ['indexicality','three waves of variation'],['Multicultural London English','multiethnolect'],['Multicultural London English','ethnolect'],['Estuary English','accent'],
+  ['linguistic landscape','ethnolinguistic vitality'],['taboo','euphemism','dysphemism','euphemism treadmill']
 ];
 var CONFLICT = {};
 CONFLICT_GROUPS.forEach(function(g){ g.forEach(function(a){ g.forEach(function(b){ if (a !== b) CONFLICT[a+'|'+b] = 1; }); }); });
@@ -949,9 +1122,38 @@ var STUDIES = [
    vars:'Status and function of English.',
    finding:'Inner circle (ENL, norm-providing), Outer circle (ESL, norm-developing), Expanding circle (EFL, norm-dependent).',
    why:'Foundational model of World Englishes, legitimising Outer circle varieties such as Indian English; criticised for being nation-based.',
-   facts:["Divided the English-using world into three concentric circles according to how English spread there and what functions it has."]}
+   facts:["Divided the English-using world into three concentric circles according to how English spread there and what functions it has."]},
+  {id:'hym', th:'sty', who:'Dell Hymes', name:'Models of the interaction of language and social life (SPEAKING)', year:'1972', place:'Theoretical, drawing on ethnographic fieldwork',
+   method:'Programmatic chapter proposing how to describe the speech events of a community through observation.',
+   vars:'The components of a speech event, summed up in the SPEAKING mnemonic.',
+   finding:'Communities differ in which speech events they have and what rules govern them; describing an event takes eight components: Setting, Participants, Ends, Act sequence, Key, Instrumentalities, Norms, Genre.',
+   why:'Founded the ethnography of communication and, with "On communicative competence" (1972), moved attention from grammatical competence to appropriate use.',
+   facts:["Proposed the SPEAKING mnemonic (Setting, Participants, Ends, Act sequence, Key, Instrumentalities, Norms, Genre) for describing a speech event.",
+          "Argued that knowing a language means knowing when, where and to whom to say what, which he called communicative competence."]},
+  {id:'ber', th:'var', who:'Basil Bernstein', name:'Class, Codes and Control', year:'1971 (essays from 1958)', place:'London; studies of working- and middle-class children',
+   method:'Theory of language and socialisation, supported by studies from his research unit, e.g. children telling a story from a series of pictures (Hawkins 1969).',
+   vars:'Explicit vs implicit reference (nouns vs pronouns), predictability and context-dependence of speech.',
+   finding:'Working-class children tended to use a restricted code (implicit, tied to the shared situation); middle-class children had readier access to an elaborated code (explicit, context-independent), which school rewards.',
+   why:'An influential explanation of class differences in school success. Widely read as a deficit model, which Bernstein rejected; Labov (1969) attacked the related "verbal deprivation" views.',
+   facts:["Distinguished a restricted code, which leaves meaning implicit and relies on shared context, from an elaborated code, which makes meaning explicit.",
+          "Argued that schools demand the elaborated code, so working-class children were disadvantaged by what school expects of their language."]},
+  {id:'ec3', th:'net', who:'Penelope Eckert', name:'Three waves of variation study', year:'2012', place:'Review article, Annual Review of Anthropology',
+   method:'Surveyed fifty years of variationist research.',
+   vars:'How the social meaning of variables has been treated.',
+   finding:'Wave one correlated variables with macro-social categories (class, sex, age); wave two used ethnography to find locally meaningful categories; wave three treats variants as carrying indexical meanings that speakers combine into styles to build identities.',
+   why:'The standard way to tell the history of variationist sociolinguistics; it moves the question from who uses a form to what using it means.',
+   facts:["Divided variationist research into three waves: macro-social correlations, local ethnographic categories, and variation as a stylistic resource for constructing identity.",
+          "Argued that a variant has a field of related social meanings that speakers draw on, rather than a fixed link to class or gender."]},
+  {id:'lls', th:'con', who:'Rodrigue Landry & Richard Bourhis', name:'Linguistic landscape and ethnolinguistic vitality', year:'1997', place:'Francophone high-school students across Canada',
+   method:'Questionnaires on the languages students saw on public and commercial signs, their beliefs about the vitality of French, and their own language use.',
+   vars:'Amount of French in the linguistic landscape; perceived vitality; language use.',
+   finding:'Defined the linguistic landscape as the language of public and commercial signs, with an informational and a symbolic function; exposure to French on signs was linked to perceived vitality of French and its use.',
+   why:'Founded linguistic landscape research: which languages appear on signs both informs and signals status.',
+   facts:["Defined the linguistic landscape as the visible language of public and commercial signs in a territory, with an informational and a symbolic function.",
+          "Found that how much French francophone students saw on signs was linked to how vital they believed French to be and how much they used it."]}
 ];
 var NEAR = {les:['int','nor','nyc'], int:['les','nyc','mv','laa'], nyc:['les','int'], nor:['les'], mil:['eck','che'], eck:['mil','che'], che:['mil','eck'], fer:['fis'], fis:['fer'], gum:['pop'], pop:['gum'], lak:['tan'], tan:['lak'], laa:['ric'], ric:['laa','bel','gil','cou'], gil:['cou','bel','ric'], cou:['gil','bel','ric'], bel:['gil','cou','ric'], gal:['dor'], dor:['gal'], hau:['klo'], klo:['hau']};
+NEAR.ber = ['laa']; NEAR.ec3 = ['eck','mil','che'];
 function near(a, b){ return a === b || (NEAR[a] || []).indexOf(b) >= 0 || (NEAR[b] || []).indexOf(a) >= 0; }
 function shortWho(s){ var w = s.who.split(' (')[0]; return w.split(' & ').map(function(p){ var parts = p.replace(' et al.', '').split(' '); return parts[parts.length-1] + (p.indexOf('et al.') >= 0 ? ' et al.' : ''); }).join(' & '); }
 function sOpt(s){ return shortWho(s) + ': ' + s.name + ' (' + s.year.replace(' / ', '/').split(/[ ;]/)[0] + ')'; }
@@ -1222,7 +1424,7 @@ var AAECON = [
 ];
 
 // ---------- tabs ----------
-var VIEWS = ['drill','varieties','studies','contact','glossary'];
+var VIEWS = ['drill','glance','varieties','studies','contact','more','glossary'];
 function show(v){
   if (VIEWS.indexOf(v) < 0) v = 'drill';
   VIEWS.forEach(function(x){
@@ -1264,6 +1466,10 @@ function buildTables(){
     ['Krio','Sierra Leone','English','Creole and the country\'s main lingua franca'],
     ['Russenorsk','Arctic Norway and Russia','Russian and Norwegian','Trade pidgin, extinct']
   ].map(function(r){ return [el('td',{class:'kw',text:r[0]}), el('td',{text:r[1]}), el('td',{text:r[2]}), el('td',{text:r[3]})]; }));
+}
+
+function buildGlance(){
+  table('glancestudies', ['Who, year','Study','Takeaway'], STUDIES.map(function(s){ return [el('td',{class:'kw',text:shortWho(s)+' '+s.year.split(/[ ;(]/)[0]}), el('td',{text:s.name}), el('td',{text:s.facts[0]})]; }));
 }
 
 // ---------- studies tab ----------
@@ -1507,7 +1713,7 @@ document.addEventListener('keydown', function(e){
 });
 
 // ---------- boot ----------
-buildTables(); buildStudies(); buildGlossary(); buildCats();
+buildTables(); buildGlance(); buildStudies(); buildGlossary(); buildCats();
 show(location.hash.slice(1));
 startRound(false);
 })();
